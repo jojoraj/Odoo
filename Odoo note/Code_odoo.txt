@@ -1,0 +1,225 @@
+Tech Mzara telo :
+Back : pyhton > Mcontroller, sady maka donnée anaty base, mi afficher any am interface 
+bd : postgree
+front : XML
+
+structure:
+<ir.ui.view>
+<ir.actions.act_window>
+<menuitem>
+
+ @api.model
++    def fields_get(self, fields=None):
++        hide = ['net_salary_without_extra_hour', 'net_salary', 'total_salary', 'total_salary_letter', 'advance']
++        res = super(HrEmployee, self).fields_get(fields)
++        if not self.env.user.has_group('employee_documents_expiry.rh_administration'):
++            for field in hide:
++                res[field]['exportable'] = False
++        return res
+
+if child_name in partner_id.child_ids.mapped('name') > zay ao anatin le nom an'ilay child ids/ mapped (mrettourner tableau ana name)
+mapped > one2many
+
+form inherit > heriter vue> <field name="inherit_id" ref="resource.resource_calendar_form"/>
+
+for contract in self.pool.get('hr.contract').browse(cr, uid, contract_ids, context=context):
+
+class mimHrCalendarInherit(models.Model):
+    _inherit = 'resource.calendar'
+
+    total_working_hours = fields.Float(string='Heure travaillé', default= 173.33)
+    total_working_days = fields.Float(string='Jour travaillé', default= 22)
+
+class hrPayslip(osv.osv):
+    _inherit = 'hr.payslip'
+
+    def get_worked_day_lines(self, cr, uid, contract_ids, date_from, date_to, context=None):
+        res = super(hrPayslip, self).get_worked_day_lines(cr, uid, contract_ids, date_from, date_to, context=None)
+        for contract in self.pool.get('hr.contract').browse(cr, uid, contract_ids, context=context):
+            if len(res):
+                if res[0]['code'] == 'WORK100':
+                    res[0]['number_of_hours'] = contract.working_hours.total_working_hours
+                    res[0]['number_of_days'] = contract.working_hours.total_working_days
+        return res
+
+attrs="{'invisible': [('picking_type_id.show_reliquate','=',False)]}"> >>>  picking_type_id(champ many to one)
+
+mim8 fields.boolean> model> picking.py
+
+'show_reliquate': fields.boolean(related='picking_type_id.show_reliquate'), > related, champ mitovy valeur
+'picking_ids': fields.function(_child_compute, relation='stock.picking',relation, champ relié @ champ many2one
+
+def create(self, cr, user, vals, context=None):
+        res = super(stock_picking, self).create(cr, user, vals, context)
+        picking_id = self.pool.get('stock.picking').browse(cr, user, res, context=context) 
+	le ambony//mretourner stock_picking_vo creena, self.pool ( manao recherche anaty base ) browse (recherche par id miaraka am pool )
+        if picking_id.picking_type_id.code == 'outgoing': // rehefa sortie izy de 'outgoing' //picking_type_id > champ anatin le stock_picking_type
+            picking_id.message_follower_ids = [(4, 0, res.stock_picking_type.mapped('picking_user_ids.partner_id.id'))] // mapped > mretourner tableau-na id
+        return res			    //4: vider puis qjouter 6: mettre a jour la liste ) 0 a gauche : parametre maova le zavatra ao anatiny 	
+
+def timeoff_left(self):
+        for rec in self:
+            allocation = self.env['hr.leave.allocation'].search([('employee_id', '=', rec.id)])
+            employee_allocation = allocation.mapped('employee_id')
+            rec.time_off_left = employee_allocation.id
+
+list_employee = allocation.mapped('employee_id.id') # retournena le objet
+
+data noupdate='1'
+
+<button name="%(my_module.student_menu_action)d" string="Action Button" type="action" class="oe_highlight"/>
+		nom du module.nom de l'id misy ir.actions
+
+record id ="identifiant unique"
+
+tree > vue list ilay izy >colonne otran am excel
+
+<field name="student_class_ids"/> ->>> tonga dia ilay champ many2one no atsoiny
+
+- redéfinir > contact_list_ids = fields.Many2many('mail.mass_mailing.list', 'mail_mass_mailing_list_rel_cold',
+                                        # redifinir la table, déja utilisé ailleurs
+                                        string='Mailing Lists')
+
+_sql_constraints = [
+        ('name_uniq', 'UNIQUE (nom_champ)',  'You can not have two users with the same name !')
+    ]
+> nom champ anaty .py anaty le modele
+
+<field name="tz" position="after"> 
+<!--affichena ao arinanle tz le champ time off left-->
+        <field name="time_off_left"/>
+</field>
+
+>git bash here dossier souhaiter
+> anaty odoo.conf> mi-ajouter absolute path an'ilay module vaovao
+> installer moduler souhaiter
+
+rehefa tsy miaffihe ny module> mila droit d'acces
+
+congé restant pour le mois, 
+- attribution congé (manome congé ho an'ny employé)> types de congé ...
+congé payé sy récupération ihany no raisina
+- rehefa azo ny 1,75 (anaty solde)> miena au fur et a mesure maka 
+
+- installena module employé, congé
+-creer type congé, recupération, congé_payé> anaovana allocation congé, ho an'ny type recupération type_congé_payé 
+> maka congé ilay olona, ho an'ilay type roa, calculé ongé restant
+
+> calculer solde restant du mois, 
+efa anana : cumul allocation rehetra, congé nalaina tam ty volana ty 
+congé allocation total - congé nalaina tamty volana ity
+- a afficher ao am fiche employé
+
+manao module vaovao> manampy champ iray ao @ epmployé (congé du mois> champ calculé (computed field) > 
+> mirécuperer le valeur an'ilay formule
+
+errreur: service, nouvelle base, reinstaller le module (dans la localhost, debug etc), istaller le autre modules mifandray aminy
+> mode debug, vue formulaire, heritage (voir sy elle en herite)
+
+>pgAdmin > liena am le odoo.conf
+rehefa maty daholo ny base dia fafana ilay -u odoo
+
+> mijery hoe misy mi hieriter an'ilay classe ve (mode debug/ modifier la vue formulaire)
+
+> rehefa mametraka ilay model ao @ le fichier .csv dia soloina underscore "_" daholo ny point "." dia ts mainty asiana 
+"model_... eo alohany 
+
+fct compute > isakin'ny manokatra ilay vue dia mandeha ilay fonction	
+
+npm : node package manager
+
+Mijery ny id an'ilay vue :
+- Modifier vue formulaire> ID Externe nom_du_modèle.nom_de_la_vue
+
+<record> Izay rehetra atao ato dia atao enregistrement any anatin'ilay model donné </record>
+
+voir id modèle
+- voir capture
+- débug> voir les méta data
+
+> en général ny crone sy ny data any am dossier data
+
+date de prochaine envoi> rovina no tapitra le 14jrs andefasana azy
+
+Rehefa mi heriter vue > anarana_module.anaran_vue
+
+attrs="{'invisible': [('id', '=', %(record_mass_mailing_cold_3)d)]}"
+
+res_ids = self.env['crm.lead'].browse(res_ids).filtered(lambda x: x.date_store == fields.date.today()).mapped('id')
+            #recupere les CRM lead tokony alefa date androany, browse:recuperena par id, filtered: izay date androany ihany no alaina
+            #mapped, recupereny le tableau an ilay id bedebe
+
+(local utf)git bash here > locale -a (show all lang)
+
+res : données actuel
+
+configuration> Elements de menu
+voir les métadonnées
+
+return super(MassMailing, self).put_in_queue() 
+// Tediavina zay class manana inherit mitovy @ class actuel "MassMailing",
+dia antsoy ilay fonction any @ilay classe iray
+
+@api.multi > modification, edition multiple, bouclena ilay donnée modifié, traitena
+@api.model > fonction propre pour model, ex: create
+@api.onchange
+@api.depends > otran onchange mais pour les champs calculés
+
+erreur: no module name babel, ... : python interpreter : chemin c:/programfiles/odoo...
+pycharm, snippets > file> manage IDE setting> import setting
+
+attrs:
+<record id="res_partner_form_inherit" model="ir.ui.view">
+        <field name="name">Res partner form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_ids']" position="after">
+                <field name="cin_number" attrs="{'invisible': [('supplier', '=', True)]}"/>
+                <field name="nif_stat" attrs="{'invisible': [('customer', '=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+champ2 = fields.Many2one('nom du table', string='', related='champ1.champ2') > champ1 relié @ champ 2 ny valeur-ny
+
+def compute_count_won_lead(self):
+        for rec in self:
+            wons = self.env['crm.mail'].search([('stage_id', '=', self.env.ref('igy_custom_crm.igy_crm_won').id)])
+            rec.count_won_lead = len(wons.mapped('id'))
+
+
+ <aggregate
+                        name="positive_answer" > champ fictif
+                        string="Nombre de reponse positif"
+                        field="id" > champ anakray anaty ilay table recuperena, tsy votery id
+                        domain="[('stage_id','in', [%(igy_custom_crm.igy_crm_won)d])]" filtre zay ao anatin ilay modele
+                        group_operator="count"/>
+
+
+def compute_count_won_lead(self):
+        for rec in self:
+            wons = self.env['crm.mail'].search([('stage_id', '=', self.env.ref('igy_custom_crm.igy_crm_won').id)])
+            rec.count_won_lead = len(wons.mapped('id'))
+
+total_mail_sent = self.env['crm.mail'].search([]) > search([]) izy rehetra
+
+positive_answer = self.env['crm.mail'].search([('stage_id', '=', 'positive answer')]) > le stage_id ao @ le domain
+
+report excel> rehefa misy line. de le ligne ao am le table
+
+total_answer = len(positive_answer.mapped('id')) > totaliser positive_answer
+> str() > formatena ho string, satria type int
+
+positive_answer = self.env['crm.mail'].search([('stage_id', '=', self.env.ref('igy_custom_crm.igy_crm_won').id)]) > stage id: champ many to one angalana valeur any am table hafa
+
+CRM> analyse> historique mail>
+
+ for rec in self:
+            rec.conversion_total_rate_cv_cold = rec.conversion_rate_cv + rec.conversion_rate_cold
+
+total_pa_cv_cold = self.env['crm.mail'].search([('stage_id', '=', self.env.ref('igy_custom_crm.igy_crm_won').id)])
+
+total_project_won = len(project_won.mapped('id'))
+
+miantso fonction anaty meme classe: self.function_name()

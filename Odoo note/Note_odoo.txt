@@ -1,0 +1,5 @@
+- Taux de conversion>(reponse positive cold * 100) / nombre de mail cold envoyé
+
+> Champ compute rehefa store true> tsy mandeha raha tsy misy depends
+
+> digits=(12, 5) > ajouter dans champ odoo, ( ,chiffre apres virgule)

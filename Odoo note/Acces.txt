@@ -1,0 +1,28 @@
+Compte odoo12 :
+https://odoo12.ingenosya.eu/web/reset_password?db=odoo12&token=APX2z5MeJv79AOCIU2Ho
+mail: jrajoelisolo@ingenosya.mg
+mdp mail : Jrajoelisolo23&!
+mdp odoo : johary23
+
+Pre-prod-crm:
+acces: admin
+mdp: admincrm22&!
+
+Pre-prod_odoo12
+mail: jrajoelisolo@ingenosya.mg
+pwd: jrajoelisolo
+pwd: johary22
+
+Compte git:
+acces: johary002
+pwd: Jrajoeli23
+
+Acces SSH:
+serveur: 161.97.173.30
+user: root
+mdp: Ub18AdminRoot10
+
+Contabo 11
+192.168.200.185
+mdp : WS13IngVmware
+user : PC-115

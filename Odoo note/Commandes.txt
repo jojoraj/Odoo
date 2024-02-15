@@ -1,0 +1,76 @@
+Git :
+- git init
+- git branch
+- git config --global core.autocrlf false
+- git switch ckeckout
+- git add .
+- git commit -m "description"
+- git push origin features-crm
+- git reset --hard
+- git log
+- git status
+- git remote add origin https://git.ingenosya.eu:/ingenosya/odoo_mim_v8.git
+- git pull origin master
+
+
+putty files:
+- cd /opt/server
+- cd project_management_addons
+- git pull
+- cherry-pick id
+- git push
+- service odoo12 stop/start
+
+Commande Linux:
+- cd /d D:\Mydocs\Odoo\MIM (win)
+- cd /opt/server
+- cd server
+- ls
+- cd project_managment_addons
+- git pull
+- service odoo12 start/stop
+
+commande postgres:
+
+- psql -d postgres -U brice
+- psql -d odoo12 -U brice < odoo12.bak
+- psql -h localhost -U admin -d mim_v8_dump_230911 -f dump_230911.bak
+
+- create database odoo12;
+- create database mim with owner odoo;
+- create user odoo with password 'admin' 
+
+- alter database odoo9_omeopharma OWNER to admin;
+- alter database nom_base OWNER to username;
+- alter user nom_utilisateur superuser;
+
+- update res_users set password = 'admin' where login ='admin';
+- update crm_mail set conversion_rate_cv = 0 where conversion_rate_cv <> 0;
+- update crm.mail set last_stage_id = Null where last_stage_id is not null;
+
+- delete from nom_table
+- delete from ir_mail_server;
+
+- show databases postgres> \l
+- show roles postgres> \du
+
+- select max(total_positive_answer_cv_cold) from crm_mail;
+- select login from res_users;
+
+- drop database odoo12;
+
+- update crm_lead set planned_revenue = 0 where planned_revenue <> 0;
+
+
+pdadmin> database> mim> Schemas> public> Tables> clic droit res users> Querry Tool> update res_users set password = ''
+
+python:
+
+py -m virtualenv venv
+.\venv\Scripts\activate
+pip install -r requirements
+python -m pip install loglevel
+$ py -2.7 openerp-server -r admin -w admin -s
+py -2.7 -m pip install --upgrade pip
+py -2.7 openerp-server -r admin -w admin --save
+python ./odoo-bin scaffold nom_module ../ (git bash dans dossier server, misy an'ilay odoo bin)
