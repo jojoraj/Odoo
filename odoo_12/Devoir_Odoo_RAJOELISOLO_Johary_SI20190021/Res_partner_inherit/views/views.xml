@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <record id="res_partner_form_inherit" model="ir.ui.view">
+        <field name="name">Res partner form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_ids']" position="after">
+                <field name="cin_number" attrs="{'invisible': [('customer', '=', False)]}"/>
+                <field name="nif_stat" attrs="{'invisible': [('customer', '=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_client_menu_action" model="ir.actions.act_window">
+        <field name="name">Client</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_supplier': False}</field>
+    </record>
+
+    <record id="res_partner_fournisseur_menu_action" model="ir.actions.act_window">
+        <field name="name">Fournisseur</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_customer': False}</field>
+    </record>
+    <!-- Inherit Form View to Modify it -->
+    <record id="res_partner_view_inherit" model="ir.ui.view">
+        <field name="name">Res partner inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="replace">
+                <field name="vat" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+      <menuitem id="res_partner_menu" name="Partner"/>
+      <menuitem id="client_menu" name="Client" parent="res_partner_menu" action="res_partner_client_menu_action"/>
+      <menuitem id="fournisseur_menu" name="Fournisseur" parent="res_partner_menu" action="res_partner_fournisseur_menu_action"/>
+
+  </data>
+</odoo>

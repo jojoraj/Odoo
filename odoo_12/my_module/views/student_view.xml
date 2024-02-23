@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+<!--    <record id="sequence_self_service" model="ir.sequence">-->
+<!--       <field name="name">Self Service</field>-->
+<!--       <field name="code">self.service</field>-->
+<!--       <field name="active">TRUE</field>-->
+<!--       <field name="prefix">SS</field>-->
+<!--       <field name="padding">6</field>-->
+<!--       <field name="number_next">1</field>-->
+<!--       <field name="number_increment">1</field>-->
+<!--    </record>-->
+    <record id="student_free_view" model="ir.ui.view">
+        	<field name="name">Student Form</field>
+        	<field name="model">student.student</field>
+        	<field name="arch" type="xml">
+            	<form string="Student">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
+                	<sheet>
+                    	<field name="photo" widget="image" class="oe_left oe_avatar" />
+                    	<div class="oe_title">
+                        	<h3>
+                                    <field name="name"/>
+                                    <br/>
+                                    <field name="matricule"/>
+                        	</h3>
+                    	</div>
+                    	<group>
+                        	<group>
+                                <field name="student_class"/>
+                            	<field name="student_dob"/>
+                            	<field name="student_blood_group"/>
+                            	<field name="nationality"/>
+                        	</group>
+                            <group>
+                                <button name="action_test" string="Object Button" type="object" class="oe_highlight"/>
+                                <button name="%(my_module.student_menu_action)d" string="Liste etudiants" type="action" class="oe_highlight"/>
+                                <br/>
+                                <button name="action_blood" string="Catégorie Sang" type="object" class="oe_highlight"/>
+                            </group>
+                            <group>
+                            	<field attrs="{'invisible':[('age', '=' ,0)]}" readonly='1' name="age"/>
+                            	<field name="gender"/>
+                                <field name="blood_type_A"/>
+                                <field name="blood_type_B" />
+                                <field name="blood_type_O"/>
+                                <field name="blood_type_AB"/>
+                        	</group>
+                    	</group>
+                	</sheet>
+                    <div class="oe_chatter">
+                         <field name="message_follower_ids" widget="mail_followers"/>
+                         <field name="message_ids" widget="mail_thread"/>
+                    </div>
+            	</form>
+        	</field>
+</record>
+    <record id="student_menu_action" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student.student</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="student_search_view"/>
+        <field name="context">{'search_default_male': 1}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create The First Student</p>
+        </field>
+    </record>
+
+<record id="student_search_view" model="ir.ui.view">
+    <field name="name">Students Search View</field>
+    <field name="model">student.student</field>
+   <field name="arch" type="xml">
+       <search string="Search Student">
+           <field name="name"/>
+           <field name="age"/>
+           <field name="nationality"/>
+           <filter string="Male" name="male" domain="[('gender','=','male')]"
+                   help="Students with gender as Male"/>
+           <filter string="Female" name="female" domain="[('gender','=','female')]"
+                   help="Students with gender as Female"/>
+           <filter string="Others" name="others" domain="[('gender','=','others')]"
+                   help="Students with gender as Others"/>
+           <group expand="1" string="Group By">
+               <filter string="Nationality" name="nationality" context="{'group_by':'nationality'}"/>
+               <filter string="Blood Group" name="blood_group" context="{'group_by':'student_blood_group'}"/>
+           </group>
+       </search>
+   </field>
+</record>
+
+    <data>
+        <record id="student_menu_action" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">student.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Student
+                </p>
+            </field>
+        </record>
+        <!--   declaration menu     -->
+        <menuitem id="school_menu"
+                  name="School"/>
+        <!-- Declaration sous-menu le ambony no parent      -->
+        <menuitem id="school_student_menu"
+                  parent="school_menu"
+                  name="Student"
+                  action="student_menu_action"/>
+    </data>
+</odoo>
+

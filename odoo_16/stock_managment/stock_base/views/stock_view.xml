@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="stock_managment_view" model="ir.ui.view">
+            <field name="name">stock.managment.view</field>
+            <field name="model">stock.managment</field>
+            <field name="arch" type="xml">
+                <group>
+                    <field name="product"/>
+                </group>
+            </field>
+        </record>
+
+        <menuitem id="res_partner_menu" name="Stock"/>
+    </data>
+</odoo>

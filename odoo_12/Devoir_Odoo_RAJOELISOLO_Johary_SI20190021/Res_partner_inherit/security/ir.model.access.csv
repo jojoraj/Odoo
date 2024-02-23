@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_inherit_res_partner_inherit,res_partner_inherit.res_partner_inherit,model_res_partner_inherit_res_partner_inherit,,1,0,0,0

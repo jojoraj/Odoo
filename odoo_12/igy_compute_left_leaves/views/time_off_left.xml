@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="time_off_left_form_inherit" model="ir.ui.view">
+        	<field name="name">Time off left</field>
+        	<field name="model">hr.employee</field>
+        	<field name="inherit_id" ref="hr.view_employee_form"/>
+        	<field name="arch" type="xml">
+            	<field name="tz" position="after">
+<!--					affichena ao arinanle tz le champ time off left-->
+                		<field name="time_off_left"/>
+            	</field>
+        	</field>
+    </record>
+</odoo>

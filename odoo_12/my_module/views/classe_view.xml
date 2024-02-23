@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="class_form" model="ir.ui.view">
+            <field name="name">class_form</field>
+            <field name="model">classe.classe</field>
+            <field name="arch" type="xml">
+                <form string="Nom etudiant dans la classe">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <field name="student_class_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="class_free_view" model="ir.ui.view">
+            <field name="name">Class_tree</field>
+            <field name="model">classe.classe</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des étudiants">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="class_menu_action" model="ir.actions.act_window">
+            <field name="name">Class</field>
+            <field name="res_model">classe.classe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Student
+                </p>
+            </field>
+        </record>
+        <menuitem id="class_student_menu"
+                  parent="school_menu"
+                  name="Class" action="class_menu_action"/>
+    </data>
+
+    <record id="" model="ir.ui.view">
+        <field name="name"></field>
+        <field name="model"></field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
