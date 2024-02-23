@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f92a5ac9-48db-401b-b489-23eaa961bf90" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Acces.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/Id_modèle.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/Type.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/add_configuration_run.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/config py.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/config_mail_gmail.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/groups.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/requete.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Captures/serveur_maildev.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Code_odoo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Commandes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/JDB.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo note/Note_odoo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/models/account_move.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/views/account_journal_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Odoo_17/etech_account_invoice_extract/views/account_move_views.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2clDHflR7zmop49YCw6LsmksuVP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Git_odoo/odoo_Jo"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f92a5ac9-48db-401b-b489-23eaa961bf90" name="Changes" comment="" />
+      <created>1708677185255</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708677185255</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
