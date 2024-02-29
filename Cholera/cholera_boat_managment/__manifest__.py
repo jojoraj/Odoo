@@ -27,7 +27,7 @@
         'views/cholera_boat_menu_view.xml',
         'views/cholera_boat_form_view.xml',
         'views/cholera_boat_menu_model.xml',
-        'views/cholera_boat_menu_type.xml'
+        # 'views/cholera_boat_menu_type.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
