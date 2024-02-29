@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+      <record id='fleet_vehicle_action' model='ir.actions.act_window'>
+        <field name="name">Vehicles</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="context">{'default_tag_ids': [ref('boat_vehicle_tag')]}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new vehicle
+          </p><p>
+            Manage your fleet by keeping track of the contracts, services, odometers and fuel logs associated to each vehicle.
+          </p>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_form_inherit_id" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='model_year']" position="after">
+                <field name="origin" invisible="ref('boat_vehicle_tag') not in context.get('default_tag_ids')"/>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record model="fleet.vehicle.tag" id="boat_vehicle_tag">
+            <field name="name">Bateau</field>
+        </record>
+    </data>
+</odoo>

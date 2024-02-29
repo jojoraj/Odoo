@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cholera_boat_cholera_boat,cholera_boat.cholera_boat,model_cholera_boat_cholera_boat,,1,0,0,0
