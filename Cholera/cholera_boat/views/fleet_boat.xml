@@ -1,11 +1,11 @@
 <odoo>
   <data>
       <record id='fleet_vehicle_action' model='ir.actions.act_window'>
-        <field name="name">Vehicles</field>
+        <field name="name">Bateau</field>
         <field name="res_model">fleet.vehicle</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,activity</field>
-        <field name="context">{'default_tag_ids': [ref('boat_vehicle_tag')]}</field>
+        <field name="context" eval="{'default_tag_ids': [ref('cholera_boat.boat_vehicle_tag')]}" />
+        <field name="domain" eval="[('tag_ids', 'in', [ref('cholera_boat.boat_vehicle_tag')])]" />
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Create a new vehicle
@@ -21,9 +21,10 @@
         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='model_year']" position="after">
-                <field name="origin" invisible="ref('boat_vehicle_tag') not in context.get('default_tag_ids')"/>
+                <field name="origin" invisible=" not context.get('default_tag_ids') == [%(cholera_boat.boat_vehicle_tag)d]"/>
             </xpath>
         </field>
     </record>
+      <menuitem id="boat_menu" action="fleet_vehicle_action" name="Bateau" parent="fleet.menu_root" sequence="50" />
   </data>
 </odoo>

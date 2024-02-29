@@ -26,8 +26,8 @@
     'data': [
         # 'security/ir.model.access.csv',
         'data/data.xml',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/fleet_boat.xml',
+        'views/fleet_vehicle.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
