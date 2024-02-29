@@ -20,7 +20,7 @@
             <field name="name">Véhicule</field>
             <field name="type">ir.actions.act_window</field>
             <field name="domain">[('is_boat','=',False)]</field>
-            <field name="context">{'default_is_boat': True}</field>
+            <field name="context">{'default_is_boat': False}</field>
             <field name="res_model">fleet.vehicle</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
