@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fleet_vehicule,fleet_vehicule.fleet_vehicule,model_fleet_vehicle,base.group_user,1,1,1,1
+access_cholera_boat,cholera_boat.cholera_boat,model_cholera_boat,base.group_user,1,1,1,1
+access_cholera_boat_model,cholera_boat_model.cholera_boat,model_cholera_boat_model,base.group_user,1,1,1,1
+access_cholera_boat_type_model,cholera_boat_type_model,model_fleet_vehicle_model,base.group_user,1,1,1,1
+access_fleet_vehicle_tag,fleet_vehicle_tag,model_fleet_vehicle_tag,base.group_user,1,1,1,1
