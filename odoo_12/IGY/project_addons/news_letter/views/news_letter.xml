@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_news_letter_kanban" model="ir.ui.view">
+            <field name="name">view.news.letter.kanban</field>
+            <field name="model">news.letter</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="description" />
+                    <field name="image" />
+                    <field name="author_id" />
+                    <field name="date" />
+                    <field name="is_anonymous" />
+                    <field name="id" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click" style="width: 100%">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2>
+                                                <field name="name" />
+                                            </h2>
+
+                                            <br/>
+                                            <span t-raw="record.description.raw_value" />
+                                            <br/>
+                                            <field name="date" />
+                                            <br/>
+                                            <field name="tag_ids" options="{'color_field': 'color'}" widget="many2many_tags" />
+                                        </div>
+                                        <div class="col-6" style="text-align: center">
+                                            <img t-att-src="kanban_image('news.letter', 'image', record.id.raw_value)" style="width: 400px; height: 200px" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <style style="display:none">
+                                .o_tag{
+                                    font-size: 12px !important;
+                                }
+                            </style>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_news_letter_form" model="ir.ui.view">
+            <field name="name">view.news.letter.form</field>
+            <field name="model">news.letter</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <h1>
+                                <field name="name" required="1" placeholder="Titre" />
+                            </h1>
+                        </group>
+                        <group col="2">
+                             <div style="padding-top: 50px">
+                                <field name="description"  />
+                            </div>
+                            <group>
+                                 <div >
+                                    <field name="image" widget="image" height="350" />
+                                 </div>
+                            </group>
+
+                        </group>
+
+<!--                        <group name="video">-->
+<!--                            <field name="video_filename" invisible="1"/>-->
+<!--                            <field name="video" widget="binary" filename="video_filename"/>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="video_embed_code" widget="html" readonly="1" attrs="{'invisible': [('video','=', False)]}" nolabel="1"/>-->
+<!--                        </group>-->
+                        <group name="image_events1">
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <field name="image_1" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_2" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_3"  widget="image" width="500" height="300" />
+                                </div>
+                            </div>
+                        </group>
+                        <group name="image_events2">
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <field name="image_4" widget="image" width="500" height="300"   />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_5" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_6"  widget="image" width="500" height="300" />
+                                </div>
+                            </div>
+                        </group>
+                        <group name="image_events3">
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <field name="image_7" widget="image" width="500" height="300"   />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_8" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_9"  widget="image" width="500" height="300" />
+                                </div>
+                            </div>
+                        </group>
+
+<!--                        <group name="video">-->
+<!--                            <field name="video_filename" invisible="1"/>-->
+<!--                            <field name="video" widget="binary" filename="video_filename"/>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="video_embed_code" widget="html" readonly="1" attrs="{'invisible': [('video','=', False)]}" nolabel="1"/>-->
+<!--                        </group>-->
+                        <group name="image_events1">
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <field name="image_1" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_2" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_3"  widget="image" width="500" height="300" />
+                                </div>
+                            </div>
+                        </group>
+                        <group name="image_events2">
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <field name="image_4" widget="image" width="500" height="300"   />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_5" widget="image" width="500" height="300" />
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="image_6"  widget="image" width="500" height="300" />
+                                </div>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                            <field name="is_anonymous" invisible="1" />
+                            <field name="author_id" invisible="1" />
+                            <field name="date" />
+                        </group>
+                    </sheet>
+<!--                     <div class="oe_chatter">-->
+<!--                         <field name="message_follower_ids" widget="mail_followers" groups="news_letter.manager_news_letter_group"/>-->
+<!--                         <field name="message_ids" widget="mail_thread" groups="news_letter.manager_news_letter_group" />-->
+<!--                     </div>-->
+                    <style>
+                        .img-fluid{
+                            max-height: 500px;
+                            width: 700px;
+                        }
+
+                    </style>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_news_letter_tree" model="ir.ui.view">
+            <field name="name">view.news.letter.tree</field>
+            <field name="model">news.letter</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="date" />
+                    <field name="author_id" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_news_letter_view" model="ir.actions.act_window">
+            <field name="name">Actualités</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">news.letter</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                
+              </p><p>
+                 
+              </p>
+            </field>
+        </record>
+        
+        <menuitem id="menu_news_letter_root"  name="Actualités" sequence="5" web_icon="news_letter,static/description/icon.png" />
+        <menuitem id="menu_news_letter_configuration_view" name="Actualités" parent="menu_news_letter_root" action="action_news_letter_view" sequence="2"/>
+    </data>
+</odoo>
+

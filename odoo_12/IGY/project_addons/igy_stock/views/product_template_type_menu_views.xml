@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+       <record id="action_product_template_igy_stock_view_others" model="ir.actions.act_window">
+            <field name="name">Autres</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="['|',('product_type_id', '=', None), '&amp;', '&amp;', '&amp;', '&amp;', '&amp;',
+                ('product_type_id', '!=', ref('portable_product_type')),
+                ('product_type_id', '!=', ref('uc_product_type')),
+                ('product_type_id', '!=', ref('screen_product_type')),
+                ('product_type_id', '!=', ref('phone_product_type')),
+                ('product_type_id', '!=', ref('video_projector_product_type')),
+                ('product_type_id', '!=', ref('modem_product_type'))
+            ]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_modem" model="ir.actions.act_window">
+            <field name="name">Modem</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('modem_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_video_projector" model="ir.actions.act_window">
+            <field name="name">Vidéo Projecteur</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('video_projector_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_phone" model="ir.actions.act_window">
+            <field name="name">Téléphone</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('phone_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_screen" model="ir.actions.act_window">
+            <field name="name">Écran</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('screen_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_screen" model="ir.actions.act_window">
+            <field name="name">Écran</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('screen_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_uc" model="ir.actions.act_window">
+            <field name="name">UC</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('uc_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+
+        <record id="action_product_template_igy_stock_view_portable" model="ir.actions.act_window">
+            <field name="name">Portables</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain" eval="[('product_type_id', '=', ref('portable_product_type'))]" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                ]"
+            />
+        </record>
+        <menuitem id="portable_menu" name="Portables" parent="igy_inventory_main_menu" sequence="2" action="action_product_template_igy_stock_view_portable" />
+        <menuitem id="uc_menu" name="Uc" parent="igy_inventory_main_menu" sequence="3" action="action_product_template_igy_stock_view_uc" />
+        <menuitem id="screen_menu" name="Écran" parent="igy_inventory_main_menu" sequence="4" action="action_product_template_igy_stock_view_screen" />
+        <menuitem id="phone_menu" name="Téléphone" parent="igy_inventory_main_menu" sequence="5" action="action_product_template_igy_stock_view_phone" />
+        <menuitem id="video_projector_menu" name="Vidéo Projecteur" parent="igy_inventory_main_menu" sequence="6" action="action_product_template_igy_stock_view_video_projector" />
+        <menuitem id="modem_menu" name="Modem" parent="igy_inventory_main_menu" sequence="7" action="action_product_template_igy_stock_view_modem" />
+        <menuitem id="others_menu" name="Autres" parent="igy_inventory_main_menu" sequence="8" action="action_product_template_igy_stock_view_others" />
+
+    </data>
+</odoo>

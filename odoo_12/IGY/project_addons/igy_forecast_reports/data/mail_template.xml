@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="mail_template_timesheet_reminder" model="mail.template">
+            <field name="name">Forecast reports</field>
+            <field name="model_id" ref="igy_forecast_reports.model_forecast_report"/>
+            <field name="subject">Prévision sur trois mois</field>
+            <field name="email_from">"${object.company_id.name | safe}" &lt;${(object.company_id.email or user.email) | safe}&gt;</field>
+            <field name="email_to">pilotage@ingenosya.mg</field>
+            <!-- super boss -->
+            <field name="email_cc">mandriamampandry@ingenosya.mg,jrajaona@ingenosya.mg</field>
+            <field name="body_html" type="html">
+                <div>
+                    Bonjour,
+                </div>
+                <br/>
+                <div>
+                    Veuillez trouver ci-dessous le récapitulatif des jours libres selon les prévisions disponibles.
+                </div>
+                <div>
+                    Vous pouvez consulter les détails dans le fichier excel ci-joint.
+                </div>
+                <br/>
+                <div>
+                    % for forecast in ctx.get('forecasts'):
+                    <div>${forecast.sequence}. ${forecast.date_start.strftime('%B')}: ${forecast.open_days} Jours</div>
+                    % endfor
+                </div>
+                <br/>
+                <div>
+                    Bien à vous.
+                </div>
+                <br/>
+            </field>
+            <field name="report_template" ref="igy_forecast_reports.project_forecast_report"/>
+            <field name="report_name">Prévisions Inter Chantiers sur trois mois</field>
+        </record>
+    </data>
+</odoo>

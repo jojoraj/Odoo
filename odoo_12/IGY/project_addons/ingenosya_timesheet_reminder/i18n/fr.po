@@ -1,0 +1,139 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* ingenosya_timesheet_reminder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-13 09:26+0000\n"
+"PO-Revision-Date: 2020-08-13 09:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ingenosya_timesheet_reminder
+#: model:mail.template,body_html:ingenosya_timesheet_reminder.mail_template_timesheet_reminder
+msgid "<div>\n"
+"                Bonjour,\n"
+"            </div>\n"
+"            <br/>\n"
+"            <div>\n"
+"                Nous vous informons que vous n'avez pas complété votre feuille de temps du ${ctx.get('date')},\n"
+"            </div>\n"
+"            <br/>\n"
+"            <div>\n"
+"                Belle journée,\n"
+"            </div>\n"
+"            <br/>\n"
+"        "
+msgstr ""
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.actions.act_window,name:ingenosya_timesheet_reminder.action_public_holiday
+msgid "Action public holiday"
+msgstr ""
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model,name:ingenosya_timesheet_reminder.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Ligne analytique"
+
+#. module: ingenosya_timesheet_reminder
+#: code:addons/ingenosya_timesheet_reminder/models/hr_timesheet.py:29
+#, python-format
+msgid "Could not find template for timesheet reminder"
+msgstr ""
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__date
+msgid "Date"
+msgstr "Date "
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__name
+msgid "Description"
+msgstr ""
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model,name:ingenosya_timesheet_reminder.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__id
+msgid "ID"
+msgstr ""
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.actions.server,name:ingenosya_timesheet_reminder.timesheet_cron_ir_actions_server
+#: model:ir.cron,cron_name:ingenosya_timesheet_reminder.timesheet_cron
+#: model:ir.cron,name:ingenosya_timesheet_reminder.timesheet_cron
+msgid "Ingenosya timesheet reminder"
+msgstr "Ingenosya rappel sur la feuille de temps"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model.fields,field_description:ingenosya_timesheet_reminder.field_public_holiday__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: ingenosya_timesheet_reminder
+#: model_terms:ir.ui.view,arch_db:ingenosya_timesheet_reminder.view_create_public_holiday
+msgid "Public holiday"
+msgstr "Jour férié"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.ui.menu,name:ingenosya_timesheet_reminder.menu_public_holiday
+#: model_terms:ir.ui.view,arch_db:ingenosya_timesheet_reminder.view_tree_public_holiday
+msgid "Public holidays"
+msgstr "Jours fériés"
+
+#. module: ingenosya_timesheet_reminder
+#: sql_constraint:public.holiday:0
+msgid "The date is already taken by another public holiday"
+msgstr "La date est déjà prise par un autre jour férié"
+
+#. module: ingenosya_timesheet_reminder
+#: code:addons/ingenosya_timesheet_reminder/models/hr_timesheet.py:40
+#, python-format
+msgid "The employee %s is not related to any user"
+msgstr ""
+
+#. module: ingenosya_timesheet_reminder
+#: model:mail.template,subject:ingenosya_timesheet_reminder.mail_template_timesheet_reminder
+msgid "Timesheet reminder"
+msgstr "Rappel sur la feuille de temps"
+
+#. module: ingenosya_timesheet_reminder
+#: model:ir.model,name:ingenosya_timesheet_reminder.model_public_holiday
+msgid "public.holiday"
+msgstr ""
+

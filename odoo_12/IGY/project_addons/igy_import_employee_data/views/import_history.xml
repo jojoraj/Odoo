@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="action_import_history_view" model="ir.actions.act_window">
+            <field name="name">Historique des Imports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.model.import.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+        <menuitem id="import_history" name="Historique" sequence="3" parent="import_menu_employee" action="action_import_history_view" />
+    </data>
+</odoo>

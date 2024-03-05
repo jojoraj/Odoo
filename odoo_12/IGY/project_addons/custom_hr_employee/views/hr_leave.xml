@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+       <record id="view_hr_leave_inherit_search" model="ir.ui.view">
+           <field name="name">custom.view.hr.leave.inherit.search</field>
+           <field name="model">hr.leave</field>
+           <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+           <field name="arch" type="xml">
+               <field name="name" position="after" >
+                   <field name="project_name_search" filter_domain="[('employee_id.project_ids.name', 'ilike', self)]" />
+               </field>
+               <filter name="active_types" position="before">
+                   <filter name="date_from" string="Congés Aujourd'hui" domain="[('date_from', '&lt;=', context_today().strftime('%Y-%m-%d')),('date_to', '&gt;=', context_today().strftime('%Y-%m-%d'))]" />
+               </filter>
+           </field>
+       </record>
+    </data>
+</odoo>

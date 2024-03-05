@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_inherit_view_tree" model="ir.ui.view">
+            <field name="name">crm_lead_inherit_view_tree</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+            <field name="arch" type="xml">
+                <field name="create_date" position="replace">
+                    <field name="created_date"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="bdr_user_id" />
+                    <field name="sdr_user_id" />
+                    <field name="sdr_user" />
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

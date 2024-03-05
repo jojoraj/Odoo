@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="quick_create_inherit_form" model="ir.ui.view">
+            <field name="name">crm.lead.quick.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+            <field name="arch" type="xml">
+                <field name="planned_revenue" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="priority" position="replace">
+                    <field name="medium_id"
+                           required="1"
+                           string="Moyen"
+                           filter_domain="[('medium_id', 'ilike', self)]"
+                           options="{'no_create':True}"/>
+                    <field name="source_id"
+                           required="1"
+                           string="Origine"
+                           filter_domain="[('source_id', 'ilike', self)]"
+                           options="{'no_create':True}"/>
+                    <field name="contact"
+                           required="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

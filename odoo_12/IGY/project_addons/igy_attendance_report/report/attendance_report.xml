@@ -1,0 +1,27 @@
+
+<odoo>
+    <data>
+        <report 
+            id="igy_attendance_report_xlsx"
+            model="hr.attendance"
+            string="Presence du mois"
+            report_type="xlsx"
+            file="Presence du mois"
+            name="igy_attendance_report.attendance_report"
+            print_report_name="'Presence du mois'"
+            groups="hr_attendance.group_hr_attendance_manager"
+        />
+
+        <report
+            id="igy_attendance_report_daily_xlsx"
+            model="hr.attendance"
+            report_type="xlsx"
+            string="Presence de la journée"
+            file="Presence de la journée"
+            name="igy_attendance_report.attendance_daily"
+            print_report_name="'Présence de la journée'"
+            groups="hr_attendance.group_hr_attendance_manager"
+         />
+        
+    </data>
+</odoo>

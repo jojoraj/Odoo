@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_igy_payroll_manager,access_igy_payroll_manager,model_igy_payroll,igy_payroll.igy_payroll_manager,1,1,1,1
+access_igy_payroll,access_igy_payroll,model_igy_payroll,__export__.res_groups_32_66a0dad5,1,1,1,0
+
+

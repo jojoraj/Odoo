@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+<!--        <record id="igy_payroll_manager" model="res.groups">-->
+<!--            <field name="name">Payroll Manager</field>-->
+<!--            <field name="category_id" ref="base.module_category_human_resources"/>-->
+<!--        </record>-->
+    </data>
+</odoo>

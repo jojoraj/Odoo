@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="email_template_send" model="mail.template">
+		<field name="name">Send mail to partner</field>
+		<field name="model_id" ref="crm.model_crm_lead"/>
+		<field name="email_from">${object.email_from | safe}</field>
+<!--		<field name="email_cc">mandriamampandry@ingenosya.mg,jandrianarisoa@ingenosya.mg</field>-->
+		<field name="email_cc">jrabelais@ingenosya.mg</field>
+		<field name="subject">Sujet</field>
+		<field name="body_html" type="html">
+			<p>
+			Contenu du message
+		</p>
+		</field>
+		
+	</record>
+</odoo>

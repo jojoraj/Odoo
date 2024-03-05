@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="crm.global.stage" id="global_qualification_marketing">
+            <field name="name">Qualification Marketing</field>
+            <field name="sequence">10</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_first_send">
+            <field name="name">1er envoi</field>
+            <field name="sequence">20</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_second_send">
+            <field name="name">2ème envoi</field>
+            <field name="sequence">30</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_third_send">
+            <field name="name">3ème envoi</field>
+            <field name="sequence">40</field>
+            <field name="active">1</field>
+        </record>
+         <record model="crm.global.stage" id="global_fourth_send">
+            <field name="name">4ème envoi</field>
+            <field name="sequence">45</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_commercial_qualif">
+            <field name="name">Qualification commerciale</field>
+            <field name="sequence">50</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_proposition">
+            <field name="name">Proposition</field>
+            <field name="sequence">60</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_offer_sent">
+            <field name="name">Offre envoyée</field>
+            <field name="sequence">65</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_crm_won">
+            <field name="name">Gagnée</field>
+            <field name="sequence">70</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_crm_lost">
+            <field name="name">Opportunité perdue</field>
+            <field name="sequence">75</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_crm_unqalified">
+            <field name="name">Piste perdue</field>
+            <field name="sequence">80</field>
+            <field name="active">1</field>
+        </record>
+        <record model="crm.global.stage" id="global_crm_fail">
+            <field name="name">Erreur</field>
+            <field name="sequence">100</field>
+            <field name="active">1</field>
+        </record>
+
+    </data>
+</odoo>

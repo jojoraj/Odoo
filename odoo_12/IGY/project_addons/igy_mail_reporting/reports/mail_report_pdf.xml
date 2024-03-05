@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+
+<!--    <template id="reporting_cold_cv_pdf">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="doc">-->
+<!--                <h2>CRM Mail reporting</h2>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+
+    <template id="reporting_cold_cv_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Projet gagné</h3>
+                                <h2 t-esc="len_project_won"/>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h3>Taux de conversion CV</h3>
+                                <h2 t-esc="conversion_rate_cv"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Taux de conversion Cold</h3>
+                    <h2 t-esc="conversion_rate_cold"/>
+                    <h3>Taux de converion CV / Cold</h3>
+                    <h2 t-esc="total_conversion_rate_cv_cold"/>
+                    <h3>Projet gagné CV</h3>
+                    <h2 t-esc="len_project_cv_won"/>
+                    <h3>Projet gagné Cold</h3>
+                    <h2 t-esc="len_project_cold_won"/>
+                    <h3>Nombre de réponse négative CV</h3>
+                    <h2 t-esc="len_negative_answer_cv"/>
+                    <h3>Nombre de réponse négative Cold</h3>
+                    <h2 t-esc="len_negative_answer_cold"/>
+                    <h3>Total réponses négatives</h3>
+                    <h2 t-esc="len_total_negative_answer"/>
+                    <h3>Total réponse positives</h3>
+                    <h2 t-esc="len_total_positive_answer"/>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

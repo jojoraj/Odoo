@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_partner_activity_view_tree" model="ir.ui.view">
+            <field name="name">res_partner_activity_view_tree</field>
+            <field name="model">res.partner.activity</field>
+            <field name="arch" type="xml">
+                <tree string="res_partner_activity_tree"
+                      editable="top">
+                    <field name="name"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_partner_activity_action" model="ir.actions.act_window">
+            <field name="name">Les activites du clients</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.activity</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="client_config_menu"
+                  name="Client"
+                  parent="crm.crm_menu_config"
+                  sequence="100"
+                  groups="igy_custom_crm.group_crm_sdr,igy_custom_crm.group_crm_bdr"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="res_partner_activity_menu"
+                  name="Listes des activites"
+                  parent="client_config_menu"
+                  action="res_partner_activity_action"
+                  sequence="100"/>
+
+    </data>
+</odoo>

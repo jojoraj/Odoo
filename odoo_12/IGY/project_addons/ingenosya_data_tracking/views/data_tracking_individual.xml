@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <!-- data tracking individuals -->
+        <record id="data_tracking_action_individual" model="ir.actions.act_window">
+            <field name="name">Individuals Data Tracking</field>
+            <field name="res_model">data.tracking</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('user_id','=',uid)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">You have no data tracking
+                </p>
+            </field>
+        </record>
+
+        <!-- end individuals -->
+        <menuitem id="data_tracking_tracking_individual" 
+        parent="data_tracking_consumptions" 
+        name="Individual"
+        action="data_tracking_action_individual" />
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="crm.crm_menu_root"
+        action="igy_custom_crm.view_crm_analysies"
+    />
+    
+    <menuitem
+        id="crm.menu_crm_lead_stage_act"
+        name="Etapes"
+        parent="crm.menu_crm_config_lead"
+        groups="base.group_no_one"
+    /> 
+    <menuitem
+        name="SDR"
+        id="menu_crm_lead_stage_action" 
+        action="crm.crm_stage_action"
+        parent="crm.menu_crm_lead_stage_act"
+        sequence="10"
+    />
+    <menuitem
+        name="BDR"
+        id="menu_crm_bdr_action"
+        action="crm_stage_two_action"
+        parent="crm.menu_crm_lead_stage_act"
+        sequence="10"
+    />  
+    <menuitem
+        name="Opportunités"
+        id="bdr_view_pipeline"
+        groups="igy_custom_crm.group_crm_bdr"
+        action="igy_custom_crm.view_crm_lead_bdr"
+        parent="crm.menu_crm_opportunities"
+        sequence="10"
+    />  
+    <menuitem
+        name="Pistes"
+        id="sbd_view_pipeline"
+        groups="igy_custom_crm.group_crm_sdr"
+        action="igy_custom_crm.view_crm_lead_sbd"
+        parent="crm.menu_crm_opportunities"
+        sequence="05"
+    />   
+
+</odoo>

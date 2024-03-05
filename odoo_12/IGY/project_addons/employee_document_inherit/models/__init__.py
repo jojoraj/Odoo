@@ -1,0 +1,1 @@
+from . import employee_document_inherit

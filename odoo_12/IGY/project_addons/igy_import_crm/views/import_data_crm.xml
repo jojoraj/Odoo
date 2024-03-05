@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+         <record id="action_import_crm_lead" model="ir.actions.server">
+            <field name="name">Import CRM</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+             <field name="binding_model_id" ref="crm.model_crm_lead"/>
+            <field name="code">
+                action = model.open_import_lead_wizard()
+            </field>
+        </record>
+
+        <record id="view_ir_model_import_template_form" model="ir.ui.view">
+			<field name="name">crm.ir.model.import.template.form</field>
+			<field name="model">ir.model.import.template</field>
+			<field name="arch" type="xml">
+				<form string="Import" create="0" edit="0" delete="0">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="name" class="oe_inline" placeholder="Name"/>
+							</h1>
+						</div>
+						<group name="method" col="3">
+							<field name="model_id" colspan="3" readonly="1"/>
+							<field name="method" readonly="1" />
+							<field name="import_progress" widget="progressbar"/>
+							<field name="line_treated" readonly="1" />
+							<field name="method_args" invisible="1" nolabel="1" placeholder="{'arg1': value1, 'arg2': ...}"/>
+							<field name="file" required="1" filename="file_name" />
+                            <field name="file_name" invisible="1" force_save="1" />
+						</group>
+						<notebook >
+							<page string="Imports">
+								<button type="object" name="create_import" string="New Import" colspan="4" context="{'new_thread':True, 'force_use_new_cursor': True}" class="oe_highlight"/>
+								<button type="object" name="create_import" string="Test Import" colspan="4" context="{'test_mode':True, 'force_use_new_cursor': True}" class="oe_link"/>
+								<field name="import_ids" widget="one2many">
+									<tree delete="0" string="Import details" decoration-info="state=='done'" decoration-warning="state=='running'" decoration-muted="state=='killed'">
+										<field name="import_tmpl_id"/>
+										<field name="create_date"/>
+										<field name="create_uid"/>
+										<field name="file_name" invisible="0" force_save="1" />
+										<field name="file" required="1" filename="file_name" />
+										<field name="time_human"/>
+										<field name="state"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Advanced">
+								<group>
+									<field name="new_thread" />
+									<field name="one_at_a_time" />
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+        <record id="view_ir_model_import_template_tree" model="ir.ui.view">
+            <field name="name">ir.model.import.view</field>
+            <field name="model">ir.model.import.template</field>
+            <field name="arch" type="xml">
+                <tree create="1">
+                    <field name="name" string="Nom"/>
+<!--                    <field name="import_progress" widget="progressbar"/>-->
+                    <field name="line_treated"/>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="action_ir_model_import_tender">
+            <field name="name">Import SDR</field>
+            <field name="res_model">ir.model.import.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('method','=', 'import_crm_lead_tender')]</field>
+			<field name="context">{'import_tender': 1}</field>
+            <field name="view_ids" eval="[(5,0,0),
+                          (0,0,{'view_mode':'tree', 'view_id': ref('igy_import_crm.view_ir_model_import_template_tree')}),
+                          (0,0,{'view_mode':'form', 'view_id': ref('igy_import_crm.view_ir_model_import_template_form')})]"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_ir_model_import_sdr">
+            <field name="name">Import SDR</field>
+            <field name="res_model">ir.model.import.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('action_domain','=', 'import_crm_lead_leads')]</field>
+			<field name="context">{'import_sdr': 1}</field>
+            <field name="view_ids" eval="[(5,0,0),
+                          (0,0,{'view_mode':'tree', 'view_id': ref('igy_import_crm.view_ir_model_import_template_tree')}),
+                          (0,0,{'view_mode':'form', 'view_id': ref('igy_import_crm.view_ir_model_import_template_form')})]"/>
+        </record>
+
+		<record model="ir.actions.act_window" id="action_ir_model_import_bdr">
+            <field name="name">Import BDR</field>
+            <field name="res_model">ir.model.import.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('action_domain','=', 'import_crm_lead_opportunities')]</field>
+			<field name="context">{'import_bdr': 1}</field>
+            <field name="view_ids" eval="[(5,0,0),
+                          (0,0,{'view_mode':'tree', 'view_id': ref('igy_import_crm.view_ir_model_import_template_tree')}),
+                          (0,0,{'view_mode':'form', 'view_id': ref('igy_import_crm.view_ir_model_import_template_form')})]"/>
+        </record>
+
+        <menuitem id="import_crm_root"
+				  name="Importation"
+				  parent="crm.crm_menu_root"
+				  sequence="24"/>
+        <menuitem id="import_crm_lead_sdr"
+				  name="Import SDR"
+				  parent="import_crm_root"
+				  sequence="1"
+				  action="action_ir_model_import_sdr"/>
+        <menuitem id="import_crm_lead_bdr"
+				  name="Import BDR"
+				  parent="import_crm_root"
+				  sequence="2"
+				  action="action_ir_model_import_bdr"/>
+		<menuitem id="import_crm_lead_tender"
+				  name="Import Appel d'offre"
+				  parent="import_crm_root"
+				  sequence="3"
+				  action="action_ir_model_import_tender"/>
+    </data>
+</odoo>
+
+<!-- action="action_import_crm_lead" -->

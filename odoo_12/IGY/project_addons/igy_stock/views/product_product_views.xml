@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="view_product_product_igy_stock_search" model="ir.ui.view">
+           <field name="name">view.product.product.igy.stock.search</field>
+           <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="serial_number" string="Numero de serie" domain="[('serial_number', 'ilike', self)]" />
+                    <field name="stock_name" string="Nom" domain="[('stock_name', 'ilike', self)]"/>
+                    <field name="categ_id" string="Type" domain="[('categ_id', 'ilike', self)]" />
+                    <field name="mark" string="Marque" domain="[('mark', 'ilike', self)]" />
+                    <field name="model" string="Modele" domain="[('model', 'ilike', self)]" />
+                    <field name="features" string="Caracteristiques" domain="[('features', 'ilike', self)]" />
+                    <filter name="product_type_id" string="Type" context="{'group_by': 'product_type_id'}" />
+                </search>
+           </field>
+        </record>
+
+        <record id="view_igy_stock_product_product_form" model="ir.ui.view">
+            <field name="name">view.stock.igy.product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <field name="image_medium" widget="image" class="oe_avatar" />
+                        <group>
+                            <field name="stock_name" required="1"/>
+                            <field name="product_type_id" />
+                            <field name="categ_id" />
+                            <field name="mark" />
+                            <field name="model" />
+                            <field name="serial_number" />
+                            <field name="features" />
+                            <field name="product_tmpl_id" invisible="1" force_save="1" />
+                            <field name="status" />
+                            <field name="employee_id" attrs="{'invisible': [('status', '!=', 'in_use')]}" />
+                        </group>
+                        <notebook>
+                            <page string="Mouvements" name="moves">
+                                <field name="move_ids">
+                                    <tree>
+                                        <field name="date" />
+                                        <field name="type_id" />
+                                        <field name="employee_id" />
+                                        <field name="code" password="True" />
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="date" />
+                                            <field name="type_id" />
+                                            <field name="type" invisible="1" />
+                                        </group>
+                                        <group col="2">
+                                            <group>
+                                                <field name="code" password="True" attrs="{'required': [('type', 'in', ('attribution', 'restitution'))]}" />
+                                            </group>
+                                            <group>
+                                                <field name="employee_id" attrs="{'required': [('type', 'in', ('attribution', 'restitution'))]}" />
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_product_igy_stock_kanban" model="ir.ui.view">
+            <field name="name">view.product.product.igy.stock.kanban</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <kanban >
+                    <field name="id" />
+                    <field name="stock_name"/>
+                    <field name="image_small" />
+                    <field name="product_type_id" />
+                    <field name="serial_number" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('product.template', 'image_small', record.id.raw_value)" alt="Product"/>
+                                </div>
+                                <div class="o_kanban_details" style="min-height: 100px" >
+                                    <strong class="o_kanban_record_title">
+                                        <field name="stock_name" />
+                                    </strong>
+                                    <div>Type: <field name="product_type_id" /></div>
+                                    <div>Marque: <field name="mark" /></div>
+                                    <div>Modele: <field name="model" /></div>
+                                    <div>Caracteristiques: <field name="features" /></div>
+                                    <div>Numero de serie:  <field name="serial_number" /> </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_igy_stock_product_product_tree" model="ir.ui.view">
+            <field name="name">view.igy.stock.product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="stock_name"/>
+                    <field name="categ_id" />
+                    <field name="mark" />
+                    <field name="model" />
+                    <field name="serial_number" />
+                    <field name="features" />
+                    <field name="status" />
+                    <field name="employee_id" attrs="{'invisible': [('status', '!=', 'in_use')]}" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_product_product_igy_view" model="ir.actions.act_window">
+            <field name="name">Sous Articles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'is_stock': True}</field>
+            <field name="search_view_id" ref="view_product_product_igy_stock_search" />
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_product_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_product_tree'), 'sequence': 1}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_igy_stock_product_product_form'), 'sequence': 2}),
+                ]"
+            />
+        </record>
+    </data>
+</odoo>

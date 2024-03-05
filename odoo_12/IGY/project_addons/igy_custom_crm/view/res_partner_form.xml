@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_form_view_inherit" model="ir.ui.view">
+            <field name="name">Res.partner.custom.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="attrs">{'invisible':True}</attribute>
+               </xpath>
+                <field name="website" position="before">
+                    <field name="updated_address" widget="email"/>
+                    <field name="last_address" widget="email"/>
+                    <field name="address_type"/>
+                    <field name="activity"/>
+                    <field name="activity_info" invisible="1"/>
+                    <field name="res_activity_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                </field>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <separator/>
+                    <group>
+                        <field name="domaine" string="Domaine d'activités" attrs="{'invisible': [('company_type', '=', 'person')]}" />
+                        <field name="snov" string="Domaine snov"  attrs="{'invisible': [('company_type', '=', 'person')]}" />
+                        <field name="personne" string="Nbre personne dans la societé"  attrs="{'invisible': [('company_type', '=', 'person')]}" />
+                        <field name="ca" string="CA societé"  attrs="{'invisible': [('company_type', '=', 'person')]}" />
+                        <field name="cc" string="Code communale"  attrs="{'invisible': [('company_type', '=', 'person')]}" />
+                        <field name="is_ex_candidat" string="Est un ex candidat"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='child_ids']/form/sheet/group/group[2]/field[@name='title']" position="replace">
+                    <field name="client_title" invisible="1"/>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[@name='child_ids']/form/sheet/group/group[2]/field[@name='name']" position="after">
+                    <field name="title" invisible="1"/>
+                    <field name="firstname"/>
+                    <field name="linkedin_link" widget="url"/>
+                </xpath>
+            </field>
+        </record>  
+    </data>
+</odoo>

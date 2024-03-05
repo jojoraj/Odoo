@@ -1,0 +1,22 @@
+<data>
+    <odoo>
+        <record id="crm_lead_view_inherit" model="ir.ui.view">
+            <field name="name">Crm lead view inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='lead']" position="after">
+                    <page string="Réponse">
+                        <group>
+                            <field name="mail_respond"/>
+                            <field name="stage_answer_id"/>
+                            <field name="response_date"/>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+    </odoo>
+</data>

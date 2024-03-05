@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_crm_analysies" model="ir.actions.act_window">
+            <field name="name">Analyses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.lead</field>
+            <field name="search_view_id" ref="crm_lead_global_search"/>
+            <field name="view_mode">pivot,graph,cohort,dashboard</field>
+            <field name="domain">[('global_stage_id','!=',False)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'dashboard', 'view_id': ref('igy_custom_crm.crm_lead_dashboard_view_global')}),
+                (0, 0, {'view_mode': 'graph', 'view_id': ref('igy_custom_crm.crm_lead_view_graph_global')}),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('igy_custom_crm.crm_lead_view_pivot_global')}),
+                (0, 0, {'view_mode': 'cohort', 'view_id': ref('igy_custom_crm.crm_lead_global_view_cohort')})]"/>
+            <field name="context">
+                {
+                    'search_default_crm_stage_global': True,
+					'create': False,
+					'import': False
+                }
+            </field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+
+                </p>
+            </field>
+        </record>
+
+       	<!--		Menu for analysing -->
+		<menuitem
+			id="crm.crm_opportunity_report_menu"
+            name="Analyses CRM"
+			action="igy_custom_crm.view_crm_analysies"
+            parent="crm.crm_menu_report"
+            sequence="2"/>
+
+    </data>
+</odoo>

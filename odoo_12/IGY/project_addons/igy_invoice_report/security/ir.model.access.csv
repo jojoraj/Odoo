@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+sale_manager_ir_sequence_access,sale_manager_ir_sequence_access,base.model_ir_sequence,sales_team.group_sale_manager,1,1,0,0
+sale_manager_ir_sequene_data_range_access,sale_manager_ir_sequene_data_range_access,base.model_ir_sequence_date_range,sales_team.group_sale_manager,1,1,0,0

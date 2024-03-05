@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="mail_reporting_view_dashboard" model="ir.ui.view">
+            <field name="name">mail.reporting.dashboard_view</field>
+            <field name="model">mail.mass_mailing</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <view type="graph" ref="igy_mail_reporting.mail_reporting_view_graph"/>
+                    <group>
+                        <group>
+                            <aggregate
+                                    name="total_mail"
+                                    string="Total envoyer"
+                                    field="total_mail_sent"
+                            />
+                            <aggregate
+                                    name="mail_opened"
+                                    string="Email ouvert"
+                                    field="opened"
+                            />
+                            <aggregate
+                                    name="mail_clicked"
+                                    string="Email cliquer"
+                                    field="clicked"
+                            />
+                            <aggregate
+                                    name="mail_bounced"
+                                    string="Email Rebondir"
+                                    field="bounced"
+                            />
+                        </group>
+                    </group>
+
+                    <view type="pivot" ref="igy_mail_reporting.mail_reporting_view_pivot"/>
+                </dashboard>
+            </field>
+        </record>
+
+        <record id="mail_reporting_view_graph" model="ir.ui.view">
+            <field name="name">mail.reporting.graph</field>
+            <field name="model">mail.mass_mailing</field>
+            <field name="arch" type="xml">
+                <graph string="Reporting" type="pie">
+                    <field name="sent_date" interval="month" type="row"/>
+                    <field name="opened" type="measure"/>
+                    <field name="clicked" type="measure"/>
+                    <field name="bounced" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="mail_reporting_view_pivot" model="ir.ui.view">
+            <field name="name">mail.reporting.pivot</field>
+            <field name="model">mail.mass_mailing</field>
+            <field name="arch" type="xml">
+                <pivot string="Reporting">
+                    <field name="sent_date" interval="day" type="row"/>
+                    <field name="opened" type="measure"/>
+                    <field name="clicked" type="measure"/>
+                    <field name="bounced" type="measure"/>
+                    <field name="total_mail_sent" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="mail_reporting_view_action" model="ir.actions.act_window">
+            <field name="name">Mail Envoyer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mail.mass_mailing</field>
+            <field name="view_mode">dashboard,graph,pivot</field>
+        </record>
+
+        <menuitem id="mail_reporting_view_menu" name="Reporting" parent="mass_mailing.mass_mailing_menu_root"
+                  sequence="5"/>
+        <menuitem id="mail_envoyer_view_menu" name="Mail envoyer" parent="mail_reporting_view_menu"
+                  action="mail_reporting_view_action" sequence="5"/>
+    </data>
+</odoo>

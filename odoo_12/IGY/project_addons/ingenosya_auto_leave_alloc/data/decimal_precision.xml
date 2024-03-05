@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record forcecreate="True" id="alloc_precision" model="decimal.precision">
+            <field name="name">Allocation precision</field>
+            <field name="digits">4</field>
+        </record>
+    </data>
+</odoo>

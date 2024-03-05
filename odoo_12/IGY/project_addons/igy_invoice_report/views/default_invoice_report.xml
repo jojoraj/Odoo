@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="inherit_default_external_layout" inherit_id="web.external_layout_standard">
+           <xpath expr="//div/div[3]" position="after">
+               <div style="font-size: 14px; line-height: 15pt" >
+                   <t t-if="o._table=='account_invoice' or o._table == 'sale_order'">
+                     <div class="row first-page">
+                        <div class="col-3">
+                            Phone :
+                        </div>
+                        <div class="col-4">
+                            <div t-field="o.company_id.phone" />
+                        </div>
+                     </div>
+                     <div class="row first-page" >
+                        <div class="col-3">
+                            Mail :
+                        </div>
+                        <div class="col-4">
+                            <div t-field="o.company_id.email" />
+                        </div>
+                     </div>
+                   </t>
+               </div>
+
+           </xpath>
+
+
+           <xpath expr="//ul[@class='list-inline mb4']" position="replace">
+                <div t-if="o.company_id.name == 'INGENOSYA MADAGASCAR'">
+                    <ul class="list-inline mb4">
+                        <li>INGENOSYA MADAGASCAR Partenaire ODOO</li>
+                        <li>S.A au capital de 116.000.000 MGA -RCS 99B180 - Statistique n°70202 11 1999 0 10069 - NIF 9000140100</li>
+                    </ul>
+                </div>
+               <div t-if="o.company_id.name == 'Ingenosya Business Service'">
+                    <ul class="list-inline mb4">
+                        <li>INGENOSYA BUSINESS SERVICES Odoo Partner</li>
+                        <li>S.A.R.L au capital de 2.000.000 MGA -RC 2009B00796 - Statistique n°62022 11 2009 0 10811 - NIF 1000522104</li>
+                    </ul>
+               </div>
+
+           </xpath>
+        </template>
+
+    </data>
+</odoo>

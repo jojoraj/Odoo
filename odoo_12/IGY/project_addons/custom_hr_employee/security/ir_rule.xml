@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="employee_rule_manager" model="ir.rule">
+           <field name="name">Consultant Employee HR manager Rules</field>
+           <field name="model_id" ref="model_hr_employee"/>
+           <field name="groups" eval="[(6,0,[ref('igy_access.group_admin_interne'),
+                                            ref('hr.igy_cp'),
+                                            ref('hr.igy_dp'),
+                                            ref('hr.group_hr_manager')])]"/>
+           <field name="domain_force">[]</field>
+           <field name="perm_read" eval="True"/>
+           <field name="perm_create" eval="True"/>
+           <field name="perm_write" eval="True"/>
+           <field name="perm_unlink" eval="True"/>
+        </record>
+        <record id="employee_rule_simple_employee" model="ir.rule">
+           <field name="name">Consultant Employee HR Rules Simple Employee</field>
+           <field name="model_id" ref="model_hr_employee"/>
+           <field name="groups" eval="[(6,0,[ref('hr.simple_employee')])]"/>
+           <field name="domain_force">['|',('consultant','=',False),('user_id','=',user.id)]</field>
+           <field name="perm_read" eval="True"/>
+           <field name="perm_create" eval="False"/>
+           <field name="perm_write" eval="False"/>
+           <field name="perm_unlink" eval="False"/>
+        </record>
+        <record id="employee_rule_simple_employee_self_edit" model="ir.rule">
+           <field name="name">Consultant Employee HR Rules Simple Employee Self edit</field>
+           <field name="model_id" ref="model_hr_employee"/>
+           <field name="groups" eval="[(6,0,[ref('hr.simple_employee')])]"/>
+           <field name="domain_force">[('user_id','=',user.id)]</field>
+           <field name="perm_read" eval="True"/>
+           <field name="perm_create" eval="False"/>
+           <field name="perm_write" eval="True"/>
+           <field name="perm_unlink" eval="False"/>
+        </record>
+        <!--        department rules -->
+        <record id="hr_department_rules" model="ir.rule">
+           <field name="name">Rules for department view for HR</field>
+           <field name="model_id" ref="hr.model_hr_department"/>
+           <field name="groups" eval="[(6,0,[ref('hr.group_hr_manager')])]"/>
+           <field name="domain_force">[]</field>
+           <field name="perm_read" eval="True"/>
+           <field name="perm_create" eval="True"/>
+           <field name="perm_write" eval="True"/>
+           <field name="perm_unlink" eval="True"/>
+        </record>
+        <record id="hr_department_rules_responsible" model="ir.rule">
+            <field name="name">Rules for department view for Responsible</field>
+            <field name="model_id" ref="hr.model_hr_department"/>
+            <field name="groups" eval="[(6,0,[ref('hr.group_hr_user')])]"/>
+            <field name="domain_force">[('manager_id.user_id','=',user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        <record id="hr_attendance_rules_manager" model="ir.rule">
+            <field name="name">Rules for attendance view for Responsible</field>
+            <field name="model_id" ref="model_hr_attendance"/>
+            <field name="groups" eval="[(6,0,[ref('hr.group_hr_user')])]"/>
+            <field name="domain_force">[('employee_id.department_id.manager_id.user_id','=',user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+         <report
+            id="account_invoices_igy"
+            model="account.invoice"
+            string="Factures Ingenosya"
+            report_type="qweb-pdf"
+            name="igy_invoice_report.igy_account_report"
+            file="igy_invoice_report.igy_account_report"
+            attachment="(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            groups="account.group_account_invoice"
+        />
+
+    </data>
+</odoo>

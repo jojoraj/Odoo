@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mass_mailing.ir_cron_mass_mailing_queue" model="ir.cron">
+            <field name="name">Mass Mailing: Process queue</field>
+            <field name="model_id" ref="mass_mailing.model_mail_mass_mailing"/>
+            <field name="state">code</field>
+            <field name="code">model._process_mass_mailing_queue()</field>
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall" />
+        </record>
+    </data>
+</odoo>

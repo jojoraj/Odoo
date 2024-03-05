@@ -1,0 +1,146 @@
+<odoo>
+    <data>
+        <!-- Data tracking employees -->
+       
+
+        
+        <record id="data_tracking_form" model="ir.ui.view">
+            <field name="name">Data tracking Employee</field>
+            <field name="model">data.tracking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form duplicate="0" string="Data Tracking">
+                    <sheet>
+                        <h1> <field name="name" readonly="True" force_save="True"  required="True"/> </h1>
+                               
+                        <group col="3">
+                            <group>
+                                <!-- <field  name="employee_id" required="True" attrs="{'readonly':['|',('id','=',False),('has_manager_group','=','False')]}"  /> -->
+                                <field  name="employee_id" required="True" groups="hr.group_hr_manager,base.group_system,base.group_erp_manager"  />
+                                <field name="user_id" invisible="True" />
+                                <field name="has_manager_group" invisible="True" />
+                                <field name="active" string="Active" groups="hr.group_hr_manager,base.group_system,base.group_erp_manager" required="True"/>
+                                <field name="weekly_cons" readonly="1" />
+                                <field name="numero" />
+                            </group>
+                                
+                            <group>
+                                
+                                <field name="average_base" required="True" groups="hr.group_hr_manager,base.group_system,base.group_erp_manager"  attrs="{'readonly':[('has_manager_group','=','False')]}" />
+                                <field name="rate_validity" groups="hr.group_hr_manager,base.group_system,base.group_erp_manager" attrs="{'readonly':[('has_manager_group','=','False')]}" />
+                            </group>
+                            <group groups="hr.group_hr_manager,base.group_system">
+                                <field name="weekly_data_mean" />
+                                <field name="data_to_predict"  />
+                                <field name="data_to_buy"/>            
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Debits">
+                                <field name="data_tracking_debit_ids" context="{'data_tracking_id':active_id}" >
+                                    <tree editable="bottom">
+                                        <field name="date" required="True"/>
+                                        <field name="project_ids" required="True"  widget="many2many_tags"/>
+                                        <field name="remaining_data" required="True" string="Remaining Data (mo)" />
+                                        <field name="daily_cons" string="Daily Consumption (mo)" readonly="True" force_save="1"/>
+                                        <field name="note"  />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Credits">
+                                <field name="data_tracking_credit_ids" >
+                                    <tree editable="bottom">
+                                        <field name="has_manager_group" invisible="True"/>
+                                        <field name="date" required="True"   />
+                                        <field name="rate_id" required="True"   />
+                                        <field name="recharge" string="Recharge (mo)" required="True"   />
+                                        <field name="note" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- data tracking for m -->
+        
+        
+        <record id="data_tracking_tree" model="ir.ui.view">
+            <field name="name">Data Tracking</field>
+            <field name="model">data.tracking</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5" />
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="employee_id" />
+                    <field name="rate_validity" />
+                    <field name="remaining_data" />
+                    <field name="weekly_cons" />
+                    <field name="average_base" />
+                    
+
+                </tree>
+            </field>
+        </record>
+        <!-- data tracking tree -->
+
+        <record id="data_tracking_tree_kanban" model="ir.ui.view">
+            <field name="name">Data Tracking</field>
+            <field name="model">data.tracking</field>
+            <field name="arch" type="html">
+                <kanban>
+                    <field name="id" />
+                    <field  name="name" />
+                    <field  name="rate_validity" />
+                    <field name="employee_image"/>
+                    <field name="remaining_data"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                        <div class="oe_kanban_details oe_kanban_global_click">
+                            <strong class="o_kanban_title"><field name="name" /> </strong>
+                            <div class="o_kanban_tags_section" />
+                            <div>Numero :  <field name="numero"/> </div>
+                            <div>Rate validity:  <field name="rate_validity"/> </div>
+                            <div> Remaining data:  <field name="remaining_data"/> Mo </div>
+
+                            <div class="oe_kanban_bottom_right " style="text-align:right" >
+                                <img t-att-src="kanban_image('data.tracking', 'employee_image', record.id.raw_value)" width="24" height="24" class="oe_kanban_image"/>
+                            </div>
+                        </div>
+                            
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+        
+        <!-- kanban -->
+        
+        <record id="data_tracking_employees_action" model="ir.actions.act_window">
+            <field name="name">Employees Data Tracking</field>
+            <field name="res_model">data.tracking</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">There is no data tracking
+                </p>
+            </field>
+        </record>
+        <!-- data tracking ir actions -->
+
+        <!-- end employees -->
+        
+         <menuitem id="data_tracking_tracking_employees" 
+        parent="data_tracking_consumptions" 
+        name="Employees"
+        action="data_tracking_employees_action" 
+        groups="hr.group_hr_manager,base.group_system,base.group_erp_manager"
+        />
+
+        
+    </data>
+</odoo>

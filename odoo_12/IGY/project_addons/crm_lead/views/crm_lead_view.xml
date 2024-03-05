@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="crm_case_form_view_oppor2" model="ir.ui.view">
+      <field name="name">Opportunities</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+      <field name="arch" type="xml">
+        
+        <xpath expr="//field[@name='next_send_date']" position="after">
+          <label for="motivation" />
+          <div>
+            <field name="date_changed" invisible="1" force_save="1" />
+            <field name="motivation" placeholder="Motif modification"/>
+          </div>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="crm_case_tree_view_oppor2" model="ir.ui.view">
+      <field name="name">Opportunities</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='country_id']" position="after">
+          <field name="next_send_date"/>
+        </xpath>
+        <xpath expr="//tree" position="attributes">
+          <attribute name="decoration-danger">next_send_date and (next_send_date &lt; current_date)</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

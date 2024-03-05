@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <template id="asserts_backend" name="js assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/ingenosya_meeting/static/src/js/timezone.js" />
+            </xpath>
+        </template>
+        <record id="box_reservation_view_calendar" model="ir.ui.view">
+            <field name="name">box.reservation.calendar</field>
+            <field name="model">box.reservation</field>
+            <field name="arch" type="xml">
+                <calendar string="Réserver une box internet"
+                          date_start="time_start" date_stop="time_finished"
+                          mode="day" quick_add="False" color="box_material_id">
+                    <field name="display_name" modifiers="{'readonly': true}"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="box_reservation_view_form" model="ir.ui.view">
+            <field name="name">box.reservation.form</field>
+            <field name="model">box.reservation</field>
+            <field name="arch" type="xml">
+                <form string="Réserver une box internet">
+                    <sheet>
+                        <group>
+                            <group string="Réserver une box internet  ">
+                                <field name="name" options="{'no_open': True, 'no_create': True}" string="Responsable"/>
+                                <field name="box_material_id" options="{'no_open': True, 'no_create': True}" string="Box internet"/>
+                            </group>
+                            <group string="Horaire">
+                                <field name="timezone_local" string="Fuseau horaire" widget="timezone_widget"/>
+                                <field name="time_start" string="Début"/>
+                                <field name="time_finished" string="Fin"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description" string="Déscription"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="box_reservation_view_tree" model="ir.ui.view">
+            <field name="name">box.reservation.tree</field>
+            <field name="model">box.reservation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Responsable"/>
+                    <field name="box_material_id" string="Box internet"/>
+                    <field name="time_start" string="Début"/>
+                    <field name="time_finished" string="Fin"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

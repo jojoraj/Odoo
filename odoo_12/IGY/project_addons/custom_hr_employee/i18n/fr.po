@@ -1,0 +1,595 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* custom_hr_employee
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-06 12:24+0000\n"
+"PO-Revision-Date: 2021-09-06 12:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "<span class=\"o_stat_text\">Attendance</span>"
+msgstr "<span class=\"o_stat_text\">Présence</span>"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "<span style=\"border-bottom: 1px solid\">Date fin du mois:</span>"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "<span style=\"border-bottom: 1px solid\">Facture mois de:</span>"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "<span style=\"border-bottom: 1px solid\">Telephone:</span>"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "<span style=\"border-bottom: 1px solid; margin-right: 16px\">Numéro:</span>"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "<span style=\"border-bottom: 1px solid; margin-right: 41px\">Nom:</span>"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "<span>Arrete a la somme de: </span>"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__address_emp
+msgid "Address"
+msgstr "Adresse"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__cin_at
+msgid "At"
+msgstr "À"
+
+#. module: custom_hr_employee
+#: model:ir.model,name:custom_hr_employee.model_hr_attendance
+msgid "Attendance"
+msgstr "Présence"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Available"
+msgstr "Disponible"
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:22
+#: selection:hr.employee,level_study:0
+#, python-format
+msgid "BACC"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:23
+#: selection:hr.employee,level_study:0
+#, python-format
+msgid "BACC+1"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:24
+#: selection:hr.employee,level_study:0
+#, python-format
+msgid "BACC+2"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:25
+#: selection:hr.employee,level_study:0
+#, python-format
+msgid "BACC+3"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:26
+#: selection:hr.employee,level_study:0
+#, python-format
+msgid "BACC+4"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:27
+#: selection:hr.employee,level_study:0
+#, python-format
+msgid "BACC+5"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:31
+#: selection:hr.employee,last_diploma:0
+#, python-format
+msgid "BACCALAUREAT"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__children_lines
+msgid "Children"
+msgstr "Enfants"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__child_id
+msgid "Children ID"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Children's information"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__computer_freight
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__computer_freight
+msgid "Computer freight"
+msgstr "Debours"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__create_uid
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__create_date
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:36
+#: selection:hr.employee,last_diploma:0
+#, python-format
+msgid "DOCTORAT"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:33
+#: selection:hr.employee,last_diploma:0
+#, python-format
+msgid "DTS"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__date_cin
+msgid "Date"
+msgstr "Date "
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__child_birthday
+msgid "Date of birth"
+msgstr "Date de naissance"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__date_payroll
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__date_payroll
+msgid "Date payroll"
+msgstr "Date de paie"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__display_name
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "Désignation"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model,name:custom_hr_employee.model_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__employee_id
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.view_igy_payroll_form
+msgid "Employee"
+msgstr "Employé"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Employee Family"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.view_igy_payroll_form
+msgid "Employee Information"
+msgstr "Information sur l'employée"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.custom_tree_attendance
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.hr_attendance_custom
+msgid "Employee attendances"
+msgstr "Pointages des employés"
+
+#. module: custom_hr_employee
+#: selection:hr.employee.lines,child_gender:0
+msgid "Feminin"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__first_name
+msgid "First Name"
+msgstr "Prénom"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__formation
+msgid "Formation"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.view_igy_payroll_form
+msgid "Freight"
+msgstr "Frais"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__child_gender
+msgid "Gender"
+msgstr "Genre"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "General Information"
+msgstr "Information Générale"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_attendance__has_edit_right
+msgid "Has Edit Right"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__has_manager_role
+msgid "Has Manager Role"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.custom_tree_attendance
+msgid "Heures total"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__name_husband
+msgid "Husband/Wife's name"
+msgstr "Nom du conjoint/ de la conjointe"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__id
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__id
+msgid "ID"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__isi
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__isi
+msgid "ISI"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__isi_deduction
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__isi_deduction
+msgid "ISI deduction"
+msgstr "Frais ISI"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__invoice_number
+msgid "Invoice Number"
+msgstr "Numéro de facture"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__is_payroll_manager
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__is_payroll_manager
+msgid "Is Payroll Manager"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__is_user
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__is_user
+msgid "Is User"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:32
+#: selection:hr.employee,last_diploma:0
+#, python-format
+msgid "LICENCE"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__last_day_month
+msgid "Last Day Month"
+msgstr "Dernier jour du mois"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines____last_update
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__write_uid
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__write_date
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__last_day_month
+msgid "Last day of month"
+msgstr "Dernier jour du mois"
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:37
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__last_diploma
+#, python-format
+msgid "Last diploma"
+msgstr "Dernier diplôme obtenue"
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:28
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__level_study
+#, python-format
+msgid "Level of study"
+msgstr "Degrée d'études"
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:34
+#: selection:hr.employee,last_diploma:0
+#, python-format
+msgid "MAITRISE"
+msgstr ""
+
+#. module: custom_hr_employee
+#: code:addons/custom_hr_employee/models/hr_employee.py:35
+#: selection:hr.employee,last_diploma:0
+#, python-format
+msgid "MASTER"
+msgstr ""
+
+#. module: custom_hr_employee
+#: selection:hr.employee.lines,child_gender:0
+msgid "Masculin"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__matricule
+msgid "Matricule"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "Matériel"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__month
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__month
+msgid "Month"
+msgstr "Mois"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.view_igy_payroll_form
+msgid "Month information"
+msgstr "Informations du mois"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_attendance__delay
+msgid "Motif de retard"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__name_emp
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__child_name
+msgid "Name"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.view_igy_payroll_form
+msgid "Net Salary"
+msgstr "Salaire net"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__net_salary
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__net_salary
+msgid "Net salary"
+msgstr "Salaire net"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Not available"
+msgstr "Pas disponible"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__child_number
+msgid "Number of child"
+msgstr "Nombre d'enfants"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__ostie_card
+msgid "N° ostie card"
+msgstr "N° Carte Ostie"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__pin
+msgid "PIN"
+msgstr "Code"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,help:custom_hr_employee.field_hr_employee__pin
+msgid "PIN used to Check In/Out in Kiosk Mode (if enabled in Configuration)."
+msgstr "Code PIN utilisé pour le pointage à l'entrée/à la sortie en mode kiosque (si cette option est activée dans Configuration)."
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__payroll_numbers
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: custom_hr_employee
+#: model:ir.actions.act_window,name:custom_hr_employee.action_igy_payroll_view
+msgid "Payroll"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:res.groups,name:custom_hr_employee.igy_payroll_manager
+msgid "Payroll Manager"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Payrolls"
+msgstr "Factures"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__mobile_phone
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Pin"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee_lines__place_birthday
+msgid "Place of birth"
+msgstr "Lieu de naissance"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "Prestation"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.actions.report,name:custom_hr_employee.employee_payment_report
+msgid "Print month salary"
+msgstr "Salaire du mois"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "Prix Unitaire"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__project_ids
+msgid "Projects"
+msgstr "Projets"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "Quantité"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+msgid "Retenue ISI"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__total_salary_letter
+msgid "Salary letter"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "School/Institute"
+msgstr "Ecole/Institue"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__show_presence
+msgid "Show Presence"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__skype_id
+msgid "Skype ID"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_attendance__leaving
+msgid "Sortie en avance"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__speciality
+msgid "Speciality"
+msgstr "Spécialité"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__timesheet_cost_float
+msgid "Timesheet Cost Float"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__timesheet_cost
+msgid "Timesheet cost"
+msgstr "Cout de la feuille de temps(Ar/jour)"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.igy_report_salary
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.view_igy_payroll_form
+msgid "Total"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__total_salary
+msgid "Total Salary"
+msgstr "Salaire total"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__total_salary_letter
+msgid "Total Salary Letter"
+msgstr "Salaire total en lettre"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__total_salary
+msgid "Total salary"
+msgstr "Salaire total"
+
+#. module: custom_hr_employee
+#: model_terms:ir.ui.view,arch_db:custom_hr_employee.form_employee
+msgid "Votre code PIN"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_igy_payroll__work_day
+msgid "Work day"
+msgstr "Jours travaillés"
+
+#. module: custom_hr_employee
+#: model:ir.model.fields,field_description:custom_hr_employee.field_hr_employee__work_day
+msgid "Working days"
+msgstr "Nombre de jours de travail"
+
+#. module: custom_hr_employee
+#: model:ir.model,name:custom_hr_employee.model_hr_employee_lines
+msgid "hr.employee.lines"
+msgstr ""
+
+#. module: custom_hr_employee
+#: model:ir.model,name:custom_hr_employee.model_igy_payroll
+msgid "igy.payroll"
+msgstr ""
+

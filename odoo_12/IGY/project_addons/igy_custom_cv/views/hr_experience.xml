@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="hr_experience_form_view" model="ir.ui.view">
+			<field name="name">hr_experience.form</field>
+			<field name="model">hr.experience</field>
+			<field name="arch" type="xml">
+				<form string="Expériences">
+					<sheet>
+						<group>
+							<group>
+								<field name="period" placeholder="ex:2015 - 2016"/>
+								<field name="project" invisible="1" required="0"/>
+								<field name="post" placeholder="ex: APPLICATIONS  DEVELOPER)"/>
+								<field name="company" placeholder="Nom de la société"/>
+							</group>
+							<field name="description"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+	</data>
+</odoo>

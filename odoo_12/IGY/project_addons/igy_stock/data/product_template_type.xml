@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="portable_product_type" model="product.template.type">
+            <field name="name">Portable</field>
+        </record>
+        <record id="uc_product_type" model="product.template.type">
+           <field name="name">UC</field>
+        </record>
+        <record id="screen_product_type" model="product.template.type">
+           <field name="name">Ecran</field>
+        </record>
+        <record id="phone_product_type" model="product.template.type">
+           <field name="name">Téléphone</field>
+        </record>
+        <record id="video_projector_product_type" model="product.template.type">
+           <field name="name">Vidéo projecteur</field>
+        </record>
+        <record id="modem_product_type" model="product.template.type">
+           <field name="name">Modem</field>
+        </record>
+
+
+    </data>
+</odoo>

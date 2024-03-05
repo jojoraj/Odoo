@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        utm medium data -->
+        <record model="utm.medium" id="utm_medium_on_demand">
+            <field name="name">A demander</field>
+        </record>
+
+        <!--        utm source data-->
+        <record model="utm.source" id="utm_source_on_demand">
+            <field name="name">A demander</field>
+        </record>
+
+    </data>
+</odoo>

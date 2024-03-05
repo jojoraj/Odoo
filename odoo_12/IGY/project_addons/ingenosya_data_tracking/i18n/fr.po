@@ -1,0 +1,456 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* ingenosya_data_tracking
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-22 09:09+0000\n"
+"PO-Revision-Date: 2020-10-22 09:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree_kanban
+msgid "(mo)"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_form
+msgid "Add a data rate"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Archive"
+msgstr "Archiver"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__average_base
+msgid "Average base"
+msgstr "Moyenne de base"
+
+#. module: ingenosya_data_tracking
+#: code:addons/ingenosya_data_tracking/models/data_tracking.py:92
+#, python-format
+msgid "Average base cannot be equal to 0"
+msgstr "La moyenne de base ne peut pas être égale à 0 "
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__weekly_cons
+msgid "Average daily consumption (mo)"
+msgstr "Consommation moyenne journalière (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__weekly_data_mean
+msgid "Average weekly consumption (mo)"
+msgstr "Consommation hebdomadaire moyenne (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__note
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__note
+msgid "Comment"
+msgstr "Commentaires"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__company_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__company_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__company_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: ingenosya_data_tracking
+#: model:ir.ui.menu,name:ingenosya_data_tracking.data_tracking_consumptions
+msgid "Consumptions"
+msgstr "Consommations"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__create_uid
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__create_uid
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__create_uid
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__create_date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__create_date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__create_date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__data_tracking_credit_ids
+msgid "Credit"
+msgstr "Crédit"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Credits"
+msgstr "Crédits"
+
+#. module: ingenosya_data_tracking
+#: selection:data.tracking.rate,type_validity:0
+msgid "Cumulative"
+msgstr "Cumulatif"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__currency_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__currency_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__currency_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Daily Consumption (mo)"
+msgstr "Consommation journalière (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__daily_cons
+msgid "Daily consumption"
+msgstr "Consommation journalière"
+
+#. module: ingenosya_data_tracking
+#: model:ir.ui.menu,name:ingenosya_data_tracking.data_tracking_main_menu
+msgid "Data"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__data
+msgid "Data (mo)"
+msgstr "Données (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__data_tracking_id
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Data Tracking"
+msgstr "Suivi des données"
+
+#. module: ingenosya_data_tracking
+#: code:addons/ingenosya_data_tracking/models/data_tracking.py:119
+#, python-format
+msgid "Data Tracking of"
+msgstr "Suivi de données de "
+
+#. module: ingenosya_data_tracking
+#: code:addons/ingenosya_data_tracking/models/data_tracking.py:101
+#, python-format
+msgid "Data Tracking of "
+msgstr "Suivi de données de "
+
+#. module: ingenosya_data_tracking
+#: model:ir.actions.act_window,name:ingenosya_data_tracking.data_rate_action
+#: model:ir.ui.menu,name:ingenosya_data_tracking.data_tracking_rate_menu
+msgid "Data Types"
+msgstr "Types de données"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__rate_id
+msgid "Data rate"
+msgstr "Débit de données"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__data_to_buy
+msgid "Data to buy (mo)"
+msgstr "Données à acheter (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__data_to_predict
+msgid "Data to predict (mo)"
+msgstr "Données à prévoir (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__data_tracking_id
+msgid "Data tracking"
+msgstr "Suivi des données"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__date
+msgid "Date"
+msgstr "Date "
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__data_tracking_debit_ids
+msgid "Debit"
+msgstr "Débit"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Debits"
+msgstr "Débits"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__display_name
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__display_name
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__display_name
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__employee_id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__employee_id
+msgid "Employee"
+msgstr "Employé"
+
+#. module: ingenosya_data_tracking
+#: code:addons/ingenosya_data_tracking/models/data_tracking.py:86
+#, python-format
+msgid "Employee already have data tracking"
+msgstr "L'employé dispose déjà d'un suivi des données"
+
+#. module: ingenosya_data_tracking
+#: model:ir.ui.menu,name:ingenosya_data_tracking.data_tracking_tracking_employees
+msgid "Employees"
+msgstr "Employés"
+
+#. module: ingenosya_data_tracking
+#: model:ir.actions.act_window,name:ingenosya_data_tracking.data_tracking_employees_action
+msgid "Employees Data Tracking"
+msgstr "Suivi des données des employés"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__has_manager_group
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__has_manager_group
+msgid "Has Manager Group"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__id
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__id
+msgid "ID"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__employee_image
+msgid "Image"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.ui.menu,name:ingenosya_data_tracking.data_tracking_tracking_individual
+msgid "Individual"
+msgstr "Individuel"
+
+#. module: ingenosya_data_tracking
+#: model:ir.actions.act_window,name:ingenosya_data_tracking.data_tracking_action_individual
+msgid "Individuals Data Tracking"
+msgstr "Suivi des données individuelles"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_form
+msgid "Informations"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking____last_update
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit____last_update
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit____last_update
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__write_uid
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__write_uid
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__write_uid
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__write_date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__write_date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__write_date
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree
+msgid "List of data rate"
+msgstr "Liste des débits de données"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_tree_kanban
+msgid "Mo"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__name
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: ingenosya_data_tracking
+#: selection:data.tracking.rate,type_validity:0
+msgid "New"
+msgstr "Nouveau"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_form
+msgid "Parameters"
+msgstr "Paramètres"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__amount
+msgid "Price"
+msgstr "Prix"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree_kanban
+msgid "Price of data:"
+msgstr "Prix des données"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__project_ids
+msgid "Projects"
+msgstr "Projets"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__rate_validity
+msgid "Rate validity"
+msgstr "Validité du tarif"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_tree_kanban
+msgid "Rate validity:"
+msgstr "Validité du tarif:"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_credit__recharge
+msgid "Recharge"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Recharge (mo)"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_form
+msgid "Remaining Data (mo)"
+msgstr "Data restants (mo)"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_debit__remaining_data
+msgid "Remaining data"
+msgstr "Data restants"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__remaining_data
+msgid "Remaining data (mo)"
+msgstr "Données restants (mo)"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_tracking_tree_kanban
+msgid "Remaining data:"
+msgstr "Données restants"
+
+#. module: ingenosya_data_tracking
+#: model:ir.ui.menu,name:ingenosya_data_tracking.data_tracking_setting
+msgid "Setting"
+msgstr "Paramètres"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,help:ingenosya_data_tracking.field_data_tracking__employee_image
+msgid "Small-sized photo of the employee. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Photo de l'employé. Elle est automatiquement redimensionnée comme une image 64x64px, le ratio est préservé. Ce champ est utilisé lorsqu'une petite image est nécessaire."
+
+#. module: ingenosya_data_tracking
+#: code:addons/ingenosya_data_tracking/models/data_tracking_debit.py:42
+#, python-format
+msgid "The date cannot be a Saturday or Sunday"
+msgstr "La date entrée ne peut pas être un Samedi ou Dimanche"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.actions.act_window,help:ingenosya_data_tracking.data_tracking_employees_action
+msgid "There is no data tracking"
+msgstr "Le suivi des données est vide"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__type_validity
+msgid "Type Validity"
+msgstr "Type de validitée"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree_kanban
+msgid "Type of validity:"
+msgstr "Type de validité:"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking__user_id
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model.fields,field_description:ingenosya_data_tracking.field_data_tracking_rate__data_validity
+msgid "Validity (days)"
+msgstr "Validité (Jours)"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree_kanban
+msgid "Validity of data:"
+msgstr "Validité des données:"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree_kanban
+msgid "Value of data:"
+msgstr "Valeur des données"
+
+#. module: ingenosya_data_tracking
+#: sql_constraint:data.tracking.debit:0
+msgid "You have already entered this date"
+msgstr "Vous avez deja entree cette date"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.actions.act_window,help:ingenosya_data_tracking.data_tracking_action_individual
+msgid "You have no data tracking"
+msgstr "Vous n'avez pas encore de suivi de données"
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.actions.act_window,help:ingenosya_data_tracking.data_rate_action
+msgid "Your data setting are empty"
+msgstr "Vos paramètres de données sont vides"
+
+#. module: ingenosya_data_tracking
+#: model:ir.model,name:ingenosya_data_tracking.model_data_tracking
+msgid "data.tracking"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model,name:ingenosya_data_tracking.model_data_tracking_credit
+msgid "data.tracking.credit"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model,name:ingenosya_data_tracking.model_data_tracking_debit
+msgid "data.tracking.debit"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model:ir.model,name:ingenosya_data_tracking.model_data_tracking_rate
+msgid "data.tracking.rate"
+msgstr ""
+
+#. module: ingenosya_data_tracking
+#: model_terms:ir.ui.view,arch_db:ingenosya_data_tracking.data_rate_tree_kanban
+msgid "days"
+msgstr "jours"
+

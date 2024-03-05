@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_igy_payroll_tree" model="ir.ui.view">
+            <field name="name">view.igy.payroll.tree</field>
+            <field name="model">igy.payroll</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="employee_id"/>
+                    <field name="month" />
+                    <field name="last_day_month" />
+                    <field name="timesheet_cost" />
+                    <field name="work_day" />
+                    <field name="net_salary" />
+                    <field name="computer_freight" />
+                    <field name="isi_deduction" />
+                    <field name="total_salary" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_igy_payroll_form" model="ir.ui.view">
+            <field name="name">view.igy.payroll.form</field>
+            <field name="model">igy.payroll</field>
+            <field name="arch" type="xml">
+                <form string="Employee" duplicate="0">
+                    <header>
+                        <field name="status" widget="statusbar" nolabel="1" statusbar_visible="nouveau,envoye" />
+                        <button name="action_send_mail_facture" type="object" string="Envoyer par mail" class="oe_highlight" attrs="{'invisible': [('status', '=', 'envoye')]}" />
+                    </header>
+                    <sheet>
+                        <group col="2">
+                            <group string="Employee Information" >
+                                <field name="is_payroll_manager" invisible="1" />
+                                <field name="is_user" invisible="1" />
+                                <field name="employee_id" attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" required="1" />
+                                <field name="address" />
+                                <field name="niff" readonly="0" />
+                                <field name="stat" readonly="0" />
+                                <field name="payment_type" attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="mobile_phone"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="invoice_number" attrs="{'readonly': [('is_payroll_manager', '=', False),('is_user', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" readonly="0" />
+                            </group>
+                            <group string="Month information">
+                                <field name="date_payroll" attrs="{'readonly': [('is_payroll_manager', '=', False), ('is_user', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" required="1" />
+                                <field name="month"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="last_day_month" force_save="1" />
+                            </group>
+                        </group>
+                        <group col="3">
+                            <group string="Net Salary">
+                                <field name="projects" widget="many2many_tags" options="{'no_create': True}" attrs="{'readonly': [('is_payroll_manager', '=', False),('is_user', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" required="1" />
+                                <field name="timesheet_cost"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="net_salary_without" invisible="1" />
+                                <field name="work_day"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="has_extra_hour" invisible="1" />
+<!--                                <field name="extra_hour" attrs="{'invisible': [('has_extra_hour', '=', False)]}" />-->
+                                  <field name="extra_hour"  attrs="{'invisible': [('has_extra_hour', '=', False)]}"  />
+                                <field name="extra_hour_unit"  attrs="{'invisible': [('has_extra_hour', '=', False)]}" />
+                                <field name="total_extra_hour"  attrs="{'invisible': [('has_extra_hour', '=', False)]}" />
+                                <field name="net_salary" attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="isi" invisible="1"  />
+                            </group>
+                            <group string="Freight" >
+                                <field name="isi_deduction" attrs="{'invisible': [('isi', '=', 'zero_percent')]}" />
+                                <field name="computer_freight"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                                <field name="advance"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}"  />
+                                <field name="other_payment"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}"  />
+                            </group>
+                            <group string="Total">
+                                <field name="total_salary"  attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}"/>
+                                <field name="total_salary_letter" readonly="1" attrs="{'readonly': [('is_payroll_manager', '=', False)], 'invisible': [('is_user', '=', False),('is_payroll_manager', '=', False)]}" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_igy_payroll_view" model="ir.actions.act_window">
+            <field name="name">Payroll</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">igy.payroll</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+              </p><p>
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

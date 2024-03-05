@@ -1,0 +1,84 @@
+<odoo>
+  <data>
+
+    <!--Inherit-->
+    <record id="employee_inherit" model="ir.ui.view">
+      <field name="name">igy.subskill.inherit</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr_skill.view_employee_skill_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='employee_skill_ids']/tree/field[@name='skill_id']" 
+                  position="after">
+            <field name="igy_skill_ids" string="Sous compétences" widget="many2many_tags"/>
+          </xpath>
+      </field>
+
+    </record>
+    <record id="view_skill_search_search" model="ir.ui.view">
+         <field name="name">view.sub.skill.search</field>
+         <field name="model">hr.employee</field>
+          <field name="inherit_id" ref="hr.view_employee_filter" />
+          <field name="arch" type="xml">
+             <xpath expr="//field[@name='job_id']" position="after">
+                 <field name="sub_skill_ids" string=" Compétences et  Sous compétences" filter_domain="['|',('sub_skill_ids','ilike',self),('competence_skill_ids','ilike',self)  ]"  />
+                 <!-- ,('competence_skill_ids','like',self) -->
+             </xpath>
+         </field>
+      </record>
+
+    <!-- explicit list view definition -->
+    
+    <!-- <record model="ir.ui.view" id="igy_badge.list">
+      <field name="name">igy_badge list</field>
+      <field name="model">igy.badge</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+        </tree>
+      </field>
+    </record> -->
+   
+
+    <!-- actions opening views on models -->
+    
+    <!-- <record model="ir.actions.act_window" id="igy_badge.action_window">
+      <field name="name">igy_badge window</field>
+      <field name="res_model">igy.badge</field>
+      <field name="view_mode">tree,form</field>
+    </record> -->
+   
+
+    <!-- server action to the one above -->
+    
+    <!-- <record model="ir.actions.server" id="igy_badge.action_server">
+      <field name="name">igy_badge server</field>
+      <field name="model_id" ref="model_igy_badge"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record> -->
+   
+
+    <!-- Top menu item -->
+    
+    <!-- <menuitem name="igy_badge" id="igy_badge.menu_root"/> -->
+   
+    <!-- menu categories -->
+    
+    <!-- <menuitem name="Menu 1" id="igy_badge.menu_1" parent="igy_badge.menu_root"/>
+    <menuitem name="Menu 2" id="igy_badge.menu_2" parent="igy_badge.menu_root"/>
+    -->
+    <!-- actions -->
+    
+    <!-- <menuitem name="List" id="igy_badge.menu_1_list" parent="igy_badge.menu_1"
+              action="igy_badge.action_window"/>
+    <menuitem name="Server to list" id="igy_badge" parent="igy_badge.menu_2"
+              action="igy_badge.action_server"/> -->
+   
+  </data>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-extend="DocumentViewer.Content" >
+        <t t-jquery=".o_viewer_toolbar" t-operation="after">
+            <script src="/igy_document_inherit/static/src/js/removeDownload.js" />
+        </t>
+    </t>
+
+</templates>

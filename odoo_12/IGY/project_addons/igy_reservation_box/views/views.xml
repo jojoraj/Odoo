@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="ingenosya_box_material_action" model="ir.actions.act_window">
+            <field name="name">Salle de réunion</field>
+            <field name="res_model">box.material</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Vous n'avez pas de box internet.
+                </p>
+            </field>
+        </record>
+
+        <record id="ingenosya_box_reservation_action" model="ir.actions.act_window">
+            <field name="name">Réservation</field>
+            <field name="res_model">box.reservation</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Il n'y a pas encore de réservation.
+                </p>
+            </field>
+        </record>
+        <record id="box_timezone_act_window" model="ir.actions.act_window">
+            <field name="name">Fuseau horaire</field>
+            <field name="res_model">box.timezone</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Sélectionnez votre fuseau horaire.
+                </p>
+            </field>
+        </record>
+        <menuitem
+                id="ingenosya_meeting_reservation_menu"
+                name="Réservation"
+                action="ingenosya_box_reservation_action"
+                parent="ingenosya_box_main_menu"
+                sequence="10"
+        />
+        <menuitem
+                id="ingenosya_box_configuration"
+                name="Configuration"
+                parent="ingenosya_box_main_menu"
+                sequence="100"
+        />
+        <menuitem id="ingenosya_box_timezone_menu"
+                  name="Fuseau horaire"
+                  parent="ingenosya_box_configuration"
+                  action="box_timezone_act_window"/>
+
+        <menuitem
+                id="ingenosya_box_main_menu"
+                name="Box internet"
+                web_icon="igy_reservation_box,static/description/icon.png"
+        />
+        <menuitem
+                id="ingenosya_box_material_menu"
+                name="Box internet"
+                action="ingenosya_box_material_action"
+                parent="ingenosya_box_configuration"
+                sequence="10"
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_igy_purchase_form" model="ir.ui.view">
+        <field name="name">view.custom.igy.purchase.form</field>
+        <field name="model">purchase.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="replace">
+                <field name="state" widget="statusbar" statusbar_visible="raison,draft,to approve,sent,purchase,livraison,recu,termine" readonly="1"/>
+            </xpath>
+            <xpath expr="//sheet/group/group[2]" position="before">
+                <group>
+                    <field name="request_id" options="{'no_create': True}"/>
+                    <field name="recepient_id" attrs="{'invisible' : 1}"/>
+                    <field name="char_recepient_ids" attrs="{'invisible' : 1}"/>
+                    <field name="recepient_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                </group>
+            </xpath> 
+            <xpath expr="//sheet/div[2]" position="replace">
+                <div class="oe_title">
+                    <span class="o_form_label" invisible="True"></span>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                </div>
+            </xpath> 
+            <xpath expr="//sheet/group/group[1]" position="attributes">
+                <attribute name="attrs">{'invisible': [('state','=','raison')]}</attribute>
+            </xpath>  
+            <xpath expr="//sheet/group/group/field[@name='date_order']" position="attributes">
+                <attribute name="string">Date de la demande</attribute>
+                <attribute name="readonly">True</attribute>
+            </xpath>           
+            <xpath expr="//sheet/group/group/field[@name='partner_ref']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state','=','raison')]}</attribute>
+            </xpath> 
+            <xpath expr="//notebook/page[1]" position="attributes">
+                <attribute name="attrs">{'invisible': [('state','=','raison')]}</attribute>
+            </xpath>    
+            <xpath expr="//notebook/page[@name='purchase_delivery_invoice']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state','=','raison')]}</attribute>
+            </xpath> 
+            <xpath expr="//notebook/page[1]/field[@name='order_line']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ('done','purchase','livraison','recu','termine'))]}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='purchase_delivery_invoice']" position="before">
+                <page string="Raison de la demande" name="raison_demande_rh">
+                    <group>
+                        <field name="raison_rh" widget="html" nolabel="1" />
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='button_approve']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_draft']" position="after">
+                <button name="button_raison" string="Créer la demande" class="oe_highlight" attrs="{'invisible': [('state','!=','raison')]}" type="object" groups="igy_custom_purchase.group_purchase_first"/> 
+                <button name="button_approve" string="Approuver la demande" class="oe_highlight" attrs="{'invisible': [('state','!=','to approve')]}" type="object" groups="igy_custom_purchase.group_purchase_appouver"/> 
+                <button name="button_livraison" string="Achat payé" class="oe_highlight" attrs="{'invisible': [('state','!=','purchase')]}" type="object" groups="igy_custom_purchase.group_purchase_signe_cheque"/> 
+                <button name="button_recu" class="oe_highlight" string="Livrer la commande" attrs="{'invisible': [('state','!=','livraison')]}" type="object" groups="igy_custom_purchase.group_purchase_livraison"/> 
+                <button name="button_finish" class="oe_highlight"   string="Terminer la commande" attrs="{'invisible': [('state','!=','recu')]}" type="object" groups="igy_custom_purchase.group_purchase_terminer"/> 
+            </xpath> 
+            <xpath expr="//button[@name='button_cancel']" position="attributes">
+                <attribute name="states">raison,draft,to approve,purchase,livraison,recu,termine</attribute>
+                <attribute name='groups'>igy_custom_purchase.group_cancel_purchase</attribute>
+            </xpath>  
+            <xpath expr="//button[@name='button_confirm']" position="attributes">
+                <attribute name="groups">igy_custom_purchase.group_purchase_second</attribute>  
+            </xpath>    
+            <xpath expr="//button[@name='button_done']" position="attributes">
+                <attribute name="states">to approve,purchase,livraison,recu,termine</attribute>
+            </xpath> 
+            <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                <attribute name="groups">igy_custom_purchase.group_purchase_second</attribute>
+                <attribute name="class">oe_highlight</attribute>
+            </xpath>
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="after">
+                <page string="Livraison" groups="purchase.group_purchase_manager">
+                    <group>
+                        <field name="picking_type_id" attrs="{'readonly': ['|', ('invoice_status','=', 'invoiced'), ('state', '=', 'done')]}"  widget="selection" domain="[('code','=', 'incoming' )]" required="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>    
+    </record>
+
+</odoo>

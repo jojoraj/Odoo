@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+<!--       <function name="update_user_groups" model="res.groups" />-->
+    </data>
+</odoo>

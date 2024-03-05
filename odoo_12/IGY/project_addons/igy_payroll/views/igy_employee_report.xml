@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="igy_report_salary">
+            <t t-call="web.basic_layout">
+                <div>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                            <div class="oe_structure">
+
+                        <!--  Main header                -->
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <span style="border-bottom: 1px solid; margin-right: 41px">Nom:</span>
+                                            <span t-field="doc.employee_id" />
+                                        </div>
+                                        <div t-if="doc.address">
+                                            <span style="border-bottom: 1px solid; margin-right: 10px;">Addresse:</span>
+                                            <span t-field="doc.address" />
+                                        </div>
+                                         <div t-if="doc.niff">
+                                            <span style="border-bottom: 1px solid; margin-right: 55px;">Niff:</span>
+                                            <span t-field="doc.niff" />
+                                        </div>
+                                         <div t-if="doc.stat">
+                                            <span style="border-bottom: 1px solid; margin-right: 50px;">Stat:</span>
+                                            <span t-field="doc.stat" />
+                                        </div>
+                                        <div>
+                                            <span style="border-bottom: 1px solid">Telephone:</span>
+                                            <span t-field="doc.mobile_phone" />
+                                        </div>
+                                         <div>
+                                            <span style="border-bottom: 1px solid; margin-right: 45px">Doit:</span>
+                                            <span t-field="doc.payment_type" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                       <div>
+                                           <span style="border-bottom: 1px solid">Facture mois de:</span>
+                                           <span t-field="doc.month" />
+                                       </div>
+                                        <div>
+                                            <span style="border-bottom: 1px solid; margin-right: 55px">Numéro:</span>
+                                            <span t-field="doc.invoice_number" />
+                                        </div>
+                                         <div>
+                                           <span style="border-bottom: 1px solid">Date fin du mois:</span>
+                                           <span t-field="doc.last_day_month" />
+                                       </div>
+                                    </div>
+                                </div>
+    <!--                            Table content -->
+
+                                <table class="table table-bordered"  >
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left">Designation</th>
+                                            <th style="text-align: left">Quantité</th>
+                                            <th style="text-align: left">Prix Unitaire</th>
+                                            <th style="text-align: left">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="border: 1px solid">
+                                        <tr>
+                                            <td><span style="border-bottom: 1px solid;">Projets du mois: </span><span t-field="doc.projects" /></td>
+                                            <td><span t-field="doc.work_day" /></td>
+                                            <td><span t-field="doc.timesheet_cost"/></td>
+                                            <td><span t-field="doc.net_salary_without" /></td>
+                                        </tr>
+                                        <tr t-if="doc.extra_hour > 0">
+                                            <td>Temps suplementaire</td>
+                                            <td><span t-field="doc.extra_hour" /></td>
+                                            <td><span t-field="doc.extra_hour_unit" /></td>
+                                            <td><span t-field="doc.total_extra_hour" /></td>
+                                        </tr>
+
+                                        <tr t-if="doc.isi == 'five_percent'">
+                                            <td>Retenue ISI</td>
+                                            <td />
+                                            <td />
+                                            <td><span t-field="doc.isi_deduction"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matériel</td>
+                                            <td>1</td>
+                                            <td><span t-field="doc.computer_freight" /></td>
+                                            <td><span t-field="doc.computer_freight"  /></td>
+                                        </tr>
+                                        <tr t-if="doc.advance > 0">
+                                            <td>Avance</td>
+                                            <td>1</td>
+                                            <td><span t-field="doc.advance" /></td>
+                                            <td><span t-field="doc.advance"  /></td>
+                                        </tr>
+                                        <tr t-if="doc.other_payment > 0">
+                                            <td>Autres paiements</td>
+                                            <td>1</td>
+                                            <td><span t-field="doc.other_payment" /></td>
+                                            <td><span t-field="doc.other_payment"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td />
+                                            <td />
+                                            <td><span t-field="doc.total_salary"  /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+<!--                                Description under letter-->
+
+                                <div class="row" >
+                                    <div class="col-8">
+                                        <span>Arrete a la somme de: </span>
+                                        <span style="margin-right: 5px" t-field="doc.total_salary_letter" />
+                                    </div>
+                                    <div class="col-4" style="margin-top: 100px">
+                                        <span t-field="doc.employee_id.name" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <report
+            id="employee_payment_report"
+            model="igy.payroll"
+            report_type="qweb-pdf"
+            string="Print month salary"
+            menu="True"
+            name="igy_payroll.igy_report_salary"
+            file="igy_payroll.igy_report_salary"
+            print_report_name="'Facture %s du %s' %(object.employee_id.name,object.last_day_month)"
+        />
+    </data>
+</odoo>

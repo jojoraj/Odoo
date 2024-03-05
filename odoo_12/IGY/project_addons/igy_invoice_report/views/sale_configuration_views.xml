@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+       <menuitem
+               id="sale_payment_condition"
+               name="Condition de paiement"
+               parent="sale.menu_sale_config"
+               action="account.action_payment_term_form"
+               sequence="7"
+       />
+
+         <report
+            id="account.account_invoices_without_payment"
+            model="account.invoice"
+            menu="False"
+            string="Invoices without Payment"
+            report_type="qweb-pdf"
+            name="account.report_invoice"
+            file="account.report_invoice"
+            attachment="(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+        />
+
+        <report
+            id="account.account_invoices"
+            menu="False"
+            model="account.invoice"
+            string="Invoices"
+            report_type="qweb-pdf"
+            name="account.report_invoice_with_payments"
+            file="account.report_invoice_with_payments"
+            attachment="(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            groups="account.group_account_invoice"
+        />
+
+    </data>
+</odoo>

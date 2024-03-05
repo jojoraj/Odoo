@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="activity_1" model="res.partner.activity">
+           <field name="name">Développeur</field>
+           <field name="color">1</field>
+        </record>
+        <record id="activity_2" model="res.partner.activity">
+           <field name="name">Editeur</field>
+           <field name="color">2</field>
+        </record>
+        <record id="activity_3" model="res.partner.activity">
+           <field name="name">Installation matérielle</field>
+           <field name="color">3</field>
+        </record>
+        <record id="activity_4" model="res.partner.activity">
+           <field name="name">Intégrateur</field>
+           <field name="color">4</field>
+        </record>
+        <record id="activity_5" model="res.partner.activity">
+           <field name="name">Formation</field>
+           <field name="color">5</field>
+        </record>
+        <record id="activity_6" model="res.partner.activity">
+           <field name="name">Assistance</field>
+           <field name="color">6</field>
+        </record>
+        <record id="activity_7" model="res.partner.activity">
+           <field name="name">Agence Web</field>
+           <field name="color">7</field>
+       </record>
+
+    </data>
+</odoo>

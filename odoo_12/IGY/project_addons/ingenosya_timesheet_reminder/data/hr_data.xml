@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="dep_dir" model="hr.department">
+            <field name="name">Direction</field>
+        </record>
+
+        <record id="dep_admin_financ" model="hr.department">
+            <field name="name">Administration et Finance</field>
+        </record>
+    </data>
+</odoo>

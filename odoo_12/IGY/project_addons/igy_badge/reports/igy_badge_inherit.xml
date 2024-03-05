@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="igy_badge_inherit" inherit_id="hr_attendance.print_employee_badge">
+        <xpath expr="//div[@class='page']" position="replace">
+            <div class="page">
+                <t t-foreach="docs" t-as="employee">
+                    <div id="back" style="display:inline-block;border:1pt solid black; border-collapse:separate; border-radius:8pt;position: relative; height:101mm; width:81mm; padding-left:0.5mm; padding-top:1pt; margin: 5mm 5mm">
+                        <div id="identity" position="absolute" style="background-image: url('/igy_badge/static/image/Badge.png');background-size: 80mm 101mm; background-repeat:no-repeat">
+                            <div align="center">
+                                <img class="rounded-circle" t-if="employee.image" t-att-src="image_data_uri(employee.image)" style="height:34mm;width:34mm;margin-top:19mm;margin-bottom:4mm" alt="Employee Image"/>
+                            </div>
+                            <div style="font-size:12pt;margin-top:8pt;color:#ffffff;line-height:100%;margin-bottom:5mm;height:10mm; !important;margin-bottom:0" align="center">
+                                <p style="height:auto;padding-bottom:0;margin-bottom:0"><t t-esc="employee.name"/></p>
+                            </div>
+                            <div align="center" style="font-size:12pt;margin-top:0;margin-left:4px;width:96%; !important">
+                                <p class="text-dark bg-light" align="center" style="border-radius:5pt;margin-left:9pt;line-height:100%;width:100%;height:12mm;padding:4pt 8pt"> 
+                                    <t t-esc="employee.job_id.name" />
+                                </p>
+                            </div>
+                            <div align="center" style="width:99%;max-height:10mm;margin-left:1pt;padding-top:0;margin-top:5mm;bottom:0;postion:absolute">
+                                <img alt="barcode" t-if="employee.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', employee.barcode, 600, 80)" style="width:100%;max-height:10mm" align="center"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

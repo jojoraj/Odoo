@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="update_tags_lead_wizard_view" model="ir.ui.view">
+        <field name="name">Mise à jour multiple de l'étiquettes</field>
+        <field name="model">update.tag</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <h1>Veilliez choisir les nouveaux étiquettes</h1>
+                <group>
+                    <group>
+                        <field name="lead_ids" invisible="1" widget="many2many_tags"/>
+                        <field name="crm_lead_tag_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Appliquer" name="update_tag" type="object" class="btn-danger"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

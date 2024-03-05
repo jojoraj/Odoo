@@ -1,0 +1,197 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="faq_simple_tree">
+      <field name="name">faq_manager list</field>
+      <field name="model">faq.simple</field>
+      <field name="arch" type="xml">
+        <tree create="false" edit="false" duplicate="false">
+          <field name="question"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="faq_config_tree">
+      <field name="name">faq_manager list</field>
+      <field name="model">faq.simple</field>
+      <field name="arch" type="xml">
+        <tree create="true" edit="true" duplicate="true">
+          <field name="question"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="faq_simple_from">
+      <field name="name">faq_manager form</field>
+      <field name="model">faq.simple</field>
+      <field name="priority" eval="1"/>
+      <field name="arch" type="xml">
+        <form create="false" edit="false" duplicate="false">
+          <sheet>
+            <field name="active" invisible="1"/>
+            <strong>
+                <field name="question" style="
+                    border: 1px solid;
+                    padding: 5px;
+                    border-radius: 5px;
+                    width: 100%;
+                    background-color: #ecbbcd;"/>
+            </strong>
+            <br/>
+            <field name="response"/>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            <style>
+              .o_chatter_button_new_message {display: None;}
+            </style>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="faq_config_from">
+      <field name="name">faq_manager from</field>
+      <field name="model">faq.simple</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+        <form create="true" edit="true" duplicate="true">
+          <sheet>
+            <field name="active" invisible="1"/>
+              <group>
+                  <div class="row">
+                      <div  class="col-6" style="display: flex">
+                          <div>
+                              <label style="font-size: 1.625rem; min-width: 150px; font-weight: bolder;border-right: 1px solid #ddd" for="sequence">Sequence</label>
+                          </div>
+                          <div >
+                              <field name="sequence" style="font-size: 1.625rem;" />
+                          </div>
+                      </div>
+                      <div class="col-6" style="display: flex">
+                          <div>
+                              <label style="font-size: 1.625rem; min-width: 150px; font-weight: bolder;border-right: 1px solid #ddd" for="model_id">Modèles</label>
+                          </div>
+                          <div >
+                              <field name="model_id" style="font-size: 1.625rem;" />
+                          </div>
+                      </div>
+                  </div>
+
+              </group>
+              <group>
+                <field name="question" class="test"/>
+              </group>
+              <br/>
+              <field name="response"/>
+          </sheet>
+          <div class="oe_chatter">
+              <field name="message_follower_ids" widget="mail_followers"/>
+              <field name="message_ids" widget="mail_thread"/>
+          </div>
+          <style>
+              .o_chatter_button_new_message {display: None;}
+          </style>
+        </form>
+      </field>
+    </record>
+
+    <record id="faq_simple_kanban" model="ir.ui.view">
+        <field name="name">faq_manager kanban</field>
+        <field name="model">faq.simple</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" create="false" edit="false" duplicate="false">
+                <field name="question"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click" style="border-radius:18px; display:block;width: 100%">
+                             <div>
+                                 <strong>
+                                    <field name="question"/>
+                                 </strong>
+                             </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="faq_config_kanban" model="ir.ui.view">
+        <field name="name">faq_manager kanban</field>
+        <field name="model">faq.simple</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" create="true" edit="true" duplicate="true">
+                <field name="question"/>
+                <field name="sequence" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click" style="border-radius:18px; display:block;width: 100%">
+                             <div>
+                                 <strong>
+                                     <field name="sequence" />-
+                                     <field name="question"/>
+                                 </strong>
+                             </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_faq_simple_filter" model="ir.ui.view">
+        <field name="name">faq.search.filter</field>
+        <field name="model">faq.simple</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="question" string="Question"/>
+                <field name="response2" string="Reponse" filter_domain="[('response2','ilike',self)]"/>
+                <filter name="model_id" string="Modèle" context="{'group_by': 'model_id'}" />
+            </search>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="faq_simple_action">
+        <field name="name">FAQ</field>
+        <field name="res_model">faq.simple</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('faq_simple_kanban')}),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('faq_simple_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('faq_simple_from')})]"/>
+        <field name="search_view_id" ref="view_faq_simple_filter"/>
+        <field name="context">{'search_default_model_id': 1}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="faq_config_action">
+      <field name="name">Configuration</field>
+      <field name="res_model">faq.simple</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_type">form</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('faq_config_kanban')}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('faq_config_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('faq_config_from')})]"/>
+      <field name="search_view_id" ref="view_faq_simple_filter"/>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="menu_faq_root" name="FAQ"
+            groups="group_faq_user"
+            web_icon="faq_manager,static/description/icon.png"
+            sequence="76"/>
+    <!-- menu categories -->
+    <menuitem name="FAQ" id="faq_simple_menu_1" parent="menu_faq_root"/>
+    <menuitem name="Configuration" id="faq_manager_menu_config" parent="menu_faq_root" groups="group_faq_manager"/>
+    <!-- actions -->
+
+    <menuitem name="FAQ" id="faq_simple_menu_show" parent="faq_simple_menu_1" action="faq_simple_action"/>
+    <menuitem name="Configuration" id="faq_manager" parent="faq_manager_menu_config" action="faq_config_action"/>
+  </data>
+</odoo>

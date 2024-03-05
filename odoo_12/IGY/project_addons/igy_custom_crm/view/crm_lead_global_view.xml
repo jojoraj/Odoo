@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_dashboard_view_global" model="ir.ui.view">
+            <field name="name">crm.lead.view.dashboard.lead</field>
+            <field name="model">crm.lead</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <view type="graph" ref="igy_custom_crm.crm_lead_view_graph_global"/>
+                    <group>
+                        <group>
+							<aggregate
+								name="leads"
+								string="Total des CRM"
+								group_operator="count"
+								field="id"
+								measure="__count__"/>
+							<aggregate
+								name="total_mail_count"
+								string="Emails envoyés"
+								field="crm_mail_len"
+								group_operator="sum"
+								domain="[]"/>
+							<aggregate
+								name="received_answer"
+								string="Réponses reçues"
+								field="id"
+								domain="[('global_stage_id','in',[%(igy_custom_crm.global_commercial_qualif)d,%(igy_custom_crm.global_crm_unqalified)d])]"
+								group_operator="count"/>
+							<aggregate
+								name="lead_qualif"
+								string="Pistes qualifiées"
+								field="id"
+								domain="[('global_stage_id','in',[%(igy_custom_crm.global_commercial_qualif)d])]"
+								group_operator="count"/>
+							<aggregate
+								name="offer_sent"
+								string="Offres envoyées"
+								field="id"
+								domain="[('global_stage_id','in',[%(igy_custom_crm.global_offer_sent)d,%(igy_custom_crm.global_crm_won)d,%(igy_custom_crm.global_crm_lost)d])]"
+								group_operator="count"/>
+							<aggregate
+								name="offer_won"
+								string="Offres gagnées"
+								field="id"
+								domain="[('global_stage_id','in',[%(igy_custom_crm.global_offer_sent)d])]"
+								group_operator="count"
+								invisible="0"/>
+                        </group>
+                    </group>
+                    <view type="pivot" ref="igy_custom_crm.crm_lead_view_pivot_global"/>
+                    <view type="cohort" ref="igy_custom_crm.crm_lead_global_view_cohort"/>
+                </dashboard>
+            </field>
+		</record>
+
+		<record id="crm_lead_global_view_cohort" model="ir.ui.view">
+            <field name="name">crm.lead.view.cohort</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <cohort string="Opportunities" date_start="created_date" date_stop="date_closed" interval="week" mode="churn"/>
+            </field>
+        </record>
+
+        <record id="crm_lead_global_form" model="ir.ui.view">
+            <field name="name">crm.lead.form.global</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <form string="Opportunities" class="o_opportunity_form" create="0" import="0">
+					<header>
+						<field name="stage_id" widget="statusbar" invisible="1"/>
+						<field name="global_stage_id" widget="statusbar" invisible="0"/>
+						<field name="stage_two_id" widget="statusbar" invisible="1"/>
+						<field name="sub_state_proposal" invisible="1"/>
+					</header>
+					<style>
+						.container {
+						--d: 6px; /* folded part */
+						--c: blue; /* color */
+						--f: 16px; /* ribbon font-size */
+
+						}
+
+						.container::before {
+						content: attr(data-ribbon);
+						position: absolute;
+						font-size: var(--f);
+						top: 107px;
+						right: 15px;
+					    display: block;
+                        width: 215px;
+						transform: translate(29.29%, -100%) rotate(45deg);
+						color: #fff;
+						text-align: center;
+						border: 1px solid transparent;
+						border-bottom: 0;
+						transform-origin: bottom left;
+						padding: 5px 35px calc(var(--d) + 5px);
+						background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% var(--d)
+						no-repeat var(--c);
+						background-clip: padding-box;
+						clip-path: polygon(0 0,100% 0,100% 100%,calc(100% - var(--d)) calc(100% - var(--d)),var(--d)
+						calc(100% - var(--d)),0 100%);
+						-webkit-mask: linear-gradient(135deg,transparent calc(50% - var(--d) * 0.707),#fff 0) bottom
+						left,
+						linear-gradient(-135deg, transparent calc(50% - var(--d) * 0.707), #fff 0)bottom right;
+						-webkit-mask-size: 300vmax 300vmax;
+						-webkit-mask-composite: destination-in;
+						mask-composite: intersect;
+						}
+						.left::before {
+						left: 0;
+						right: auto;
+						transform: translate(-29.29%, -100%) rotate(-45deg);
+						transform-origin: bottom right;
+						}
+
+
+					</style>
+					<sheet>
+						<field name="active" invisible="1"/>
+						<div class="oe_button_box" name="button_box" style="width:225px;">
+							<button class="oe_stat_button" type="object"
+							        context="{'partner_id': partner_id}"
+							        name="action_schedule_meeting" icon="fa-calendar">
+								<div class="o_stat_info">
+									<field name="meeting_count" class="o_stat_value"/>
+									<span class="o_stat_text" attrs="{'invisible': [('meeting_count', '&lt;', 2)]}">
+										Meetings
+									</span>
+									<span class="o_stat_text" attrs="{'invisible': [('meeting_count', '&gt;', 1)]}">
+										Meeting
+									</span>
+								</div>
+							</button>
+						</div>
+						<div class="container"
+							 data-ribbon="Qualification Marketing"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_qualification_marketing)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="1er envoi"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_first_send)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="2e envoi"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_second_send)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="3e envoi"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_third_send)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="4e envoi"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_fourth_send)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="Qualification commerciale"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_commercial_qualif)d)]}">
+						</div>
+                        <div class="container" data-ribbon="En cours de chiffrage" style="--d:0px;--c:#075689;--f:16px;"
+						     attrs="{'invisible': ['|',('global_stage_id','!=',%(igy_custom_crm.global_proposition)d),('sub_state_proposal','!=','encryption')]}">
+						</div>
+						<div class="container" data-ribbon="En cours de rédaction offre" style="--d:0px;--c:#075689;--f:16px;"
+						     attrs="{'invisible': ['|',('global_stage_id','!=',%(igy_custom_crm.global_proposition)d),('sub_state_proposal','!=','writing')]}">
+						</div>
+						<div class="container" data-ribbon="En attente de validation" style="--d:0px;--c:#075689;--f:16px;"
+						     attrs="{'invisible': ['|',('global_stage_id','!=',%(igy_custom_crm.global_proposition)d),('sub_state_proposal','!=','waiting')]}">
+						</div>
+						<div class="container" data-ribbon="Envoyé" style="--d:0px;--c:#075689;--f:16px;"
+						     attrs="{'invisible': ['|',('global_stage_id','!=',%(igy_custom_crm.global_proposition)d),('sub_state_proposal','!=','sent')]}">
+						</div>
+						<div class="container"
+							 data-ribbon="Offre envoyé"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_offer_sent)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="Gagnée"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_crm_won)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="Non qualifié"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_crm_unqalified)d)]}">
+						</div>
+						<div class="container"
+							 data-ribbon="Erreur"
+							 style="--d:0px;--c:#075689;--f:16px;"
+							 attrs="{'invisible': [('global_stage_id','!=',%(igy_custom_crm.global_crm_fail)d)]}">
+						</div>
+						<div class="container" data-ribbon="Perdu" style="--d:0px;--c:red;--f:25px;"
+						     attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}">
+						</div>
+						<div class="oe_title">
+							<label for="name" class="oe_edit_only"/>
+							<h1>
+								<field name="name" placeholder="e.g. Product Pricing"/>
+							</h1>
+							<h2 class="o_row row no-gutters d-flex">
+								<div class="col">
+									<label for="planned_revenue" class="oe_edit_only"/>
+									<div class="o_row">
+										<field name="company_currency" invisible="1"/>
+										<field name="planned_revenue" class="oe_inline" widget='monetary'
+										       options="{'currency_field': 'company_currency'}"/>
+										<span class="oe_grey">at</span>
+									</div>
+								</div>
+								<div class="col">
+									<label for="probability" class="oe_edit_only"/>
+									<div class="o_row d-flex">
+										<field name="probability" widget="integer" class="oe_inline"/>
+										<span class="oe_grey">%%</span>
+									</div>
+								</div>
+							</h2>
+						</div>
+						<group>
+							<group>
+								<field name="partner_id"
+								       widget="res_partner_many2one"
+								       string="Customer" domain="[('customer', '=', True)]"
+								       context="{'search_default_customer': 1,
+                                        'default_name': partner_name, 'default_street': street,
+                                        'default_street2': street2, 'default_city': city,
+                                        'default_state_id': state_id, 'default_zip': zip,
+                                        'default_country_id': country_id, 'default_function': function,
+                                        'default_phone': phone, 'default_mobile': mobile,
+                                        'default_email': email_from,
+                                        'default_user_id': user_id, 'default_team_id': team_id, 'default_website': website,
+                                        'show_vat': True,
+                                    }"
+								/>
+								<field name="created_date"/>
+								<field name="week"/>
+								<field name="crm_type"/>
+								<field name="is_blacklisted" invisible="1"/>
+								<field name="is_bdr" invisible="1"/>
+								<field name="sub_state_proposal" invisible="1"/>
+								<field name="partner_is_blacklisted" invisible="1"/>
+								<label for="email_from" class="oe_inline"/>
+								<div class="o_row o_row_readonly">
+									<i class="fa fa-ban" style="color: red;" role="img"
+									   title="This email is blacklisted for mass mailing"
+									   aria-label="Blacklisted"
+									   attrs="{'invisible': ['|', ('is_blacklisted', '=', False), ('partner_address_email', '!=', False)]}"
+									   groups="base.group_user"></i>
+									<field name="email_from"
+									       attrs="{'invisible': [('partner_address_email', '!=', False)]}"
+									       string="Email"
+									       widget="email"/>
+									<i class="fa fa-ban" style="color: red;" role="img"
+									   title="This email is blacklisted for mass mailing"
+									   aria-label="Blacklisted"
+									   attrs="{'invisible': ['|', ('partner_is_blacklisted', '=', False), ('partner_address_email', '=', False)]}"
+									   groups="base.group_user"></i>
+									<field name="partner_address_email"
+									       attrs="{'invisible': [('partner_address_email', '==', False)]}"
+									       widget="email"
+									       string="Email"/>
+								</div>
+								<field name="partner_address_phone"
+								       attrs="{'invisible': [('partner_address_phone', '==', False)]}"
+								       readonly="1"
+								       widget="phone"
+								       string="Phone"/>
+								<field name="phone"
+								       attrs="{'invisible': [('partner_address_phone', '!=', False)]}"
+								       widget="phone"/>
+							</group>
+
+							<group>
+								<field name="next_send_date" invisible="0"/>
+								<field name="date_deadline"/>
+								<separator/>
+								<field name="contact_linkedin"/>
+								<field name="contact_mail"/>
+								<field name="contact_phone"/>
+
+							</group>
+
+							<group>
+								<field name="user_id"
+								       context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'sales_team.group_sale_salesman_all_leads'],
+                                                 'team_id': team_id}"
+								       domain="[('share', '=', False)]"
+								       invisible="1"/>
+								<field name="team_id" widget="selection"/>
+								<field name="bdr_user_id" options="{'no_create': True}"/>
+								<field name="sdr_user_id" options="{'no_create': True}"/>
+								<field name="iav_user_id" options="{'no_create': True}"/>
+								<field name="admin_crm_ids" options="{'no_create': True}" widget="many2many_tags"/>
+								<field name="sdr_user"/>
+							</group>
+							<group>
+								<field name="priority" widget="priority"/>
+								<field name="tag_ids" widget="many2many_tags"
+								       options="{'color_field': 'color', 'no_create_edit': True}"/>
+								<field name="medium_id"
+								       string="Moyen"
+								       filter_domain="[('medium_id', 'ilike', self)]"
+								       options="{'no_create':True}"/>
+								<field name="source_id"
+								       string="Origine"
+								       filter_domain="[('source_id', 'ilike', self)]"
+								       options="{'no_create':True}"/>
+								<separator/>
+								<field name="contact" string="Contacté par Ingenosya?"
+								       filter_domain="[('contact', 'ilike', self)]"/>
+								<field name="verif_nom"/>
+								<field name="lost_reason" attrs="{'invisible': [('active', '=', True)]}"/>
+								<field name="date_conversion" invisible="1"/>
+							</group>
+						</group>
+
+						<notebook colspan="4">
+							<page string="Notes internes">
+								<field name="description"/>
+							</page>
+							<page name="lead" string="Suivi">
+								<group>
+									<group string="Initial Contact Information">
+										<field name="partner_name"/>
+										<label for="street" string="Address"/>
+										<div class="o_address_format">
+											<field name="street" placeholder="Street..." class="o_address_street"/>
+											<field name="street2" placeholder="Street 2..." class="o_address_street"/>
+											<field name="city" placeholder="City" class="o_address_city"/>
+											<field name="state_id" class="o_address_state" placeholder="State"
+											       options='{"no_open": True}'/>
+											<field name="zip" placeholder="ZIP" class="o_address_zip"/>
+											<field name="country_id" placeholder="Country" class="o_address_country"
+											       options='{"no_open": True, "no_create": True}'/>
+										</div>
+										<field name="website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+									</group>
+
+									<group class="mt48">
+										<label for="contact_name"/>
+										<div class="o_row">
+											<field name="contact_name"/>
+											<field name="title" placeholder="Title" domain="[]"
+											       options='{"no_open": True}'/>
+										</div>
+										<field name="function"/>
+										<field name="partner_address_mobile"
+										       attrs="{'invisible': [('partner_address_mobile', '=', False)]}"
+										       readonly="1"
+										       widget="phone"
+										       string="Mobile"/>
+										<field name="mobile"
+										       attrs="{'invisible': [('partner_address_mobile', '!=', False)]}"
+										       widget="phone"/>
+									</group>
+									<group string="Marketing">
+										<field name="campaign_id"/>
+										<field name="medium_id"/>
+										<field name="source_id"/>
+									</group>
+									<group string="Misc" name="Misc">
+										<field name="day_open" groups="base.group_no_one"/>
+										<field name="day_close" groups="base.group_no_one"/>
+										<field name="referred"/>
+										<field name="type" invisible="1"/>
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="activity_ids" widget="mail_activity"/>
+						<field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+					</div>
+				</form>
+            </field>
+        </record>
+
+        <record id="crm_lead_global_kanban" model="ir.ui.view">
+            <field name="name">crm.lead.kanban.lead.global</field>
+            <field name="model">crm.lead</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <kanban default_group_by="global_stage_id"
+                        create="0"
+                        class="o_kanban_small_column o_opportunity_kanban"
+                        on_create="quick_create"
+                        quick_create="true"
+						group_create="false"
+                        archivable="false"
+                        disable_drag_drop_record="true"
+                        quick_create_view="igy_custom_crm.quick_create_inherit_form">
+                    <field name="global_stage_id" options='{"group_by_tooltip": {"requirements": "Description", "legend_priority": "Use of stars"}}'/>
+                    <field name="color"/>
+                    <field name="priority"/>
+                    <field name="planned_revenue"/>
+                    <field name="is_bdr"/>
+                    <field name="kanban_state"/>
+                    <field name="activity_date_deadline"/>
+                    <field name="user_email"/>
+                    <field name="user_id" invisible="1"/>
+	                <field name="bdr_user_id"/>
+	                <field name="sdr_user_id"/>
+					<field name="iav_user_id" />
+                    <field name="partner_address_email"/>
+                    <field name="message_needaction_counter"/>
+                    <field name="partner_id"/>
+                    <field name="activity_summary"/>
+                    <field name="stage_two_id"/>
+                    <field name="active"/>
+                    <field name="is_tender"/>
+                    <field name="company_currency"/>
+                    <field name="activity_state" />
+                    <field name="activity_ids" />
+                    <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}' sum_field="planned_revenue" help="This bar allows to filter the opportunities based on scheduled activities."/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
+                                <div class="o_dropdown_kanban dropdown">
+
+                                    <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown" data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit</a></t>
+                                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <h3 style="color:#075689;" attrs="{'invisible': ['|', '|', ('is_tender','=',True), ('stage_two_id','!=',%(igy_custom_crm.bdr_crm_proposition)d)]}">
+                                        <field name="sub_state_proposal"/>
+                                    </h3>
+                                    <div>
+                                        <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                    </div>
+                                    <div>
+                                        <field name="crm_type"/>
+                                    </div>
+                                    <div>
+                                        <span> Semaine : </span><field name="week"/>
+                                    </div>
+                                    <div>
+                                        <field name="is_bdr" invisible="1"/>
+                                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    </div>
+                                    <div class="text-muted o_kanban_record_subtitle">
+                                        <t t-if="record.planned_revenue.raw_value"><field name="planned_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/><span t-if="record.partner_id.value">,</span></t> <span t-if="record.partner_id.value"> <t t-esc="record.partner_id.value"/></span>
+                                    </div>
+
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="priority" widget="priority" groups="base.group_user"/>
+                                            <t t-if="record.message_needaction_counter.raw_value">
+                                                <span role="alert" class='oe_kanban_mail_new' title='Unread Messages'><i class='fa fa-comments' aria-label="Unread messages" role="img"/><t t-raw="record.message_needaction_counter.raw_value"/></span>
+                                            </t>
+                                            <field name="activity_ids" widget="kanban_activity"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <img t-att-src="kanban_image('res.users', 'image_small', record.bdr_user_id.raw_value)" t-att-title="record.bdr_user_id.value" t-att-alt="record.bdr_user_id.value" width="24" height="24" class="oe_kanban_avatar" attrs="{'invisible': ['type','=','lead']}"/>
+                                            <img t-att-src="kanban_image('res.users', 'image_small', record.sdr_user_id.raw_value)" t-att-title="record.sdr_user_id.value" t-att-alt="record.sdr_user_id.value" width="24" height="24" class="oe_kanban_avatar" attrs="{'invisible': ['type','=','opportunity']}"/>
+											<img t-att-src="kanban_image('res.users', 'image_small', record.iav_user_id.raw_value)" t-att-title="record.iav_user_id.value" t-att-alt="record.iav_user_id.value" width="24" height="24" class="oe_kanban_avatar" attrs="{'invisible': ['type','=','lead']}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+		<record id="crm_lead_view_graph_global" model="ir.ui.view">
+            <field name="name">crm.lead.view.graph.global</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <graph string="Opportunities" type="pie">
+                    <field name="global_stage_id" type="col"/>
+                    <field name="bdr_user_id" type="row"/>
+	                <field name="sdr_user_id" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="crm_lead_view_pivot_global" model="ir.ui.view">
+            <field name="name">crm.lead.view.pivot.global</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <pivot string="Pipeline Analysis" disable_linking="True">
+                    <field name="created_date" interval="month" type="row"/>
+                    <field name="global_stage_id" type="col"/>
+                    <field name="planned_revenue" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="crm_lead_global_search" model="ir.ui.view">
+            <field name="name">crm.lead.global.search</field>
+            <field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_opportunity_report_view_search"/>
+            <field name="arch" type="xml">
+				<xpath expr="/search" position="replace">
+					<search string="Opportunities Analysis">
+						<filter
+							string="Mes CRM"
+							name="my"
+							domain="['|',('bdr_user_id', '=', uid),('sdr_user_id', '=', uid)]"/>
+						<separator/>
+						<filter
+							name="lead"
+							string="Pistes"
+							domain="[('global_stage_id','in',[%(global_qualification_marketing)d,%(global_first_send)d,%(global_second_send)d,%(global_third_send)d,%(global_fourth_send)d,%(global_commercial_qualif)d,%(global_crm_unqalified)d,%(global_crm_fail)d])]"
+							help="Show only lead"/>
+						<filter
+							name="opportunity"
+							string="Opportunités"
+							domain="[('is_tender','!=',True),('global_stage_id','in',[%(global_commercial_qualif)d,%(global_proposition)d,%(global_offer_sent)d,%(global_crm_won)d,%(global_crm_lost)d])]"
+							help="Show only opportunity"/>
+						<filter
+							string="Appel d'offre"
+							name="tender"
+							domain="[('is_tender','=',True),('global_stage_id','in',[%(global_commercial_qualif)d,%(global_proposition)d,%(global_offer_sent)d,%(global_crm_won)d,%(global_crm_lost)d])]"/>
+						<separator/>
+						<filter
+							string="Qualification commerciale (Opportunité)"
+							name="opportunity_commercial_qualif"
+							domain="[('is_tender','!=',True),('global_stage_id','in',[%(global_commercial_qualif)d])]"/>
+						<filter
+							string="Qualification commerciale (Appel d'offre)"
+							name="tender_commercial_qualif"
+							domain="[('is_tender','=',True),('global_stage_id','in',[%(global_commercial_qualif)d])]"/>
+						<filter
+							string="Qualification commerciale"
+							name="commercial_qualif"
+							domain="[('global_stage_id','in',[%(global_commercial_qualif)d])]"/>
+						<filter
+							string="Opportunité gagnée"
+							name="won_oppor"
+							domain="[('is_tender','!=',True),('global_stage_id','in',[%(global_crm_won)d])]"/>
+						<filter
+							string="Appel d'offre gagné"
+							name="won_tender"
+							domain="[('is_tender','=',True),('global_stage_id','in',[%(global_crm_won)d])]"/>
+						<filter
+							string="Offre gagnée"
+							name="won_global"
+							domain="[('global_stage_id','in',[%(global_crm_won)d])]"/>
+						<filter
+							string="Piste Perdue"
+							name="lost"
+							domain="[('global_stage_id','in',[%(global_crm_unqalified)d]), ('active', '=', False)]"/>
+						<filter
+							string="Opportunité Perdue"
+							name="lost_oppor"
+							domain="[('is_tender','!=',True),('global_stage_id','in',[%(global_crm_lost)d]), ('active', '=', False)]"/>
+						<filter
+							string="Appel d'offre Perdu"
+							name="lost_oppor"
+							domain="[('is_tender','=',True),('global_stage_id','in',[%(global_crm_lost)d]), ('active', '=', False)]"/>
+						<filter
+							string="Offre perdue"
+							name="lost_oppor"
+							domain="[('global_stage_id','in',[%(global_crm_lost)d]), ('active', '=', False)]"/>
+						<field name="bdr_user_id" string="BDR"/>
+						<field name="sdr_user_id" string="BDR"/>
+						<separator/>
+						<filter string="Creation Date" name="filter_create_date" date="created_date"/>
+						<filter string="Expected Closing" name="filter_date_deadline" date="date_deadline"/>
+						<filter string="Date Closed" name="date_closed_filter" date="date_closed"/>
+						<group expand="0" string="Extended Filters">
+							<field name="partner_id" filter_domain="[('partner_id','child_of',self)]"/>
+							<field name="medium_id" widget="selection"/>
+							<field name="source_id" widget="selection"/>
+							<field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+							<newline/>
+							<field name="created_date"/>
+							<field name="date_open"/>
+							<field name="date_closed"/>
+						</group>
+						<group expand="1" string="Group By">
+							<filter string="BDR" name="salesperson" context="{'group_by':'bdr_user_id'}" />
+							<filter string="SDR" name="salesperson" context="{'group_by':'sdr_user_id'}" />
+<!--							<filter string="Sales Team" name="saleschannel" context="{'group_by':'team_id'}"/>-->
+							<filter string="City" name="city" context="{'group_by':'city'}" />
+							<filter string="Country" name="country" context="{'group_by':'country_id'}" />
+							<filter string="Company" name="company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+							<filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
+							<separator orientation="vertical" />
+							<filter string="Creation Date" context="{'group_by':'created_date:month'}" name="month"/>
+							<filter string="Conversion Date" context="{'group_by':'date_conversion:month'}" name="conversion_date" help="Conversion Date from Lead to Opportunity"/>
+							<filter string="Expected Closing" context="{'group_by':'date_deadline:month'}" name="date_deadline"/>
+							<filter string="Closed Date" context="{'group_by':'date_closed'}" name="date_closed_groupby"/>
+							<filter string="Lost Reason" name="lostreason" context="{'group_by':'lost_reason'}"/>
+						</group>
+					</search>
+				</xpath>
+            </field>
+        </record>
+
+        <record id="view_crm_global_pipeline" model="ir.actions.act_window">
+            <field name="name">Global pipeline</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.lead</field>
+            <field name="search_view_id" ref="crm_lead_global_search"/>
+            <field name="view_mode">kanban,tree,calendar,pivot,graph,cohort,dashboard,activity,form</field>
+            <field name="domain">[('global_stage_id','!=',False)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('igy_custom_crm.crm_lead_global_kanban')}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('crm.crm_case_tree_view_leads')}),
+                (0, 0, {'view_mode': 'graph', 'view_id': ref('igy_custom_crm.crm_lead_view_graph_global')}),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('igy_custom_crm.crm_lead_view_pivot_global')}),
+                (0, 0, {'view_mode': 'cohort', 'view_id': ref('igy_custom_crm.crm_lead_global_view_cohort')}),
+                (0, 0, {'view_mode': 'dashboard', 'view_id': ref('igy_custom_crm.crm_lead_dashboard_view_global')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('igy_custom_crm.crm_lead_global_form')})]"/>
+            <field name="context">
+                {
+                    'search_default_crm_stage_global': True,
+					'create': False,
+					'import': False
+                }
+            </field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    This is view for global pipeline.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Pipeline Global"
+            id="global_view_pipeline"
+            action="igy_custom_crm.view_crm_global_pipeline"
+            parent="crm.menu_crm_opportunities"
+            sequence="20"
+        />
+
+    </data>
+</odoo>

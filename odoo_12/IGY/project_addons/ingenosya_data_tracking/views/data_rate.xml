@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+        <record id="data_rate_form" model="ir.ui.view">
+            <field name="name">Data Rate</field>
+            <field name="model">data.tracking.rate</field>
+            <field name="type">form</field>
+            <field name="mode">primary</field>
+            <field name="active" eval="True"/>
+            <field name="arch" type="xml">
+                <form string="Add a data rate">
+                    <sheet>
+                        <group col="2">
+                            <group string="Informations" >
+                                <field name="name" required="True" />
+                                <field name="data" required="True" />
+                            </group>
+                            <group string="Parameters" >
+                                <field name="data_validity" required="True" />  
+                                <field name="amount" required="True" widget='monetary'  options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                 <field name="currency_id" invisible="1"/>
+                                <field name="type_validity" required="True" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- record form -->
+
+        <record id="data_rate_tree" model="ir.ui.view">
+            <field name="name">Data rate list</field>
+            <field name="model">data.tracking.rate</field>
+            <field name="type">tree</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="5" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <tree string="List of data rate" >
+                    <field name="name" />
+                    <field name="data"  />
+                    <field name="data_validity"/>
+                    <field name="amount"  />
+                    <field name="type_validity" />
+                </tree>
+            </field>
+        </record>
+        
+        <!-- record tree -->
+        
+        
+        <record id="data_rate_tree_kanban" model="ir.ui.view">
+            <field name="name">Data rate list</field>
+            <field name="model">data.tracking.rate</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="data" />
+                    <field name="data_validity" />
+                    <field name="amount" />
+                    <field name="type_validity" />
+                    <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_details oe_kanban_global_click">
+                            <strong class="o_kanban_title "><field name="name" /> </strong>
+                            <div class="o_kanban_tags_section" />
+                            <div>Value of data: <field name="data" /> (mo)</div>
+                            <div>Validity of data: <field name="data_validity" /> days</div>
+                            <div> Price of data: <field name="amount" /></div>
+                            <div> Type of validity: <field name="type_validity" /></div>
+                        </div>
+                    </t>
+                </templates>
+                </kanban>
+                
+            </field>
+        </record>
+        <!-- kanban view -->
+
+        
+        
+        <record id="data_rate_action" model="ir.actions.act_window">
+            <field name="name">Data Types</field>
+            <field name="res_model">data.tracking.rate</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Your data setting are empty
+                </p>
+            </field>
+        </record>
+    
+        <menuitem 
+        id="data_tracking_rate_menu" 
+        name="Data Types" 
+        sequence="3" 
+        action="data_rate_action"
+        parent="data_tracking_setting" />
+    </data>
+
+</odoo>

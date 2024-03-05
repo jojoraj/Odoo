@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="history_restitution" model="product.history.type">
+        <field name="name">Restitution</field>
+        <field name="type">restitution</field>
+    </record>
+    <record id="history_attribution" model="product.history.type">
+        <field name="name">Attribution</field>
+        <field name="type">attribution</field>
+    </record>
+    <record id="history_broken" model="product.history.type">
+        <field name="name">En panne</field>
+        <field name="type">broken</field>
+    </record>
+    <record id="history_return_repair" model="product.history.type">
+        <field name="name">Retour de réparation</field>
+        <field name="type">return_repair</field>
+    </record>
+</odoo>

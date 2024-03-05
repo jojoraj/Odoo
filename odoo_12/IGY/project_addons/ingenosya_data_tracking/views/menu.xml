@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <menuitem id="data_tracking_main_menu" web_icon="ingenosya_data_tracking,static/description/icon.png" name="Data" />
+        <menuitem id="data_tracking_consumptions" parent="data_tracking_main_menu" name="Consumptions" />
+        <menuitem id="data_tracking_setting" 
+        groups="hr.group_hr_manager,base.group_system,base.group_erp_manager"
+        parent="data_tracking_main_menu" name="Setting" />
+    </data>
+</odoo>

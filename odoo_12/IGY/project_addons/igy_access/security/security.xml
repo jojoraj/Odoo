@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- Groupe des clients de la sociétés -->
+		<record id="group_client_timesheet" model="res.groups">
+			<field name="name">Client</field>
+			<field name="category_id" ref="base.module_category_project_management"/>
+		</record>
+
+		<!-- Administrateur de la base de donnée interne -->
+		<record id="group_admin_interne" model="res.groups">
+			<field name="name">Administrateur</field>
+			<field name="category_id" ref="base.module_category_administration"/>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="0">
+        <record model="crm.stage" id="crm.stage_lead1">
+            <field name="active">0</field>
+        </record>
+        <record model="crm.stage" id="crm.stage_lead2">
+            <field name="active">0</field>
+        </record>
+        <record model="crm.stage" id="crm.stage_lead3">
+            <field name="active">0</field>
+        </record>
+        <record model="crm.stage" id="crm.stage_lead4">
+            <field name="active">0</field>
+        </record>
+
+        <function name="update_won_active" model="crm.stage"/>
+        <function name="update_mass_mailing_no_update" model="ir.cron" />
+
+    </data>
+
+</odoo>

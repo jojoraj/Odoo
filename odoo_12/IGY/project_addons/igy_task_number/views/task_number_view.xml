@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="task_number_list_view" model="ir.ui.view">
+        <field name="name">task.number.list_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="sequence_task" class="task-number-list" string="Numéro"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="task_number_form_view" model="ir.ui.view">
+        <field name="name">task.number.form_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <span style="margin-right: 20px;padding:2%;font-size: 0.6em;color: #FFF;background-color: #5A6268;border-radius: 10%;width: auto;height: 25px;display: flex;align-items: center;justify-content: center;text-align: center;">
+                    <field name="sequence_task" class="task-number-tree"/>
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="task_number_kanban_view" model="ir.ui.view">
+        <field name="name">task.number.kanban_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <span style="padding: 1.6em;margin-bottom: 10px;color: #FFF;background-color: #a2a3a3;border-radius: 10%;width: 25px;height: 25px;text-align: center;display: flex;align-items: center;justify-content: center;">
+                    <field name="sequence_task" class="task-number-kanban"/>
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="task_number_search_view" model="ir.ui.view">
+        <field name="name">project.task.search</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="sequence_task" string="Numéro" filter_domain="[('sequence_task', '=', self)]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

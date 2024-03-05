@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report 
+        id="report_igy_badge"
+        string="Voir les badges"
+        model="igy.badge"
+        report-type="qweb-pdf"
+        name="igy_badge.igy_badge"
+        file="igy_badge.igy_badge"/>
+
+        <!-- <template id="background_css" name="background_css" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/igy_badge/static/css/background.css"/>
+            </xpath>
+        </template> -->
+
+</odoo>

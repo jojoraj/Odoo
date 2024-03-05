@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_meeting_room,access_meeting_room,model_meeting_room,,1,1,1,1
+access_meeting_reservation,access_meeting_reservation,model_meeting_reservation,,1,1,1,1
+access_hr_employee_meeting_reservation,access_hr_employee_meeting_reservation,hr.model_hr_employee,,1,0,0,0
+access_meeting_timezone,access_meeting_timezone,model_meeting_timezone,,1,1,0,0

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mail_mail_reporting,access.mail_mail_reporting,model_mail_mail_reporting,,1,1,1,1
+acces_crm_mail_export,access.crm_mail_export,model_crm_mail_export,,1,1,1,1
+

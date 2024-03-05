@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+acces_hr_employee_edit,acces.hr.employee.edit,model_hr_employee,hr.simple_employee,1,1,0,0

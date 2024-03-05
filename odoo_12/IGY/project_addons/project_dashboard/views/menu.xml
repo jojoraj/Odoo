@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="igy_project_dashboard_tree" model="ir.ui.view">
+            <field name="name">igy.project.dashboard.tree</field>
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="initial" string="Budget initial "/>
+                    <field name="percentage_initial_finished" string="Statut initial" widget="percentpie"/>
+                    <field name="estimation" string="Budget revu"/>
+                    <field name="percentage_finished" string="Statut revu" widget="percentpie" force_save="1"/>
+                    <field name="finished_revue" string="Feuilles de temps revues"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="project_project_view_search" model="ir.ui.view">
+            <field name="name">project.project.search.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <filter string="Default" name="en_cours" domain="[('type','=','forfait'), ('stage','=','en_cours')]"/>
+                </xpath>
+                <xpath expr="//filter[@name='inactive']" position="after">
+                    <filter string="Bloqué" name="filter_bloqued" domain="[('states','=','blocked')]"/>
+                </xpath>
+                <xpath expr="//filter[@name='Partner']" position="after">
+                    <filter string="Etape" name="Stage" context="{'group_by': 'stage'}"/>
+                    <filter string="Statut" name="States" context="{'group_by': 'states'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+    <record id="dashboard_action_project" model="ir.actions.act_window">
+        <field name="name">Tableau de bord </field>
+        <field name="res_model">project.project</field>
+        <field name="view_type">form</field>
+        <field name="context">{'search_default_en_cours': 1}</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('project.project_view_kanban')}),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('igy_project_dashboard_tree')}),
+            ]"
+        />
+        <field name="search_view_id" ref="project.view_project_project_filter"/>   
+        
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Create a new project
+            </p><p>
+                Organize your activities (plan tasks, track issues, invoice timesheets) for internal, personal or customer projects.
+            </p>
+        </field>
+    </record>
+    <menuitem 
+        id="dashboard_menu_project"
+        name="Tableau de bord"
+        action="dashboard_action_project"
+        parent="project.menu_project_report"
+        sequence="40"
+    />
+</odoo>

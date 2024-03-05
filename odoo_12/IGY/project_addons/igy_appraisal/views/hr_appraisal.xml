@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_hr_appraisal_kanban" model="ir.ui.view">
+            <field name="name">view.inherit.hr.appraisal.kanban</field>
+            <field name="model">hr.appraisal</field>
+            <field name="inherit_id" ref="hr_appraisal.hr_appraisal_kanban"/>
+            <field name="arch" type="xml">
+                <field name="activity_state" position="after">
+                    <field name="manager_survey_id" />
+                    <field name="employee_survey_id" />
+                    <field name="collaborators_survey_id" />
+                    <field name="colleagues_survey_id" />
+                </field>
+                <div class="oe_kanban_bottom_right" position="before">
+                    <div name="action_manager_redirect">
+                        <t t-if="record.manager_survey_id.raw_value"><a name="redirect_to_survey" context="{'redirect_manager': True}" type="object" >Sondage gestionnaire</a></t>
+                    </div>
+                    <div name="action_employee_redirect">
+                        <t t-if="record.employee_survey_id.raw_value"><a name="redirect_to_survey" context="{'redirect_employee': True}" type="object" >Sondage employes</a></t>
+                    </div>
+                    <div name="action_manager_redirect">
+                        <t t-if="record.collaborators_survey_id.raw_value"><a name="redirect_to_survey" context="{'redirect_collaborater': True}" type="object" >Sondage collaborateur</a></t>
+                    </div>
+                    <div name="action_manager_redirect">
+                        <t t-if="record.colleagues_survey_id.raw_value"><a name="redirect_to_survey"  context="{'redirect_colleagues': True}" type="object" >Sondage collegues</a></t>
+                    </div>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

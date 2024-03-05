@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="alterning_mail_server_record" model="alterning.mail.server">
+            <field name="name">Alterning mail server</field>
+        </record>
+
+    </data>
+</odoo>

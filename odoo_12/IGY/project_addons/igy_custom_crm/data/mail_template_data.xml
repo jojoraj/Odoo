@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_change_stage_mail_template" model="mail.template">
+        <field name="name">Changement des étapes CRM</field>
+        <field name="model_id" ref="model_crm_lead"/>
+        <field name="subject">Changement des étapes CRM</field>
+        <field name="email_from">"Odoo" &lt;${user.company_id.email | safe}&gt;</field>
+        <field name="email_to">${ctx.user.email}</field>
+        <field name="body_html" type="html">
+            <div>
+                Cher ${ctx.user.name}, les pistes/opportunités suivantes doivent être en changement d'état:
+                <table role="presentation"  border="1" cellpadding="0" cellspacing="0" width="100%" bgcolor="#FFFFFF">
+                    <thead>
+                        <th>Nom</th>
+                        <th>Date de dernier changement d'état</th>
+                        <th>Changement d'état</th>
+                    </thead>
+                    <tbody>
+                        % if ctx.crm_lead
+                            % for _crm_lead in ctx.crm_lead
+                            <tr style="text-align: center">
+                                <td>${_crm_lead.name}</td>
+                                % if _crm_lead.write_date :
+                                    <td>${format_tz(_crm_lead.write_date,tz='UTC',format='%d-%m-%Y')}</td>
+                                % else :
+                                    <td>${format_tz(_crm_lead.create_date,tz='UTC',format='%d-%m-%Y')}</td>
+                                % endif
+                                <td>${format_tz(_crm_lead.next_send_date,tz='UTC',format='%d-%m-%Y')}</td>
+                            </tr>
+                            % endfor
+                        % endif
+                    </tbody>
+                </table>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <record id="crm_lead_relaunch_mail_template" model="mail.template">
+        <field name="name">Relance des offres envoyés</field>
+        <field name="model_id" ref="model_crm_lead"/>
+        <field name="subject">RELANCE DES OFFRES ENVOYES</field>
+        <field name="email_from">"Odoo" &lt;${user.company_id.email | safe}&gt;</field>
+        <field name="email_to">${ctx.user.email}</field>
+        <field name="body_html" type="html">
+            <div>
+                Cher ${ctx.user.name}, les opportunités suivantes doivent être relancées:
+                <ul>
+                    % if ctx.crm_lead
+                        % for _crm_lead in ctx.crm_lead
+                            <li>${_crm_lead.name}</li>
+                        % endfor
+                    % endif
+                </ul>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <record id="crm_change_origin_medium_mail_template" model="mail.template">
+        <field name="name">Vérification origine/moyen CRM</field>
+        <field name="model_id" ref="model_crm_lead"/>
+        <field name="subject">Vérification des origines/moyens CRM</field>
+        <field name="email_from">"Odoo" &lt;${user.company_id.email | safe}&gt;</field>
+        <field name="email_to">${ctx.user.email}</field>
+        <field name="body_html" type="html">
+            <div>
+                Cher ${ctx.user.name}, veuillez vérifier les origines et moyens de ces opportunités :
+                <table role="presentation" border="1" cellpadding="0" cellspacing="0" width="100%" bgcolor="#FFFFFF">
+                    <thead>
+                        <th>Nom</th>
+                        <th>Etapes</th>
+                    </thead>
+                    <tbody>
+                        % if ctx.crm_lead
+                            % for _crm_lead in ctx.crm_lead
+                            <tr style="text-align: center">
+                                <td>${_crm_lead.name}</td>
+                                <td>${_crm_lead.stage_two_id.name}</td>
+                            </tr>
+                            % endfor
+                        % endif
+                    </tbody>
+                </table>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+</odoo>

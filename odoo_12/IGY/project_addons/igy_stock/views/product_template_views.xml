@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_product_template_igy_stock_search" model="ir.ui.view">
+           <field name="name">view.product.template.igy.stock.search</field>
+           <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="serial_number" string="Numero de serie" domain="[('serial_number', 'ilike', self)]" />
+                    <field name="stock_name" string="Nom" domain="[('stock_name', 'ilike', self)]"/>
+                    <field name="categ_id" string="Type" domain="[('categ_id', 'ilike', self)]" />
+                    <field name="mark" string="Marque" domain="[('mark', 'ilike', self)]" />
+                    <field name="model" string="Modele" domain="[('model', 'ilike', self)]" />
+                    <field name="features" string="Caracteristiques" domain="[('features', 'ilike', self)]" />
+                    <filter name="product_type_id" string="Type" context="{'group_by': 'product_type_id'}" />
+                </search>
+           </field>
+        </record>
+
+        <record id="view_igy_stock_form_form" model="ir.ui.view">
+            <field name="name">view.stock.igy.product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <field name="image_medium" widget="image" class="oe_avatar" />
+                        <group>
+                            <field name="stock_name" required="1"/>
+                            <field name="product_type_id" />
+                            <field name="categ_id" invisible="1" force_save="1" />
+                            <field name="mark" />
+                            <field name="model" />
+                        </group>
+                    </sheet>
+                    <footer invisible="not context.get('is_kanban')">
+                        <button string="Sauvgarder" class="btn btn-primary" type="object" name="open_product_template" />
+                        <button string="Annuler" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_open_product_template_view" model="ir.actions.act_window">
+            <field name="name">Article</field>
+            <field name="res_model">product.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'is_kanban': True}</field>
+            <field name="view_id" ref="view_igy_stock_form_form" />
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_product_template_igy_stock_kanban" model="ir.ui.view">
+            <field name="name">view.product.template.igy.stock.kanban</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <kanban on_create="igy_stock.action_open_product_template_view">
+                    <field name="id" />
+                    <field name="stock_name"/>
+                    <field name="image_small" />
+                    <field name="product_type_id" />
+                    <field name="serial_number" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('product.template', 'image_small', record.id.raw_value)" alt="Product"/>
+                                </div>
+                                <div class="o_kanban_details" style="min-height: 100px" >
+                                    <strong class="o_kanban_record_title">
+                                        <field name="stock_name" />
+                                    </strong>
+                                    <div>Type: <field name="product_type_id" /></div>
+                                </div>
+                                <div class="o_kanban_footer" >
+                                    <a name="view_product_templates"  type="object">Sous Articles</a>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_igy_stock_product_template_tree" model="ir.ui.view">
+            <field name="name">view.igy.stock.product.template.tree</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="stock_name"/>
+                    <field name="categ_id" />
+                    <field name="mark" />
+                    <field name="model" />
+                    <field name="serial_number" />
+                    <field name="features" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_product_template_igy_stock_view" model="ir.actions.act_window">
+            <field name="name">Articles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="search_view_id" ref="view_product_template_igy_stock_search" />
+            <field name="context">{'is_stock': True}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_product_template_igy_stock_kanban'), 'sequence': 0}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_igy_stock_product_template_tree'), 'sequence': 1}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_igy_stock_form_form'), 'sequence': 1}),
+
+                ]"
+            />
+        </record>
+
+        <menuitem id="igy_inventory_main_menu" web_icon="igy_stock,static/description/icon.png" name="Devices" sequence="50" groups="stock.group_stock_manager" />
+        <menuitem id="igy_inventory" name="Tous" parent="igy_inventory_main_menu" sequence="1" action="action_product_template_igy_stock_view" />
+
+    </data>
+</odoo>

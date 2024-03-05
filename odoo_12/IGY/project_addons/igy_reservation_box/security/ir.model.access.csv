@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_igy_box_material,name_box_material,model_box_material,,1,1,1,1
+access_igy_box_reservation,name_box_reservation,model_box_reservation,,1,1,1,1
+access_igy_box_timezone,name_box_timezone,model_box_timezone,,1,1,0,0

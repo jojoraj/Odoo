@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_stage_two,access.crm_stage_two,model_crm_stage_two,,1,1,1,1
+access_crm_global_stage,access.crm_global_stage,model_crm_global_stage,,1,1,1,1
+access_res_partner_activity,access.res_partner_activity,model_res_partner_activity,,1,1,1,1
+access_crm_mail,acess.crm_mail,model_crm_mail,,1,1,1,1
+acces_mail_mass_mailing_cold,access.mail_mass_mailing_cold,model_mail_mass_mailing_cold,,1,1,1,1

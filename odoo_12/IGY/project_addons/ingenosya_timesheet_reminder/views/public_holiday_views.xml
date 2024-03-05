@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_tree_public_holiday" model="ir.ui.view">
+        <field name="name">public.holiday.tree</field>
+        <field name="model">public.holiday</field>
+        <field name="arch" type="xml">
+            <tree string="Public holidays" editable="top">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_create_public_holiday" model="ir.ui.view">
+        <field name="name">public.holiday.form</field>
+        <field name="model">public.holiday</field>
+        <field name="arch" type="xml">
+            <form string="Public holiday">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_public_holiday" model="ir.actions.act_window">
+        <field name="name">Action public holiday</field>
+        <field name="res_model">public.holiday</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <!-- <field name="view_mode">tree,form</field> -->
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_id" ref="view_tree_public_holiday"/> -->
+        <field name="target">current</field>
+    </record>
+    
+    <menuitem id="menu_public_holiday"
+              parent="hr_holidays.menu_hr_holidays_root"
+              name="Public holidays"
+              action="ingenosya_timesheet_reminder.action_public_holiday"
+              groups="hr_holidays.group_hr_holidays_user"
+    />
+
+</odoo>

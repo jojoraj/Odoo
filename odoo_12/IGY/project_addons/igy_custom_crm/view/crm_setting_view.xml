@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="crm_setting_first_send_view" model="ir.ui.view">
+        	<field name="name">Setting first send</field>
+        	<field name="model">res.config.settings</field>
+        	<field name="inherit_id" ref="mass_mailing.res_config_settings_view_form"/>
+        	<field name="arch" type="xml">
+            	<div class="col-md-6 o_setting_box col-xs-12" position="after">
+					<div class="container" style="margin-top: 20px">
+						<div class="row">
+							<div class="col">
+								<div class="w-25">
+									<label for="interval_day_first_sent"/>
+									<field name="interval_day_first_sent"/>
+
+									<label for="interval_day_second_sent"/>
+									<field name="interval_day_second_sent"/>
+
+									<label for="interval_day_third_sent"/>
+									<field name="interval_day_third_sent"/>
+								</div>
+							</div>
+						</div>
+					</div>
+            	</div>
+        	</field>
+    </record>
+</odoo>

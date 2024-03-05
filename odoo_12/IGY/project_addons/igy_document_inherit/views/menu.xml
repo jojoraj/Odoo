@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <menuitem name="Configuration" id="documents.Config" parent="documents.menu_root" sequence="1" groups="documents.group_documents_manager"/>
+    </data>
+</odoo>

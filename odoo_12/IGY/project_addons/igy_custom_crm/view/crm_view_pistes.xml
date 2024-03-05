@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record model="ir.ui.menu" id="crm.crm_menu_leads">
+            <field name="groups_id" eval="[(6,0,[ref('igy_custom_crm.group_crm_menu_hide')])]"/>
+        </record>
+       
+        <record model="ir.ui.menu" id="crm.crm_opportunity_report_menu_lead">
+            <field name="groups_id" eval="[(6,0,[ref('igy_custom_crm.group_crm_menu_hide')])]"/>
+        </record>
+    </data>
+</odoo>

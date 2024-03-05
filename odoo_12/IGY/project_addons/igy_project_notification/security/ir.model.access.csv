@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_igy_project_notification_igy_project_notification,igy_project_notification.igy_project_notification,model_igy_project_notification_igy_project_notification,,1,0,0,0

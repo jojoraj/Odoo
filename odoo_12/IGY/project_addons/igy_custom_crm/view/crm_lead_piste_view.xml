@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+		<record id="crm_lead_dashboard_view_piste" model="ir.ui.view">
+            <field name="name">crm.lead.view.dashboard.lead</field>
+            <field name="model">crm.lead</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <view type="graph" ref="crm_enterprise.crm_opportunity_view_graph"/>
+                    <group>
+                        <group>
+							<aggregate
+								name="lead"
+								string="Les pistes"
+								field="id"
+								domain="[('stage_id','!=',False)]"
+								group_operator="count"/>
+							<aggregate
+								name="total_mail_lead"
+								string="Emails envoyés"
+								field="crm_mail_len"
+								group_operator="max"
+								domain="[]"/>
+							<aggregate
+								name="received_answer"
+								string="Réponses reçues"
+								field="id"
+								domain="[('global_stage_id','in',[%(igy_custom_crm.global_commercial_qualif)d,%(igy_custom_crm.global_crm_unqalified)d])]"
+								group_operator="count"/>
+							<aggregate
+								name="lead_qualif"
+								string="Pistes qualifiées"
+								field="id"
+								domain="[('global_stage_id','in',[%(igy_custom_crm.global_commercial_qualif)d])]"
+								group_operator="count"/>
+						</group>
+                    </group>
+                    <view type="pivot" ref="crm_enterprise.crm_lead_view_pivot"/>
+                    <view type="cohort" ref="igy_custom_crm.crm_lead_global_view_cohort"/>
+                </dashboard>
+            </field>
+		</record>
+
+        <record id="crm_lead_form_view_inherit" model="ir.ui.view">
+			<field name="name">crm.lead.form.inherit</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+			<field name="arch" type="xml">
+				<xpath expr="/form/header/button[@name='action_set_won_rainbowman']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<field name="partner_id" position="attributes">
+					<attribute name="required">1</attribute>
+				</field>
+				<xpath expr="/form/header/button[@name='%(crm.crm_lead_lost_action)d']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="/form/header/field[@name='stage_id']"  position="before">
+					<button name="set_won_lead"
+							string="Marquer comme gagnée"
+							type="object"
+							attrs="{'invisible': [('stage_id','in',[%(igy_custom_crm.igy_crm_won)d,%(igy_custom_crm.igy_crm_unqalified)d])]}"
+					/>
+					<button name="set_unqualified_lead"
+							string="Marquer comme perdue"
+							type="object"
+							attrs="{'invisible': [('stage_id','in',[%(igy_custom_crm.igy_crm_won)d,%(igy_custom_crm.igy_crm_unqalified)d])]}"
+					/>
+					<button name="send_mail_crm"
+					        string="Envoyer email"
+					        type="object"
+					        icon="fa-envelope"
+					        attrs="{'invisible': [('stage_id','not in',[(%(igy_custom_crm.igy_first_send)d), (%(igy_custom_crm.igy_second_send)d),(%(igy_custom_crm.igy_third_send)d), (%(igy_custom_crm.igy_fourth_send)d)])]}"/>
+				</xpath>
+				<xpath expr="//sheet/div[1]/button[1]" position="before">
+					<button name="open_crm_mail" type="object" class="oe_stat_button"
+					        icon="fa-envelope"
+					        context="{'partner_id': partner_id}"
+					        attrs="{'invisible': [('stage_id','not in',[(%(igy_custom_crm.igy_first_send)d), (%(igy_custom_crm.igy_second_send)d),(%(igy_custom_crm.igy_third_send)d)])]}">
+						<div class="o_stat_info">
+							<field name="count_mail" class="o_stat_value"/>
+							<span class="o_stat_text">Emails envoyés</span>
+						</div>
+					</button>
+
+				</xpath>
+				<xpath expr="/form/header" position="after">
+					<style>
+						.container {
+						--d: 6px; /* folded part */
+						--c: blue; /* color */
+						--f: 16px; /* ribbon font-size */
+
+						}
+
+						.container::before {
+						content: attr(data-ribbon);
+						position: absolute;
+						font-size: var(--f);
+						top: 102px;
+						right: 15px;
+					    display: block;
+                        width: 215px;
+						transform: translate(29.29%, -100%) rotate(45deg);
+						color: #fff;
+						text-align: center;
+						border: 1px solid transparent;
+						border-bottom: 0;
+						transform-origin: bottom left;
+						padding: 5px 35px calc(var(--d) + 5px);
+						background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% var(--d)
+						no-repeat var(--c);
+						background-clip: padding-box;
+						clip-path: polygon(0 0,100% 0,100% 100%,calc(100% - var(--d)) calc(100% - var(--d)),var(--d)
+						calc(100% - var(--d)),0 100%);
+						-webkit-mask: linear-gradient(135deg,transparent calc(50% - var(--d) * 0.707),#fff 0) bottom
+						left,
+						linear-gradient(-135deg, transparent calc(50% - var(--d) * 0.707), #fff 0)bottom right;
+						-webkit-mask-size: 300vmax 300vmax;
+						-webkit-mask-composite: destination-in;
+						mask-composite: intersect;
+						}
+						.left::before {
+						left: 0;
+						right: auto;
+						transform: translate(-29.29%, -100%) rotate(-45deg);
+						transform-origin: bottom right;
+						}
+
+					</style>
+				</xpath>
+				<xpath expr="/form/sheet/div[@name='button_box']" position="after">
+					<div class="container"
+						 data-ribbon="Qualification Marketing"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_qualification_marketting)d)]}">
+					</div>
+					<div class="container"
+						 data-ribbon="1er envoi"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_first_send)d)]}">
+					</div>
+					<div class="container"
+						 data-ribbon="2e envoi"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_second_send)d)]}">
+					</div>
+					<div class="container"
+						 data-ribbon="3e envoi"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_third_send)d)]}">
+					</div>
+					<div class="container"
+						 data-ribbon="Non qualifié"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_crm_unqalified)d)]}">
+					</div>
+					<div class="container"
+						 data-ribbon="Gagnée"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_crm_won)d)]}">
+					</div>
+					<div class="container"
+						 data-ribbon="Erreur"
+						 style="--d:0px;--c:#075689;--f:16px;"
+						 attrs="{'invisible': [('stage_id','!=',%(igy_custom_crm.igy_crm_fail)d)]}">
+					</div>
+				</xpath>
+				<xpath expr="//field[@name='tag_ids']" position="after">
+					<field name="medium_id"
+					       required="1"
+					       string="Moyen"
+					       filter_domain="[('medium_id', 'ilike', self)]"
+					       options="{'no_create':True}"/>
+					<field name="source_id"
+					       required="1"
+					       string="Origine"
+					       filter_domain="[('source_id', 'ilike', self)]"
+					       options="{'no_create':True}"/>
+					<separator/>
+					<field name="contact" string="Contacté par Ingenosya?"
+					       filter_domain="[('contact', 'ilike', self)]"/>
+					<field name="verif_nom"/>
+					<field name="is_bdr" invisible="1"/>
+				</xpath>
+				<xpath expr="//field[@name='user_id']" position="attributes">
+				       <attribute name="invisible">1</attribute>
+			     </xpath>
+				<xpath expr="//field[@name='team_id']" position="after">
+					<field name="bdr_user_id" options="{'no_create': True}"/>
+					<field name="sdr_user_id" options="{'no_create': True}"/>
+					<field name="iav_user_id" options="{'no_create': True}"/>
+					<field name="admin_crm_ids" options="{'no_create': True}" widget="many2many_tags" invisible="1"/>
+					<field name="sdr_user"/>
+				</xpath>
+				<xpath expr="//field[@name='date_deadline']" position="after">
+					<separator/>
+					<field name="contact_linkedin"/>
+					<field name="contact_mail"/>
+					<field name="contact_phone"/>
+				</xpath>
+				<xpath expr="//field[@name='user_id']" position="attributes">
+					<attribute name="invisible" eval="True"/>
+				</xpath>
+				<field name="partner_id" position="after">
+					<field name="created_date"/>
+					<field name="week"/>
+					<field name="crm_type"/>
+				</field>
+				<field name="date_deadline" position="before">
+					<field name="next_send_date" invisible="1"/>
+					<field name="date_store" invisible="0" attrs="{'invisible': [('stage_id', '=', %(igy_fourth_send)d)]}"/>
+				</field>
+				<xpath expr="/form/sheet/notebook/page[2]/group/group[3]" position="replace">
+					<field name="campaign_id" invisible="1"/>
+				</xpath>
+				<xpath expr="//field[@name='phone']" position="after">
+					<field name="partner_name_child" invisible="1" />
+				</xpath>
+			</field>
+		</record>
+
+        <record id="crm_lead_kanban_view_inherit" model="ir.ui.view">
+            <field name="name">Crm kanban inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="import">0</attribute>
+                    <attribute name="group_create">false</attribute>
+                    <attribute name="quick_create_view" >igy_custom_crm.quick_create_inherit_form</attribute>
+                </xpath>
+                <xpath expr="//kanban/templates/t/div[1]/div[2]/div[2]" position="before">
+                    <div>
+                        <field name="crm_type"/>
+                        <field name="stage_id" force_save="1" invisible="1"/>
+                        <field name="stage_two_id" force_save="1" invisible="1"/>
+                    </div>
+                    <div>
+                        <span> Semaine : </span><field name="week"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="view_crm_lead_sbd">
+            <field name="name">Pistes</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,calendar,pivot,graph,cohort,dashboard,activity,form</field>
+            <field name="domain">[('stage_id','!=',False)]</field>
+            <field name="context" eval="{
+                    'default_type': 'lead',
+                    'default_source_id': ref('igy_custom_crm.utm_source_on_demand'),
+                    'default_medium_id': ref('igy_custom_crm.utm_medium_on_demand')
+                }"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('crm.crm_case_kanban_view_leads')}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('crm.crm_case_tree_view_leads')}),
+                (0, 0, {'view_mode': 'cohort', 'view_id': ref('igy_custom_crm.crm_lead_global_view_cohort')}),
+				(0, 0, {'view_mode': 'dashboard', 'view_id': ref('igy_custom_crm.crm_lead_dashboard_view_piste')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('crm.crm_case_form_view_oppor')})]"/>
+            <field name="search_view_id" ref="crm.view_crm_case_opportunities_filter"/>
+        </record>
+
+    </data>
+</odoo>

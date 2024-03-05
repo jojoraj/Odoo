@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+       <record id="activity_reflate" model="mail.activity.type">
+           <field name="name">Relance</field>
+       </record>
+    </data>
+</odoo>

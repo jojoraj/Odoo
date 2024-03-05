@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.cron" id="check_crm_bdr_origin">
+            <field name="name">Check origin and medium utm</field>
+            <field name="model_id" ref="igy_custom_crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model.check_origin_medium_utm()</field>
+            <field name="active" eval="True"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record model="ir.cron" id="relaunching_offer_sent">
+            <field name="name">Relance offre envoyé</field>
+            <field name="model_id" ref="igy_custom_crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model.relaunch_offer_sent()</field>
+            <field name="active" eval="True"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record model="ir.cron" id="check_crm_next_call_day">
+            <field name="name">Check and notif next call day</field>
+            <field name="model_id" ref="model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model.check_crm_next_call_day()</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record id="mass_mailing.ir_cron_mass_mailing_queue" model="ir.cron">
+            <field name="interval_number" eval="1" />
+            <field name="interval_type">minutes</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		
+		<record id="view_hr_employee_custom_cv_form" model="ir.ui.view">
+			<field name="name">view.hr.employee.custom.cv.form</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="/form/sheet/div[2]/div[1]/notebook/page[@name='employee_skills']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<notebook position="inside">
+					<page string="Curriculum Vitae" name="curriculum_vitae">
+						<group>
+							<field name="profil"/>
+						</group>
+						
+						<notebook>
+							<page string="Experiences">
+								<group>
+									<field name="experience_ids" nolabel="1">
+										<tree>
+											<field name="period"/>
+											<field name="project" invisible="1"/>
+											<field name="post"/>
+											<field name="company"/>
+											<field name="description"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page string="Educations">
+								<group>
+									<field name="education_ids" nolabel="1">
+										<tree editable="bottom">
+											<field name="period"/>
+											<field name="diplome"/>
+											<field name="speciality" />
+											<field name="university"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+							
+							<page string="Compétences">
+								<group>
+									<field name="employee_skill_ids" nolabel="1">
+										<tree editable="bottom">
+											<field name="skill_id"/>
+											<field name="igy_skill_ids" string="Sous compétences"
+											       widget="many2many_tags"/>
+											<field name="level" widget="priority"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</page>
+				</notebook>
+			</field>
+		</record>
+	</data>
+</odoo>

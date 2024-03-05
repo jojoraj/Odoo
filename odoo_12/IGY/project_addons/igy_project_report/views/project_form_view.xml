@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edit_sale_timesheet_inherit" model="ir.ui.view">
+        <field name="name">project.sale.timesheet.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="sale_timesheet.project_project_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_make_billable']" position="replace">
+                <button 
+                    name="generate_excel" string="Voir le tableau de bord"
+                    type="object" class="oe_highlight"
+                    groups="custom_project.group_administrator_config" 
+                />
+            </xpath> 
+        </field>
+    </record>
+</odoo>

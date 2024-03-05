@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project.project_view_kanban"  model="ir.ui.view">
+        <field name="name">project.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id" sortable="false" 
+            disable_drag_drop_record="true" quick_create="false" 
+            disable_sort_record="true" disable_sort_column="true" 
+            class="o_kanban_small_column" group_create="false" 
+            group_delete="false" 
+            group_edit="false" string = "Tableau de bord">
+                <field name="id" />
+                <field name="states" />
+                <field name="stage_id" readonly = "True" />
+                <field name="color_kanban" readonly = "True" />
+                <field name="percentage_finished" />
+                <field name="user_id" string="Project Manager"/>
+                <progressbar
+                field="percentage_finished"
+                colors='{"done": "success", "blocked": "danger"}' />
+                <templates>
+                  <t t-name="kanban-box">
+                    <!-- HTML QWeb template... -->
+              
+                <!-- Set the Kanban Card color: -->
+                <div t-attf-class="
+                  oe_kanban_color_#{kanban_getcolor(record.color_kanban.raw_value)}
+                  oe_kanban_global_click">
+                    <div class="o_dropdown_kanban dropdown">
+                        <!-- Top-right drop down menu here... -->
+                        <div class="dropdown-menu" role="menu">
+                          <!-- Edit and Delete actions, if available: -->
+                          <t t-if="widget.deletable">
+                            <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                          </t>  
+                        </div>
+                    </div>
+                    <div class="oe_kanban_body">
+                       <!-- Content elements and fields go here... -->
+                      <div>
+                          <strong>
+                          <a type="open"><field name="name" string="Project Name"/></a>
+                          <field name="states" widget="kanban_state_selection"/>
+                          </strong>
+                      </div>
+                        <ul>
+                            <li>Statut initial: <field name="percentage_initial_finished"/> % </li>
+                            <li>Statut revu: <field name="percentage_finished"/> % </li>
+                        </ul>
+                        Budget initial : <field name="initial"/> jours <br/>
+                        Budget revu  : <field name="estimation"/> jours <br/>
+                        Feuilles de temps revues : <field name="finished_revue"/> jours 
+                        <div><p> </p></div>
+                    </div>
+                    
+                    <div class="oe_kanban_footer">
+                      <div class="oe_kanban_footer_right">
+                          <!-- Right hand footer... -->
+                          <div class="oe_kanban_bottom_right">
+
+                            <img 
+                                t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)" 
+                                t-att-title="record.user_id.value" 
+                                t-att-alt="record.user_id.value" 
+                                width="26" 
+                                height="26" 
+                                class="oe_kanban_avatar float-right"
+                                />
+                        </div>
+                        <div class="oe_kanban_footer_left">
+                            <!-- Left hand footer... -->
+                            <field name="user_id" string="Responsable"/> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="oe_clear"/>
+                </div> <!-- end of kanban color -->  
+                  </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>

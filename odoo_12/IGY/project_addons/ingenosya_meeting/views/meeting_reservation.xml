@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <template id="asserts_backend" name="js assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/ingenosya_meeting/static/src/js/timezone.js"></script>
+            </xpath>
+        </template>
+        <record id="meeting_reservation_view_calendar" model="ir.ui.view">
+            <field name="name">meeting.reservation.calendar</field>
+            <field name="model">meeting.reservation</field>
+            <field name="arch" type="xml">
+                <calendar string="Réserver une salle" 
+                            date_start="time_start" date_stop="time_finished" 
+                            mode="day" quick_add="False" color="meeting_room_id"        >
+                    <field name="display_name" modifiers="{'readonly': true}"/>
+                </calendar>
+            </field>
+        </record>
+        <record id="meeting_reservation_view_form" model="ir.ui.view">
+            <field name="name">meeting.reservation.form</field>
+            <field name="model">meeting.reservation</field>
+            <field name="arch" type="xml">
+                <form string="Réserver une salle">
+                    <sheet>
+                        <group>
+                            <group string="Réserver une salle  ">
+                                <field name="name" string="Nom : " />
+                                <field name="user_id" string="Responsable : "  options="{'no_open': True, 'no_create': True}"/>
+                                <field name="meeting_room_id" string="Salle : " options="{'no_open': True, 'no_create': True}"/>
+                                <field name="obligatory_ids" string="Présence obligatoire : " widget="many2many_tags" options="{'no_open': True, 'no_create': True}"/>
+                            </group>
+                            <group string="Horaire">
+                                <field name="timezone_local" string="Fuseau horaire" widget="timezone_widget"/>
+                                <field name="time_start" string="Début : " />
+                                <field name="time_finished" string="Fin : " />
+                                <field name="optional_ids" string="Présence facultatif : " widget="many2many_tags" options="{'no_open': True, 'no_create': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description" string="Description : " />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="meeting_reservation_view_tree" model="ir.ui.view">
+            <field name="name">meeting.reservation.tree</field>
+            <field name="model">meeting.reservation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Titre"/>
+                    <field name="user_id" string="Responsable"/>
+                    <field name="meeting_room_id" string="Salle"/>
+                    <field name="time_start" string="Début"/>
+                    <field name="time_finished" string="Fin"/>
+                </tree>
+            </field>
+        </record>
+    </data>  
+</odoo>

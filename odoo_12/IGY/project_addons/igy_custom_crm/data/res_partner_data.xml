@@ -1,0 +1,46 @@
+<odoo>
+    <record model="mail.mass_mailing_cold" id="record_mass_mailing_cold">
+        <field name="name">1er envoi</field>
+        <field name="description">1er envoi</field>
+        <field name="mail_type">cold</field>
+        <field name="mailing_model_id" ref="crm.model_crm_lead"/>
+        <field name="mailing_domain">[["stage_id.name","ilike","Qualification marketing"]]</field>
+    </record>
+
+    <record model="mail.mass_mailing_cold" id="record_mass_mailing_cold_1">
+        <field name="name">2ème envoi</field>
+        <field name="description">2ème envoi</field>
+        <field name="mail_type">cold</field>
+        <field name="mailing_model_id" ref="crm.model_crm_lead"/>
+        <field name="mailing_domain">[["stage_id.name","ilike","1er envoi"]]</field>
+    </record>
+
+    <record model="mail.mass_mailing_cold" id="record_mass_mailing_cold_2">
+        <field name="name">3ème envoi</field>
+        <field name="description">3ème envoi</field>
+        <field name="mail_type">cold</field>
+        <field name="mailing_model_id" ref="crm.model_crm_lead"/>
+        <field name="mailing_domain">[["stage_id.name","ilike","2ème envoi"]]</field>
+    </record>
+
+    <record model="mail.mass_mailing_cold" id="record_mass_mailing_cold_3">
+        <field name="name">4ème envoi</field>
+        <field name="description">4ème envoi</field>
+        <field name="mail_type">cold</field>
+        <field name="mailing_model_id" ref="crm.model_crm_lead"/>
+        <field name="mailing_domain">[["stage_id.name","ilike","3ème envoi"]]</field>
+    </record>
+
+    <data>
+        <record id="ir_cron_scheduler_reccuring_action" model="ir.cron">
+            <field name="name">Reccuring Todo Activity</field>
+            <field name="model_id" ref="model_mail_mass_mailing_cold"/>
+            <field name="state">code</field>
+            <field name="code">model.action_date()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

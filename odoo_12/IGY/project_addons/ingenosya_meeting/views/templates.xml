@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="Backend Assets (used in backend interface)" inherit_id="web.assets_backend">
+        <xpath expr="//script[contains(@src, '/web/static/src/js/views/calendar/calendar_renderer.js')]" position="after">
+            <script type="text/javascript" src="/ingenosya_meeting/static/src/js/calendar_renderer.js"></script>
+        </xpath>
+    </template>
+</odoo>

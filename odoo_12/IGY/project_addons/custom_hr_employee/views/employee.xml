@@ -1,0 +1,258 @@
+<odoo>
+    <data>
+
+        <record id="form_employee" model="ir.ui.view">
+            <field name="name">Compte Employé</field>
+            <field name="model">hr.employee</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <!-- add skype id -->
+
+                <xpath expr="//field[@name='work_email']" position="after">
+                    <field name="skype_id"/>
+                </xpath>
+
+                <!-- Add project fields many2many -->
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="is_DP" invisible="1"/>
+                    <field name="is_RH" invisible="1"/>
+                    <field name="project_ids" widget="many2many_tags"
+                           attrs="{'readonly': [('is_DP','=',False),('is_RH','=',False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='category_ids']" position="after">
+                    <group string="">
+                        <group string="">
+                            <field name="is_stagiaire" string="Est-un stagiaire actuellement?" class="oe_inline"
+                                   groups="hr.group_hr_manager"/>
+                            <field name="consultant" groups="hr.group_hr_manager"/>
+                        </group>
+
+                        <group string="">
+                            <field name="date_debut_stage" string="Debut de stage :"
+                                   attrs="{'invisible': [('is_stagiaire', '!=', True)]}"/>
+                            <field name="date_stage" string="Fin de stage :"
+                                   attrs="{'invisible': [('is_stagiaire', '!=', True)]}" groups="hr.group_hr_manager"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <group>
+                        <field name="matricule"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='identification_id']" position="after">
+                    <field name="date_cin"/>
+                </xpath>
+
+                <!-- add PIN page -->
+                <xpath expr="//page[@name='personal_information']" position="after">
+                    <page string="Pin" attrs="{'invisible':[('is_user', '!=', 'True')]}">
+                        <group>
+                            <field name="is_user" invisible="1"/>
+                            <field name="show_presence" invisible="1"/>
+                            <field name="pin" string="Votre code PIN"/>
+                        </group>
+                    </page>
+                </xpath>
+
+                <!-- add attendance button to user -->
+                <xpath expr="//field[@name='show_leaves']" position="after">
+                    <field name="attendance_state" invisible="1"/>
+                    <button name="302" class="oe_stat_button" type="action"
+                            attrs="{'invisible': [('show_presence','=','False')]}">
+                        <div role="img" id="oe_hr_attendance_status"
+                             class="fa fa-fw fa-circle o_button_icon oe_hr_attendance_status_green"
+                             attrs="{'invisible': [('attendance_state', '=', 'checked_out')]}" aria-label="Available"
+                             title="Available"/>
+                        <div role="img" id="oe_hr_attendance_status"
+                             class="fa fa-fw fa-circle o_button_icon oe_hr_attendance_status_red"
+                             attrs="{'invisible': [('attendance_state', '=', 'checked_in')]}" aria-label="Not available"
+                             title="Not available"/>
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Attendance</span>
+                        </div>
+                    </button>
+                </xpath>
+
+
+                <field name="identification_id" position="after">
+                    <field name="cin_at"/>
+                </field>
+                <xpath expr="//page[@name='personal_information']/group[1]" position="before">
+                    <group>
+                        <group string="General Information">
+                            <field name="name_emp"/>
+                            <field name="first_name"/>
+                            <field name="address_emp"/>
+                            <field name="ostie_card"/>
+                        </group>
+                    </group>
+                </xpath>
+
+
+                <xpath expr="//page[@name='personal_information']/group[2]" position="after">
+                    <group>
+                        <group string="Employee Family">
+                            <field name="name_husband"/>
+                            <field name="child_number"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Children's information">
+                            <group>
+                                <field name="children_lines">
+                                    <tree editable="buttom">
+                                        <field name="child_id" invisible="1"/>
+                                        <field name="child_name"/>
+                                        <field name="child_gender"/>
+                                        <field name="child_birthday"/>
+                                        <field name="place_birthday"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+
+                <xpath expr="//field[@name='certificate']" position="replace">
+                    <field name="level_study"/>
+                </xpath>
+                <xpath expr="//field[@name='study_field']" position="replace">
+                    <field name="speciality"/>
+                </xpath>
+                <xpath expr="//field[@name='study_school']" position="attributes">
+                    <attribute name="string">School/Institute</attribute>
+                </xpath>
+                <xpath expr="//field[@name='study_school']" position="before">
+                    <field name="last_diploma"/>
+                </xpath>
+                <xpath expr="//field[@name='study_school']" position="after">
+                    <field name="formation"/>
+                </xpath>
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="is_user" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='identification_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_user','=','False')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='timesheet_cost']" position="attributes">
+                    <attribute name="invisible">
+                        1
+                    </attribute>
+                </xpath>
+                <!--                <xpath expr="//button[@name='toggle_active']" position="after">-->
+                <!--                    <field name="is_payroll_manager" invisible="1" />-->
+                <!--                    <button name="open_payroll" context="{'is_printable': True}" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('is_payroll_manager', '=', False),('is_user','=','False')]}">-->
+                <!--                        <field name="payroll_numbers" widget="statinfo" string="Payrolls" />-->
+                <!--                    </button>-->
+                <!--                </xpath>-->
+                <xpath expr="//notebook/page[@name='employee_skills']" position="after">
+                    <page string="Check-in d'intégration" name="check_information" groups="hr.group_hr_manager">
+                        <button name="generate_check_information_data" type="object"
+                                string="Générer les données par défaut" class="btn-primary"/>
+                        <group>
+                            <field name="check_information_ids">
+                                <tree editable="bottom">
+                                    <field name="name" required="1"/>
+                                    <field name="date" required="1"/>
+                                    <field name="responsable_id" options="{'no_create_edit': True}" required="1"/>
+                                    <field name="emagement"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- edit the kanban view -->
+
+
+        <record id="custom_employee_kanban" model="ir.ui.view">
+            <field name="name">hr.employee.kanban</field>
+            <field name="model">hr.employee</field>
+            <field name="type">kanban</field>
+            <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="/kanban/templates/t/div/div[3]/ul/li[2]" position="replace">
+                    <li style="font-size:13px">
+                        <field name="work_email"/>
+                    </li>
+                    <li style="font-size:13px">
+                        <field name="skype_id"/>
+                    </li>
+                    <li style="font-size:13px">
+                        <field name="mobile_phone"/>
+                    </li>
+
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <!--        <record id="view_inherit_hr_timesheet_employee_form" model="ir.ui.view">-->
+        <!--            <field name="name">view.inherit.hr.employee.timesheet.form</field>-->
+        <!--            <field name="model">hr.employee</field>-->
+        <!--            <field name="inherit_id" ref="timesheet_grid.hr_employee_view_form_inherit_timesheet_validation"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//field[@name='timesheet_cost']" position="attributes">-->
+        <!--                    <attribute name="invisible">-->
+        <!--                       1-->
+        <!--                    </attribute>-->
+        <!--                </xpath>-->
+        <!--                <xpath expr="//page[@name='personal_information']"  position="after">-->
+        <!--                    <page string="Cost information" groups="custom_hr_employee.igy_payroll_manager">-->
+        <!--                        <group>-->
+        <!--                            <field name="timesheet_cost" />-->
+        <!--                            <field name="work_day" />-->
+        <!--                            <field name="net_salary" />-->
+        <!--                            <field name="isi" />-->
+        <!--                            <field name="isi_deduction" />-->
+        <!--                            <field name="computer_freight" />-->
+        <!--                            <field name="total_salary" />-->
+        <!--                        </group>-->
+
+        <!--                    </page>-->
+        <!--                </xpath>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="hr_information_theme_form" model="ir.ui.view">
+            <field name="name">Thème check-in d'integration</field>
+            <field name="model">hr.information.theme</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_information_theme_action" model="ir.actions.act_window">
+            <field name="name">Thème check-in d'integration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.information.theme</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Cliquez pour ajouter un nouveau
+              </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="hr_information_theme_menuitem" name="Thème check-in d'intégration" parent="hr.menu_human_resources_configuration"
+                  action="hr_information_theme_action" sequence="10" groups="hr.group_hr_manager"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<!--		@author: O'Neal RABELAIS-->
+		
+		<report
+				id="report_employee_cv"
+				model="hr.employee"
+				string="Curriculum Vitae"
+				name="igy_custom_cv.cv_repot_template"
+				file="igy_custom_cv.cv_repot_template"
+				print_report_name="'CV_IGY: %s' % (object.name)"
+				paperformat="paperformat_cv"
+				report_type="qweb-pdf"/>
+		
+		<template id="cv_repot_template">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="o">
+					<t t-call="web.basic_layout">
+						<div class="page">
+							<div align="center"
+							     vertical-align="center">
+								<div style="width: 297mm; height: 20px; background-color: #f7d989">
+									<div style="color: #f7d989">Test</div>
+								</div>
+								<div style="z-index: 100">
+									<img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)"
+								     width="25%" alt="Company Logo"/>
+								</div>
+								<br></br>
+								<br></br>
+								<div>
+									<p style="font-family:Trebuchet MS;font-size:24pt;text-align:center;color:#12537E;">
+										<b>
+											<span t-esc="o.get_last_name()"/>
+										</b>
+									</p>
+								</div>
+
+								<p style="font-family:Tahoma;font-size:16pt;text-align:center;color:#454A4E;">
+									<b>
+										<span t-field="o.matricule"/>
+									</b>
+								
+								</p>
+							</div>
+							
+							<hr/>
+							<div class="page_break">
+								<div style="position: relative">
+									<p style="font-family:Tahoma;font-size:14pt;text-align:left;color:#6F6F6F;position:absolute;">
+										<span t-field="o.profil"/>
+									</p>
+								</div>
+								<div class="row">
+									<div class="col-2">
+										<p style="margin-left:0px;font-family:Tahoma;font-size:21px;text-align:left;color:#F7D989;padding-top:25px; margin-bottom: 10px">
+											<b>EXPERIENCE</b>
+										</p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+									</div>
+									<div class="col-10">
+										<img src="/igy_custom_cv/static/src/img/experience.png" width="895" height="90"/>
+									</div>
+								</div>
+								<div style="position:relative; margin-left: 20px" class="page_break">
+									<t t-foreach='o.experience_ids' t-as='line'>
+										<div class="row">
+											<div class="col-3" style="border-left: 1px solid #454a4e; position: relative; padding-top: 5px; margin-left: 10px">
+												<div style="width: 15px; height: 15px; border-radius: 50%; background-color: #454a4e; position: absolute; top: 0%; left: -7px" />
+												<div style="font-family:Trebuchet MS;font-size:14pt;text-align:left;color:#535353;position:relative; margin-top: -11px">
+													<b>
+														<span t-esc="line.post"/>
+													</b>
+													<br/>
+													<span t-esc="line.company"/>
+													<br/>
+													<b style="font-family:Tahoma;font-size:14pt;text-align:left;color:#535353;">
+														<span t-esc="line.period"/>
+													</b>
+												</div>
+											</div>
+											<div class="col-8" style="padding-top: 0px">
+												<p style="font-family:Tahoma;font-size:14pt;text-align:left;color:#535353;position:absolute;bottom:10px;">
+													<span t-raw="line.description"/>
+												</p>
+												<br/>
+											</div>
+										</div>
+									</t>
+								</div>
+							</div>
+							<br/>
+							<div class="page_break">
+								<div class="row">
+									<div class="col-2">
+										<p style="margin-left:0px;font-family:Tahoma;font-size:21px;text-align:left;color:#F7D989;padding-top:25px;">
+											<b>EDUCATION</b>
+										</p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+									</div>
+									<div class="col-10">
+										<img src="/igy_custom_cv/static/src/img/education.png" width="895" height="90"/>
+
+									</div>
+								</div>
+								<div>
+									<div class="align-items-start" style="margin-left: 20px">
+										<t t-foreach='o.tab_education_ids' t-as='education_ids'>
+											<div class="row" style="margin-bottom: 15px !important">
+												<t t-foreach="education_ids" t-as="line">
+													<div class="col-4">
+														<p style="font-family:Trebuchet MS;font-size:14pt;text-align:left;color:#535353;  margin-top: 20px !important;">
+															<b>
+																<span t-field="line.diplome"/>
+															</b>
+															<b>
+																<t t-if="line.speciality"><span t-esc="line.speciality" /></t>
+															</b>
+															<br/>
+															<span t-esc="line.university"/>
+															<br/>
+															<b style="font-family:Tahoma;font-size:14pt;text-align:left;color:#535353;">
+																<span t-esc="line.period"/>
+															</b>
+														</p>
+													</div>
+												</t>
+											</div>
+										</t>
+									</div>
+								</div>
+							</div>
+							
+							<br/>
+							<br/>
+							<div class="page_break">
+								<div class="row">
+									<div class="col-2">
+										<p style="margin-left:0px;font-family:Tahoma;font-size:24px;text-align:left;color:#F7D989;padding-top:25px;">
+											<b>EXPERTISE</b>
+										</p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+									</div>
+									<div class="col-10">
+										<img src="/igy_custom_cv/static/src/img/expertise.png" width="895" height="90"/>
+									</div>
+								</div>
+								
+								<div>
+									<div style="margin-left: 20px">
+										<t t-foreach='o.tab_skill_ids' t-as='skill_ids'>
+											<div class="row">
+												<t t-foreach="skill_ids" t-as="skill_id">
+													<div class="col-4">
+														<ul style="font-family:Tahoma;font-size:16px;text-align:left;color:#535353; margin-left: -24px">
+															<li>
+																<span t-field="skill_id.skill_id"/>
+																<t t-if="skill_id.igy_skill_ids">
+																	:
+																	<span t-field="skill_id.igy_skill_ids"/>
+																</t>
+															</li>
+														</ul>
+													</div>
+												</t>
+											</div>
+										</t>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</t>
+				</t>
+			</t>
+		
+		</template>
+	
+	</data>
+</odoo>

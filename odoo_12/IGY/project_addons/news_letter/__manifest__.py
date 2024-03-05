@@ -1,0 +1,21 @@
+{
+    'name': 'News letter',
+    'version': '1.0.0.0',
+    'summary': 'This module allows RH and Marketing to share news letters',
+    'description': '',
+    'category': '',
+    'author': '',
+    'website': '',
+    'license': '',
+    'depends': ['base', 'mail'],
+    'data': [
+        'security/res_groups.xml',
+        'security/ir.model.access.csv',
+        'wizard/invite.xml',
+        'views/news_letter.xml',
+        'views/news_letter_tag.xml',
+        'views/assets.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+}

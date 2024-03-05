@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="crm.mail.export" id="crm_mail_data">
+            <field name="date">2023-07-11</field>
+            <field name="active">1</field>
+            <field name="name">
+                Cochez et cliquez sur "Imprimer" et choisissez le format de données a exporter
+            </field>
+        </record>
+    </data>
+</odoo>

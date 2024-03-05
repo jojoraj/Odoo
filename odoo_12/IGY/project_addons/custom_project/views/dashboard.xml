@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<data>
+		<record id="edit_project_inherit" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name = "dashboard" string = "Tableau  de bord">
+                            <button string="Send mail" name="send_reporting_dashboard" type="object" />
+                            <group>
+                                <group string="">
+                                    <field name="initial" force_save = "1" string = "Budget initial " />
+                                    <field name="percentage_not_finished_initial"  string= ""   widget="percentpie" force_save = "1" />
+                                    <field name="estimation" force_save = "1" string = "Budget revu" />
+                                    <field name="percentage_not_finished"  string= ""   widget="percentpie" force_save = "1" />
+                                    <field name="finished_revue"  force_save = "1" string = "Feuille de temps revu"/>
+                                    <field name="buddget_without_tester"  force_save = "1" string = "Budget sans testeurs et Intégrateurs"/>
+                                    <field name="percentage_buddget_without_tester"  string= ""   widget="percentpie" force_save = "1"/>
+                                </group>
+                                <group string="">
+                                    <group string="">
+                                        <field name="type" widget="selection" string="Type"/>
+                                        <field name="percentage_finished" string="" widget="percentpie" force_save = "1" />
+                                    </group>
+                                    <group string="">
+                                        <field name="avancement" string="Avancement"/>
+                                        <field name="percentage_previsionnel" string="" widget="percentpie" force_save = "1" />
+                                    </group>
+                                </group>
+                                <group string="Feuilles de temps (sans stagiaire)">
+                                    <field name="pilotage_sans_stagiaire" force_save = "1" string = "Pilotage"/>
+                                    <field name="dev_sans_stagiaire" force_save = "1" string = "Developpement"/>
+                                    <field name="design_sans_stagiaire" force_save = "1" string = "Design/Intégration"/>
+                                    <field name="testeur_sans_stagiaire" force_save = "1" string = "Testeurs"/>
+                                    <field name="autre_sans_stagiaire" force_save = "1" string = "Autres"/>
+                                    <field name="total_sans_stagiaire" force_save = "1" string = "Total sans stagaire"/>
+                                </group>
+
+                                <group string="Feuilles de temps des stagiaires">
+                                    <field name="pilotage_stagiaire" force_save = "1" string = "Pilotage"/>
+                                    <field name="dev_stagiaire" force_save = "1" string = "Developpement"/>
+                                    <!-- <field name="design_stagiaire" force_save = "1" string = "Design/Intégration"/> -->
+                                    <field name="testeur_stagiaire" force_save = "1" string = "Testeurs"/>
+                                    <field name="autre_stagiaire" force_save = "1" string = "Autres"/>
+                                    <field name="total_stagiaire" force_save = "1" string = "Total des stagiaires"/>
+                                </group>
+                            </group>
+                     </page> 
+                     <page name = "about" string = "Plus d'info">
+                         <group>
+                             <group string = "Contact(s) client">
+                                 <field name="project_client_ids" nolabel="1" >
+                                        <tree editable="bottom">
+                                            <field name="client_id" string= "Nom" />
+                                            <field name="roll" string="Rôle"/>
+                                            <field name="mail" string="Email" />
+                                            <field name="phone" string="Telephone" />
+                                        </tree>
+                                 </field>
+                             </group>
+                             <group string = "Technologies">
+                                 <field name="front_end_techonology_ids" widget="many2many_tags"  string="Front-end" options="{'no_open': True, 'no_create': True}"/>
+                                 <field name="back_end_techonology_ids" widget="many2many_tags"  string="Back-end" options="{'no_open': True, 'no_create': True}"/>
+                                 <field name="bdd_techonology_ids" widget="many2many_tags"  string="Base de donées" options="{'no_open': True, 'no_create': True}"/>
+                                 <field name="other_techonology_ids" widget="many2many_tags"  string="Autre" options="{'no_open': True, 'no_create': True}"/>
+                             </group>
+                         </group>
+                     </page>
+                     <page name="document" string="Doc">
+                        <group>
+                            <field name="attach_ids" widget="many2many_binary" />
+                        </group>
+                     </page>							
+                 </notebook>
+                <xpath expr="//form/sheet/notebook" position="after">
+                    <label for="description_dashboard" string="Description"></label>
+                    <field name="description_dashboard" placeholder="Descrpition" />
+                </xpath> 
+                 <xpath expr="//button[@name='%(portal.portal_share_action)d']" position="replace">
+                    <button 
+                        name="zero_avancement" string="Reinitialiser l'avancement"
+                        type="object" class="oe_highlight"
+                        groups="custom_project.group_administrator_config" />
+                  </xpath> 
+            </field>
+        </record>
+
+		<record id="edit_status_bar_inherit" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <field name="stage" 
+                            widget="statusbar" 
+                            statusbar_visible="non_demarre,en_cours,termine"
+                            options="{'clickable': '1', 'fold_field': 'fold'}"
+                    />    
+                </header>
+            </field>
+        </record>
+                
+		<record id="edit_state_inherit" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="states" widget="state_selection" class="oe-inline"/>
+                </xpath>
+            </field>
+        </record>
+	</data>
+
+</odoo>

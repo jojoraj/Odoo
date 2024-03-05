@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 Savoir-faire Linux
+    Copyright 2018-2019 Brainbean Apps
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+        <!-- Les menus à caché pour les simples users (Toutes les feuille de temps/ application Mobile) -->
+        <menuitem id="hr_timesheet.timesheet_menu_activity_all"
+            name="All Timesheets"
+            parent="hr_timesheet.menu_hr_time_tracking"
+            action="hr_timesheet.timesheet_action_all" 
+            groups = "hr_timesheet.group_timesheet_manager"
+        />
+
+        <menuitem id="project_timesheet_synchro.menu_timesheet_app" 
+            parent="hr_timesheet.menu_hr_time_tracking" 
+            action="project_timesheet_synchro.project_timesheet_synchro_app_action" 
+            sequence="100"
+            groups = "hr_timesheet.group_timesheet_manager"
+        />
+</odoo>

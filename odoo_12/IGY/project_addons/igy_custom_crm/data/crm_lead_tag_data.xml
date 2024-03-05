@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sdra_data" model="crm.lead.tag">
+            <field name="name">SDR A</field>
+            <field name="color">1</field>
+        </record>
+        <record id="sdrb_data" model="crm.lead.tag">
+            <field name="name">SDR B</field>
+            <field name="color">2</field>
+        </record>
+        <record id="sdr_local_data" model="crm.lead.tag">
+            <field name="name">SDR local</field>
+            <field name="color">3</field>
+        </record>
+    </data>
+</odoo>

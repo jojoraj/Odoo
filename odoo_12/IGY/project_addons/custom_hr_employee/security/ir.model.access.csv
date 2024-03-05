@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance,access_hr_attendance,model_hr_attendance,,1,0,0,0
+access_hr_employee_lines,access_hr_employee_lines,model_hr_employee_lines,,1,1,1,1
+access_hr_check_information,access_hr_check_information,model_hr_check_information,,1,1,1,1
+access_hr_information_theme,access_hr_information_theme,model_hr_information_theme,,1,1,1,1
+
+
+

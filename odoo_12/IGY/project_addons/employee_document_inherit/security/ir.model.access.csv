@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_doc_inh,hr_employee_doc_inh,hr.model_hr_employee,hr.group_hr_user,1,1,1,1
+access_ir_attachment_doc_inh,ir_attachment_doc_inh,base.model_ir_attachment,employee_documents_expiry.rh_administration,1,1,1,1
+access_hr_employee_document_doc_inh,hr_employee_document_doc_inh,model_hr_employee_document,employee_documents_expiry.rh_administration,1,1,1,1

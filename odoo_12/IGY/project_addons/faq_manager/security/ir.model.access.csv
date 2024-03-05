@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_faq_simple,faq_manager.faq_simple,model_faq_simple,group_faq_user,1,0,0,0
+access_faq_manager,faq_manager.faq_manager,model_faq_simple,group_faq_manager,1,1,1,1
+access_faq_models_manager,faq_manager.faq_models_manager,model_faq_models,group_faq_manager,1,1,1,1
+access_faq_model_user,faq_manager.faq_models_user,model_faq_models,group_faq_user,1,0,0,0

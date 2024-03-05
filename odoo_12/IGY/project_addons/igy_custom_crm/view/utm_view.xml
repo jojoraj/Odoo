@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="utm_medium_action" model="ir.actions.act_window">
+            <field name="name">Moyen</field>
+            <field name="res_model">utm.medium</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('utm.utm_medium_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('utm.utm_medium_view_form')})]"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Define a new medium
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="utm_medium_action"
+                  id="menu_utm_medium"
+                  parent="crm.crm_menu_config"
+                  sequence="6"
+                  groups="igy_custom_crm.group_crm_sdr,igy_custom_crm.group_crm_bdr"/>
+
+       <record id="utm_source_action" model="ir.actions.act_window">
+            <field name="name">Sources</field>
+            <field name="res_model">utm.source</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('utm.utm_source_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('utm.utm_source_view_form')})]"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Define a new source
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="utm_source_action"
+                  id="menu_utm_source"
+                  parent="crm.crm_menu_config"
+                  sequence="5"
+                  groups="igy_custom_crm.group_crm_sdr,igy_custom_crm.group_crm_bdr"/>
+
+    </data>
+</odoo>

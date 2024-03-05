@@ -1,0 +1,7 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_project_member,name_project_member,model_project_member,,1,1,1,1
+access_project_member_title,name_project_member_title,model_project_member_title,,1,1,1,1
+access_project_client,name_project_client,model_project_client,,1,1,1,1
+access_project_project_client,name_project_project_client,model_project_project_client,,1,1,1,1
+access_project_team_type,name_project_team_type,model_project_team_type,,1,1,1,1
+

@@ -1,0 +1,80 @@
+
+<odoo>
+    <data>
+        
+        <record id="form_employee" model="ir.ui.view">
+            <field name="name">Compte Employé</field>
+            <field name="model">hr.employee</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="is_user" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='toggle_active']" position="after">
+                    <field name="is_payroll_manager" invisible="1" />
+                    <button name="open_payroll" context="{'is_printable': True}" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('is_payroll_manager', '=', False),('is_user','=','False')]}">
+                        <field name="payroll_numbers" widget="statinfo" string="Payrolls" />
+                    </button>
+                </xpath>
+
+            </field>
+        </record>
+        
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_hr_timesheet_employee_form" model="ir.ui.view">
+            <field name="name">view.inherit.hr.employee.timesheet.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="timesheet_grid.hr_employee_view_form_inherit_timesheet_validation"/>
+            <field name="arch" type="xml">
+                <!-- Make timesheet invisible in RH Parameter               -->
+                <xpath expr="//group[@name='timesheet']" position="attributes">
+                    <attribute name="invisible">
+                        1
+                    </attribute>
+                </xpath>
+<!--                Add group restriction to timesheet_cost-->
+                <xpath expr="//field[@name='timesheet_cost']" position="replace">
+                    <attribute name="groups">
+                          igy_payroll.igy_payroll_manager
+                    </attribute>
+                </xpath>
+                <!-- Add cost information to employee timesheet                -->
+                <xpath expr="//page[@name='personal_information']"  position="after">
+                    <page string="Cost information" name="employee_cost" groups="igy_payroll.igy_payroll_manager">
+                        <group col="2">
+                             <group string = "Teste">
+                                 <field name="payment_type"/>
+                                 <field name="timesheet_cost" />
+                                 <field name="work_day" />    
+                                 <field name="extra_hour" attrs="{'invisible': [('has_extra_hour', '=', False)]}" />
+                                 <field name="extra_hour_unit" attrs="{'invisible': [('has_extra_hour', '=', False)]}" />
+                                 <field name="total_extra_hour" attrs="{'invisible': [('has_extra_hour', '=', False)]}" />
+                                 <field name="timesheet_cost" />
+                                 <field name="net_salary" />
+                            </group>
+                            <group>
+                                <field name="has_niff_stat" />
+                                <field name="has_extra_hour" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="isi" />
+                            <field name="isi_deduction" />
+                            <field name="computer_freight" />
+                            <field name="advance" />
+                             <field name="other_payment" />
+                             <field name="total_salary" />
+                        </group>
+                    </page>
+                    <page string="Extra information" name="extra_information" attrs="{'invisible': ['|',('is_user', '=', 'False'), ('has_niff_stat', '=', False)]}">
+                         <group>
+                             <field name="niff" />
+                             <field name="stat" />
+                         </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

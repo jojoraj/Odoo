@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <function name="add_group_global_pipeline" model="ir.ui.menu"/>
+
+    </data>
+</odoo>

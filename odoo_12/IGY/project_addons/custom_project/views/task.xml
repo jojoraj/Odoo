@@ -1,0 +1,19 @@
+
+<odoo>
+    <data>
+        <record id="client_project_task_inherit" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='%(portal.portal_share_action)d']" position="replace">
+                    <button name="%(portal.portal_share_action)d" string="Partager" type="action" class="oe_highlight oe_read_only"
+                    groups="project.group_project_manager,project.group_project_user"/>
+                </xpath>
+                
+            </field>
+        </record>
+
+    </data>
+</odoo>

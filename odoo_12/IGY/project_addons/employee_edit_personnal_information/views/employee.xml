@@ -1,0 +1,76 @@
+
+<odoo>
+    <data>
+    
+    <record id="employee_edit_personnal_information.employee_form" model="ir.ui.view">
+        <field name="name">Compte Employé</field>
+        <field name="model">hr.employee</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+
+            <!-- make name read only for employee -->
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly':[('has_manager_role','=','False')]}</attribute>
+            </xpath>
+
+             
+            <!-- make matricule read only for employee -->
+             <xpath expr="//field[@name='matricule']" position="attributes">
+                <attribute name="attrs">{'readonly':[('has_manager_role','=','False')]}</attribute>
+            </xpath>
+
+            <!-- make image read only for employee -->
+            
+            <xpath expr="//field[@name='image']" position="attributes">
+                <attribute name="attrs">{'readonly':['|',('has_manager_role','=','False'),('is_user', '=', 'False')]}</attribute>
+            </xpath>
+            <!-- make categorie_ids read only for employee -->
+            
+            <xpath expr="//field[@name='category_ids']" position="attributes">
+                
+                <attribute name="attrs">{'readonly':[('has_manager_role','=','False')]}</attribute>
+                
+            </xpath>
+            
+
+            <!-- make evaluation readonly for employee -->
+            <xpath expr="//notebook/page[2]" position="attributes">
+                <attribute name="attrs">{'invisible':['|',('has_manager_role','=','False')]}</attribute>
+            </xpath>
+            
+
+
+            <!-- make personal information invisible for  employees -->
+            <xpath expr="//page[@name='personal_information']" position="attributes">
+                <attribute name="groups"></attribute>
+                <attribute name="attrs">{'invisible':[('has_manager_role','=','False'),('is_user', '=', 'False')]}</attribute>
+            </xpath>
+            
+            <!-- make professional information invisible for employes -->
+            <xpath expr="//page[@name='public']" position="attributes">
+                <attribute name="attrs">{'invisible':[('has_manager_role','=','False')]}</attribute>
+            </xpath>
+
+            <!-- make PIN readonly -->
+            
+            <xpath expr="//field[@name='pin']" position="attributes">
+                
+                <attribute name="attrs">{'readonly':[('has_manager_role','=','False')]}</attribute>
+                
+            </xpath>
+            
+            
+            <xpath expr="//page[@name='personal_information']" position="after">
+                <field name="has_manager_role" invisible="1"/>
+                <field name="is_user" invisible="1"/>
+            </xpath>
+            
+            
+        </field>
+    </record>
+    
+        
+
+    </data>
+</odoo>

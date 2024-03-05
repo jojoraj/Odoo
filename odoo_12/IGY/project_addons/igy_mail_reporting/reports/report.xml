@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+    <report
+        id="mail_reporting_cv_cold_xls"
+        model="crm.mail.export"
+        report_type="xlsx"
+        string="Mail reporting xls"
+        name="igy_mail_reporting.reporting_cold_cv"
+        file="igy_mail_reporting.reporting_cold_cv"
+    />
+    <report
+        id="mail_reporting_cv_cold_pdf"
+        model="crm.mail.export"
+        report_type="qweb-pdf"
+        string="Mail reporting.pdf"
+        name="igy_mail_reporting.reporting_cold_cv_pdf"
+        file="igy_mail_reporting.reporting_cold_cv_pdf"
+    />
+</odoo>

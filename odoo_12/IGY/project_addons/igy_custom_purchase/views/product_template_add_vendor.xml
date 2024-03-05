@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_template_tree_view_custom_inherit" model="ir.ui.view">
+            <field name="name">product.template.product.tree.custom.inherit</field>
+            <field name="model">product.template</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="principal_seller"/>
+                    <field name="principal_price"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_template_search_view_custom_inherit" model="ir.ui.view">
+            <field name="name">product.template.search.custom.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <filter name="group_employee_id" string="Category" icon="terp-partner" context="{'group_by':'categ_id'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

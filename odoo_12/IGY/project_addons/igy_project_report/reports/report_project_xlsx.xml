@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<report 
+                id="project_dashboard_report" 
+                model="project.project" 
+                string="Print project" 
+                report_type="xlsx" 
+                name="igy_project_report.project_report"
+                file="igy_report_project" 
+                attachment_use="True"
+                print_report_name="'Reporting tableau de chaque projet'"
+                />
+	</data>
+</odoo>

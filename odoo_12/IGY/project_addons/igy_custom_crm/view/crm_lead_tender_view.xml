@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+		<record id="crm_lead_tender_view_tree" model="ir.ui.view">
+		    <field name="name">crm.lead.tender.view.tree</field>
+		    <field name="model">crm.lead</field>
+		    <field name="arch" type="xml">
+		        <tree string="AO">
+		            <field name="name"/>
+		            <field name="ao_week"/>
+		            <field name="description"/>
+		            <field name="country_id"/>
+		            <field name="ao_type"/>
+		            <field name="ao_link"/>
+		        </tree>
+		    </field>
+		</record>
+
+        <record id="crm_lead_tender_form_view" model="ir.ui.view">
+			<field name="name">crm.lead.form.tender</field>
+			<field name="model">crm.lead</field>
+			<field name="arch" type="xml">
+				<form string="Appel d'offre" class="o_opportunity_form">
+					<header>
+						<button name="set_proposition_opportunity" string="Mettre en proposition"
+						        type="object" class="oe_highlight"
+						        attrs="{'invisible': [('stage_two_id','not in',[%(igy_custom_crm.bdr_crm_qualif)d])]}"/>
+						<button name="button_to_sent"
+						        string="Envoyer offre"
+						        type="object"
+						        class="btn-primary"
+						        attrs="{'invisible': [('stage_two_id','not in',[%(igy_custom_crm.bdr_crm_proposition)d])]}"/>
+						<button name="button_to_sent"
+						        string="Relancer l'offre"
+						        type="object"
+						        class="btn-primary"
+						        attrs="{'invisible': [('stage_two_id','not in',[%(igy_custom_crm.bdr_crm_offer_sent)d])]}"/>
+						<button name="set_won_opportunity" string="Marquer comme gagnée"
+						        type="object" class="oe_highlight"
+						        attrs="{'invisible': [('stage_two_id','not in',[%(igy_custom_crm.bdr_crm_offer_sent)d])]}"/>
+						<button name="set_unqualified_opportunity"
+						        string="Marquer comme perdue"
+						        type="object"
+						        attrs="{'invisible': [('stage_two_id','not in',[%(igy_custom_crm.bdr_crm_offer_sent)d])]}"/>
+						<button name="toggle_active"
+						        string="Restore"
+						        type="object"
+						        attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}"/>
+						<field name="stage_two_id"
+							   widget="statusbar"
+							   options="{'clickable': '1', 'fold_field': 'fold'}"/>
+						<field name="sub_state_proposal" widget="statusbar"
+						       statusbar_visible="encryption,writing,waiting,sent"
+						       attrs="{'invisible': 1}"/>
+					</header>
+					<style>
+						.container {
+						--d: 6px; /* folded part */
+						--c: blue; /* color */
+						--f: 16px; /* ribbon font-size */
+
+						}
+
+						.container::before {
+						content: attr(data-ribbon);
+						position: absolute;
+						font-size: var(--f);
+						top: 102px;
+						right: 15px;
+					    display: block;
+                        width: 215px;
+						transform: translate(29.29%, -100%) rotate(45deg);
+						color: #fff;
+						text-align: center;
+						border: 1px solid transparent;
+						border-bottom: 0;
+						transform-origin: bottom left;
+						padding: 5px 35px calc(var(--d) + 5px);
+						background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% var(--d)
+						no-repeat var(--c);
+						background-clip: padding-box;
+						clip-path: polygon(0 0,100% 0,100% 100%,calc(100% - var(--d)) calc(100% - var(--d)),var(--d)
+						calc(100% - var(--d)),0 100%);
+						-webkit-mask: linear-gradient(135deg,transparent calc(50% - var(--d) * 0.707),#fff 0) bottom
+						left,
+						linear-gradient(-135deg, transparent calc(50% - var(--d) * 0.707), #fff 0)bottom right;
+						-webkit-mask-size: 300vmax 300vmax;
+						-webkit-mask-composite: destination-in;
+						mask-composite: intersect;
+						}
+						.left::before {
+						left: 0;
+						right: auto;
+						transform: translate(-29.29%, -100%) rotate(-45deg);
+						transform-origin: bottom right;
+						}
+
+
+					</style>
+					<sheet>
+						<field name="active" invisible="1"/>
+						<div class="oe_button_box" name="button_box" style="width:225px;">
+							<button class="oe_stat_button" type="object"
+							        context="{'partner_id': partner_id}"
+							        name="action_schedule_meeting" icon="fa-calendar">
+								<div class="o_stat_info">
+									<field name="meeting_count" class="o_stat_value"/>
+									<span class="o_stat_text" attrs="{'invisible': [('meeting_count', '&lt;', 2)]}">
+										Meetings
+									</span>
+									<span class="o_stat_text" attrs="{'invisible': [('meeting_count', '&gt;', 1)]}">
+										Meeting
+									</span>
+								</div>
+							</button>
+						</div>
+						<div class="container" data-ribbon="Qualifié" style="--d:0px;--c:#075689;--f:25px;"
+						     attrs="{'invisible': [('stage_two_id','!=',%(igy_custom_crm.bdr_crm_qualif)d)]}">
+						</div>
+						<div class="container" data-ribbon="Proposition" style="--d:0px;--c:#075689;--f:25px;"
+						     attrs="{'invisible': [('stage_two_id','!=',%(igy_custom_crm.bdr_crm_proposition)d)]}">
+						</div>
+						<div class="container" data-ribbon="Offre envoyé" style="--d:0px;--c:#075689;--f:25px;"
+						     attrs="{'invisible': [('stage_two_id','!=',%(igy_custom_crm.bdr_crm_offer_sent)d)]}">
+						</div>
+						<div class="container" data-ribbon="Gagné" style="--d:0px;--c:green;--f:25px;"
+						     attrs="{'invisible': ['|', ('stage_two_id','!=',%(igy_custom_crm.bdr_crm_won)d),('probability', '&lt;', 100)]}">
+						</div>
+						<div class="container" data-ribbon="Perdu" style="--d:0px;--c:red;--f:25px;"
+						     attrs="{'invisible': [('stage_two_id','!=',%(igy_custom_crm.bdr_crm_lost)d)]}">
+						</div>
+						<div class="oe_title">
+							<label for="name" class="oe_edit_only"/>
+							<h1>
+								<field name="name" placeholder="e.g. Product Pricing"/>
+							</h1>
+							<h2 class="o_row row no-gutters d-flex">
+								<div class="col">
+									<label for="planned_revenue" class="oe_edit_only"/>
+									<div class="o_row">
+										<field name="company_currency" invisible="1"/>
+										<field name="planned_revenue" class="oe_inline" widget='monetary'
+										       options="{'currency_field': 'company_currency'}"/>
+										<span class="oe_grey">at</span>
+									</div>
+								</div>
+								<div class="col">
+									<label for="probability" class="oe_edit_only"/>
+									<div class="o_row d-flex">
+										<field name="probability" widget="integer" class="oe_inline"/>
+										<span class="oe_grey">%%</span>
+									</div>
+								</div>
+							</h2>
+						</div>
+						<group>
+							<group>
+								<field name="partner_id"
+								       widget="res_partner_many2one"
+									   required="1"
+								       string="Customer" domain="[('customer', '=', True)]"
+								       context="{'search_default_customer': 1,
+                                        'default_name': partner_name, 'default_street': street,
+                                        'default_street2': street2, 'default_city': city,
+                                        'default_state_id': state_id, 'default_zip': zip,
+                                        'default_country_id': country_id, 'default_function': function,
+                                        'default_phone': phone, 'default_mobile': mobile,
+                                        'default_email': email_from,
+                                        'default_user_id': user_id, 'default_team_id': team_id, 'default_website': website,
+                                        'show_vat': True,
+                                    }"
+								/>
+								<field name="created_date"/>
+								<field name="week"/>
+								<field name="ao_week"/>
+								<field name="ao_type"/>
+								<field name="ao_link"/>
+								<field name="crm_type"/>
+								<field name="is_blacklisted" invisible="1"/>
+								<field name="is_bdr" invisible="1"/>
+								<field name="is_tender" invisible="1"/>
+								<field name="partner_is_blacklisted" invisible="1"/>
+								<label for="email_from" class="oe_inline"/>
+								<div class="o_row o_row_readonly">
+									<i class="fa fa-ban" style="color: red;" role="img"
+									   title="This email is blacklisted for mass mailing"
+									   aria-label="Blacklisted"
+									   attrs="{'invisible': ['|', ('is_blacklisted', '=', False), ('partner_address_email', '!=', False)]}"
+									   groups="base.group_user"></i>
+									<field name="email_from"
+									       attrs="{'invisible': [('partner_address_email', '!=', False)]}"
+									       string="Email"
+									       widget="email"/>
+									<i class="fa fa-ban" style="color: red;" role="img"
+									   title="This email is blacklisted for mass mailing"
+									   aria-label="Blacklisted"
+									   attrs="{'invisible': ['|', ('partner_is_blacklisted', '=', False), ('partner_address_email', '=', False)]}"
+									   groups="base.group_user"></i>
+									<field name="partner_address_email"
+									       attrs="{'invisible': [('partner_address_email', '==', False)]}"
+									       widget="email"
+									       string="Email"/>
+								</div>
+								<field name="partner_address_phone"
+								       attrs="{'invisible': [('partner_address_phone', '==', False)]}"
+								       readonly="1"
+								       widget="phone"
+								       string="Phone"/>
+								<field name="phone"
+								       attrs="{'invisible': [('partner_address_phone', '!=', False)]}"
+								       widget="phone"/>
+							</group>
+
+							<group>
+								<field name="next_send_date" invisible="0"/>
+								<field name="week_relaunch_date" invisible="0"/>
+								<field name="date_deadline"/>
+								<separator/>
+								<field name="contact_linkedin"/>
+								<field name="contact_mail"/>
+								<field name="contact_phone"/>
+
+							</group>
+
+							<group>
+								<field name="user_id"
+								       context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'sales_team.group_sale_salesman_all_leads'],
+                                                 'team_id': team_id}"
+								       domain="[('share', '=', False)]"
+								       invisible="1"/>
+								<field name="team_id" widget="selection"/>
+								<field name="bdr_user_id" options="{'no_create': True}" />
+								<field name="sdr_user_id" options="{'no_create': True}" />
+								<field name="iav_user_id" options="{'no_create': True}" />
+
+								<field name="sdr_user"/>
+							</group>
+							<group>
+								<field name="priority" widget="priority"/>
+								<field name="tag_ids" widget="many2many_tags"
+								       options="{'color_field': 'color', 'no_create_edit': True}"/>
+								<field name="medium_id"
+								       string="Moyen"
+								       filter_domain="[('medium_id', 'ilike', self)]"
+								       options="{'no_create':True}"/>
+								<field name="source_id"
+								       string="Origine"
+								       filter_domain="[('source_id', 'ilike', self)]"
+								       options="{'no_create':True}"/>
+								<separator/>
+								<field name="contact" string="Contacté par Ingenosya?"
+								       filter_domain="[('contact', 'ilike', self)]"/>
+								<field name="verif_nom"/>
+								<field name="lost_reason" attrs="{'invisible': [('active', '=', True)]}"/>
+								<field name="date_conversion" invisible="1"/>
+							</group>
+						</group>
+
+						<notebook colspan="4">
+							<page string="Notes internes">
+								<field name="description"/>
+							</page>
+							<page name="lead" string="Suivi">
+								<group>
+									<group string="Initial Contact Information">
+										<field name="partner_name"/>
+										<label for="street" string="Address"/>
+										<div class="o_address_format">
+											<field name="street" placeholder="Street..." class="o_address_street"/>
+											<field name="street2" placeholder="Street 2..." class="o_address_street"/>
+											<field name="city" placeholder="City" class="o_address_city"/>
+											<field name="state_id" class="o_address_state" placeholder="State"
+											       options='{"no_open": True}'/>
+											<field name="zip" placeholder="ZIP" class="o_address_zip"/>
+											<field name="country_id" placeholder="Country" class="o_address_country"
+											       options='{"no_open": True, "no_create": True}'/>
+										</div>
+										<field name="website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+									</group>
+
+									<group class="mt48">
+										<label for="contact_name"/>
+										<div class="o_row">
+											<field name="contact_name"/>
+											<field name="title" placeholder="Title" domain="[]"
+											       options='{"no_open": True}'/>
+										</div>
+										<field name="function"/>
+										<field name="partner_address_mobile"
+										       attrs="{'invisible': [('partner_address_mobile', '=', False)]}"
+										       readonly="1"
+										       widget="phone"
+										       string="Mobile"/>
+										<field name="mobile"
+										       attrs="{'invisible': [('partner_address_mobile', '!=', False)]}"
+										       widget="phone"/>
+									</group>
+									<group string="Marketing">
+										<field name="campaign_id"/>
+										<field name="medium_id"/>
+										<field name="source_id"/>
+									</group>
+									<group string="Misc" name="Misc">
+										<field name="day_open" groups="base.group_no_one"/>
+										<field name="day_close" groups="base.group_no_one"/>
+										<field name="referred"/>
+										<field name="type" invisible="1"/>
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="activity_ids" widget="mail_activity"/>
+						<field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record id="crm_lead_tender_imherit" model="ir.ui.view">
+			<field name="name">crm.lead.kanban.tender</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="igy_custom_crm.crm_case_kanban_view_leads_bdr"/>
+			<field name="arch" type="xml">
+				<xpath expr="/kanban/field[@name='color']" position="after">
+					<field name="is_tender"/>
+					<field name="ao_type"/>
+					<field name="ao_week"/>
+					<field name="ao_link"/>
+				</xpath>
+				<xpath expr="/kanban/templates/t/div/div[2]/h3" position="attributes">
+					<attribute name="attrs">{'invisible': ['|', '|', ('is_tender','=',True), ('stage_two_id','!=',%(igy_custom_crm.bdr_crm_proposition)d)]}</attribute>
+				</xpath>
+				<xpath expr="/kanban/templates/t/div/div[2]/h3" position="after">
+					<h3 style="color:#075689;">
+						<field name="ao_type" attrs="{'invisible':[('is_tender','=',False),]}"/>
+					</h3>
+				</xpath>
+			</field>
+		</record>
+
+        <record id="crm_lead_tender_act_window" model="ir.actions.act_window">
+            <field name="name">Appel d'offre</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,calendar,pivot,graph,cohort,dashboard,activity,form</field>
+            <field name="domain">[('stage_two_id','!=',False),('is_tender','=',True)]</field>
+            <field name="context"
+                   eval="{
+                        'default_is_tender': True,
+                        'default_type': 'opportunity',
+                        'default_source_id': ref('igy_custom_crm.utm_source_on_demand'),
+                        'default_medium_id': ref('igy_custom_crm.utm_medium_on_demand')
+                    }"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('igy_custom_crm.crm_case_kanban_view_leads_bdr')}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('igy_custom_crm.crm_lead_tender_view_tree')}),
+                (0, 0, {'view_mode': 'graph', 'view_id': ref('igy_custom_crm.crm_lead_view_graph_bdr')}),
+                (0, 0, {'view_mode': 'cohort', 'view_id': ref('igy_custom_crm.crm_lead_global_view_cohort')}),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('igy_custom_crm.crm_lead_view_pivot_bdr')}),
+                (0, 0, {'view_mode': 'dashboard', 'view_id': ref('igy_custom_crm.crm_lead_dashboard_view_opportunity')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('igy_custom_crm.crm_lead_tender_form_view')})]"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Appel d'offre"
+            id="crm_lead_tender_menu"
+            parent="crm.menu_crm_opportunities"
+            action="crm_lead_tender_act_window"
+            sequence="15"
+			groups=""/>
+
+    </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+id_alterning_mail_server,name_alterning_mail_server,model_alterning_mail_server,,1,1,1,1
+id_alterning_mail_server_line,name_alterning_mail_server_line,model_alterning_mail_server_line,,1,1,1,1
+id_ir_mail_log,name_ir_mail_log,model_ir_mail_log,,1,1,1,1
+id_ir_mail_log_config,name_ir_mail_log_config,model_ir_mail_log_config,,1,1,1,1
+id_ir_mail_log_config_line,name_ir_mail_log_config_line,model_ir_mail_log_config_line,,1,1,1,1

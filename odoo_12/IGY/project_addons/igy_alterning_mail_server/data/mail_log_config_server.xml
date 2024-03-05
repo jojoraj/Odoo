@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="ir_mail_log_config_line_data_one" model="ir.mail.log.config.line">
+            <field name="name">lrakotoarimino@ingenosya.mg</field>
+        </record>
+
+        <record id="ir_mail_log_config_line_data_two" model="ir.mail.log.config.line">
+            <field name="name">xrazafy@ingenosya.mg</field>
+        </record>
+
+        <record id="ir_mail_log_config_data" model="ir.mail.log.config">
+            <field name="name">Email to send mail log details</field>
+            <field name="email_ids" eval="[(6,0, (ref('igy_alterning_mail_server.ir_mail_log_config_line_data_one'), ref('igy_alterning_mail_server.ir_mail_log_config_line_data_two'),))]"/>
+        </record>
+
+    </data>
+</odoo>

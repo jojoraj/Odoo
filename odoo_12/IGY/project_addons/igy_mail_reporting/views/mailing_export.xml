@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="mailing_export_action" model="ir.actions.act_window">
+            <field name="name">Mailing.export.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.mail.export</field>
+            <field name="context">
+                {"create": 0, "delete": 0,}
+            </field>
+            <field name="domain" eval="[('id','=', ref('crm_mail_data'))]"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="mailing_view_export" model="ir.ui.view">
+            <field name="name">mailing.export</field>
+            <field name="model">crm.mail.export</field>
+            <field name="arch" type="xml">
+                <form string="Exporter le données">
+                    <sheet>
+                        <group>
+                            <div>
+                                  <p class="oe_view_nocontent_create">
+                                    Cliquez sur "Imprimer" et choisissez le format de données a exporter
+                                  </p>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="mail_reporting_import" name="Exporter XLS/PDF" parent="mail_reporting_view_menu" action="mailing_export_action" sequence="5"/>
+    </data>
+</odoo>

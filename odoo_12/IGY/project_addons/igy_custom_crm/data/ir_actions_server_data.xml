@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.actions.server" id="update_tags_lead">
+       <field name="name">Mise à jour multiple de l'étiquettes</field>
+       <field name="model_id" ref="crm.model_crm_lead"/>
+       <field name="binding_model_id" ref="crm.model_crm_lead"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.process_update_tag()
+       </field>
+   </record>
+
+    <record model="ir.actions.server" id="update_stage_lead">
+       <field name="name">Mise à jour multiple de l'etapes</field>
+       <field name="model_id" ref="crm.model_crm_lead"/>
+       <field name="binding_model_id" ref="crm.model_crm_lead"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.process_update_stage()
+       </field>
+   </record>
+</odoo>

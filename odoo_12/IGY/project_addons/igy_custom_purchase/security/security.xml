@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+        <record id="group_purchase_first" model="res.groups">
+            <field name="name">1ère validation</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="group_purchase_second" model="res.groups">
+            <field name="name">2ème validation</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="group_purchase_appouver" model="res.groups">
+            <field name="name">Approuver la demande</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="group_cancel_purchase" model="res.groups">
+            <field name="name">Annuler demande de prix</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="group_purchase_signe_cheque" model="res.groups">
+            <field name="name">Signer  le chèque</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="group_purchase_livraison" model="res.groups">
+            <field name="name">Attester la livraison </field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="group_purchase_terminer" model="res.groups">
+            <field name="name">Terminer la demande</field>
+            <field name="category_id" ref="base.module_category_purchase_management"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+
+</odoo>

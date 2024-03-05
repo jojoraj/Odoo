@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="mail_template_project" model="mail.template">
+            <field name="name">Project reports</field>
+            <field name="model_id" ref="igy_project_report.model_project_report"/>
+            <field name="subject">Tableau de bord projet</field>
+            <field name="email_to">mandriamampandry@ingenosya.mg</field>
+            <field name="email_cc">rivo.rajaonarivony@esti.mg</field>
+            <field name="body_html" type="html">
+                <div>
+                    Bonjour,
+                </div>
+                <br/>
+                <div>
+                    Veuillez trouver ci-dessous le récapitulatif de chaque projets à Ingenosya Madagascar.
+                </div>
+                <div>
+                    Vous pouvez consulter les détails dans le fichier excel ci-joint.
+                </div>
+                <div>
+                    Bien à vous
+                </div>
+            </field>
+            <field name="report_template" ref="igy_project_report.project_dashboard_report"/>
+            <field name="report_name">Reporting projet ${object.date}</field>
+        </record>
+    </data>
+</odoo>

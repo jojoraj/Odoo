@@ -1,0 +1,2269 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* igy_custom_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0-20211001\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-04 13:15+0000\n"
+"PO-Revision-Date: 2023-08-04 13:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_first_send
+#: model:crm.stage,name:igy_custom_crm.igy_first_send
+msgid "1er envoi"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_second_send
+#: model:crm.stage,name:igy_custom_crm.igy_second_send
+msgid "2ème envoi"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_third_send
+#: model:crm.stage,name:igy_custom_crm.igy_third_send
+msgid "3ème envoi"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_fourth_send
+#: model:crm.stage,name:igy_custom_crm.igy_fourth_send
+msgid "4ème envoi"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:mail.template,body_html:igy_custom_crm.crm_lead_relaunch_mail_template
+msgid "<div>\n"
+"                Cher ${ctx.user.name}, les opportunités suivantes doivent être relancées:\n"
+"                <ul>\n"
+"                    % if ctx.crm_lead\n"
+"                        % for _crm_lead in ctx.crm_lead\n"
+"                            <li>${_crm_lead.name}</li>\n"
+"                        % endfor\n"
+"                    % endif\n"
+"                </ul>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:mail.template,body_html:igy_custom_crm.crm_change_stage_mail_template
+msgid "<div>\n"
+"                Cher ${ctx.user.name}, les pistes/opportunités suivantes doivent être en changement d'état:\n"
+"                <table role=\"presentation\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" bgcolor=\"#FFFFFF\">\n"
+"                    <thead>\n"
+"                        <th>Nom</th>\n"
+"                        <th>Date de dernier changement d'état</th>\n"
+"                        <th>Changement d'état</th>\n"
+"                    </thead>\n"
+"                    <tbody>\n"
+"                        % if ctx.crm_lead\n"
+"                            % for _crm_lead in ctx.crm_lead\n"
+"                            <tr style=\"text-align: center\">\n"
+"                                <td>${_crm_lead.name}</td>\n"
+"                                % if _crm_lead.write_date :\n"
+"                                    <td>${format_tz(_crm_lead.write_date,tz='UTC',format='%d-%m-%Y')}</td>\n"
+"                                % else :\n"
+"                                    <td>${format_tz(_crm_lead.create_date,tz='UTC',format='%d-%m-%Y')}</td>\n"
+"                                % endif\n"
+"                                <td>${format_tz(_crm_lead.next_send_date,tz='UTC',format='%d-%m-%Y')}</td>\n"
+"                            </tr>\n"
+"                            % endfor\n"
+"                        % endif\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:mail.template,body_html:igy_custom_crm.crm_change_origin_medium_mail_template
+msgid "<div>\n"
+"                Cher ${ctx.user.name}, veuillez vérifier les origines et moyens de ces opportunités :\n"
+"                <table role=\"presentation\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" bgcolor=\"#FFFFFF\">\n"
+"                    <thead>\n"
+"                        <th>Nom</th>\n"
+"                        <th>Etapes</th>\n"
+"                    </thead>\n"
+"                    <tbody>\n"
+"                        % if ctx.crm_lead\n"
+"                            % for _crm_lead in ctx.crm_lead\n"
+"                            <tr style=\"text-align: center\">\n"
+"                                <td>${_crm_lead.name}</td>\n"
+"                                <td>${_crm_lead.stage_two_id.name}</td>\n"
+"                            </tr>\n"
+"                            % endfor\n"
+"                        % endif\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "<i class=\"fa fa-ban\" style=\"color: red;\" role=\"img\" title=\"This email is blacklisted for mass mailing\" aria-label=\"Blacklisted\" attrs=\"{'invisible': ['|', ('is_blacklisted', '=', False), ('partner_address_email', '!=', False)]}\" groups=\"base.group_user\"/>"
+msgstr "<i class=\"fa fa-ban\" style=\"color: red;\" role=\"img\" title=\"Cet email est sur liste noire pour l'envoi de masse\" aria-label=\"liste noire\" attrs=\"{'invisible': ['|', ('is_blacklisted', '=', False), ('partner_address_email', '!=', False)]}\" groups=\"base.group_user\"/>"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "<i class=\"fa fa-ban\" style=\"color: red;\" role=\"img\" title=\"This email is blacklisted for mass mailing\" aria-label=\"Blacklisted\" attrs=\"{'invisible': ['|', ('partner_is_blacklisted', '=', False), ('partner_address_email', '=', False)]}\" groups=\"base.group_user\"/>"
+msgstr "<i class=\"fa fa-ban\" style=\"color: red;\" role=\"img\" title=\"Cet email est sur la liste noire pour l'envoi en masse\" aria-label=\"Sur liste noire\" attrs=\"{'invisible': ['|', ('partner_is_blacklisted', '=', False), ('partner_address_email', '=', False)]}\" groups=\"base.group_user\"/>"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+msgid "<i class=\"fa fa-comments\" aria-label=\"Unread messages\" role=\"img\"/>"
+msgstr "<i class=\"fa fa-comments\" aria-label=\"Messages non lus\" role=\"img\"/>"
+
+#. module: igy_custom_crm
+#: model:mail.template,body_html:igy_custom_crm.email_template_send
+msgid "<p>\n"
+"			Contenu du message\n"
+"		</p>\n"
+"		"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "<span attrs=\"{'invisible': [('composition_mode', '!=', 'mass_mail')]}\">\n"
+"								<strong>\n"
+"									Email mass mailing\n"
+"								</strong>\n"
+"								on\n"
+"								\n"
+"								<span attrs=\"{'invisible': [('use_active_domain', '=', True)]}\">\n"
+"									the selected records\n"
+"								</span>\n"
+"								<span attrs=\"{'invisible': [('use_active_domain', '=', False)]}\">\n"
+"									the current search filter\n"
+"								</span>\n"
+"								.\n"
+"							\n"
+"							</span>\n"
+"							<span name=\"document_followers_text\" attrs=\"{'invisible':['|', ('model', '=', False), ('composition_mode', '=', 'mass_mail')]}\">\n"
+"								Followers of the document and\n"
+"							</span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "<span attrs=\"{'invisible': [('use_active_domain', '=', True)]}\">\n"
+"									\n"
+"									If you want to send it for all the records matching your search criterion, check\n"
+"									this box :\n"
+"								\n"
+"								</span>\n"
+"								<span attrs=\"{'invisible': [('use_active_domain', '=', False)]}\">\n"
+"									\n"
+"									If you want to use only selected records please uncheck this selection box :\n"
+"								\n"
+"								</span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "<span class=\"o_stat_text\" attrs=\"{'invisible': [('meeting_count', '&lt;', 2)]}\">\n"
+"										Meetings\n"
+"									</span>\n"
+"									<span class=\"o_stat_text\" attrs=\"{'invisible': [('meeting_count', '&gt;', 1)]}\">\n"
+"										Meeting\n"
+"									</span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+msgid "<span class=\"o_stat_text\">Emails envoyés</span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "<span class=\"oe_grey\">at</span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_kanban_view_inherit
+msgid "<span> Semaine : </span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+msgid "<span>Semaine :</span>"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "<strong>\n"
+"									\n"
+"									All records matching your current search filter will be mailed,\n"
+"									not only the ids selected in the list view.\n"
+"								\n"
+"								</strong>\n"
+"								<br/>\n"
+"								\n"
+"								The email will be sent for all the records selected in the list.\n"
+"								<br/>\n"
+"								\n"
+"								Confirming this wizard will probably take a few minutes blocking your browser."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "<strong>\n"
+"									Only records checked in list view will be used.\n"
+"								</strong>\n"
+"								<br/>\n"
+"								\n"
+"								The email will be sent for all the records selected in the list."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:utm.source,name:igy_custom_crm.utm_source_on_demand
+msgid "A demander"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__contact_ab_pc
+msgid "A/B Testing percentage"
+msgstr "Pourcentage du test A/B"
+
+#. module: igy_custom_crm
+#: selection:crm.lead,ao_type:0
+msgid "AMI"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,ao_type:0
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_view_tree
+msgid "AO"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__ao_type
+msgid "AO type"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__admin_crm_ids
+msgid "Abonnés"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.crm_stage_two_action
+msgid "Action Stages BDR"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__active
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage__active
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__active
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_mail_activity
+msgid "Activity"
+msgstr "Activité"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__activity
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__res_activity_ids
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__activity
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__res_activity_ids
+msgid "Activités"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__activity_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__activity_id
+msgid "Activités Many2one"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_res_partner_activity
+msgid "Activités du client"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Add contacts to notify..."
+msgstr "Ajouter des contacts à prévenir"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Address"
+msgstr "Adresse"
+
+#. module: igy_custom_crm
+#: model:res.groups,name:igy_custom_crm.group_admin_crm
+msgid "Admin CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Agence Web"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.view_crm_analysies
+msgid "Analyses"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__last_address
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__last_address
+msgid "Ancienne adresse"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__year
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+msgid "Année"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.crm_lead_tender_act_window
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__is_tender
+#: model:ir.ui.menu,name:igy_custom_crm.crm_lead_tender_menu
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Appel d'offre"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Appel d'offre Perdu"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Appel d'offre gagné"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_stage_lead_wizard_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_tags_lead_wizard_view
+msgid "Appliquer"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Assistance"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Attach a file"
+msgstr "Joindre un fichier"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__attachment_ids
+msgid "Attachments"
+msgstr "Pièces jointes"
+
+#. module: igy_custom_crm
+#: selection:crm.mail,mail_type:0
+#: selection:mail.compose.message,mail_type:0
+#: selection:mail.mass_mailing,mail_type:0
+#: selection:mail.mass_mailing_cold,mail_type:0
+msgid "Aucun"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__bdr_user_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__bdr_user_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__bdr_user_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__bdr_user_id
+#: model:ir.ui.menu,name:igy_custom_crm.menu_crm_bdr_action
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+#: model:res.groups,name:igy_custom_crm.group_crm_bdr
+msgid "BDR"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__is_bdr
+msgid "BDR crm"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__body_html
+msgid "Body"
+msgstr "Corps"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__bounced
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Bounced"
+msgstr "Rebondi"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__bounced_ratio
+msgid "Bounced Ratio"
+msgstr "Taux de Rebonds"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__ca
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__ca
+msgid "CA de la societé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_form_view_inherit
+msgid "CA societé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:res.groups,name:igy_custom_crm.group_crm_cbd
+msgid "CBD"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.module.category,name:igy_custom_crm.category_crm
+msgid "CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.crm_global_stage_act_window
+msgid "CRM global stage"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__campaign_id
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Campaign"
+msgstr "Campagne"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_stage_lead_wizard_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_tags_lead_wizard_view
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__on_change
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__on_change
+msgid "Change Probability Automatically"
+msgstr "Changer automatiquement la probabilité"
+
+#. module: igy_custom_crm
+#: model:mail.template,subject:igy_custom_crm.crm_change_stage_mail_template
+msgid "Changement des étapes CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.server,name:igy_custom_crm.check_crm_next_call_day_ir_actions_server
+#: model:ir.cron,cron_name:igy_custom_crm.check_crm_next_call_day
+#: model:ir.cron,name:igy_custom_crm.check_crm_next_call_day
+msgid "Check and notif next call day"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.server,name:igy_custom_crm.check_crm_bdr_origin_ir_actions_server
+#: model:ir.cron,cron_name:igy_custom_crm.check_crm_bdr_origin
+#: model:ir.cron,name:igy_custom_crm.check_crm_bdr_origin
+msgid "Check origin and medium utm"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "City"
+msgstr "Ville"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__clicked
+msgid "Clicked"
+msgstr "Cliqué"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Clicks"
+msgstr "clics"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__customer
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__customer
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__customer
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__partner_id
+#: model:ir.ui.menu,name:igy_custom_crm.client_config_menu
+msgid "Client"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__partner_ids
+msgid "Clients"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Closed Date"
+msgstr "Date de clôture"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_form_view_inherit
+msgid "Code communale"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.mail,mail_type:0
+#: selection:mail.compose.message,mail_type:0
+#: selection:mail.mass_mailing,mail_type:0
+#: selection:mail.mass_mailing_cold,mail_type:0
+msgid "Cold Mailing."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.cold_mailing_action
+#: model:ir.ui.menu,name:igy_custom_crm.cold_mailing_menu
+msgid "Cold mailing"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__color
+msgid "Color Index"
+msgstr "Couleur"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+#: selection:res.partner,company_type:0
+msgid "Company"
+msgstr "Société"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__company_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__company_type
+msgid "Company Type"
+msgstr "Type de société"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Compose Email"
+msgstr "Rédiger un courriel"
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__partner_address_mobile
+msgid "Contact du partenaire"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__contact_linkedin
+msgid "Contacté linkedin COM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__contact_mail
+msgid "Contacté mailing COM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__contact
+msgid "Contacté par Ingenosya"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Contacté par Ingenosya?"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__contact_phone
+msgid "Contacté phoning COM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Conversion Date"
+msgstr "Date de conversion"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Conversion Date from Lead to Opportunity"
+msgstr "Date de conversion de Piste en Opportunité"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__count_mail
+msgid "Count Mail"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Country"
+msgstr "Pays"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__create_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__create_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__create_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__create_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__create_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__create_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__create_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__create_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__create_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__create_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__create_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__create_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Creation Date"
+msgstr "Date de création"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__created_date
+msgid "Créé le"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Customer"
+msgstr "Client"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Date Closed"
+msgstr "Date de clôture"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__date
+msgid "Date d'envoie"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__last_date_update_stage
+msgid "Date de derniere mise a jour des étapes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__last_date_update_tag
+msgid "Date de dernière mise à jour des étiquettes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__week_relaunch_date
+msgid "Date de relance"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__last_date_mailing_cv
+msgid "Date dernier mail Envoi CV"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__check_origin_medium_date
+msgid "Date pour la verification origine/medium"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.actions.act_window,help:igy_custom_crm.utm_medium_action
+msgid "Define a new medium"
+msgstr "Définir un nouveau média"
+
+#. module: igy_custom_crm
+#: model_terms:ir.actions.act_window,help:igy_custom_crm.utm_source_action
+msgid "Define a new source"
+msgstr "Définir une nouvelle source"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+msgid "Delete"
+msgstr "Supprimer"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__delivered
+msgid "Delivered"
+msgstr "Livré"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__last_mass_mailing_id
+msgid "Dernier origine du mailing"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__last_stage_update_user_id
+msgid "Dernier utilisateur qui a mis a jour les étapes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__last_tag_update_user_id
+msgid "Dernier utilisateur qui a mis a jour les étiquettes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__display_name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__display_name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__display_name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__display_name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__display_name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__display_name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mailing_domain
+msgid "Domain"
+msgstr "Domaine"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__domaine
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__domaine
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_form_view_inherit
+msgid "Domaine d'activités"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__snov
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__snov
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_form_view_inherit
+msgid "Domaine snov"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:mail.mass_mailing_cold,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+msgid "Dropdown menu"
+msgstr "Menu déroulant"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Déstinataires"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Développeur"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+msgid "Edit"
+msgstr "Modifier"
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Editeur"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Email"
+msgstr "Courriel"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Email address to redirect replies..."
+msgstr "Adresse mél où rediriger les réponses..."
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Assistant de composition de courriel"
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_crm_mail
+msgid "Email history"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Emails Sent"
+msgstr "Courriels envoyé"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__statistics_ids
+msgid "Emails Statistics"
+msgstr "Statistiques de courriels"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_global
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_opportunity
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_piste
+msgid "Emails envoyés"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,sub_state_proposal:0
+msgid "En attente de validation"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,sub_state_proposal:0
+msgid "En cours de chiffrage"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,sub_state_proposal:0
+msgid "En cours de rédaction offre"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.mail,mail_type:0
+#: selection:mail.compose.message,mail_type:0
+#: selection:mail.mass_mailing,mail_type:0
+#: selection:mail.mass_mailing_cold,mail_type:0
+msgid "Envoi CV"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Envoyer"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+msgid "Envoyer email"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Envoyer offre"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,sub_state_proposal:0
+msgid "Envoyée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_crm_fail
+#: model:crm.stage,name:igy_custom_crm.igy_crm_fail
+msgid "Erreur"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__is_ex_candidat
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__is_ex_candidat
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_form_view_inherit
+msgid "Est un ex candidat"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__crm_stage_id
+msgid "Etape"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_stage_two_tree
+msgid "Etapes SBD"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__expected
+msgid "Expected"
+msgstr "Attendu"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Expected Closing"
+msgstr "Date de fermeture prévue"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Extended Filters"
+msgstr "Filtres étendus"
+
+#. module: igy_custom_crm
+#: selection:crm.lead,crm_type:0
+msgid "Externe"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__failed
+msgid "Failed"
+msgstr "Échec"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__fold
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__fold
+msgid "Folded in Pipeline"
+msgstr "Plié dans le flux"
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Formation"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__email_from
+msgid "From"
+msgstr "De"
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_crm_won
+#: model:crm.stage,name:igy_custom_crm.igy_crm_won
+#: model:crm.stage.two,name:igy_custom_crm.bdr_crm_won
+msgid "Gagnée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,address_type:0
+msgid "Generique"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,type:0
+msgid "Global"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.view_crm_global_pipeline
+msgid "Global pipeline"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__global_stage_id
+msgid "Global stage"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.crm_mail_act_window
+msgid "Historique des emails"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.ui.menu,name:igy_custom_crm.igy_custom_crm_mail_menu
+msgid "Historiques des emails"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__iav_user_id
+#: model:res.groups,name:igy_custom_crm.group_crm_iav
+msgid "IAV"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__id
+msgid "ID"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__ignored
+msgid "Ignored"
+msgstr "Ignoré(s)"
+
+#. module: igy_custom_crm
+#: selection:mail.mass_mailing_cold,state:0
+msgid "In Queue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,company_type:0
+msgid "Individual"
+msgstr "Particulier"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Initial Contact Information"
+msgstr "Informations initiales sur le Contact"
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Installation matérielle"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,activity:0
+msgid "Intégrateur"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__keep_archives
+msgid "Keep Archives"
+msgstr "Conserver les archives"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage____last_update
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail____last_update
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two____last_update
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold____last_update
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity____last_update
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage____last_update
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__write_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__write_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__write_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__write_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__write_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__write_uid
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__write_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__write_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__write_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__write_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__write_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__write_date
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: igy_custom_crm
+#: selection:crm.lead,type:0
+msgid "Lead"
+msgstr "Piste"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__crm_lead_count
+msgid "Lead Count"
+msgstr "Nombre de pistes"
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.res_partner_activity_action
+msgid "Les activites du clients"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__crm_mail_ids
+msgid "Les mails"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_opportunity
+msgid "Les opportunités"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_piste
+msgid "Les pistes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__ao_link
+msgid "Lien"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__linkedin_link
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__linkedin_link
+msgid "Lien linkedin"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing__limit
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__limit
+msgid "Limite"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__activity_info
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__activity_info
+msgid "Liste info activité"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.ui.menu,name:igy_custom_crm.res_partner_activity_menu
+msgid "Listes des activites"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,crm_type:0
+msgid "Local"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Log"
+msgstr "Enregistrer"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__crm_mail_len
+msgid "Longueur mails"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Lost Reason"
+msgstr "Motif de la perte"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__updated_address
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__updated_address
+msgid "MAJ adresse"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,client_title:0
+msgid "Madame"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Mail Body"
+msgstr "Corps du courriel"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mail_server_id
+msgid "Mail Server"
+msgstr "Serveur de courriel"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__mail_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__mail_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__mail_type
+msgid "Mail Type"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing__sent_by_minute
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__sent_by_minute
+msgid "Mail sent by minute"
+msgstr "Mail envoyés par minute"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Mailing"
+msgstr "Publipostage"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__contact_list_ids
+msgid "Mailing Lists"
+msgstr "Listes de diffusion"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__user_id
+msgid "Mailing Manager"
+msgstr "Responsable Publipostage"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Marketing"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Marquer comme gagnée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Marquer comme perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_mail_mass_mailing
+msgid "Mass Mailing"
+msgstr "Publipostage"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mass_mailing_campaign_id
+msgid "Mass Mailing Campaign"
+msgstr "Campagne de Publipostage"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__medium_id
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Medium"
+msgstr "Moyen"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_team__member_ids
+msgid "Member channel"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_ir_ui_menu
+msgid "Menu"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Mes CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Mes Opportunités"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_mail_message
+msgid "Message"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Mettre en proposition"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Misc"
+msgstr "Divers"
+
+#. module: igy_custom_crm
+#: model:ir.actions.server,name:igy_custom_crm.update_stage_lead
+msgid "Mise à jour multiple de l'etapes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.server,name:igy_custom_crm.update_tags_lead
+msgid "Mise à jour multiple de l'étiquettes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Mobile"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_crm_lead
+msgid "Modification du module CRM "
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__month
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+msgid "Mois"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,client_title:0
+msgid "Monsieur"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.utm_medium_action
+#: model:ir.ui.menu,name:igy_custom_crm.menu_utm_medium
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.quick_create_inherit_form
+msgid "Moyen"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_form_view_inherit
+msgid "Nbre personne dans la societé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner_activity__name
+msgid "Nom"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__verif_nom
+msgid "Nom verifié"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__personne
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__personne
+msgid "Nombre de personne dans la societé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,contact:0
+msgid "Non"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Non assignées au BDR"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.stage,name:igy_custom_crm.igy_crm_unqalified
+msgid "Non qualifiée/Abandonnée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Notes internes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__clicks_ratio
+msgid "Number of Clicks"
+msgstr "Nombre de clics"
+
+#. module: igy_custom_crm
+#: model:crm.stage.two,name:igy_custom_crm.bdr_crm_offer_sent
+msgid "Offre envoyé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_offer_sent
+msgid "Offre envoyée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Offre gagnée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Offre perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_global
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_opportunity
+msgid "Offres envoyées"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_global
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_opportunity
+msgid "Offres gagnées"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__opened
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Opened"
+msgstr "Ouvert"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__opened_ratio
+msgid "Opened Ratio"
+msgstr "Ratio d'ouverture"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_view_cohort
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_view_graph_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_view_graph_global
+msgid "Opportunities"
+msgstr "Opportunités"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Opportunities Analysis"
+msgstr "Analyse des opportunités"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__crm_opportunities_count
+msgid "Opportunities Count"
+msgstr "Nombre d'opportunités"
+
+#. module: igy_custom_crm
+#: selection:crm.lead,type:0
+msgid "Opportunity"
+msgstr "Opportunité"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__crm_lead_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__crm_lead_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__crm_lead_id
+msgid "Opportunité"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Opportunité Perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Opportunité gagnée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_crm_lost
+msgid "Opportunité perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.view_crm_lead_bdr
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__crm_lead_ids
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__crm_lead_ids
+#: model:ir.ui.menu,name:igy_custom_crm.bdr_view_pipeline
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Opportunités"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Options"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.quick_create_inherit_form
+msgid "Origine"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,contact:0
+msgid "Oui"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__partner_name_child
+msgid "Partner Name"
+msgstr "Nom du partenaire"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+msgid "Passer au chiffarge"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+msgid "Passer à la rédaction offre"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__contact_ab_pc
+msgid "Percentage of the contacts that will be mailed. Recipients will be taken randomly."
+msgstr "Pourcentage des contacts qui recevront un email. Les contacts seront sélectionnés au hasard."
+
+#. module: igy_custom_crm
+#: model:crm.stage.two,name:igy_custom_crm.bdr_crm_lost
+msgid "Perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,address_type:0
+msgid "Personnel"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__lead_ids
+msgid "Pipeline"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_view_pivot_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_view_pivot_global
+msgid "Pipeline Analysis"
+msgstr "Analyse du pipeline"
+
+#. module: igy_custom_crm
+#: model:ir.ui.menu,name:igy_custom_crm.global_view_pipeline
+msgid "Pipeline Global"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.ui.menu,name:igy_custom_crm.crm_global_stage_menu
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_global_stage_tree_view
+msgid "Pipeline global"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_stage__lead_ids
+msgid "Pipelines"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Piste Perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_crm_unqalified
+msgid "Piste perdue"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.view_crm_lead_sbd
+#: model:ir.ui.menu,name:igy_custom_crm.sbd_view_pipeline
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Pistes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_global
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_piste
+msgid "Pistes qualifiées"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__reply_to
+msgid "Preferred Reply-To Address"
+msgstr "Adresse Répondre à : préférée"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__firstname
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__firstname
+msgid "Prenoms"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__next_send_date
+msgid "Prochaine date d'envoi"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:res.partner,address_type:0
+msgid "Professionnel"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_proposition
+#: model:crm.stage.two,name:igy_custom_crm.bdr_crm_proposition
+msgid "Proposition"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_qualification_marketing
+#: model:crm.stage,name:igy_custom_crm.igy_qualification_marketting
+msgid "Qualification Marketing"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.global.stage,name:igy_custom_crm.global_commercial_qualif
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Qualification commerciale"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Qualification commerciale (Appel d'offre)"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Qualification commerciale (Opportunité)"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:crm.stage.two,name:igy_custom_crm.bdr_crm_qualif
+msgid "Qualifiée"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:mail.template,subject:igy_custom_crm.crm_lead_relaunch_mail_template
+msgid "RELANCE DES OFFRES ENVOYES"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Received"
+msgstr "Reçu"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__received_ratio
+msgid "Received Ratio"
+msgstr "Ratio réception"
+
+#. module: igy_custom_crm
+#: selection:mail.mass_mailing_cold,reply_to_mode:0
+msgid "Recipient Followers"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Recipients"
+msgstr "Destinataires"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mailing_model_id
+msgid "Recipients Model"
+msgstr "Modèle de destinaire"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mailing_model_name
+msgid "Recipients Model Name"
+msgstr "Nom de modèle de destinataires"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mailing_model_real
+msgid "Recipients Real Model"
+msgstr "Modèle réel de destinataires"
+
+#. module: igy_custom_crm
+#: model:mail.activity.type,name:igy_custom_crm.activity_reflate
+msgid "Relance"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.actions.server,name:igy_custom_crm.relaunching_offer_sent_ir_actions_server
+#: model:ir.cron,cron_name:igy_custom_crm.relaunching_offer_sent
+#: model:ir.cron,name:igy_custom_crm.relaunching_offer_sent
+msgid "Relance offre envoyé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Relancer l'offre"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__replied
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Replied"
+msgstr "Répondu"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__replied_ratio
+msgid "Replied Ratio"
+msgstr "Ratio de répondu"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__reply_to
+msgid "Reply To"
+msgstr "Répondre à"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__reply_to_mode
+msgid "Reply-To Mode"
+msgstr "Mode Répondre-à"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Restore"
+msgstr "Restaurer"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+msgid "Retour a l'etape precedente"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Retry"
+msgstr "Réessayer"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_global
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_piste
+msgid "Réponses reçues"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__sdr_user_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__sdr_user_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__sdr_user_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__sdr_user_id
+#: model:ir.ui.menu,name:igy_custom_crm.menu_crm_lead_stage_action
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+#: model:res.groups,name:igy_custom_crm.group_crm_sdr
+msgid "SDR"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__sdr_user
+msgid "SDR type"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,sdr_user:0
+msgid "SDRA"
+msgstr ""
+
+#. module: igy_custom_crm
+#: selection:crm.lead,sdr_user:0
+msgid "SDRB"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_crm_team
+msgid "Sales Channels"
+msgstr "Equipes de vente"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__team_id
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__team_id
+msgid "Sales Team"
+msgstr "Équipe commerciale"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__user_id
+msgid "Salesperson"
+msgstr "Vendeur"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Save as a new template"
+msgstr "Enregistrer comme un nouveau modèle"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Save as new template"
+msgstr "Sauvegarder en tant que nouveau modèle"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Schedule"
+msgstr "Planifier"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__schedule_date
+msgid "Schedule in the Future"
+msgstr "Planifier pour plus tard"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__scheduled
+msgid "Scheduled"
+msgstr "Planifié"
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_ir_cron
+msgid "Scheduled Actions"
+msgstr "Actions planifiées"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__next_departure
+msgid "Scheduled date"
+msgstr "Date prévue"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Select mailing lists..."
+msgstr "Sélectionnez une liste de diffusion"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Select mailing lists:"
+msgstr "Sélectionnez une liste de diffusion"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__week
+msgid "Semaine"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__ao_week
+msgid "Semaine AO"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Send Now"
+msgstr "Envoyer maintenant"
+
+#. module: igy_custom_crm
+#: selection:mail.mass_mailing_cold,state:0
+msgid "Sending"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__sent
+#: selection:mail.mass_mailing_cold,state:0
+msgid "Sent"
+msgstr "Envoyé"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__sent_date
+msgid "Sent Date"
+msgstr "Date d'Envoi"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__sequence
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: igy_custom_crm
+#: model:res.groups,name:igy_custom_crm.group_crm_menu_hide
+msgid "Show Crm Menu"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Show only lead"
+msgstr "Afficher seulement la piste"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+msgid "Show only opportunity"
+msgstr "Afficher seulement l'opportunité"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "Source"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__name
+msgid "Source Name"
+msgstr "Nom de l'origine"
+
+#. module: igy_custom_crm
+#: model:ir.actions.act_window,name:igy_custom_crm.utm_source_action
+#: model:ir.ui.menu,name:igy_custom_crm.menu_utm_source
+msgid "Sources"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__sub_state_proposal
+msgid "Sous étapes propositions"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_crm_global_stage__team_id
+#: model:ir.model.fields,help:igy_custom_crm.field_crm_stage_two__team_id
+msgid "Specific team that uses this stage. Other teams will not be able to see or use this stage."
+msgstr "Equipe spécifique qui utilise cette étape. D'autres équipes ne pourront pas voir ou utiliser cette étape."
+
+#. module: igy_custom_crm
+#: selection:mail.mass_mailing_cold,reply_to_mode:0
+msgid "Specified Email Address"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__stage_two_id
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_search
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_stage_two_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.view_crm_case_bdr_filter
+msgid "Stage"
+msgstr "Étape"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__name
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__name
+msgid "Stage Name"
+msgstr "Nom de l'étape"
+
+#. module: igy_custom_crm
+#: model_terms:ir.actions.act_window,help:igy_custom_crm.crm_stage_two_action
+msgid "Stages allow salespersons to easily track how a specific opportunity\n"
+"                is positioned in the sales cycle."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "State"
+msgstr "État"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__state
+msgid "Status"
+msgstr "État"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Street 2..."
+msgstr "Rue 2..."
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Street..."
+msgstr "Rue..."
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__source_id
+msgid "Subject"
+msgstr "Sujet"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.igy_crm_mail_compose_form_view
+msgid "Subject..."
+msgstr "Sujet..."
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Suivi"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+#: model:mail.template,subject:igy_custom_crm.email_template_send
+msgid "Sujet"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_stage_lead_wizard_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_tags_lead_wizard_view
+msgid "Test"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.actions.act_window,help:igy_custom_crm.crm_lead_tender_act_window
+msgid "There is no examples click here to add new ModelTitle."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+msgid "This bar allows to filter the opportunities based on scheduled activities."
+msgstr "Cette barre autorise à filtrer les opportunités basée sur les activités planifiées."
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing__total_mail_sent
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__total_mail_sent
+msgid "This field compute the sent mail to prevent from reaching limit"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__medium_id
+msgid "This is the delivery method, e.g. Postcard, Email, or Banner Ad"
+msgstr "C'est le mode de livraison, càd par lettre, email, bannière publicitaire"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__source_id
+msgid "This is the link source, e.g. Search Engine, another domain, or name of email list"
+msgstr "C'est le lien source, càd un moteur de recherche, un autre site, le nom d'une liste de discussion par email"
+
+#. module: igy_custom_crm
+#: model_terms:ir.actions.act_window,help:igy_custom_crm.view_crm_global_pipeline
+msgid "This is view for global pipeline."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "This mailing is scheduled for"
+msgstr "Ce publipostage est prévu pour"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__campaign_id
+msgid "This name helps you tracking your different campaign efforts, e.g. Fall_Drive, Christmas_Special"
+msgstr "Ce nom vous aide à tracer les efforts de vos différentes campagnes, par exemple spécial Noël, campagne automnale"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "This will send the email to all recipients. Do you still want to proceed ?"
+msgstr "Ceci va envoyer le courriel à tous les destinataires. Êtes-vous sûr de le vouloir ?"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "Title"
+msgstr "Titre"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__client_title
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__client_title
+msgid "Titre"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__total
+msgid "Total"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_dashboard_view_global
+msgid "Total des CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__total_mail_count
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__total_mail_lead
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__total_mail_oppor
+msgid "Total des email"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing__total_mail_sent
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__total_mail_sent
+msgid "Total mail sent"
+msgstr "Total des mails envoyés"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing__mail_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__mail_type
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.mail_mass_mailing_view_form_igy_custom_inherit
+msgid "Type"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__address_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__address_type
+msgid "Type d'adresse"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_mail_search_view
+msgid "Type d'email"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__crm_type
+msgid "Type de CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_account_invoice_send__crm_lead_type
+#: model:ir.model.fields,help:igy_custom_crm.field_crm_lead__type
+#: model:ir.model.fields,help:igy_custom_crm.field_crm_mail__crm_lead_type
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_compose_message__crm_lead_type
+msgid "Type is used to separate Leads and Opportunities"
+msgstr "Le type est utilisé pour différencier les pistes des opportunités"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_account_invoice_send__crm_lead_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_mail__crm_lead_type
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_compose_message__crm_lead_type
+msgid "Types"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_kanban_view_leads_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_kanban
+msgid "Unread Messages"
+msgstr "Messages non lus"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_mail_mass_mailing_cold__crm_lead_activated
+msgid "Use Leads"
+msgstr "Utiliser les leads"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,help:igy_custom_crm.field_mail_mass_mailing_cold__mail_server_id
+msgid "Use a specific mail server in priority. Otherwise Odoo relies on the first outgoing mail server available (based on their sequencing) as it does for normal mails."
+msgstr "Utilisez un serveur de messagerie spécifique en priorité. Sinon, Odoo s'appuie sur le premier serveur de messagerie sortant disponible (en fonction de leur séquence), comme c'est le cas pour les e-mails normaux."
+
+#. module: igy_custom_crm
+#: model:ir.module.category,description:igy_custom_crm.category_crm
+msgid "User access for module CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_config_settings__minimal_cv_tag_value
+msgid "Valeur minimal incremental CV"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_stage_lead_wizard_view
+msgid "Veilliez choisir le nouveau etape"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.update_tags_lead_wizard_view
+msgid "Veilliez choisir les nouveaux étiquettes"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.actions.act_window,help:igy_custom_crm.crm_mail_act_window
+msgid "View email history from crm_lead."
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:mail.template,subject:igy_custom_crm.crm_change_origin_medium_mail_template
+msgid "Vérification des origines/moyens CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "ZIP"
+msgstr "Code postal"
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_partner__cc
+#: model:ir.model.fields,field_description:igy_custom_crm.field_res_users__cc
+msgid "code communale de la societé"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_lead__crm_next_delivery_date
+msgid "date prochaine envoie"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "e.g. Product Pricing"
+msgstr "Ex. : Tarification de Produit"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_case_form_view_oppor_bdr
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_global_form
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.crm_lead_tender_form_view
+msgid "e.g. https://www.odoo.com"
+msgstr "e.x. https://www.odoo.com"
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "email(s) are in queue and will be sent soon."
+msgstr "Les courriel(s) sont en attente et seront envoyés bientôt. "
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "email(s) could not be sent."
+msgstr "courriel(s) n'ont pas pu être envoyés."
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.cold_mailing_view
+msgid "email(s) have been ignored and will not be sent."
+msgstr "courriel(s) ont été ignorés et ne seront pas envoyés."
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_mail_mass_mailing_cold
+msgid "mass mailing cold inherit"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model_terms:ir.ui.view,arch_db:igy_custom_crm.res_partner_activity_view_tree
+msgid "res_partner_activity_tree"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_global_stage__team_count
+#: model:ir.model.fields,field_description:igy_custom_crm.field_crm_stage_two__team_count
+msgid "team_count"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_update_stage
+msgid "update.stage"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_update_tag
+msgid "update.tag"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_crm_stage_two
+msgid "Étape CRM des BDR"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_crm_stage
+msgid "Étape dans le Workflow du CRM "
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model,name:igy_custom_crm.model_crm_global_stage
+msgid "Étapes globales des CRM"
+msgstr ""
+
+#. module: igy_custom_crm
+#: model:ir.model.fields,field_description:igy_custom_crm.field_update_tag__crm_lead_tag_ids
+msgid "Étiquettes"
+msgstr ""
+

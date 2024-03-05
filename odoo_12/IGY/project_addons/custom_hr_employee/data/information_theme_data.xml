@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="hr_information_theme1" model="hr.information.theme">
+            <field name="name">Présentation de la société</field>
+        </record>
+
+        <record id="hr_information_theme2" model="hr.information.theme">
+            <field name="name">Règlement Intérieur</field>
+        </record>
+
+        <record id="hr_information_theme3" model="hr.information.theme">
+            <field name="name">ODOO – Congé</field>
+        </record>
+
+        <record id="hr_information_theme4" model="hr.information.theme">
+            <field name="name">ODOO – Feuilles de temps</field>
+        </record>
+
+        <record id="hr_information_theme5" model="hr.information.theme">
+            <field name="name">ODOO – autres</field>
+        </record>
+
+        <record id="hr_information_theme6" model="hr.information.theme">
+            <field name="name">Signature Accord de confidentialité</field>
+        </record>
+
+        <record id="hr_information_theme7" model="hr.information.theme">
+            <field name="name">Signature du Contrat</field>
+        </record>
+
+        <record id="hr_information_theme8" model="hr.information.theme">
+            <field name="name">Présentation a tous les collaborateurs</field>
+        </record>
+
+        <record id="hr_information_theme9" model="hr.information.theme">
+            <field name="name">Réception des URL et logins ODOO + mail</field>
+        </record>
+
+        <record id="hr_information_theme10" model="hr.information.theme">
+            <field name="name">Présentation au Mentor</field>
+        </record>
+
+        <record id="hr_information_theme11" model="hr.information.theme">
+            <field name="name">Présentation à son équipe</field>
+        </record>
+
+        <record id="hr_information_theme12" model="hr.information.theme">
+            <field name="name">Réception et configuration</field>
+        </record>
+
+        <record id="hr_information_theme13" model="hr.information.theme">
+            <field name="name">Envoi de dossiers complets</field>
+        </record>
+
+    </data>
+</odoo>

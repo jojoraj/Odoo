@@ -1,0 +1,9 @@
+
+<odoo>
+    <data>
+        <record id="rh_administration" model="res.groups">
+            <field name="name">Super RH</field>
+            <field name="category_id" ref="base.module_category_administration"/>
+        </record>
+    </data>
+</odoo>

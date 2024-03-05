@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xml:space="preserve">
+    <t t-extend="ListView.buttons">
+        <t t-jquery="button.o_list_button_add"
+           t-operation="replace">
+            <t t-if="widget.modelName == 'ir.model.import.template'">
+                <t t-set="widget.importEnabled"
+                   t-value="false"/>
+                <t t-if="widget.initialState.context.import_bdr == 1">
+                    <button  class="btn btn-primary  oe_action_button_lead_opportunities"
+                             type="button"
+                             accesskey="f">
+                        BDR import
+                    </button>
+                </t>
+                <t t-elif="widget.initialState.context.import_sdr == 1">
+                    <button  class="btn btn-primary oe_action_button_lead_leads "
+                             type="button"
+                             accesskey="f">
+                        SDR import
+                    </button>
+                </t>
+                <t t-elif="widget.initialState.context.import_tender == 1">
+                    <button  class="btn btn-primary oe_action_button_tender"
+                             type="button"
+                             accesskey="f">
+                        AO import
+                    </button>
+                </t>
+                <t t-else="">
+                    <button type="button"
+                            class="btn btn-primary o_list_button_add"
+                            accesskey="c">
+                        Create test
+                    </button>
+                </t>
+
+            </t>
+            <t t-else="">
+                <button type="button"
+                        class="btn btn-primary o_list_button_add"
+                        accesskey="c">
+                    Create
+                </button>
+            </t>
+        </t>
+    </t>
+</template>

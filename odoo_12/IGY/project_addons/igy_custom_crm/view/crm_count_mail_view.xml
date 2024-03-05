@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="crm_mail_tree_view" model="ir.ui.view">
+			<field name="name">crm.mail.tree</field>
+			<field name="model">crm.mail</field>
+			<field name="arch" type="xml">
+				<tree editable="bottom">
+					<field name="date"/>
+					<field name="year" invisible="1"/>
+					<field name="month" invisible="1"/>
+					<field name="crm_lead_id" domain="['|',('bdr_user_id','=',uid),('sdr_user_id','=',uid)]" options="{'no_create_edit': True}"/>
+					<field name="customer"/>
+					<field name="bdr_user_id"/>
+					<field name="sdr_user_id"/>
+					<field name="crm_lead_type"/>
+					<field name="mail_type"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="crm_mail_search_view" model="ir.ui.view">
+			<field name="name">crm.mail.search</field>
+			<field name="model">crm.mail</field>
+			<field name="arch" type="xml">
+				<search>
+					<group expand="1" string="Group By">
+						<filter string="Année" name="year" domain="[]"
+						        context="{'group_by':'year'}"/>
+						<filter string="Mois" name="month" domain="[]"
+						        context="{'group_by':'month'}"/>
+						<filter string="BDR" name="bdr_user_id" domain="[]"
+						        context="{'group_by':'bdr_user_id'}"/>
+						<filter string="SDR" name="sdr_user_id" domain="[]"
+						        context="{'group_by':'sdr_user_id'}"/>
+						<filter string="Type" name="crm_lead_type" domain="[]"
+						        context="{'group_by':'crm_lead_type'}"/>
+						<filter string="Type d'email" name="mail_type" domain="[]"
+								context="{'group_by':'mail_type'}"/>
+					
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record id="crm_mail_act_window" model="ir.actions.act_window">
+			<field name="name">Historique des emails</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">crm.mail</field>
+			<field name="search_view_id" ref="crm_mail_search_view"/>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="context">
+				{
+				'search_default_year': True,
+				'search_default_month': True,
+				'search_default_bdr_user_id': True
+				}
+			</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					View email history from crm_lead.
+				</p>
+			</field>
+			
+		</record>
+		<menuitem name="Historiques des emails" id="igy_custom_crm_mail_menu" parent="crm.crm_menu_report" action="crm_mail_act_window" sequence="3"/>
+	</data>
+</odoo>

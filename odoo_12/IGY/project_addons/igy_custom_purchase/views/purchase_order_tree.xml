@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_igy_purchase_tree" model="ir.ui.view">
+        <field name="name">view.custom.igy.purchase.tree</field>
+        <field name="model">purchase.order</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="replace"/>
+            <xpath expr="//field[@name='user_id']" position="replace">
+                <field name="request_id" string="Demandeur"  />
+                <field name="categorie" string="Catégorie"/>
+                <field name="recepient_ids" string="Benéficiaires" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//field[@name='date_planned']" position="replace"/>
+            <xpath expr="//field[@name='origin']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>    
+    </record>
+</odoo>

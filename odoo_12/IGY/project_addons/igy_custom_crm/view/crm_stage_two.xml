@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crm_stage_two_tree" model="ir.ui.view">
+            <field name="name">crm.stage.two.tree</field>
+            <field name="model">crm.stage.two</field>
+            <field name="arch" type="xml">
+                <tree string="Etapes SBD">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="crm_stage_two_form" model="ir.ui.view">
+            <field name="name">crm.stage.two.form</field>
+            <field name="model">crm.stage.two</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <form string="Stage">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="fold"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="crm_stage_two_action" model="ir.actions.act_window">
+            <field name="name">Action Stages BDR</field>
+            <field name="res_model">crm.stage.two</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="igy_custom_crm.crm_stage_two_tree"/>
+            <field name="help" type="html">
+              <p>
+                Stages allow salespersons to easily track how a specific opportunity
+                is positioned in the sales cycle.
+              </p>
+            </field>
+        </record>
+    </data>
+
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_mass_mailing_view_form_igy_custom_inherit" model="ir.ui.view">
+        <field name="name">mail.mass_mailing.view.form.inherit.crm.igy.custom</field>
+        <field name="model">mail.mass_mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+        <field name="arch" type="xml">
+    		<xpath expr="//field[@name='mail_server_id']" position="after">
+                <field name="sent_by_minute"/>
+                <field name="limit" />
+                <field name="total_mail_sent" readonly="1" />
+            </xpath>
+            <xpath expr="//group[1]/div[1]" position="after">
+                <label for="mail_type" string="Type"/>
+                <div>
+                    <field name="mail_type" widget="radio" required="1" nolabel="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//group[1]/div[1]" position="after">
+                <label for="date_now" string="Première date d'envoi"/>
+                <div>
+                    <field name="date_now" nolabel="1" readonly="1"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mass_mailing_list_inherit" model="ir.ui.view">
+        <field name="name">Mass.mailing.list.inherit</field>
+        <field name="model">mail.mass_mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='sent']" position="before">
+                <field name="date_now" string="Première date d'envoi"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="mass_mailing_record_list_inherit" model="ir.ui.view">
+        <field name="name">Mass.mailing.record.list.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm_lead_tender_view_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='ao_week']" position="before">
+                <field name="email_from"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

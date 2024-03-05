@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+igy_ir_model_import_all,Import,smile_impex.model_ir_model_import,,1,1,1,1
+igy_ir_model_import_system,Import,smile_impex.model_ir_model_import,base.group_system,1,1,1,1
+igy_ir_model_import_template,Import,smile_impex.model_ir_model_import_template,base.group_system,1,1,1,1

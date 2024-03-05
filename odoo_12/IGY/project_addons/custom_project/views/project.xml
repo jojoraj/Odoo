@@ -1,0 +1,156 @@
+
+<odoo>
+    <data>
+        <menuitem id="client_main_menu_project" groups="igy_access.group_client_timesheet"  name="Projet"  />
+
+        <!-- inherit project configuration form view -->
+        <record id="edit_project_inherit_1" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                 
+
+                <xpath expr="//form/header/button[1]" position="replace">
+                       <button name="%(portal.portal_share_action)d" string="Partager" type="action" class="oe_highlight oe_read_only"
+                        groups="project.group_project_manager,project.group_project_user"
+                       />
+                </xpath>
+                
+                <!-- update partner id -->
+                <xpath expr="//field[@name='partner_id']" position="before">
+                   
+                    <!-- <field  name="user_client" string="Utilisateurs"/>  /> -->
+                    <field name="client_ids" widget="many2many_tags"/>
+                    <field name="create_date" readonly="1"/>
+                    <field name="create_uid" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- <record id="project_inherit_view_kanban" model="ir.ui.view">
+            <field name="name">project.inherit.view.kanban</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale_timesheet.project_project_view_kanban_inherit_sale_timesheet" />
+            <field name="arch" type="xml">
+                <xpath expr="//a[@name='action_view_timesheet']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record> -->
+        
+        <!-- kanban view for client project -->
+        <record id="client_kanban_project" model="ir.ui.view">
+            <field name="name">Projets</field>
+            <field name="model">project.project</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+               <kanban class="oe_background_grey o_kanban_dashboard o_project_kanban o_emphasize_colors" on_create="project.open_create_project">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="color"/>
+                    <field name="task_count"/>
+                    <field name="label_tasks"/>
+                    <field name="alias_id"/>
+                    <field name="alias_name"/>
+                    <field name="alias_domain"/>
+                    <field name="is_favorite"/>
+                    <field name="percentage_satisfaction_project"/>
+                    <field name="rating_status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click o_has_icon">
+                                <div class="o_project_kanban_main">
+                                    <div class="o_kanban_card_content">
+                                        <div class="o_kanban_primary_left">
+                                            <div class="o_primary">
+                                                <span><t t-esc="record.name.value"/></span>
+                                                <span t-if="record.partner_id.value">
+                                                    <strong><t t-esc="record.partner_id.value"/></strong>
+                                                </span>
+                                            </div>
+                                            <div t-if="record.alias_name.value and record.alias_domain.value">
+                                                <span><i class="fa fa-envelope" role="img" aria-label="Domain Alias" title="Domain Alias"/> <t t-esc="record.alias_id.value"/></span>
+                                            </div>
+                                            <div t-if="record.rating_status.raw_value != 'no'" class="mt8 text-primary" title="Percentage of happy ratings over the past 30 days. Get rating details from the More menu." groups="project.group_project_rating">
+                                                <b>
+                                                    <t t-if="record.percentage_satisfaction_project.value == -1">
+                                                        <i class="fa fa-smile-o"/> No rating yet
+                                                    </t>
+                                                    <t t-if="record.percentage_satisfaction_project.value != -1">
+                                                        <a name="action_view_all_rating" type="object" context="{'search_default_rating_last_30_days':1}">
+                                                            <i class="fa fa-smile-o" role="img" aria-label="Percentage of satisfaction" title="Percentage of satisfaction"/> <t t-esc="record.percentage_satisfaction_project.value"/>%
+                                                        </a>
+                                                    </t>
+                                                </b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_card_manage_pane dropdown-menu" groups="project.group_project_manager" role="menu">
+                                        <div class="o_kanban_card_manage_section o_kanban_manage_reports">
+                                            <div role="menuitem">
+                                                <a name="%(portal.portal_share_action)d" type="action">Share</a>
+                                            </div>
+                                            <div role="menuitem">
+                                                <a type="edit">Edit</a>
+                                            </div>
+                                            <div role="menuitem" t-if="record.rating_status.raw_value != 'no'">
+                                                <a name="action_view_all_rating" type="object">Customer Ratings</a>
+                                            </div>
+                                        </div>
+                                        <div role="menuitem" aria-haspopup="true" class="o_no_padding_kanban_colorpicker">
+                                            <ul class="oe_kanban_colorpicker" data-field="color" role="popup"/>
+                                        </div>
+                                    </div>
+                                    <a class="o_kanban_manage_toggle_button o_left" href="#" groups="project.group_project_manager"><i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/></a>
+                                    <span class="o_right"><field name="is_favorite" widget="boolean_favorite" nolabel="1" force_save="1"/></span>
+                                </div>
+
+                                <div class="o_project_kanban_boxes">
+                                    <a class="o_project_kanban_box" name="127" type="action">
+                                        <div>
+                                            <span class="o_value"><t t-esc="record.task_count.value"/></span>
+                                            <span class="o_label"><t t-esc="record.label_tasks.value"/></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+        
+        <!-- action for client project -->
+        <record id="client_action_project" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Projets</field>
+            <field name="res_model">project.project</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <!-- <field name="domain">[('user_client.id','=',uid)]</field> -->
+            <field name="domain">[('client_ids','=',uid)]</field>
+        </record>
+        
+
+        <menuitem id="client_menu_project" name="Projets" action="client_action_project" parent="client_main_menu_project" />
+
+        <record id="inherit_project_view_task_form2" model="ir.ui.view">
+            <field name="name">inherit.project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="description_without_tags" invisible="1"/>
+                </xpath>
+
+            </field>
+        </record>
+      
+
+    </data>
+</odoo>

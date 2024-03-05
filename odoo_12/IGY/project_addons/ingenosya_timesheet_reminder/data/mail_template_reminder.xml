@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mail_template_timesheet_reminder" model="mail.template">
+        <field name="name">Timesheet reminder</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="subject">Rappel Feuille de Temps</field>
+        <field name="email_from">"${object.company_id.name | safe}" &lt;${(object.company_id.email or user.email) | safe}&gt;</field>
+        <field name="email_to">${object.user_id.email_formatted | safe}</field>
+        <field name="email_cc">${ctx.get('email_cc', False) | safe}</field>
+        <field name="body_html" type="html">
+            <div>
+                Bonjour ${object.name},
+            </div>
+            <br/>
+            <div>
+                Veuillez svp compléter votre feuille de temps du :
+                <br/>
+                <ul>
+                    % for date in ctx.get('date'):
+                    <li>${date.strftime('%d-%m-%Y')}</li>
+                    % endfor
+                </ul>
+            </div>
+            <div>
+                Pour rappel, si vous avez des heures hors projet, elles doivent être enregistrées dans "INGENOSYA_INTER CHANTIERS".
+                <div style="font-weight: bold;">
+                    Veuillez noter qu'à partir du 1er janvier 2024, le remplissage des feuilles de temps sera obligatoire tous les 3jours.
+                    Passé ce délai, si vous n'avez pas rempli les 3derniers jours, le remplissage de la feuille de temps sera bloqué.
+                </div>
+            </div>
+            <br/>
+            <div>
+                Belle journée,
+            </div>
+            <div>
+                Direction Ingenosya.
+            </div>
+            <br/>
+        </field>
+    </record>
+</odoo>

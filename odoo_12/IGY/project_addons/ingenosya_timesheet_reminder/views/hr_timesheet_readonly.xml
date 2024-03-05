@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="sale_order_custom_field">
+        <field name="name">account.analytic.line.grid.project</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="timesheet_grid.timesheet_view_grid_by_project"/>
+        <field name="arch" type="xml">
+                <xpath expr="/grid" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                </xpath>
+        </field>
+    </record>
+</odoo>

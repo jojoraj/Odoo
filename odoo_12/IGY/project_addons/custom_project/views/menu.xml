@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+
+        <record id="team_type_action_project" model="ir.actions.act_window">
+            <field name="name">Type de l'équipe</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer un type de membre de l'équipe
+                </p><p>
+                    Odoo's project management allows you to manage the pipeline of your tasks efficiently.<br/>
+                    You can track progress, discuss on tasks, attach documents, etc.
+                </p>
+            </field>
+        </record>
+        <menuitem 
+            id="team_type_menu_project"
+            name="Type de l'équipe"
+            action="team_type_action_project"
+            parent="project.menu_project_config"
+            sequence="40"
+        />
+    </data>
+</odoo>

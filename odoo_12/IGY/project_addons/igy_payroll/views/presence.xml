@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <record id="hr_attendance_custom" model="ir.ui.view">
+            <field name="name">Attendance list inherit</field>
+            <field name="model">hr.attendance</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+            <field name="arch" type="xml">
+                
+                <xpath expr="//form" position="replace">
+                
+                    <form create="0"  duplicate="0"  string="Employee attendances">
+                        <sheet>
+                            <group>
+                                <field name="employee_id" attrs="{'readonly':[('has_edit_right','=','False')]}" />
+                                <field name="check_in"  attrs="{'readonly':[('has_edit_right','=','False')]}"/>
+                                <field name="check_out"  attrs="{'readonly':[('has_edit_right','=','False')]}"/>
+                                <field name="delay"/>
+                                <field name="leaving"/>
+
+                            </group>
+                            <field name="has_edit_right" invisible="1"/>
+                        </sheet>
+                    </form>
+                </xpath>
+                
+            </field>
+        </record>
+
+        
+        
+        <record id="custom_tree_attendance" model="ir.ui.view">
+            <field name="name">Attendance</field>
+            <field name="model">hr.attendance</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+            <field name="arch" type="xml">
+                
+                <xpath expr="//tree" position="replace">
+                    <tree create="0" name="attendance_tree"  delete="0" string="Employee attendances">
+                        <field name="employee_id"/>
+                        <field name="check_in"/>
+                        <field name="check_out"/>
+                        <field name="worked_hours" widget="float_time" sum="Heures total"/>
+                        <field name="delay"/>
+                        <field name="leaving"/>
+                    </tree>
+                </xpath>
+                
+            </field>
+        </record>
+        
+        
+        
+
+    </data>
+</odoo>

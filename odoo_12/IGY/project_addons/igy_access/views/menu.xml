@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem 
+        id="ingenosya_menu_user" 
+        name="Utilisateurs" 
+        action="base.action_res_users"
+        sequence="100"
+    />
+    <menuitem
+        id="base.menu_administration"
+        name="Configuration"
+        sequence="102"
+        groups = "igy_access.group_admin_interne" 
+    />
+    <menuitem
+        id="base.menu_management"
+        name="Applications" 
+        sequence="101"
+        groups = "igy_access.group_admin_interne"
+    />
+
+    <record model="ir.ui.menu" id="contacts.menu_contacts">
+        <field name="name">Contacts</field>
+        <field eval="[(6,0,[ref('employee_documents_expiry.rh_administration')])]" name="groups_id"/>
+    </record>
+</odoo>

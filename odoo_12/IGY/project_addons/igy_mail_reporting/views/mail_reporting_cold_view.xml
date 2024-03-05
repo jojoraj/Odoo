@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+         <record id="mail_reporting_cv_cold_view_pivot" model="ir.ui.view">
+            <field name="name">mail.reporting.cv.cold.pivot</field>
+            <field name="model">crm.mail</field>
+            <field name="arch" type="xml">
+                <pivot string="Reporting">
+                    <field name="date_won" interval="month" type="row"/>
+                    <field name="last_stage_id" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="dash_board_form_crm_mail" model="ir.ui.view">
+            <field name="name">Dashboard</field>
+            <field name="model">crm.mail</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <group>
+                        <aggregate
+                            name="positive_answer_project_cv"
+                            string="Nombre de projets CV gagné"
+                            field="positive_answer_project_cv"
+                            group_operator="max"/>
+
+                        <aggregate
+                            name="positive_answer_project_cold"
+                            string="Nombre de projets cold gagné"
+                            field="positive_answer_project_cold"
+                            group_operator="max"/>
+
+                        <aggregate
+                            name="project_won"
+                            string="Total projet gagné"
+                            field="total_positive_answer_project"
+                            group_operator="max"/>
+                    </group>
+
+                    <group>
+                        <aggregate
+                            name="positive_answer_cv"
+                            string="Nombre de reponse positif CV"
+                            field="positive_answer_cv"
+                            group_operator="max"/>
+
+                        <aggregate
+                            name="positive_answer_cold"
+                            string="Nombre de reponse positif Cold"
+                            field="positive_answer_cold"
+                            group_operator="max"/>
+
+                        <aggregate
+                            name="total_positive_answer"
+                            string="Total réponses positives"
+                            field="total_positive_answer"
+                            group_operator="max"/>
+                    </group>
+
+                    <group>
+                        <aggregate
+                            name="negative_answer_cv"
+                            string="Nombre de reponse négative CV"
+                            field="id"
+                            domain="[('stage_id','in', [%(igy_custom_crm.igy_crm_unqalified)d, %(igy_custom_crm.igy_crm_fail)d]), ('mail_type', '=', 'cv')]"
+                            group_operator="count"/>
+
+                        <aggregate
+                            name="negative_answer_cold"
+                            string="Nombre de reponse négative Cold"
+                            field="id"
+                            domain="[('stage_id','in', [%(igy_custom_crm.igy_crm_unqalified)d, %(igy_custom_crm.igy_crm_fail)d]), ('mail_type', '=', 'cold')]"
+                            group_operator="count"/>
+
+                        <aggregate
+                            name="total_negative_answer"
+                            string="Total réponses négatives"
+                            field="id"
+                            domain="[('stage_id','in', [%(igy_custom_crm.igy_crm_unqalified)d, %(igy_custom_crm.igy_crm_fail)d])]"
+                            group_operator="count"/>
+                    </group>
+
+                    <group>
+                        <aggregate
+                            name="conversion_rate_cv"
+                            string="Taux de conversion envoi CV"
+                            field="conversion_rate_cv"
+                            group_operator="max"
+                            widget="percentage"/>
+
+                        <aggregate
+                            name="conversion_rate_cold"
+                            string="Taux de conversion envoi Cold"
+                            field="conversion_rate_cold"
+                            group_operator="max"
+                            widget="percentage"/>
+
+                        <aggregate
+                            name="total_conversion_rate_cv_cold"
+                            string="Taux de conversion CV et Cold"
+                            field="conversion_total_rate_cv_cold"
+                            group_operator="max"
+                            widget="percentage"/>
+                    </group>
+
+                    <group>
+                        <aggregate
+                            name="positive_answer_cold_1st_sent"
+                            string="Réponse positif 1 ere envoi"
+                            field="positive_answer_cold_1st_sent"
+                            group_operator="max"
+                            widget="percentage"/>
+
+                        <aggregate
+                            name="positive_answer_cold_2nd_sent"
+                            string="Réponse positif 2 eme envoi"
+                            field="positive_answer_cold_2nd_sent"
+                            group_operator="max"
+                            widget="percentage"/>
+
+                        <aggregate
+                            name="positive_answer_cold_3rd_sent"
+                            string="Réponse positif 3 eme envoi"
+                            field="positive_answer_cold_3rd_sent"
+                            group_operator="max"
+                            widget="percentage"/>
+
+                        <aggregate
+                            name="positive_answer_cold_4th_sent"
+                            string="Réponse positif 4 eme envoi"
+                            field="positive_answer_cold_4th_sent"
+                            group_operator="max"
+                            widget="percentage"/>
+                    </group>
+
+                    <group>
+                        <aggregate
+                            name="average_mail_sent_partner"
+                            string="Moyenne mail envoyé par client"
+                            field="average_mail_sent_partner"
+                            group_operator="max"/>
+
+                        <aggregate
+                            name="total_mail_sent"
+                            string="Total mail envoyé"
+                            field="id"
+                            group_operator="count"/>
+                    </group>
+
+                    <view type="pivot" ref="igy_mail_reporting.mail_reporting_cv_cold_view_pivot"/>
+                </dashboard>
+            </field>
+        </record>
+
+         <record id="mail_reporting_cold_view_action" model="ir.actions.act_window">
+            <field name="name">mail.reporting.cold.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.mail</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'dashboard', 'view_id': ref('dash_board_form_crm_mail')})
+                ]"/>
+
+         </record>
+
+        <menuitem id="mail_reporting_cold_view_menu" name="Cold/CV" parent="mail_reporting_view_menu" action="mail_reporting_cold_view_action" sequence="5"/>
+
+    </data>
+</odoo>

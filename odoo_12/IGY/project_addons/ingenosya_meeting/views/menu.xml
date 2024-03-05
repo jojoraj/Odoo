@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ingenosya_meeting_room_action" model="ir.actions.act_window">
+            <field name="name">Salle de réunion</field>
+            <field name="res_model">meeting.room</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Vous n'avez pas de salle e réunion.
+                </p>
+            </field>
+        </record>
+        <record id="ingenosya_meeting_reservation_action" model="ir.actions.act_window">
+            <field name="name">Réservation</field>
+            <field name="res_model">meeting.reservation</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Il n'y a pas encore de réservation.
+                </p>
+            </field>
+        </record>
+        <record id="ingenosya_meeting_timezone_action" model="ir.actions.act_window">
+            <field name="name">Fuseau horaire</field>
+            <field name="res_model">meeting.timezone</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Sélectionnez votre fuseau horaire.
+                </p>
+            </field>
+        </record>
+    </data>
+     <menuitem
+        id="ingenosya_meeting_reservation_menu"
+        name="Réservation"
+        action="ingenosya_meeting_reservation_action"
+        parent="ingenosya_meeting_main_menu"
+        sequence="1"
+    />
+    <menuitem
+        id="ingenosya_meeting_configuration"
+        name="Configuration"
+        action="ingenosya_meeting_reservation_action"
+        parent="ingenosya_meeting_main_menu"
+        sequence="2"
+    />
+    <menuitem 
+        id="ingenosya_meeting_main_menu" 
+        name="Salle de réunion" 
+        web_icon="ingenosya_meeting,static/description/icon.png"
+    />
+    <menuitem
+        id="ingenosya_meeting_room_menu"
+        name="Salle de réunion"
+        action="ingenosya_meeting_room_action"
+        parent="ingenosya_meeting_configuration"
+    /><menuitem
+        id="ingenosya_meeting_timezone_menu"
+        name="Fuseau horaire"
+        action="ingenosya_meeting_timezone_action"
+        parent="ingenosya_meeting_configuration"
+    />
+</odoo>

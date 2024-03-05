@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+<!--        <function name="auto_fill_stock_name" model="product.template" />-->
+<!--        <function name="auto_fill_stock_name" model="product.product" />-->
+        <function name="update_product_state" model="product.product" />
+    </data>
+</odoo>
