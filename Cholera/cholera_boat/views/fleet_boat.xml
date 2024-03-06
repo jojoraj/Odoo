@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <odoo>
   <data>
       <record id='fleet_vehicle_action' model='ir.actions.act_window'>
@@ -20,9 +22,40 @@
         <field name="model">fleet.vehicle</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='model_year']" position="after">
-                <field name="origin" invisible=" not context.get('default_tag_ids') == [%(cholera_boat.boat_vehicle_tag)d]"/>
+            <xpath expr="//button[@name='open_assignation_logs']" position="before">
+                <button name="flux_action" type="object" class="oe_stat_button" icon="fa-exchange">
+                    Flux
+			    </button>
             </xpath>
+            <xpath expr="//div[2]" position="after">
+                <div>
+                    <group attrs="{'invisible': [('is_boat', '=', False)]}">
+                        <field name="passenger_number"/>
+                        <field name="merchandise_type"/>
+                    </group>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='model_id']" position="attributes">
+                <field name="model_id" attrs="{'invisible': [('is_boat', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//group[2]/group[2]" position="after">
+                <notebook attrs="{'invisible': [('is_boat', '=', False)]}">
+                    <page string="Equipage">
+                        <group>
+                            <field name="crew"/>
+                            <field name="native_country"/>
+                            <field name="nationality"/>
+                            <field name="tel_number"/>
+                            <field name="mail_address"/>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="is_boat" invisible="True"/>
+                <field name="is_double" invisible="True"/>
+            </xpath >
+
         </field>
     </record>
       <menuitem id="boat_menu" action="fleet_vehicle_action" name="Bateau" parent="fleet.menu_root" sequence="50" />

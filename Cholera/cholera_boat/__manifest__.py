@@ -20,14 +20,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'fleet'],
+    'depends': ['base', 'fleet', 'cholera_sanitary_barrier', 'cholera_vehicle'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'views/flow_moov_view.xml',
+        'security/ir.model.access.csv',
+        'security/security.xml',
         'data/data.xml',
-        'views/fleet_boat.xml',
         'views/fleet_vehicle.xml',
+        'views/fleet_boat.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
