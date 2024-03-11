@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/odoo_12/project_management_addons" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/odoo_16/odoo_fidom" vcs="Git" />
+  </component>
+</project>
