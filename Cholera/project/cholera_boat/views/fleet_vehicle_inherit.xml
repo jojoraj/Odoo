@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <data>
+      <record id='fleet_vehicle_action' model='ir.actions.act_window'>
+        <field name="name">Bateau</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="context" eval="{'default_tag_ids': [ref('cholera_boat.boat_vehicle_tag')]}" />
+        <field name="domain" eval="[('tag_ids', 'in', [ref('cholera_boat.boat_vehicle_tag')])]" />
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new vehicle
+          </p><p>
+            Manage your fleet by keeping track of the contracts, services, odometers and fuel logs associated to each vehicle.
+          </p>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_tree" model="ir.ui.view">
+        <field name="name">Boat tree</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="model_id"/>
+                <field name="boat_type"/>
+                <field name="driver_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_form_inherit_id" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='open_assignation_logs']" position="before">
+                <button name="flux_action" type="object" attrs="{'invisible': [('is_boat', '=', False)]}" class="oe_stat_button" icon="fa-exchange">
+                    <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="flux_count" widget="statinfo"/>
+                            </span>
+                    </div>
+			    </button>
+            </xpath>
+            <xpath expr="//field[@name='model_id']" position="after">
+                <field name="is_boat" invisible="True"/>
+                <field name="is_double" invisible="True"/>
+
+                <div attrs="{'invisible': [('is_boat', '=', False)]}">
+                    <label attrs="{'invisible': [('is_boat', '=', False)]}" for="boat_type"/>
+                    <h2>
+                        <field name="boat_type"/>
+                    </h2>
+                </div>
+            </xpath>
+<!--            <xpath expr="//field[@name='license_plate']" position="attributes">-->
+<!--                <attribute name="attrs">{'invisible': [('is_boat', '=', True)]}</attribute>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//label[@for='license_plate']" position="attributes">-->
+<!--                <attribute name="attrs">{'invisible': [('is_boat', '=', True)]}</attribute>-->
+<!--            </xpath>-->
+            <xpath expr="//group[2]/group[2]" position="after">
+                    <notebook attrs="{'invisible':[('is_boat', '=', False)]}">
+                        <page name="crew" string="Crew" groups="base.group_user">
+                            <field name="crew_ids" domain="[('category_id.name', '=', 'Equipage')]"
+                                   options="{'no_create': True}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="email"/>
+                                    <field name="x_studio_nationality_id"/>
+                                    <field name="country_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+        </field>
+    </record>
+        <menuitem
+            id="boat_menu"
+            name="Bateaux"
+            parent="fleet.menu_root"
+            sequence="50" />
+
+        <menuitem
+            id="boat_flow_menu"
+            name="Bateau"
+            action="fleet_vehicle_action"
+            sequence="35"
+            parent="boat_menu"/>
+
+        <menuitem
+            id="flow_menu"
+            name="Flux"
+            action="boat_flow_action"
+            sequence="50"
+            parent="boat_menu"/>
+  </data>
+</odoo>

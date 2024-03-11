@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+       <record id="source_water_1" model="water.source">
+         <field name="name">JIRAMA</field>
+       </record>
+        <record id="source_water_2" model="water.source">
+         <field name="name">Puit</field>
+       </record>
+        <record id="source_water_3" model="water.source">
+         <field name="name">Rivière</field>
+       </record>
+    </data>
+</odoo>

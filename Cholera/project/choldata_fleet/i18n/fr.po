@@ -1,0 +1,165 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* choldata_fleet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-21 13:43+0000\n"
+"PO-Revision-Date: 2024-02-21 13:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: choldata_fleet
+#: model:fleet.vehicle.tag,name:choldata_fleet.amb_vehicle_tag
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_partner__fleet_count
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_users__fleet_count
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_geoengine
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_list
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_res_partner_form_inherit
+msgid "Ambulance"
+msgstr "Ambulance"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_fleet_vehicle__breakpoint
+msgid "Breakpoint"
+msgstr "Point d'arrêt"
+
+#. module: choldata_fleet
+#: model:ir.ui.menu,name:choldata_fleet.menu_driver_id
+msgid "Chauffeur"
+msgstr "Chauffeur ambulance"
+
+#. module: choldata_fleet
+#: model:ir.actions.act_window,name:choldata_fleet.driver_action_fleet
+#: model:res.partner.category,name:choldata_fleet.driver_category
+msgid "Chauffeur ambulance"
+msgstr "Chauffeur ambulance"
+
+#. module: choldata_fleet
+#: model:ir.model,name:choldata_fleet.model_res_partner
+msgid "Contact"
+msgstr "Chauffeur ambulance"
+
+#. module: choldata_fleet
+#: model_terms:ir.actions.act_window,help:choldata_fleet.driver_action_fleet
+msgid "Créer un nouveau document"
+msgstr ""
+
+#. module: choldata_fleet
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_list
+msgid "Date"
+msgstr "Date"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_fleet_vehicle__date_dest
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_partner__date_dest
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_users__date_dest
+msgid "Date Dest"
+msgstr "Date"
+
+#. module: choldata_fleet
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_geoengine
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_list
+msgid "De"
+msgstr ""
+
+#. module: choldata_fleet
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_list
+msgid "Driver"
+msgstr "Conducteur"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_partner__driver_color
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_users__driver_color
+msgid "Driver Color"
+msgstr "Couleur"
+
+#. module: choldata_fleet
+#: model:fleet.vehicle.state,name:choldata_fleet.fleet_vehicle_state_new_request
+msgid "Entrant"
+msgstr "Entrant"
+
+#. module: choldata_fleet
+#: selection:fleet.vehicle,kanban_state:0
+msgid "Green"
+msgstr "Dispo"
+
+#. module: choldata_fleet
+#: model:geoengine.vector.layer,name:choldata_fleet.geoengine_vector_layer_res_partner
+msgid "Localisation Ambulance"
+msgstr ""
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_fleet_vehicle__location
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_partner__location
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_users__location
+msgid "Location"
+msgstr "De"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_fleet_vehicle__location_dest
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_partner__location_dest
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_users__location_dest
+msgid "Location Dest"
+msgstr "Vers"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,help:choldata_fleet.field_fleet_vehicle__location
+msgid "Location of the vehicle (garage, ...)"
+msgstr "Lieu du véhicule (garage, ...)"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_fleet_vehicle__partner_id
+msgid "Partner"
+msgstr "Centre hospitalier"
+
+#. module: choldata_fleet
+#: model:geoengine.raster.layer,name:choldata_fleet.geoengine_raster_layer_res_partner_osm
+msgid "Partner background"
+msgstr "Background"
+
+#. module: choldata_fleet
+#: selection:fleet.vehicle,kanban_state:0
+msgid "Red"
+msgstr "Occupé"
+
+#. module: choldata_fleet
+#: model:fleet.vehicle.state,name:choldata_fleet.state_out
+msgid "Sortant"
+msgstr "Sortant"
+
+#. module: choldata_fleet
+#: model:ir.model,name:choldata_fleet.model_operation_transfert
+msgid "Transfert"
+msgstr "Transfert"
+
+#. module: choldata_fleet
+#: model:ir.model,name:choldata_fleet.model_fleet_vehicle
+#: model:ir.model.fields,field_description:choldata_fleet.field_operation_transfert__vehicle_id
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_partner__vehicle_id
+#: model:ir.model.fields,field_description:choldata_fleet.field_res_users__vehicle_id
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: choldata_fleet
+#: model:ir.model.fields,field_description:choldata_fleet.field_fleet_vehicle__kanban_state
+msgid "Vehicle State"
+msgstr ""
+
+#. module: choldata_fleet
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_geoengine
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_driver_res_partner_list
+msgid "Vers"
+msgstr "Vers"
+
+#. module: choldata_fleet
+#: model_terms:ir.ui.view,arch_db:choldata_fleet.view_res_partner_form_inherit
+msgid "show the vehicles for this partner"
+msgstr "Affiche les ambulances du centre"
+

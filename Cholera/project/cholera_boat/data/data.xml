@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record model="fleet.vehicle.tag" id="boat_vehicle_tag">
+            <field name="name">Bateau</field>
+        </record>
+
+        <record model="res.partner.category" id="res_partner_tag">
+            <field name="name">Equipage</field>
+        </record>
+    </data>
+</odoo>

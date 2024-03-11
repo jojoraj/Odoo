@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cholera_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20211001\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-21 18:06+0000\n"
+"PO-Revision-Date: 2024-02-21 18:06+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cholera_state
+#: model:ir.model,name:cholera_state.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: cholera_state
+#: model:ir.model.fields,field_description:cholera_state.field_res_partner__has_Cholera
+#: model:ir.model.fields,field_description:cholera_state.field_res_users__has_Cholera
+msgid "Has Cholera"
+msgstr "Cholera"
+

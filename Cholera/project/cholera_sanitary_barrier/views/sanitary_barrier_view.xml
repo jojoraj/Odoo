@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>            
+  <record id="sanitary_barrier_tree_view" model="ir.ui.view">
+    <field name="name">sanitary.barrier.tree.view</field>
+    <field name="model">sanitary.barrier</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="kilometre_marker"/>
+        <field name="responsible"/>
+      </tree>
+    </field>
+  </record>
+  <record id="sanitary_barrier_form_view" model="ir.ui.view">
+    <field name="name">sanitary.barrier.from.view</field>
+    <field name="model">sanitary.barrier</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <div class="oe_title">
+                <h1>
+                    <field name="name"/>
+                </h1>
+            </div>
+            <div>
+              <label for="street" string="Address"/>
+              <div class="o_address_format">
+                <field name="street" placeholder="Address" class="o_address_street" />
+                <field name="province_id" placeholder="Province" class="o_address_street" />
+                <field name="region_id" placeholder="Region" class="o_address_city" attrs="{'readonly': [('province_id', '=', False)]}"/>
+                <field name="district_id" class="o_address_state" placeholder="District" attrs="{'readonly': [('region_id', '=', False)]}"/>
+                <div name="sanitary_barrier_country" class="d-flex justify-content-between" >
+                    <field name="commune_id" placeholder="Commune" class="o_address_country" attrs="{'readonly': [('district_id', '=', False)]}"/>
+                    <field name="fkt" placeholder="Fokontany" class="o_address_country" attrs="{'readonly': [('commune_id', '=', False)]}"/>
+                </div>
+                    <field name="kilometre_marker" placeholder="kilometre marker"/>
+                </div>
+            </div>
+            <div>
+                <label for="Responsible" string="responsible"/>
+                    <field name="responsible" domain="[('category_id.name', '=', 'Equipe')]" options="{'no_create': True}"/>
+            </div>
+          </group>
+          <notebook>
+            <page name="Team" string="Team" groups="base.group_user">
+              <field name="team_ids" domain="[('category_id.name', '=', 'Equipe')]" options="{'no_create': True}">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <field name="x_studio_cin"/>
+                  <field name="phone"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

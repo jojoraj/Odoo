@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record id="fleet_vehicle_form_inherit_vehicle" model="ir.ui.view">
+      <field name="name">fleet.vehicle.form.inherit.vehicle</field>
+      <field name="model">fleet.vehicle</field>
+      <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+      <field name="arch" type="xml">
+        <!-- <xpath expr="//sheet" position="inside">
+          <notebook>
+            <page name="passenger" string="Passenger" groups="base.group_user">
+              <field name="passenger_ids">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <field name="x_studio_cin"/>
+                  <field name="phone"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </xpath> -->
+        <xpath expr="//field[@name='driver_id']" position="before">
+          <field name="blacklist"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

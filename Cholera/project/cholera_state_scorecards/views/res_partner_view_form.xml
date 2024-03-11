@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="x_fiches_de_suivi_has_cholera" model="ir.ui.view">
+    <field name="name">x_fiches_de_suivi.view.form.inherit</field>
+    <field name="model">x_fiches_de_suivi</field>
+    <field name="inherit_id" ref="studio_customization.odoo_studio_default__9aab40c6-bc1e-47d5-b41c-4bda465cc4cc"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='x_studio_field_Ft1ad']" position="before">
+        <field name="x_has_cholera" String="Cholera" attrs="{'readonly': True}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.partner.category" id="res_partner_category_add_team">
+        <field name="name">Equipe</field>
+    </record>
+</odoo>

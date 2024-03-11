@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cholera_riposte_cholera_riposte,access.cholera.riposte,model_cholera_riposte,base.group_user,1,1,1,1
+access_sanitary_training_sanitary_training,access.sanitary.training,model_sanitary_training,base.group_user,1,1,1,1
+access_water_source_water_source,access.water.source,model_water_source,base.group_user,1,1,1,1

@@ -1,0 +1,282 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cholera_boat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20211001\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-11 07:26+0000\n"
+"PO-Revision-Date: 2024-03-11 07:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__mail_address
+msgid "Adresse mail"
+msgstr ""
+
+#. module: cholera_boat
+#: model:fleet.vehicle.tag,name:cholera_boat.boat_vehicle_tag
+#: model:ir.actions.act_window,name:cholera_boat.fleet_vehicle_action
+#: model:ir.ui.menu,name:cholera_boat.boat_flow_menu
+msgid "Bateau"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.ui.menu,name:cholera_boat.boat_menu
+msgid "Bateaux"
+msgstr ""
+
+#. module: cholera_boat
+#: model:res.groups,name:cholera_boat.group_cholera_boat_create
+msgid "Boat create"
+msgstr "Flux créer bateau"
+
+#. module: cholera_boat
+#: model:res.groups,name:cholera_boat.group_cholera_boat_read
+msgid "Boat read"
+msgstr "Flux Voir bateau"
+
+#. module: cholera_boat
+#: model:ir.actions.act_window,name:cholera_boat.boat_type_action
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__boat_type_flow
+msgid "Boat type"
+msgstr "Type de bateau"
+
+#. module: cholera_boat
+#: model:res.groups,name:cholera_boat.group_cholera_boat_unlink
+msgid "Boat unlink"
+msgstr "Flux Supprimer bateau"
+
+#. module: cholera_boat
+#: model:res.groups,name:cholera_boat.group_cholera_boat_update
+msgid "Boat update"
+msgstr "Flux Mettre à jour bateau"
+
+#. module: cholera_boat
+#: model_terms:ir.actions.act_window,help:cholera_boat.fleet_vehicle_action
+msgid "Create a new vehicle"
+msgstr "Créez un nouveau véhicule"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__create_uid
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__create_uid
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__create_date
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__create_date
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: cholera_boat
+#: model_terms:ir.ui.view,arch_db:cholera_boat.fleet_vehicle_form_inherit_id
+msgid "Crew"
+msgstr "Equipage"
+
+#. module: cholera_boat
+#: model:ir.actions.act_window,name:cholera_boat.boat_destination_action
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__name
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__destination_id
+msgid "Destination"
+msgstr "Déstination"
+
+#. module: cholera_boat
+#: model:ir.ui.menu,name:cholera_boat.destination_menu_id
+msgid "Destination des bateaux"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__display_name
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__display_name
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: cholera_boat
+#: model:res.partner.category,name:cholera_boat.res_partner_tag
+msgid "Equipage"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.actions.act_window,name:cholera_boat.crew_tag_action
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__crew_ids
+#: model:ir.ui.menu,name:cholera_boat.crew_tag_menu
+msgid "Equipages"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__is_boat
+msgid "Est un bateau"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__fleet_vehicle_id
+msgid "Fleet Vehicle"
+msgstr "Véhicule"
+
+#. module: cholera_boat
+#: model:ir.actions.act_window,name:cholera_boat.boat_flow_action
+msgid "Flow"
+msgstr ""
+
+#. module: cholera_boat
+#: code:addons/cholera_boat/models/fleet_vehicle.py:50
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__flux_count
+#: model:ir.ui.menu,name:cholera_boat.flow_menu
+#, python-format
+msgid "Flux"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__id
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__id
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__id
+msgid "ID"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__is_double
+msgid "Is Double"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type____last_update
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle____last_update
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__write_uid
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__write_uid
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__write_date
+#: model:ir.model.fields,field_description:cholera_boat.field_destination_vehicle__write_date
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: cholera_boat
+#: model_terms:ir.ui.view,arch_db:cholera_boat.destination_menu_view
+msgid "Liste des déstinations"
+msgstr ""
+
+#. module: cholera_boat
+#: model_terms:ir.actions.act_window,help:cholera_boat.fleet_vehicle_action
+msgid "Manage your fleet by keeping track of the contracts, services, odometers and fuel logs associated to each vehicle."
+msgstr "Gérez votre flotte en gardant trace des contrats, services, odomètres et relevés de carburant associés à chaque véhicule."
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__merchandise_type
+msgid "Merchendise type"
+msgstr "Type de marchandise"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__nationality
+msgid "Nationalité"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__crew
+msgid "Nom"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__tel_number
+msgid "Numéro de téléphone"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__origin_id
+msgid "Origine"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__passenger_ids
+#: model_terms:ir.ui.view,arch_db:cholera_boat.flow_moov_barrier_form_view
+msgid "Passenger"
+msgstr "Passager"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__native_country
+msgid "Pays d'origine"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__sanitary_barrier_id
+msgid "Sanitary Barrier"
+msgstr "Barrière Sanitaire"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__time
+#: model_terms:ir.ui.view,arch_db:cholera_boat.flow_moov_barrier_form_view
+msgid "Time"
+msgstr "Date"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_flow_moov__total_passenger
+msgid "Total passengers"
+msgstr "Nombre total de passagers"
+
+#. module: cholera_boat
+#: model:ir.model.fields,field_description:cholera_boat.field_boat_type__name
+#: model:ir.model.fields,field_description:cholera_boat.field_fleet_vehicle__boat_type
+#: model:ir.ui.menu,name:cholera_boat.boat_type_menu_id
+#: model_terms:ir.ui.view,arch_db:cholera_boat.boat_type_view
+msgid "Type de bateau"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: cholera_boat
+#: code:addons/cholera_boat/models/fleet_vehicle.py:42
+#, python-format
+msgid "Veuillez selectionner un seul vehicule"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_boat_type
+msgid "boat.type"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_destination_vehicle
+msgid "destination.vehicle"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_fleet_moov
+msgid "fleet.moov"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_flow_moov
+msgid "flow.moov"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_sanitary_barrier
+msgid "sanitary.barrier"
+msgstr ""
+
+#. module: cholera_boat
+#: model:ir.model,name:cholera_boat.model_vehicle_flux
+msgid "vehicle.flux"
+msgstr ""
+

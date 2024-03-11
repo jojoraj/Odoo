@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.partner.category" id="driver_category">
+        <field name="name">Chauffeur ambulance</field>
+    </record>
+    <record model="fleet.vehicle.tag" id="amb_vehicle_tag">
+        <field name="name">Ambulance</field>
+    </record>
+    <record model="fleet.vehicle.state" id="state_out">
+        <field name="name">Sortant</field>
+        <field name="sequence">6</field>
+    </record>
+    <record id="fleet_vehicle_state_new_request" model="fleet.vehicle.state">
+        <field name="name">Entrant</field>
+        <field name="sequence">5</field>
+    </record>
+</odoo>

@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <record id="view_fleet_vehicle_kanban_inherit" model="ir.ui.view">
+         <field name="name">fleet.vehicle.kanban.inherit</field>
+         <field name="model">fleet.vehicle</field>
+         <field name="inherit_id" ref="fleet.fleet_vehicle_view_kanban" />
+         <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_kanban_global_click')]" position="inside">
+                <div>
+                    <field name="kanban_state" widget="kanban_state_selection"/>
+                </div>
+            </xpath>
+         </field>
+    </record>
+
+      <record id="view_fleet_vehicle_form_inherit" model="ir.ui.view">
+         <field name="name">fleet.vehicle.form.inherit</field>
+         <field name="model">fleet.vehicle</field>
+         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+         <field name="arch" type="xml">
+            <field name="location" position="after">
+            <field name="is_ambulance" invisible="1" />
+              <field name="location_dest" attrs="{'invisible':[('is_ambulance', '=', False)]}"/>
+                <field name="breakpoint" attrs="{'invisible':[('is_ambulance', '=', False)]}"/>
+            </field>
+             <field name="location" position="before">
+              <field name="date_dest" attrs="{'invisible':[('is_ambulance', '=', False)]}"/>
+            </field>
+            <field name="driver_id" position="before">
+                <field name="partner_id" domain="[('is_company', '=', True),('category_id', 'in', [9])]" attrs="{'invisible':[('is_ambulance', '=', False)]}"/>
+            </field>
+             <field name="image_medium" position="after">
+                    <field name="kanban_state" widget="kanban_state_selection" attrs="{'invisible':[('is_ambulance', '=', False)]}"/>
+             </field>
+             <field name="location" position="attributes">
+                 <attribute name="attrs">{'invisible':[('is_ambulance', '=', False)]}</attribute>
+             </field>
+         </field>
+    </record>
+  <menuitem 
+    name="Chauffeur ambulance" 
+    id="menu_driver_id"
+    parent="fleet.fleet_vehicles" 
+    sequence="99" 
+    action="choldata_fleet.driver_action_fleet"/>
+      <!-- <record id='fleet.fleet_vehicle_action' model='ir.actions.act_window'>
+        <field name="context" eval="{'search_default_groupby_status': 1,'default_state_id':[ref('fleet.fleet_vehicle_state_new_request')]}"/>
+
+    </record> -->
+  </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cholera_infraction,access_cholera_infraction,model_cholera_infraction,,1,1,1,1
+access_infraction_type,access_infraction_type,model_infraction_type,,1,1,1,1
+
+
+

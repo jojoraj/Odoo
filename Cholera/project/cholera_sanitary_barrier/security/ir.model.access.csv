@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sanitary_barrier,access.sanitary.barrier,model_sanitary_barrier,base.group_user,1,1,1,1
+access_fleet_moov,access.fleet.moov,model_fleet_moov,base.group_user,1,1,1,1

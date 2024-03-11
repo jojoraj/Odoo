@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="crew_tag_action" model="ir.actions.act_window">
+            <field name="name">Equipages</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain" eval="[('category_id', 'in', [ref('cholera_boat.res_partner_tag')])]"/>
+            <field name="context" eval="{'default_category_id': [ref('cholera_boat.res_partner_tag')]}"/>
+        </record>
+
+        <menuitem id="crew_tag_menu"
+                  name="Equipages"
+                  parent="fleet.fleet_configuration"
+                  action="crew_tag_action"
+                  sequence="90"/>
+
+    </data>
+</odoo>

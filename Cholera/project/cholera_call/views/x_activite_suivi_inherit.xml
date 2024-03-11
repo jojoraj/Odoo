@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="x_activite_suivi_inherit" model="ir.ui.view">
+    <field name="name">x_activite_suivi.view.form.inherit</field>
+    <field name="model">x_activite_suivi</field>
+    <field name="inherit_id" ref="studio_customization.odoo_studio_default__a05da1a2-99a2-4382-be55-f7ed9acb9bcc"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='x_studio_field_hx7Y2']" position="attributes">
+        <attribute name="readonly">0</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_centre']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_agent']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_responsable']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_prescription_cvo']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_prescription_cvo_']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_radiologie']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='x_studio_radiologie_lsion_poumon']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

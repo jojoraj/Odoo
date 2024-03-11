@@ -1,0 +1,13 @@
+<odoo> 
+    <record id="black_list_view" model="ir.ui.view">
+        <field name="name">'fleet.vehicle.blacklist</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="Driver">
+                <field name="model_id"/>
+                <field name="license_plate"/>
+                <field name="blacklist"/>
+            </tree>
+        </field>
+    </record>
+</odoo> 

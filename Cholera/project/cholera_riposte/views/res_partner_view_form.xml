@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <data>
+      <record id="res_partner_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active']" position="after">
+                <button name="action_test" class="oe_stat_button" icon="fa-medkit" String="Riposte" type="object">
+                    Riposte
+                </button>
+            </xpath>
+        </field>
+      </record>
+
+    <record id="res_partner_has_chemo" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="studio_customization.odoo_studio_res_part_50904787-5806-45ea-ac5b-01475dd340c3"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='x_studio_health_state_id']" position="before">
+            <field name="has_chemo" />
+          </xpath>
+          <xpath expr="//field[@name='x_studio_observations']" position="after">
+            <field name="sanitary_training"/>
+            <field name="water_source"/>
+            <field name="other_source"/>
+          </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

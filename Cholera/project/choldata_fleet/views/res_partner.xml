@@ -1,0 +1,92 @@
+<odoo>
+  <data>
+
+      <record id="driver_action_fleet" model="ir.actions.act_window">
+        <field name="name">Chauffeur ambulance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,geoengine</field>
+          <field name="view_id"></field>
+        <field name="target">current</field>
+        <field name="context" eval="{'default_category_id':[ref('choldata_fleet.driver_category', False)]}"/>
+          <field name="domain" eval="[('category_id','in',[ref('choldata_fleet.driver_category', False)])]" />
+    </record>
+    <record id="view_res_partner_form_inherit" model="ir.ui.view">
+         <field name="name">res.partner.form.inherit</field>
+         <field name="model">res.partner</field>
+         <field name="inherit_id" ref="base.view_partner_form" />
+         <field name="arch" type="xml">
+            <button name="toggle_active" position="before">
+                <button name="return_fleet_to_open"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-truck"
+                    context="{'xml_id':'fleet_vehicle_action'}"
+                    help="show the vehicles for this partner" >
+                    <field name="fleet_count" widget="statinfo" string="Ambulance"/>
+                </button>
+            </button>
+         </field>
+    </record>
+    <record id="view_driver_res_partner_list" model="ir.ui.view">
+        <field name="name">res.partner.list.choldata</field>
+        <field name="model">res.partner</field>
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Driver">
+                <field name="name" string="Chauffeur"/>
+                <field name="vehicle_id" string="Ambulance"/>
+                <field name="location" string="De"/>
+                <field name="location_dest" string="Vers"/>
+                <field name="date_dest" string="Date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_driver_res_partner_geoengine" model="ir.ui.view">
+        <field name="name">driver.res.partner.geoengine.choldata</field>
+        <field name="model">res.partner</field>
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
+            <geoengine>
+                <field name="name" select="1" invisible="1"/>
+                <field name="vehicle_id" string="Ambulance"/>
+                <field name="location" string="De"/>
+                <field name="location_dest" string="Vers"/>
+                <field name="driver_color" />
+                <field name="geo_point"/>
+              </geoengine>
+        </field>
+    </record>
+    <record id="action_act_window_view1" model="ir.actions.act_window.view">
+        <field eval="0" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_driver_res_partner_list"/>
+        <field name="act_window_id" ref="driver_action_fleet"/>
+    </record>
+    <record id="action_act_window_view2" model="ir.actions.act_window.view">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">geoengine</field>
+        <field name="view_id" ref="view_driver_res_partner_geoengine"/>
+        <field name="act_window_id" ref="driver_action_fleet"/>
+    </record>
+    <record id="geoengine_vector_layer_res_partner" model="geoengine.vector.layer">
+        <field name="geo_field_id"
+               ref="geoengine_partner.field_res_partner__geo_point"/>
+        <field name="name">Localisation Ambulance</field>
+        <field name="classification">custom</field>
+        <field eval="6" name="sequence"/>
+        <field name="view_id" ref="view_driver_res_partner_geoengine"/>
+        <field name="geo_repr">colored</field>
+        <field eval="1" name="nb_class"/>
+        <field name="attribute_field_id" ref="field_res_partner__driver_color"/>
+        <field name="begin_color">#1c1c1f</field>
+      </record>
+
+      <record id="geoengine_raster_layer_res_partner_osm" model="geoengine.raster.layer">
+        <field name="raster_type">osm</field>
+        <field name="name">Partner background</field>
+        <field name="view_id" ref="view_driver_res_partner_geoengine"/>
+        <field eval="0" name="overlay"/>
+      </record>
+  </data>
+</odoo>

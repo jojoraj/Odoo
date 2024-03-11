@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="view_operation_transfert_form_inherit" model="ir.ui.view">
+         <field name="name">operation.transfert.form.inherit</field>
+         <field name="model">operation.transfert</field>
+         <field name="inherit_id" ref="studio_customization.odoo_studio_operatio_b780f743-4e26-471b-9956-20c6269d6d0f" />
+         <field name="arch" type="xml">
+            <field name="x_studio_ambulance" position="after">
+                <field name="vehicle_id"/>
+            </field>
+             <field name="x_studio_ambulance" position="attributes">
+                 <attribute name="invisible">1</attribute>
+             </field>
+         </field>
+    </record>
+  </data>
+</odoo>

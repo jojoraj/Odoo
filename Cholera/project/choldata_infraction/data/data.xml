@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="infraction_type_1" model="infraction.type">
+            <field name="type">Refus de contrôle au niveau des barrières sanitaires</field>
+        </record>
+    </data>
+</odoo>

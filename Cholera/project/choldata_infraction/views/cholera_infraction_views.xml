@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="cholera_infraction_view_form" model="ir.ui.view">
+            <field name="name">cholera.infraction.form</field>
+            <field name="model">cholera.infraction</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="individu_type" widget="radio"
+                                   options="{'vertical': true}"/>
+                            <field name="name"/>
+                            <field name="type_id"/>
+                            <field name="vehicle_id" domain="[('tag_ids.name', 'in', ['Ambulance', 'vehicle', 'Véhicule', 'véhicule'])]"
+                                   attrs="{'invisible': [('individu_type', '!=', False), ('individu_type', '!=', 'vehicle')]}"/>
+                            <field name="partner_id" domain="[('category_id.name', 'in', ['Personne'])]"
+                                   attrs="{'invisible': [('individu_type', '!=', False), ('individu_type', '!=', 'patient')]}"/>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page name="comment" string="Comment">
+                                    <field name="comment"/>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="cholera_infraction_tree_view" model="ir.ui.view">
+            <field name="name">choelra.infraction.tree</field>
+            <field name="model">cholera.infraction</field>
+            <field name="arch" type="xml">
+                <tree string="Infraction">
+                    <field name="name"/>
+                    <field name="type_id"/>
+                    <field name="comment"/>
+                    <field name="individu_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="infraction_action" model="ir.actions.act_window">
+            <field name="name">Infraction</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cholera.infraction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="cholera_infraction_search_view" model="ir.ui.view">
+            <field name="name">cholera.infraction.search</field>
+            <field name="model">cholera.infraction</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Infraction Analysis">
+                    <field name="name"/>
+                    <field name="vehicle_id"/>
+                    <field name="partner_id"/>
+                    <filter string="Véhicule" name="vehicle" domain="[('individu_type', '=', 'vehicle')]"/>
+                    <filter string="Patient" name="patient" domain="[('individu_type', '=', 'patient')]"/>
+                    <filter string="Autres" name="others" domain="[('individu_type', '=', 'others')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Type d'individu" name="individu_type_groupby"
+                                context="{'group_by':'individu_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+<!--        <record id="cholera_infraction_kanban_view" model="ir.ui.view">-->
+<!--            <field name="name">cholera.infraction.kanban</field>-->
+<!--            <field name="model">cholera.infraction</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <kanban>-->
+<!--                    <templates>-->
+<!--                        <t t-name="kanban-box">-->
+<!--                            <div class="o_kanban_card">-->
+<!--                                <div class="o_kanban_card_header">-->
+<!--                                    <field name="name"/>-->
+<!--                                    <field name="type_id"/>-->
+<!--                                </div>-->
+<!--                                <div class="o_kanban_card_content">-->
+<!--                                    <field name="comment"/>-->
+<!--                                </div>-->
+<!--                                <div class="o_kanban_card_footer">-->
+<!--                                    <field name="individu_type"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </templates>-->
+<!--                </kanban>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- New menu for Infraction -->
+        <menuitem id="menu_infraction_root"
+                  name="Infraction"
+                  action="infraction_action"
+                  web_icon="choldata_infraction,static/src/img/img.png"
+                  sequence="10"/>
+
+        <menuitem id="menu_infraction"
+                  action="infraction_action"
+                  name="Infraction"
+                  parent="menu_infraction_root"
+                  sequence="20"/>
+
+        <!-- New menu for Configuration -->
+        <menuitem id="menu_configuration"
+                  name="Configuration"
+                  parent="menu_infraction_root"
+                  sequence="30"/>
+
+    </data>
+</odoo>

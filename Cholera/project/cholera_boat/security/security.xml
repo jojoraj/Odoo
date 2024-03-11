@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+<!--        <record model="ir.module.category" id="module_category_boat">-->
+<!--            <field name="name">Boat managment</field>-->
+<!--            <field name="description">Category boat</field>-->
+<!--        </record>-->
+
+        <record id="group_cholera_boat_create" model="res.groups">
+            <field name="name">Boat create</field>
+            <field name="category_id" ref="base.module_category_contact"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+        <record id="group_cholera_boat_read" model="res.groups">
+            <field name="name">Boat read</field>
+            <field name="category_id" ref="base.module_category_contact"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+        <record id="group_cholera_boat_update" model="res.groups">
+            <field name="name">Boat update</field>
+            <field name="category_id" ref="base.module_category_contact"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+        <record id="group_cholera_boat_unlink" model="res.groups">
+            <field name="name">Boat unlink</field>
+            <field name="category_id" ref="base.module_category_contact"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+</odoo>

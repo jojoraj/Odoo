@@ -1,0 +1,17 @@
+<odoo> 
+  <record id="action_fleet_vehicle_balcklist" model="ir.actions.act_window">
+    <field name="name">Blacklist</field>
+    <field name="res_model">fleet.vehicle</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('blacklist','=','True')]</field>
+    <field name="view_id" ref="black_list_view"/>
+  </record>
+  <record model="ir.ui.menu" id="fleet.menu_root">
+      <field name="name">Transport</field>
+  </record>
+  <record id="fleet.fleet_vehicle_action" model='ir.actions.act_window'>
+    <!-- <field name="domain" eval="[('tag_ids', 'in', [ref('cholera_vehicle.amb_vehicle_tag')])]"/> -->
+    <!-- <field name="context">{'search_default_groupby_status': 1}</field> -->
+    <field name="context" eval="{'default_tag_ids': [ref('cholera_vehicle.amb_vehicle_tag')],'search_default_groupby_status': 1,'default_state_id':[ref('fleet.fleet_vehicle_state_new_request')]}"/>
+  </record>
+</odoo> 

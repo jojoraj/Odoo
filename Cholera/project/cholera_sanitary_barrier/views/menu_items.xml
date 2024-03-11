@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>          
+  <menuitem 
+    id="menu_sanitary_barrier_root" 
+    name="Sanitary Barrier" 
+    web_icon="cholera_sanitary_barrier,static/src/img/img.png"
+    groups="base.group_user"/>
+  <menuitem 
+    id="menu_moov" 
+    name="Moov" 
+    parent="menu_sanitary_barrier_root" 
+    action="action_moov"
+    sequence="10"/>
+  <menuitem 
+    id="menu_sanitary_barrier" 
+    name="Sanitary Barrier" 
+    parent="menu_sanitary_barrier_root" 
+    action="action_sanitary_barrier"
+    sequence="30"/>
+  <menuitem 
+    id="menu_team" 
+    name="Team" 
+    parent="menu_sanitary_barrier_root" 
+    action="action_team"
+    sequence="40"/>
+</odoo>

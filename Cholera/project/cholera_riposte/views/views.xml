@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <data>
+    <record id="res_partner_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active']" position="after">
+                <button name="action_test" class="oe_stat_button" icon="fa-medkit" String="Riposte" type="object">
+                    Riposte
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="has_chemo"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="cholera_riposte_form" model="ir.ui.view">
+            <field name="name">cholera.riposte.form.view</field>
+            <field name="model">cholera.riposte</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="is_chemoprophylaxis"/>
+                            <field name="chemoprophylaxis_number"/>
+                            <field name="Number_of_input"/>
+                            <field name="date_of_repost"/>
+                        </group>
+
+                        <group>
+                            <field name="province"/>
+                            <field name="region" attrs="{'readonly':[('province', '=', False)]}"/>
+                            <field name="district" attrs="{'readonly':[('region', '=', False)]}"/>
+                            <field name="town" attrs="{'readonly':[('district', '=', False)]}"/>
+                            <field name="village" attrs="{'readonly':[('town', '=', False)]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="cholera_riposte_tree_view" model="ir.ui.view">
+        <field name="name">choelra.riposte.tree.view</field>
+        <field name="model">cholera.riposte</field>
+        <field name="arch" type="xml">
+            <tree string="Riposte">
+                <field name="partner_id"/>
+                <field name="date_of_repost"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="riposte_action" model="ir.actions.act_window">
+        <field name="name">Riposte</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cholera.riposte</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+        </p><p>
+            <!-- More details about what a user can do with this object will be OK --> 
+        </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="riposte_menu"
+        name="Riposte"
+        action="riposte_action"
+        sequence="35"
+        parent="contacts.menu_contacts"/>
+  </data>
+</odoo>

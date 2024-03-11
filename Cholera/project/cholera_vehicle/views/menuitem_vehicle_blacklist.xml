@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+    <menuitem 
+      action="action_fleet_vehicle_balcklist" 
+      name="Blacklist" 
+      parent="fleet.fleet_vehicles" 
+      id="fleet_vehicle_balcklist" 
+      groups="base.group_user"
+      sequence="100"
+      />
+  </data>
+</odoo>

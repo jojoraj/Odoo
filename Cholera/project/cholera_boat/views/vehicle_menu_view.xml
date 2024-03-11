@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+<!--        Destination menu-->
+        <record id="destination_menu_view" model="ir.ui.view">
+            <field name="name">Destination</field>
+            <field name="model">destination.vehicle</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des déstinations">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="boat_destination_action" model="ir.actions.act_window">
+            <field name="name">Destination</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">destination.vehicle</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+            </field>
+        </record>
+
+        <!--        Boat type menu-->
+
+        <record id="boat_type_view" model="ir.ui.view">
+            <field name="name">Boat type</field>
+            <field name="model">boat.type</field>
+            <field name="arch" type="xml">
+                <tree string="Type de bateau">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="boat_type_action" model="ir.actions.act_window">
+            <field name="name">Boat type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">boat.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="destination_menu_id"
+            name="Destination des bateaux"
+            action="boat_destination_action"
+            sequence="1"
+            parent="fleet.fleet_configuration"/>
+
+        <menuitem
+            id="boat_type_menu_id"
+            name="Type de bateau"
+            action="boat_type_action"
+            sequence="1"
+            parent="fleet.fleet_configuration"/>
+    </data>
+</odoo>

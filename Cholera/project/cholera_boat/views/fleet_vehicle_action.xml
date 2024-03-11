@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+       <record id="fleet.fleet_vehicle_action" model="ir.actions.act_window">
+           <field name="domain" eval="[('tag_ids', 'in', [ref('cholera_vehicle.amb_vehicle_tag')])]"/>
+           <field name="context" eval="{'default_tag_ids': [ref('cholera_vehicle.amb_vehicle_tag')]}" />
+       </record>
+    </data>
+</odoo>

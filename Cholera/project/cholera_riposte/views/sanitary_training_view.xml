@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="sanitary_training_view" model="ir.ui.view">
+            <field name="name">sanitary.training.view</field>
+            <field name="model">sanitary.training</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des formations sanitaires">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sanitary_training_action" model="ir.actions.act_window">
+            <field name="name">Formation sanitaire</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sanitary.training</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="sanitary_menu"
+            name="Formation sanitaire"
+            action="sanitary_training_action"
+            sequence="15"
+            parent="contacts.res_partner_menu_config"/>
+    </data>
+</odoo>

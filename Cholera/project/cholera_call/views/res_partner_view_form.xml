@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="res_partner_has_cholera" model="ir.ui.view">
+    <field name="name">res.partner.view.form.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="studio_customization.odoo_studio_res_part_50904787-5806-45ea-ac5b-01475dd340c3"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='x_studio_genre']" position="before">
+        <field name="Job" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

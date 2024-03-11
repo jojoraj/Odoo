@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cholera_clinical_sign
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20211001\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-26 13:01+0000\n"
+"PO-Revision-Date: 2024-02-26 13:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cholera_clinical_sign
+#: model:ir.model,name:cholera_clinical_sign.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: cholera_clinical_sign
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_partner__dehydration
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_users__dehydration
+msgid "Dehydration"
+msgstr "Etat de déshydratation"
+
+#. module: cholera_clinical_sign
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_partner__disease_start_date
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_users__disease_start_date
+msgid "Disease Start Date"
+msgstr "Date de début maladie ( date d'apparition premier symptôme)"
+
+#. module: cholera_clinical_sign
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_partner__leg_cramp
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_users__leg_cramp
+msgid "Leg Cramp"
+msgstr "Crampe a la jambe"
+
+#. module: cholera_clinical_sign
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_partner__nausea
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_users__nausea
+msgid "Nausea"
+msgstr "Nausée"
+
+#. module: cholera_clinical_sign
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_partner__vaumissement
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_users__vaumissement
+msgid "Vaumissement"
+msgstr "Vomissement"
+
+#. module: cholera_clinical_sign
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_partner__watery_diarrhea
+#: model:ir.model.fields,field_description:cholera_clinical_sign.field_res_users__watery_diarrhea
+msgid "Watery Diarrhea"
+msgstr "Diarrhée aqueuse"
+
