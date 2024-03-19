@@ -1,0 +1,396 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_location
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211117\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-01 13:04+0000\n"
+"PO-Revision-Date: 2022-08-01 13:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid "032 12 345 56"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "<i class=\"picto picto-check mr-2\"/>Validate"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid "<i class=\"picto picto-check mr-3\"/>SUBMIT"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid "<i class=\"picto picto-close mr-3\"/>CANCEL"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid ""
+"<i class=\"picto picto-etiquette\"/>\n"
+"                <span>Tarif</span>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid ""
+"<small class=\"modal-paragraph mt-0\">Nous vous remercions. Votre demande est en\n"
+"          cours de traitement, nous vous contacterons dans les meilleurs délais pour\n"
+"          confirmer votre réservation.\n"
+"        </small>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+msgid ""
+"<small class=\"modal-paragraph\">Nous vous remercions. Votre demande est en cours de\n"
+"              traitement, nous vous contacterons dans les meilleurs délais pour confirmer votre\n"
+"              réservation.\n"
+"            </small>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "<small class=\"small-name text-danger\">Veuillez remplir le champs</small>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "<small class=\"small-tel text-danger\">Veuillez remplir le champs</small>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid ""
+"<span class=\"gray-color mr-2\" id=\"choice_package_resume\">Rate :</span>\n"
+"        05 h"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+msgid ""
+"<span class=\"gray-color mr-2\" id=\"choice_package_resume_modal\">Rate :</span>\n"
+"              05 h"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+msgid ""
+"<span class=\"gray-color mr-2\" id=\"choise_vehicle_payment_resume_modal\">in :</span>\n"
+"              voiture(3 places)"
+msgstr ""
+"<span class=\"gray-color mr-2\" id=\"choise_vehicle_payment_resume_modal\">En :</span>\n"
+"              voiture(3 places)"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+msgid "<span class=\"gray-color mr-2\" id=\"time_payment_resume_modal\">When :</span>"
+msgstr "<span class=\"gray-color mr-2\" id=\"time_payment_resume_modal\">Quand :</span>"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid ""
+"<span class=\"gray-color\" id=\"choise_vehicle\">in :</span>\n"
+"          Car (3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle\">En :</span>\n"
+"          Car (3 places)"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment_resume\">in :</span>\n"
+"          voiture(3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment_resume\">En :</span>\n"
+"          voiture(3 places)"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_package_template
+msgid ""
+"<span class=\"gray-color\" id=\"choise_vehicule\">in :</span>\n"
+"          Car (3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicule\">En :</span>\n"
+"          Car (3 places)"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid ""
+"<span class=\"gray-color\" id=\"time_appointment\">Package :</span>\n"
+"          5h\n"
+"          <span class=\"d-inline-block font-weight-bold package-price resume-price\" data-oe-model=\"ir.ui.view\" data-oe-id=\"2650\" data-oe-field=\"arch\" data-oe-xpath=\"/t[1]/div[1]/form[1]/div[1]/div[1]/p[1]\">\n"
+"            <i id=\"rate\" class=\"picto picto-etiquette\"/>\n"
+"            100 000Ar\n"
+"          </span>"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_appointment\">Forfait :</span>\n"
+"          5h\n"
+"          <span class=\"d-inline-block font-weight-bold package-price resume-price\" data-oe-model=\"ir.ui.view\" data-oe-id=\"2650\" data-oe-field=\"arch\" data-oe-xpath=\"/t[1]/div[1]/form[1]/div[1]/div[1]/p[1]\">\n"
+"            <i id=\"rate\" class=\"picto picto-etiquette\"/>\n"
+"            100 000Ar\n"
+"          </span>"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+msgid ""
+"<span class=\"gray-color\" id=\"time_appointment\">Package :</span>\n"
+"          5h\n"
+"          <span id=\"rate\" class=\"d-inline-block font-weight-bold package-price\" data-oe-model=\"ir.ui.view\" data-oe-id=\"2650\" data-oe-field=\"arch\" data-oe-xpath=\"/t[1]/div[1]/form[1]/div[1]/div[1]/p[1]\">\n"
+"            <i class=\"picto picto-etiquette\"/>\n"
+"            100 000Ar\n"
+"          </span>"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_appointment\">Forfait :</span>\n"
+"          5h\n"
+"          <span id=\"rate\" class=\"d-inline-block font-weight-bold package-price\" data-oe-model=\"ir.ui.view\" data-oe-id=\"2650\" data-oe-field=\"arch\" data-oe-xpath=\"/t[1]/div[1]/form[1]/div[1]/div[1]/p[1]\">\n"
+"            <i class=\"picto picto-etiquette\"/>\n"
+"            100 000Ar\n"
+"          </span>"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid "<span class=\"gray-color\" id=\"time_of_use\">When :</span>"
+msgstr "<span class=\"gray-color\" id=\"time_of_use\">Quand  :</span>"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid "<span class=\"gray-color\" id=\"time_payment_resume\">when :</span>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">From :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">De :</span>"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid ""
+"<span class=\"gray-color\">From :</span>\n"
+"          <i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_appointment\"/>Maison"
+msgstr ""
+"<span class=\"gray-color\">De :</span>\n"
+"          <i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_appointment\"/>Maison"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid ""
+"<span class=\"gray-color\">From :</span>\n"
+"          <i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_destination\"/>Maison"
+msgstr ""
+"<span class=\"gray-color\">De :</span>\n"
+"          <i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_destination\"/>Maison"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_package_template
+msgid ""
+"<span class=\"gray-color\">From :</span>\n"
+"          <i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_vehicle\"/>Maison"
+msgstr ""
+"<span class=\"gray-color\">De :</span>\n"
+"          <i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_vehicle\"/>Maison"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid ""
+"<strong class=\"font-weight-bold\">Delivery instructions and telephone\n"
+"                    number:</strong>* Indicate a landmark to help the delivery person (e.g.\n"
+"                  stop, building, meeting point, etc.)"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+msgid "Begin :"
+msgstr "Début :"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_package_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "Change"
+msgstr "Modifier"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_package_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "Choose your package"
+msgstr "Choisissez votre forfait"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "Choose your vehicle"
+msgstr "Choisissez votre véhicule"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid "Close"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "Couriel"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "Couriel *:"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+msgid "Détailez nous les courses et les destinations"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+msgid "End :"
+msgstr "Fin :"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid "Enter your location"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+msgid "Entrer une adresse"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "H&amp;nbsp;"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "Identifier :"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid "La course est pour"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "La course est pour vous ?"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+msgid "Lieu de récupération *"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_index_long
+msgid "Loading…"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "NO"
+msgstr "NON"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid "Name address"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "Name and first name :"
+msgstr "Non et prénom"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid "Nom du contact"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "Phone number"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "Places"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_modal_save_address_template
+msgid "Save address"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+msgid "Select date"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid ""
+"Terminer\n"
+"          <i class=\"picto picto-arrow-right ml-3\"/>"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_final_resume_template
+msgid "Votre demande a été reçue"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_package_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_vehicle_template
+msgid "When ?"
+msgstr "Quand ?"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.add_more_information_for_resPartner_front_long_duration
+msgid "YES"
+msgstr "OUI"
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+msgid ""
+"adresse\n"
+"              enregistrée :"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_recovery_address_template
+msgid ""
+"adresse\n"
+"              utilisée récemment :"
+msgstr ""
+
+#. module: evtc_location
+#: model_terms:ir.ui.view,arch_db:evtc_location.long_duration_payment_resume_template
+msgid "numéro du contact"
+msgstr ""

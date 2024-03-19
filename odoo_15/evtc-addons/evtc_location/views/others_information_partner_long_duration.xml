@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="evtc_location.add_more_information_for_resPartner_front_long_duration">
+        <div class="oe_partner_country">
+            <form class="evtc-form pl-4 m-pt-8">
+                <div class="payement-resume mb-3 p-3">
+                    <h2 class="headline headline-2">La course est pour vous ?</h2>
+                    <div class="form-group radio-btnGroup w-100" id="choose_owner">
+                        <div class="custom-control text-center custom-radio p-2 ">
+                            <input type="radio" id="customRadio10" name="customRadio"
+                                   checked="checked" class="custom-control-input"/>
+                            <label class="custom-control-label" for="customRadio10">YES</label>
+                            <div class="bg-check"/>
+                        </div>
+                        <div class="custom-control text-center custom-radio p-2 ">
+                            <input type="radio" id="customRadio11" name="customRadio"
+                                   class="custom-control-input"/>
+                            <label class="custom-control-label" for="customRadio11">NO</label>
+                            <div class="bg-check"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-for-tel" id="for-tel" for="tel">Identifier :</label>
+                        <div class="country-flag-input input-group mb-2">
+                            <t t-set="partner_country_code" t-value="partner.country_id.code"/>
+                            <div class="input-group-prepend">
+                                <select id="own_country"
+                                        class="select2 position-relative country_selekta input-group-text select-contact form-control other-info"
+                                        name="country_code" disabled="disabled"
+                                        style="background-color: #f1f1f1 !important">
+                                    <t t-foreach="countries" t-as="country">
+                                        <option t-att-value="country.code" t-att-data-phone="country.phone_code"
+                                                t-att-selected="'selected' if country.code == partner_country_code else None">
+                                            <t t-esc="country.name + '$'+str(country.phone_code)"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <input id="tel"
+                                   name="other-info"
+                                   type="tel"
+                                   class="form-control border-left-0 pl-1 tel-number"
+                                   placeholder="Phone number" disabled="disabled"
+                                   style="background-color: #f1f1f1 !important"/>
+                        </div>
+                    </div>
+                    <small class="small-tel text-danger">Veuillez remplir le champs</small>
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Name and first name :</label>
+                        <input id="name" name="name" type="text"
+                               class="form-control iconed-field" placeholder="Nom du contact"
+                               disabled="disabled"
+                               style="background-color: #f1f1f1 !important"
+                        />
+                    </div>
+                    <small class="small-name text-danger">Veuillez remplir le champs</small>
+
+
+                    <!-- Couriel -->
+                    <div class="form-group add_email" style="display:none">
+                        <label for="mail_no_partner">Couriel *:</label>
+                        <input id="mail_no_partner" name="name" type="email" class="form-control iconed-field"
+                               placeholder="Couriel"/>
+                    </div>
+                    <small class="small-constrains text-danger"></small>
+                    <button id="evtc_payement_resume_button_long" type="button"
+                            class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill mt-5 btn-fixed-sm">
+                        <i class="picto picto-check mr-2"></i>Valider
+                    </button>
+                </div>
+            </form>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="reset_password_by_sms" inherit_id="auth_signup.reset_password" name="sms Reset Password buttons">
+    <xpath expr="//button[hasclass('btn', 'btn-primary', 'btn-block')]" position="after">
+      <div>
+        <a href="/web/reset_password/sms" t-if="not password_only"
+          class="d-flex justify-content-between align-items-center small mt-2">Reset by sms</a>
+      </div>
+    </xpath>
+  </template>
+  <template id="password_reset_verification_code" name="Identity verification">
+    <t t-call="web.login_layout">
+      <form class="oe_signup_confirmation_form evtc-form">
+        <input type="hidden" id="login" name="login" t-att-value="phone" />
+        <input type="hidden" id="default_sms" name="default_sms" value="reset_password" />
+        <input type="hidden" id="token" name="token" t-att-value="token" />
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+        <p class="text-center">
+            You have received a verification code by SMS, please enter it in the field below.
+          </p>
+        <div class="form-text" id="code-input">
+          <input type="text" class="input-code form-control"
+            name="code" id="code" maxlength="6" required="required" />
+          <label for="code" class="static-value" t-esc="company_code + '-'"></label>
+        </div>
+        <div>
+          <button id="confirm_validation_code" type="button"
+            class="btn vtc-primary-btn rounded-pill btn-block">
+              Confirm
+            </button>
+        </div>
+        <div style="display:inline;">
+          Didn't receive an SMS?
+          <button id="resend-email" type="button" class="btn btn-link">
+            Resend message
+            <i class="spin-send fa fa-refresh fa-spin"></i>
+          </button>
+        </div>
+        <p id="email_success_sent" class="alert alert-success-new" style="display:none;" role="status">
+            Please wait, a new sms has been sent
+          </p>
+        <p id="email_failed_sent" class="alert alert-danger-new" style="display:none;" role="status">
+            An SMS has already been sent to you, please wait a minute before sending it again
+          </p>
+      </form>
+    </t>
+  </template>
+
+  <template id="reset_passord_validation" inherit_id="auth_signup.signup">
+    <xpath expr="//button[@type='submit']" position="replace">
+      <button type="submit" class="btn vtc-primary-btn rounded-pill btn-block">
+        <t t-if="reset_password">Reset password</t>
+        <t t-elif="not password_only">Sign up</t>
+        <t t-else="">Finalize my registration</t>
+      </button>
+    </xpath>
+  </template>
+</odoo>

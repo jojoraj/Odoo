@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_auto_planing_lmfs" model="ir.ui.view">
+    <field name="name">view.tree.wizard.lmfs</field>
+    <field name="model">auto.planning.wizard</field>
+    <field name="inherit_id" ref="etech_auto_planning.view_auto_planning_wizard"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='is_selected']" position="before">
+        <field name="estimated_distance" readonly="1" force_save="1"/>
+        <field name="estimated_time_arrival" readonly="1" force_save="1"/>
+      </xpath>
+      <xpath expr="//field[@name='driver_id']" position="replace">
+        <field name="driver_id" required="1" domain="[('is_driver', '=', True)]" />
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Reassigning view -->
+  <record id="crm_lead_view_kanban_reassigning_inherit" model="ir.ui.view">
+    <field name="name">crm.lead.view.kanban.reassigning.inherit</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_cancel_stage']" position="after">
+        <field name="role_has_down"  invisible='1'/>
+         <button name="%(etech_auto_planning.action_auto_planning)d" type="action"
+            class="btn btn-primary"
+            attrs="{'invisible':['|',('state_value','not in',['crm.stage_lead2','crm.stage_lead3']),('role_has_down','=',False)]}">
+            Reassigning
+          </button>
+      </xpath>
+      <xpath expr="//div/div[3]/div[2]" position="inside">
+        <field name="course_b2b" invisible="1"/>
+        <div attrs="{'invisible': [('course_b2b', '=', False)]}">
+          <span style="color: green;">Course B2B</span>
+        </div>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

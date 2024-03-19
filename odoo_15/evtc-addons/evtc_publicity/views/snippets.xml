@@ -1,0 +1,120 @@
+<odoo>
+  <template id="evtc_publicity.publicity_main_template">
+    <div class="container-fluid">
+      <div class="row align-items-center" id="evtc_pub_media_video">
+        <div class="containered">
+          <t t-call="evtc_publicity.evtc_modal_rating"/>
+        </div>
+        <div class="col-lg-12">
+          <div class="evtc_pub_media_video_container">
+            <div class="button_container">
+              <div class="button_content">
+                <span class="button_img"></span>
+                <p class="text-pub">Voir les liens</p>
+                <p class="text-pub d-none">Cacher les liens</p>
+              </div>
+            </div>
+            <div class="all_container">
+              <div class="link_container d-none">
+                <t t-foreach="evtc_button_menu_ids" t-as="evtc_button_menu_id">
+
+                  <a t-att-href="evtc_button_menu_id.url_link" id="number_click" class="btn vtc-primary-btn link-evtc-pub" t-att-data-id="evtc_button_menu_id.id">
+                    <img class="mr-3" t-att-src="'/web/image/evtc.button.menu/%s/logo'%evtc_button_menu_id.id" style="width: 30px;height: 30px;"/>
+                    <span>
+                      <t t-esc="evtc_button_menu_id.name"/>
+                    </span>
+
+                  </a>
+
+                </t>
+              </div>
+              <div class="video-player" id="vWrap">
+                <video id="play-video">
+                  <t t-foreach="list_video" t-as="video">
+                    <source class="video-source" t-att-data-src="'/web/image/evtc.pub/%s/video_pub' % video.id"/>
+                  </t>
+
+                </video>
+                <div class="control-video">
+                  <button id="vPlay">
+                    <span id="vPlayIco" class="material-icons">
+                          play_arrow
+                    </span>
+                  </button>
+
+                  <div id="vCron">
+                    <span id="vNow"/>
+                        /
+                    <span id="vTime"/>
+                  </div>
+
+                  <input id="vSeek" type="range" min="0" value="0" step="1" disabled="1"/>
+
+                  <span id="vVolIco" class="material-icons">volume_up</span>
+                  <input id="vVolume" type="range" min="0" max="1" value="0" step="0.1" disabled="0"/>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="evtc_publicity.evtc_pub_snippet" name="Media Video Snippets">
+    <section id="section_pub_vtc" class="dynamic_snippet_blog">
+      <div class="evtc_pub_media oe_structure oe_empty">
+      </div>
+    </section>
+  </template>
+
+  <template name="Idea Box E-vtc" id="evtc_idea_box">
+    <section class="pt24 pb24" id="section_idea_box">
+      <div class="container">
+        <div class="row">
+          <div class="containered">
+            <t t-call="evtc_publicity.evtc_modal_idea"/>
+          </div>
+          <div class="form-group col-12" data-type="email">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto" style="width: 200px" for="email_from">
+                <span class="">Your Email</span>
+                <span class="">*</span>
+              </label>
+              <div class="col-sm">
+                <input id="email_from" type="email" class="form-control" name="email_from" required="1" data-fill-with="email"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-12" data-type="text" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="label2">
+                <span class="">Your Ideas</span>
+              </label>
+              <div class="col-sm">
+                <textarea id="label2" class="form-control" name="description" required="1"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-12" data-name="Submit Button">
+            <div style="width: 200px;" class="s_website_form_label"/>
+            <a href="#" role="button" class="btn btn-primary btn-lg" id="send_mail">Submit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <template id="media_external_snippets" inherit_id="website.snippets" name="E-vtc Pub Snippet">
+    <xpath expr="//div[@id='snippet_structure'][1]" position="after">
+      <div class="o_panel_header" id="etvc-pub-snippets">
+          E-vtc Snippets
+      </div>
+      <div id="body" class="o_panel_body">
+        <t t-snippet="evtc_publicity.evtc_pub_snippet"/>
+        <t t-snippet="evtc_publicity.evtc_idea_box"/>
+      </div>
+    </xpath>
+  </template>
+</odoo>

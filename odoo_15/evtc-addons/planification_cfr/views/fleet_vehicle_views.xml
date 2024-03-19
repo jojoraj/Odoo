@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="fleet_vehicle_view_form" model="ir.ui.view">
+    <field name="name">fleet.vehicle.form.crf</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+    <field name="model">fleet.vehicle</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='co2_standard']" position="after">
+        <field name="product_price_cost"/>
+        <label for="consumption_hundred"/>
+        <div class="o_row" name="consumption_hundred">
+          <field name="consumption_hundred"/>
+          <span>liter</span>
+        </div>
+      </xpath>
+      <xpath expr="//page[3]" position="after">
+        <page string="Other CFR information">
+          <group>
+            <group>
+              <field name="score_outside_soft_time_usage"/>
+              <field name="score_per_kilometer"/>
+            </group>
+            <group>
+              <field name="max_kilometer"/>
+              <field name="change_driver_id"/>
+            </group>
+          </group>
+
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="fleet_vehicle_model_category_view_form" model="ir.ui.view">
+    <field name="name">fleet.vehicle.model.category.form.cfr</field>
+    <field name="model">fleet.vehicle.model.category</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_model_category_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="qualification_level"/>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template name="Recrutment E-vtc" id="evtc_recrutment">
+    <section class="" id="section_idea_box">
+      <div class="container">
+        <form action="/create/post" method="post" class="o_mark_required" id="recrutment-form">
+          <div class="row" id="snippets-recrutment">
+            <div class="form-group col-12" data-type="job">
+              <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-form-label col-sm-auto" style="width: 200px" for="job">
+                  <span class="">Poste</span>
+                  <span class="">*</span>
+                </label>
+                <div class="col-sm">
+                  <input id="job" type="text" class="form-control" name="job" required="1" data-fill-with="job"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-12" data-type="company">
+              <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-form-label col-sm-auto" style="width: 200px" for="company">
+                  <span class="">Company</span>
+                </label>
+                <div class="col-sm">
+                  <input id="company_id" type="hidden" class="form-control" name="company_id" data-fill-with="company_id" readonly="true" t-att-value="user_id.partner_id.parent_id.id if user_id.partner_id.parent_id and user_id.partner_id.parent_id.company_type == 'company' else False"/>
+                  <input id="company" type="text" class="form-control" name="company" required="1" data-fill-with="company" readonly="true" t-att-value="user_id.partner_id.parent_id.name if user_id.partner_id.parent_id and user_id.partner_id.parent_id.company_type == 'company' else ''"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-12" data-type="text" data-name="Field">
+              <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="description">
+                  <span class="">Description</span>
+                </label>
+                <div class="col-sm">
+                  <textarea id="description" class="form-control" name="description" required="1"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <div style="width: 200px;" class="s_website_form_label"/>
+              <button class="btn btn-primary a-submit o_website_form_send" id="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </template>
+  <template id="media_external_snippets" inherit_id="website.snippets" name="E-vtc Pub Snippet">
+    <xpath expr="//div[@id='snippet_structure'][1]" position="after">
+      <div class="o_panel_header" id="etvc-pub-snippets">
+                    E-vtc recrutement Snippets
+      </div>
+      <div id="body" class="o_panel_body">
+        <t t-snippet="evtc_recrutement.evtc_recrutment" />
+      </div>
+    </xpath>
+  </template>
+</odoo>

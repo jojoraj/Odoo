@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="evtc_snippet_options" name="snippet_options" inherit_id="website.snippet_options">
+    <xpath expr="//we-select[@data-variable='header-template']" position="inside">
+      <!-- Add your fields or attributes here -->
+      <we-button title="EVTC HEADER"
+                 data-name="header_evtc_opt"
+                 data-customize-website-views="evtc_front.template_header_evtc"
+                 data-customize-website-variable="'EVTC'"
+                 data-img="/website/static/src/img/snippets_options/header_template_default.svg"/>
+    </xpath>
+    <xpath expr="//we-select[@data-variable='footer-template']" position="inside">
+      <!-- Add your fields or attributes here -->
+      <we-button title="EVTC FOOTER"
+                 data-name="header_evtc_opt"
+                 data-customize-website-views="evtc_front.template_footer_evtc"
+                 data-customize-website-variable="'EVTC'"
+                 data-img="/website/static/src/img/snippets_options/footer_template_links.svg"/>
+    </xpath>
+
+  </template>
+
+
+  <template id="vtc_home_banner" name="VTC - Banner">
+    <section class="vtc-banner-home">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 left-side">
+            <div>
+              <h1>E-vtc by esanandro</h1>
+              <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit.</p>
+              <div class="d-flex flex-wrap ">
+                <button class="btn vtc-primary-btn bg-white rounded-pill mx-auto text-center mb-3">
+                  Nos tarifs
+                </button>
+                <button class="btn vtc-primary-btn rounded-pill mx-auto text-center mb-3">
+                  Réserver une voiture
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-6 d-none d-md-block right-side"
+               style="background-image:url('/evtc_front/static/src/images/banner-photo.jpg')">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="vtc_pricing" name="VTC - Pricing">
+    <section class="pricing py-5">
+      <div class="container">
+        <h2 class="text-center ">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Libero, in duis eu nec vitae velit ipsum nisi, at.
+        </h2>
+        <div class="grid-container position-relative">
+          <div class="pricing-card">
+            <h3>Location de voiture</h3>
+            <div class="pricing-package mb-3">
+              Forfait 5 heures
+            </div>
+            <div class="pricing-package-price">
+              <i class="picto picto-arrow-left-primary"></i>
+              100 000 ar *
+            </div>
+            <hr class="dashed"/>
+
+            <div class="pricing-package mb-3">
+              Forfait 10 heures
+            </div>
+            <div class="pricing-package-price">
+              <i class="picto picto-arrow-left-primary"></i>
+              500 000 ar *
+            </div>
+            <div>
+              <p class="my-4">
+                * tarif de base , peut changer en fonction du véhicule sélectionné.
+              </p>
+            </div>
+            <button class="btn vtc-primary-btn rounded-pill mx-auto btn-block text-center mb-3">
+              Course simple
+            </button>
+          </div>
+          <div class="pricing-card">
+            <h3>Location de voiture</h3>
+            <div class="pricing-package mb-3">
+              En journée
+            </div>
+            <div class="pricing-package-price">
+              <i class="picto picto-arrow-left-primary"></i>
+              3 000 ar / Km
+            </div>
+            <hr class="dashed"/>
+
+            <div class="pricing-package mb-3">
+              De 6h à 9h et de 16h à 18h
+            </div>
+            <div class="pricing-package-price">
+              <i class="picto picto-arrow-left-primary"></i>
+              4 000 ar / Km
+            </div>
+            <div>
+              <p class="my-4">
+                Possibilité de choisir plusieurs destinations
+              </p>
+            </div>
+            <button class="btn vtc-primary-btn rounded-pill mx-auto btn-block text-center mb-3">
+              Réserver une voiture
+            </button>
+          </div>
+          <img class="img-pricing" src="/evtc_front/static/src/images/car1.png"/>
+          <img class="img-pricing" src="/evtc_front/static/src/images/car1.png"/>
+
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="text_img" name="VTC - Text image">
+    <section class="text-image">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <div class="px-4">
+              <h2>Lorem ipsum <strong class="font-weight-bold">dolor sit amet</strong> ? Consectetur adipiscing
+                elit.
+              </h2>
+
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut amet, quis adipiscing. Sit quam
+                odio
+                mattis in.
+              </p>
+              <p>
+                Amet sem urna, proin ullamcorper viverra vitae tempus vitae. Aliquam tincidunt volutpat turpis amet,
+                ullamcorper.
+              </p>
+              <p>
+                Augue nulla morbi tortor, magna ut curabitur lectus nulla
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <img src='/evtc_front/static/src/images/car2.png'/>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="img_text" name="VTC - image Text">
+    <section class="image-text mt-4 m-md-0">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-sm-6">
+                <img src='/evtc_front/static/src/images/car2.png'/>
+              </div>
+              <div class="col-sm-6">
+                <div class="px-4">
+                  <h2>Lorem ipsum <strong class="font-weight-bold">dolor sit amet</strong> ? Consectetur adipiscing
+                    elit.
+                  </h2>
+
+                  <div class="row mt16">
+                    <div class="col-md">
+                      <div class="icon-box text-center bg-gray mb16">
+                        <i class="picto picto-calendar"></i>
+                        <div class="mt-4">
+                          Service <strong class="font-weight-bold">7 jours sur 7</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="icon-box text-center bg-gray mb16">
+                        <i class="picto picto-access-time"></i>
+                        <div class="mt-4">
+                          Disponible <strong class="font-weight-bold">24h sur 24</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="icon-box text-center bg-gray mb16">
+                        <i class="picto picto-car"></i>
+                        <div class="mt-4">
+                          Lorem ipsum
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  </template>
+  <!-- Snippets -->
+  <template id="add_all_snippets_to_bar" name="Place into building blocks bar our snippets"
+            inherit_id="website.snippets">
+    <xpath expr="//div[@id='snippet_structure'][1]" position="after">
+      <div class="o_panel_header">EVTC Snippets</div>
+      <div class="o_panel_body">
+        <t t-snippet="evtc_front.vtc_home_banner"
+           t-thumbnail="/evtc_front/static/src/images/thumbs/s_banner_vtc.svg"/>
+        <t t-snippet="evtc_front.vtc_pricing"
+           t-thumbnail="/evtc_front/static/src/images/thumbs/s_pricing_vtc.svg"/>
+        <t t-snippet="evtc_front.text_img"
+           t-thumbnail="/evtc_front/static/src/images/thumbs/s_text_image.svg"/>
+        <t t-snippet="evtc_front.img_text"
+           t-thumbnail="/evtc_front/static/src/images/thumbs/s_image_text.svg"/>
+
+      </div>
+    </xpath>
+  </template>
+</odoo>

@@ -1,0 +1,40 @@
+<odoo>
+  <record id="evtc_button_menu_view_list" model="ir.ui.view">
+    <field name="name">evtc.button.menu.view.tree</field>
+    <field name="model">evtc.button.menu</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="url_link"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="evtc_button_menu_view_form" model="ir.ui.view">
+    <field name="name">evtc.button.menu.view.form</field>
+    <field name="model">evtc.button.menu</field>
+    <field name="arch" type="xml">
+      <form string="Data of E-vtc number of click">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="url_link"/>
+              <field name="number_click"/>
+            </group>
+            <group>
+              <field name="logo" widget="image" class="float-left oe_avatar"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="action_evtc_button_menu">
+    <field name="name">Data list E-vtc button</field>
+    <field name="res_model">evtc.button.menu</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+</odoo>

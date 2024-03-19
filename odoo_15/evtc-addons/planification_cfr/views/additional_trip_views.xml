@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_additional_trip_line_tree" model="ir.ui.view">
+    <field name="name">additional.trip.line.tree</field>
+    <field name="model">additional.trip.line</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="dayofweek"/>
+        <field name="hour_from" widget="float_time"/>
+        <field name="hour_to" widget="float_time"/>
+        <field name="coefficient"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_additional_trip_form" model="ir.ui.view">
+    <field name="name">additional.trip.form</field>
+    <field name="model">additional.trip</field>
+    <field name="arch" type="xml">
+      <form string="Working Time">
+        <sheet string="Working Time">
+          <group>
+            <group>
+              <field name="name"/>
+<!--              <field name="default_duration" widget="float_time"/>-->
+            </group>
+            <group>
+              <field name="active" invisible="1"/>
+            </group>
+          </group>
+          <group>
+            <field name="line_ids"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_change_driver_hours_tree" model="ir.ui.view">
+    <field name="name">change.driver.hours.tree</field>
+    <field name="model">change.driver.hours</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="dayofweek"/>
+        <field name="hour" widget="float_time"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_change_driver_form" model="ir.ui.view">
+    <field name="name">change.driver.form</field>
+    <field name="model">change.driver</field>
+    <field name="arch" type="xml">
+      <form string="Driver change time" editable="top">
+        <field name="name"/>
+<!--        <field name="default_hour" widget="float_time"/>-->
+        <field name="hours_ids"/>
+      </form>
+    </field>
+  </record>
+
+</odoo>

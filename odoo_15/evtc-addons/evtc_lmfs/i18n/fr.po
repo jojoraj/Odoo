@@ -1,0 +1,834 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_lmfs
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20230422\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-13 13:55+0000\n"
+"PO-Revision-Date: 2023-07-13 13:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_res_partner
+msgid ""
+"\n"
+"        The purpose is that our invoicing is in good order,\n"
+"        that this information appears in exports for tax declarations\n"
+"        in accordance with the regulations in force.\n"
+"    "
+msgstr ""
+"\n"
+" Le but est que notre facturation soit en règle,\n"
+" que ces informations apparaissent dans les exports pour les déclarations fiscales\n"
+" conformément à la réglementation en vigueur.\n"
+" "
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid ""
+"<i class=\"picto picto-phone mr-3\"/>\n"
+"\t\t\t\t\t\t\tCall the driver"
+msgstr ""
+"<i class=\"picto picto-phone mr-3\"/>\n"
+"\t\t\t\t\t\t\tAppelez le chauffeur"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">From :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">De :</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">In :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">En :</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">On :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">Le :</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">To :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">À :</span>"
+
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.reservation_map_views
+msgid ""
+"<span class=\"mdc-deprecated-list-item__ripple\"/>\n"
+"\t\t\t\t\t\t\t\t<i class=\"material-icons mdc-deprecated-list-item__graphic\" aria-hidden=\"true\">restart_alt</i>\n"
+"\t\t\t\t\t\t\t\t<span class=\"mdc-deprecated-list-item__text\">Reset</span>"
+msgstr ""
+"<span class=\"mdc-deprecated-list-item__ripple\"/>\n"
+"\t\t\t\t\t\t\t\t<i class=\"material-icons mdc-deprecated-list-item__graphic\" aria-hidden=\"true\">restart_alt</i> \n"
+"\t\t\t\t\t\t\t\t<span class=\"mdc-deprecated-list-item__text\">Réinitialiser</span>"
+
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.reservation_map_views
+msgid ""
+"<span class=\"mdc-deprecated-list-item__ripple\"/>\n"
+"\t\t\t\t\t\t\t\t<i class=\"material-icons mdc-deprecated-list-item__graphic\" aria-hidden=\"true\">settings</i>\n"
+"\t\t\t\t\t\t\t\t<span class=\"mdc-deprecated-list-item__text\">Options</span>"
+msgstr ""
+"<span class=\"mdc-deprecated-list-item__ripple\"/>\n"
+"\t\t\t\t\t\t\t\t<i class=\"material-icons mdc-deprecated-list-item__graphic\" aria-hidden=\"true\">paramètres</i> \n"
+"\t\t\t\t\t\t\t\t<span class=\"mdc-deprecated-list-item__text\">Options</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.list_course_inherit
+msgid "<span class=\"text_header_list_little\">Type vehicle</span>"
+msgstr "<span class=\"text_header_list_little\">Type de véhicule</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "<span>Show anticipated route polyline</span>"
+msgstr "<span>Afficher la polyligne d'itinéraire anticipé</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "<span>Show taken route polyline</span>"
+msgstr "<span>Afficher la polyligne de l'itinéraire emprunté</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "<span>ms</span>"
+msgstr "<span>ms</span>"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__middle_office__service_type__api_key
+msgid "API Key"
+msgstr "clé API"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__middle_office__service_type__opportunity
+msgid "API access for Update fields in Opportunity"
+msgstr "Accès API pour les champs de mise à jour dans l'opportunité"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/wizards/auto_planning_wizard.py:0
+#, python-format
+msgid "API driver not set !"
+msgstr "Pilote API non défini !"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/wizards/auto_planning_wizard.py:0
+#, python-format
+msgid "API recommandation not set !"
+msgstr "L'API de recommandation n'est pas définie !"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/MapView/map_renderer.js:0
+#, python-format
+msgid "Address"
+msgstr "Adresse"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office__api_key
+msgid "Api Key"
+msgstr "Clé API"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office__authorization_key
+msgid "Authorization key"
+msgstr "Ligne de planification automatique"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_auto_planning_line_wizard
+msgid "Auto Planning Line"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office__base_url
+msgid "Base Url"
+msgstr "URL de base"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__role_has_down
+#: model:ir.model.fields,field_description:evtc_lmfs.field_fleet_vehicle_state__is_broken_down
+msgid "Unvailable"
+msgstr "Indisponible"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.reservation_trip_step
+msgid "CRM maps image"
+msgstr "Image des cartes CRM"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/res_partner.py:0
+#, python-format
+msgid ""
+"Can't send the driver data to Middle Office. Call the administrator to fix "
+"this error"
+msgstr ""
+"Impossible d'envoyer les données du chauffeur au Middle Office. Appelez "
+"l'administrateur pour corriger cette erreur"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_partner__mo_sended
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_users__mo_sended
+msgid "Check mo send"
+msgstr "Vérification mo envoyer"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__middle_office__service_type__create_trip
+msgid "Create Trip"
+msgstr "Créer une course"
+
+#. module: evtc_lmfs
+#: model_terms:ir.actions.act_window,help:evtc_lmfs.middle_office_state_action
+msgid "Create a new Middle Office state"
+msgstr "Créer un nouvel état Middle Office"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Default destination icon"
+msgstr "Icône de destination par défaut"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Default vehicle icon"
+msgstr "Icône de véhicule par défaut"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Destination icon"
+msgstr "Icône de destination"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Do you want to load the SN/Lots linked to the Sales Order?"
+msgstr "Voulez-vous charger les SN/Lots liés à la commande client ?"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__middle_office__service_type__driver
+msgid "Driver"
+msgstr "Chauffeur"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_partner__mo_driver
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_users__mo_driver
+msgid "EVTC Driver"
+msgstr "Chauffeur VTC"
+
+#. module: evtc_lmfs
+#: model_terms:ir.actions.act_window,help:evtc_lmfs.middle_office_state_action
+msgid "Each Middle office state need to exist in middle office"
+msgstr "Chaque état du middle office doit exister dans le middle office"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office__endpoint
+msgid "End Point"
+msgstr "URI"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/wizards/auto_planning_wizard.py:0
+#, python-format
+msgid "Error on calling the api to update the driver"
+msgstr "Erreur lors de l'appel de l'API pour mettre à jour le pilote"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_auto_planning_line_wizard__estimated_distance
+msgid "Estimated distance to join"
+msgstr "Distance estimée pour rejoindre"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_auto_planning_line_wizard__estimated_time_arrival
+msgid "Estimated time to join"
+msgstr "Temps estimé pour rejoindre"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.crm_lead_view_form_inherit_siid
+msgid "External ID for MO"
+msgstr "Identifiant externe M.O"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__siid
+msgid "External MO ID"
+msgstr "Identifiant externe M.O"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__first_tracking
+msgid "First tracking"
+msgstr "Premier suivi"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.fleet_vehicle_map_view
+msgid "Geolocalization used"
+msgstr "Géolocalisation utilisée"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__fleet_vehicle__geolocalization_type__geotab
+msgid "Geotab"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_ir_http
+msgid "HTTP Routing for ApiKey"
+msgstr "Routage HTTP pour ApiKey"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__id
+msgid "ID"
+msgstr ""
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/services/trip_callback_update.py:0
+#, python-format
+msgid "Ivalid  siid"
+msgstr "ssid invalide"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__formated_json
+msgid "Json send to MO service"
+msgstr "Json envoie au service MO"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__fleet_vehicle__geolocalization_type__lmfs
+msgid "Last Mille"
+msgstr "Last Mille"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour le"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.fleet_vehicle_map_view
+msgid "License Plate"
+msgstr "Plaque d'immatriculation"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__vehicule_location
+msgid "Localisation type"
+msgstr "Type de localisation"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_fleet_vehicle__geolocalization_type
+msgid "Localization Device Type"
+msgstr "Type de périphérique de localisation"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "MO trip refused"
+msgstr "Course MO refusé"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.middle_office_lmfs_inherit
+msgid "Middle Office"
+msgstr "Middle Office"
+
+#. module: evtc_lmfs
+#: model:ir.actions.act_window,name:evtc_lmfs.middle_office_state_action
+#: model:ir.ui.menu,name:evtc_lmfs.middle_office_action_state
+msgid "Middle Office State"
+msgstr "Middle Office Status"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_fleet_vehicle_state__middle_office_state_id
+msgid "Middle Office State Value"
+msgstr "Valeur de l'état du middle office"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_auto_planning_line_wizard__mo_state
+msgid "Middle Office state"
+msgstr "État du middle office"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_middle_office
+msgid "Middle office connector"
+msgstr "Connecteur middle office"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_fleet_vehicle__vehicle_mo_state
+msgid "Middle office state"
+msgstr "État du middle office"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__name
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.middle_office_state_view_tree
+msgid "Middle office state name"
+msgstr "Nom du status Middle Office"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/services/apikey_auth_service.py:0
+#, python-format
+msgid "Missing api_key"
+msgstr "Api_key manquante"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/MapView/map_renderer.js:0
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Nemo"
+msgstr "Némo"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "No"
+msgstr "Non"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/auto_planning_wizard.py:0
+#, python-format
+msgid "No contact found for driver of %s"
+msgstr "Aucun contact trouvé pour le conducteur de %s"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/fleet_vehicle.py:0
+#: code:addons/evtc_lmfs/wizards/auto_planning_wizard.py:0
+#, python-format
+msgid "No driver API found"
+msgstr "Aucune API de pilote trouvée"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/auto_planning_wizard.py:0
+#, python-format
+msgid "No order found for current opportunity"
+msgstr "Aucune commande trouvée pour l'opportunité actuelle"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/services/trip_callback_update.py:0
+#, python-format
+msgid "No order found for this trip"
+msgstr "Aucune commande trouvée pour ce voyage"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Options"
+msgstr "Options"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Percentage of %s"
+msgstr "Pourcentage de %s"
+
+#. module: evtc_lmfs
+#: model:crm.stage,name:evtc_lmfs.stage_pick_up_client
+msgid "Pick up client"
+msgstr "Ramassage du client"
+
+#. module: evtc_lmfs
+#: model:crm.stage,name:evtc_lmfs.end_pickup_step
+msgid "End pickup client"
+msgstr "Fin recuperation client"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid ""
+"Polling interval <span id=\"polling-interval-ms__min-val\">(Minimum value: "
+"5000ms)</span>"
+msgstr ""
+"Intervalle d'interrogation <span id=\"polling-interval-ms__min-val\">(Valeur minimale : "
+"5000ms)</span>"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Polyline visibility"
+msgstr "Visibilité des polylignes"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid "Problem ?"
+msgstr "Problème ?"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Products not available in POS"
+msgstr "Produits non disponibles en point de vente"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.crm_lead_view_kanban_reassigning_inherit
+msgid "Reassigning"
+msgstr "Réaffectation"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields.selection,name:evtc_lmfs.selection__middle_office__service_type__recommandation
+msgid "Recommandation"
+msgstr "Recommandation"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "Request being validated"
+msgstr "Demande en cours de validation"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "You have been picked up"
+msgstr "Vous avez été récupéré"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_sale_order
+msgid "Reservation for geotab"
+msgstr "Réservation pour geotab"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__response_json
+msgid "Response"
+msgstr "Réponse"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/wizards/auto_planning_wizard.py:0
+#, python-format
+msgid "Response error from the API"
+msgstr "Erreur de réponse de l'API"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "SN/Lots Loading"
+msgstr "Chargement SN/Lots"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.list_course_inherit
+msgid "See progression"
+msgstr "Voir la progression"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_auto_planning_wizard
+msgid "Sending notification while reservation will be affected"
+msgstr "L'envoi d'une notification pendant la réservation sera affecté"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office__service_type
+msgid "Service's type"
+msgstr "Type de service"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.reservation_map_views
+msgid "Shipment Tracking"
+msgstr "Suivi des expéditions"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid ""
+"Some of the products in your Sale Order are not available in POS, do you "
+"want to import them?"
+msgstr ""
+"Certains des produits de votre bon de commande ne sont pas disponibles en point de vente, n'est-ce pas ?"
+"vous voulez les importer?"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.middle_office_state_view_tree
+msgid "State"
+msgstr "État"
+
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/services/trip_callback_update.py:0
+#, python-format
+msgid "The following Errors were encountered while updating the data: \n"
+msgstr "Les erreurs suivantes ont été rencontrées lors de la mise à jour des données : \n"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "The race is refused"
+msgstr "La course est refusée"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/sale_order.py:0
+#, python-format
+msgid "Time wait: %s "
+msgstr "Temps d'attente : %s "
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__tracking
+msgid "Tracking IDs"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Tums"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_fleet_vehicle_state__middle_office_value
+#: model:ir.model.fields,field_description:evtc_lmfs.field_middle_office_vehicle_state__value
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.middle_office_state_view_tree
+msgid "Middle Office State"
+msgstr "Valeur du status sur Middle Office"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_fleet_vehicle
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.fleet_vehicle_map_view
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_crm_lead__vehicle_type
+msgid "Vehicle Name"
+msgstr "Nom du véhicule"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_fleet_vehicle_state
+msgid "Vehicle Status"
+msgstr "Statut du véhicule"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.middle_office_state_form
+msgid "Vehicle Tags"
+msgstr "Étiquettes de véhicule"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.modal_tracking_options
+msgid "Vehicle icon"
+msgstr "Icône du véhicule"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.fleet_vehicle_map_view
+msgid "Vehicle mo state"
+msgstr "État du véhicule"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid ""
+"Waiting :\n"
+"\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t<strong class=\"font-weight-bold\">15 min</strong>"
+msgstr ""
+"En attente :\n"
+"\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t<strong class=\"font-weight-bold\">15 minutes</strong>"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "What do you want to do?"
+msgstr "Qu'est-ce que vous voulez faire?"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Apply a down payment"
+msgstr "Appliquer un acompte"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Settle the order"
+msgstr "Régler la commande"
+
+#. module: pos_sale
+#. openerp-web
+#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml:0
+#, python-format
+msgid "Quotation/Order"
+msgstr "Devis/Commande"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#: code:addons/evtc_lmfs/static/src/js/PointOfSale/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Yes"
+msgstr "Oui"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "Your driver is on his way"
+msgstr "Votre chauffeur est en route"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "Your trip is affected"
+msgstr "Votre course est affectée"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "Your trip is confirm"
+msgstr "Votre course est confirmée"
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.trip_step_body
+msgid "at"
+msgstr "à"
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_middle_office_vehicle_state
+msgid "middle.office.vehicle.state"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model:ir.model,name:evtc_lmfs.model_crm_lead
+msgid "send mail after crm created"
+msgstr "envoyer un mail après la création du crm"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "trip finish"
+msgstr "Course terminée"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/wizards/auto_planning_wizard.py.py:0
+#, python-format
+msgid "Server Error on sending data to the anothers services."
+msgstr "Erreur du serveur lors de l'envoi de données aux autres services."
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/crm_lead.py:0
+#, python-format
+msgid "trip in progress"
+msgstr "Course en cours"
+
+#. module: evtc_lmfs
+#. openerp-web
+#: code:addons/evtc_lmfs/static/src/xml/map.xml:0
+#, python-format
+msgid ""
+"{{record.vehicle_mo_state == 'AVAILABLE' ? \"color: green;\" : \"color: "
+"red;\"}}"
+msgstr ""
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.reservation_trip_step
+msgid "Trip reservation"
+msgstr "Progression de la course"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/res_partner.py:0
+#, python-format
+msgid "The Driver api url is not set, call the administrator to fix it !"
+msgstr ""
+"L'URL de l'api du chaf n'est pas définie, appelez l'administrateur pour y "
+"remédier !"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/res_partner.py:0
+#, python-format
+msgid "Mobile or Phone must be present in form"
+msgstr "Le mobile ou le téléphone doit être présent dans le formulaire"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_partner__is_driver
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_users__is_driver
+msgid "Is driver"
+msgstr "Est Chauffeur"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_sale_order__estimated_duration
+msgid "Estimated duration 
+msgstr "Temps d'estimation d'arrivé"
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_sale_order__estimated_distance
+msgid "Estimated distance"
+msgstr "Distance estimée"
+
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_partner__is_b2b
+msgid "Is client B2B"
+msgstr "Est client B2B"
+
+
+#. module: evtc_lmfs
+#: model:ir.model.fields,field_description:evtc_lmfs.field_res_partner__related_company
+msgid "Related Company"
+msgstr "Société liée"
+
+
+#. module: evtc_lmfs
+#: model_terms:ir.ui.view,arch_db:evtc_lmfs.middle_office_res_partner_inherit
+msgid "Related company ..."
+msgstr "Société liée ..."
+
+#. module: evtc_lmfs
+#: model:crm.stage,name:evtc_lmfs.unpaid
+msgid "Unpaid"
+msgstr "A payer"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/auto_planning_wizard.py:0
+#, python-format
+msgid "Estimated time to arrive :  %s - Estimated distance : %s"
+msgstr "Temps estimé pour arriver : %s - Distance estimée : %s"
+
+#. module: evtc_lmfs
+#: code:addons/evtc_lmfs/models/auto_planning_wizard.py:0
+#, python-format
+msgid "Driver name: %s - Car details: %s with the license plate: %s"
+msgstr "Nom du conducteur: %s - Détails de la voiture: %s avec la plaque d'immatriculation: %s"
+
+

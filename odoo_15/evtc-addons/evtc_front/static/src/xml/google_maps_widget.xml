@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="FieldGoogleMap">
+        <div style="width:100%; height:700px;">
+            <input name="'partner_id" id="tung_google_map_search" class="controls" type="hidden" placeholder="Search Box"/>
+            <div id="evtc_widget_maps"  style="width:100%; height:100%;" ></div>
+        </div>
+    </t>
+</templates>

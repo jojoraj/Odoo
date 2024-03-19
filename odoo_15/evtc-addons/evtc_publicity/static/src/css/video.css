@@ -1,0 +1,111 @@
+/* (A) MATERIAL ICONS */
+.material-icons {
+  font-size: 28px;
+  color: #fff;
+}
+
+/* (B) WRAPPER */
+#vWrap {
+    /*font-family: arial, sans-serif;*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /*max-width: 600px;*/
+    /*background: #484848;*/
+    width: 100%;
+}
+
+/* (C) VIDEO */
+#play-video {
+    width: 100%;
+    height: calc(100vh - 286px); /*450px*/
+    background-color: black;
+}
+
+/* (D) PLAY/PAUSE BUTTON */
+#vPlay {
+  padding: 10px;
+  margin: 0;
+  background: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+/* (E) TIME */
+#vCron {
+  font-size: 14px;
+  color: #cbcbcb;
+  margin: 0 10px;
+}
+
+/* (F1) RANGE SLIDERS */
+/* (F1) HIDE DEFAULT */
+#vWrap input[type="range"] {
+  box-sizing: border-box;
+  appearance: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background: 0;
+}
+#vWrap input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+}
+
+/* (F2) CUSTOM SLIDER TRACK */
+#vWrap input[type=range]::-webkit-slider-runnable-track {
+  background: #626262;
+  border-radius: 10px;
+}
+#vWrap input[type=range]::-moz-range-track {
+  background: #626262;
+  border-radius: 10px;
+}
+
+/* (F3) CUSTOM SLIDER BUTTON */
+#vWrap input[type=range]::-webkit-slider-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+}
+#vWrap input[type=range]::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+}
+
+/* (G) SEEK BAR */
+#vSeek {
+  width: 180px;
+}
+
+/* (H) VOLUME */
+#vVolume {
+  width: 100px;
+}
+#vVolIco {
+  margin: 0 10px;
+}
+
+.vRow {
+  cursor: pointer;
+  padding: 10px 0;
+}
+.vRow.now {
+  color: #fea;
+}
+
+@media screen and (max-width: 767px) {
+    /*#play-video
+    {
+        height: 250px;
+    }*/
+    .control-video
+    {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="esa_geotab_view_order_form_inherit" model="ir.ui.view">
+    <field name="name">esa_geotab.sale.order.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//page[@name='vtc_order_information']//group" position="after">
+          <group name="real_order_info" string="Suivi réel du course">
+            <group name="start_info" string="Informations Debut de course">
+              <field name="order_start_date"/>
+              <field name="odometer_start"/>
+              <field name="position_start"/>
+            </group>
+            <group name="stop_info" string="Informations Fin de course">
+              <field name="order_stop_date"/>
+              <field name="real_duration" widget="float_time"/>
+              <field name="odometer_stop"/>
+              <field name="position_stop"/>
+              <field name="real_distance"/>
+              <field name="real_cost"/>
+            </group>
+          </group>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

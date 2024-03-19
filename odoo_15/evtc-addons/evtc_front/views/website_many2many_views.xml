@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="evtc_front.website_many_tags">
+    <div class="o_wevent_many2many_tags">
+      <div id="create_new_contact" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Nouveau Contact</h4>
+            </div>
+            <div class="modal-body">
+              <form class="evtc-form pl-4 m-pt-8">
+                <div class="payement-resume mb-3 p-3">
+                  <div class="form-group">
+                    <label for="name">Name and first name :</label>
+                    <input id="newNameContact" name="name" type="text" class="form-control iconed-field"
+                           placeholder="Nom du contact"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="country_code_name">Pays *:</label>
+                    <select id="oe_country_selected" class="form-control" name="country_code_name" t-att-value="partner.country_id.code if partner and partner.country_id else None">
+                      <t t-foreach="countries" t-as="country">
+                        <option class="oe_onChange_country" t-att-value="country.code" t-att-data-phone="country.phone_code" t-att-selected="'selected' if country.code == partner.country_id.code else None">
+                          <t t-esc="country.name"/>
+                        </option>
+                      </t>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Numéro du contact *:</label>
+                    <input id="newPhoneContact" name="phone" type="tel" class="form-control iconed-field"
+                           placeholder="numéro du contact"/>
+                  </div>
+                  <div class="form-group oe_email_show" style="display:none">
+                    <label for="newEmail">Couriel *:</label>
+                    <input id="newEmail" name="name" type="email" class="form-control iconed-field"
+                           placeholder="Couriel"/>
+                  </div>
+
+                  <div class="form-group">
+                    <small class="small-name text-danger oe_errors"></small>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="new_save_" type="button" class="btn btn-block text-uppercase">Ajouter</button>
+              <button type="button" class="btn btn-block text-uppercase" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <input id="oe_wevent_many" name="name" type="text" class="form-control iconed-field"
+               placeholder="Nom du contact" autocomplete="off"/>
+        <ul class="oe_partner_research_by_name"></ul>
+      </div>
+      <div class="form-group">
+        <label for="login">Numéro de téléphone :</label>
+        <input id="oe_phone" name="tel" type="phone" class="form-control iconed-field" placeholder="numéro du contact"/>
+        <input id="oe_data_id" type="hidden" class="form-control"/>
+      </div>
+    </div>
+  </template>
+</odoo>

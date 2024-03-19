@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="view_request_result_list_tree" model="ir.ui.view">
+    <field name="name">request.result.list.tree</field>
+    <field name="model">request.result.list</field>
+    <field name="arch" type="xml">
+      <tree create="false" edit="false">
+        <field name="date_of_cron"/>
+        <field name="data_request" filename="data_request_name" widget="binary"/>
+        <field name="data_request_name" invisible="1"/>
+        <field name="data_result" filename="data_result_name" widget="binary"/>
+        <field name="data_result_name" invisible="1"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_request_result_list_form" model="ir.ui.view">
+    <field name="name">request.result.list.form</field>
+    <field name="model">request.result.list</field>
+    <field name="arch" type="xml">
+      <form string="CFR List optimization">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="date_of_cron"/>
+            </group>
+
+            <group>
+              <field name="request_attachment_id"/>
+              <field name="result_attachment_id"/>
+              <field name="request_status"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="action_request_result_list">
+    <field name="name">CFR optimisation list</field>
+    <field name="res_model">request.result.list</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="request_result_menu" name="Optimization from CFR" parent="planning.planning_menu_reporting"
+            action="action_request_result_list" sequence="50"/>
+</odoo>

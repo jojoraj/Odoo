@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="template_reservation_inherit" inherit_id="evtc_front.vehicle_template">
+    <xpath expr="//input[@name='vehicle_customRadio']" position="attributes">
+      <attribute name="t-att-data-taxi">vehicle_category.is_taxi</attribute>
+    </xpath>
+  </template>
+</odoo>

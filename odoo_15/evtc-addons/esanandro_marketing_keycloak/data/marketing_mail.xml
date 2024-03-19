@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+  <record id="email_marketing_esanandro" model="mail.template">
+    <field name="name">Sms marketing</field>
+    <field name="model_id" ref="base.model_res_users" />
+    <field name="subject">Keycloak</field>
+    <field name="email_from">{{ object.partner_id.email }}</field>
+    <field name="body_html" type="html">
+      <table border="0" cellpadding="0" cellspacing="0"
+        style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+        width="1067.2px">
+        <tbody style="box-sizing:border-box;">
+          <tr style="box-sizing:border-box;">
+            <td align="center" style="box-sizing:border-box;">
+              <table border="0" cellpadding="0" cellspacing="0" width="590"
+                style="box-sizing:border-box;padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                <tbody style="box-sizing:border-box;">
+                  <!-- HEADER -->
+                  <tr>
+                    <td align="center" style="min-width: 590px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="600"
+                        style="min-width: 600px; background-color: #F9F9F9; padding: 0; border-collapse:separate;">
+                        <tbody>
+                          <tr>
+                            <td valign="middle" align="center" style="padding:26px 5px 18.9px">
+                              <img t-attf-src="/logo.png?company={{ object.company_id.id }}"
+                                style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                t-att-alt="object.company_id.name" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- CONTENT -->
+                  <tr style="box-sizing:border-box;">
+                    <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="590"
+                        style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                        <tbody style="box-sizing:border-box;">
+                          <tr style="box-sizing:border-box;">
+                            <td valign="top"
+                              style="box-sizing:border-box;font-size: 13px;">
+                              <div style="box-sizing:border-box;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;">
+                                ,
+                                <div>
+                                  <div>
+                                    <span t-out="object._context.get('lastname', '')">Marc Demo</span>
+                                  </div>
+                                  <div>
+                                    En raison de la mise à jour de notre système , nous vous prions de vous reconnecter avec le même login mais avec un mot de passe temporaire afficher ci-dessous.
+                                      Une fois connecté, vous serez invités à changer votre mot de passe. Merci
+                                      mot de passe temporaire :
+                                    <span t-out="object._context.get('temporary_password', '')">password</span>
+                                  </div>
+                                </div>
+                                <br style="box-sizing:border-box;" />
+                              </div>
+                            </td>
+                          </tr>
+                          <tr style="box-sizing:border-box;">
+                            <td style="box-sizing:border-box;text-align:center;">
+                              <hr width="100%"
+                                style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- FOOTER -->
+                  <tr>
+                    <td align="center" style="min-width: 600px;color:#fff">
+                      <table border="0" cellpadding="0" cellspacing="0" width="600"
+                        style="min-width: 600px; background-color: #282839; padding: 40px 40px 20px; border-collapse:separate;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" style="font-size: 14px;font-family:'Poppins',sans-serif">
+                              <div style="float: left; width:60%">
+                                <p>Need help?</p>
+                                <a style="display:inline-block;color:#fff;text-decoration:underline;font-size:12px"
+                                  href="mailto:support.esanandro@esanandro.com">support.esanandro@esanandro.com
+                                  </a>
+                              </div>
+                              <div style="float:right;width:auto">
+
+                                <a style="float:left;margin-right:14px"
+                                  t-attf-href="{{ object.company_id.social_facebook or '#' }}">
+                                  <img src="/signup_validation_code/static/src/img/footer/facebook-icon.png"
+                                    width="32" height="33"></img>
+                                </a>
+                                <a style=" float:left;margin-right:14px"
+                                  t-attf-href="{{ object.company_id.social_linkedin  or '#' }}">
+                                  <img src="/signup_validation_code/static/src/img/footer/linkedin-icon.png"
+                                    width="32" height="33"></img>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="min-width: 600px;color:#fff">
+                      <table border="0" cellpadding="0" cellspacing="0" width="600"
+                        style="min-width: 600px;background-color: #282839;padding: 20px;border-collapse:separate;/* border-top: 1px solid; */">
+                        <tbody>
+                          <tr style="border-top:1px solid #fff">
+                            <td style="text-align:center;color:#fff;font-size:12px">
+                              <hr style="border-color:#fff" />
+                              <p style="text-align:center;color:#fff;font-size:12px">@ 2022 e-Tech Tous Droits
+                                  Reservés
+                                </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+      <field name="lang">Fr_FR</field>
+    </field>
+  </record>
+</odoo>

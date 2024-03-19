@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+    <field name="name">crm.lead.form</field>
+    <field name="inherit_id" ref="esanandro_crm.crm_lead_view_form" />
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='pick_up_zone']" position="attributes">
+        <attribute name="widget">fieldAutocompleteService</attribute>
+        <attribute name="class">ui-autocomplete-input</attribute>
+      </xpath>
+      <xpath expr="//field[@name='pick_up_zone_id']" position="after">
+        <field name="pick_up_lat" class="oe_inline mr-2 oe_display_none" string="lat" placeholder="Lat recuperation" />
+        <field name="pick_up_long" class="oe_inline ml-2 oe_display_none" string="Lng" placeholder="lng recuperation" />
+      </xpath>
+      <xpath expr="//field[@name='destination_zone']" position="attributes">
+        <attribute name="widget">fieldAutocompleteService</attribute>
+      </xpath>
+      <xpath expr="//field[@name='destination_zone']" position="before">
+        <field name="dest_lat" class="oe_inline mr-2 oe_display_none" string="lat" placeholder="Lat destination" />
+        <field name="dest_long" class="oe_inline ml-2 oe_display_none" string="Lng" placeholder="lng destination" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

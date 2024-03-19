@@ -1,0 +1,24 @@
+<odoo>
+  <record id="res_partner_secrets_fields" model="ir.ui.view">
+    <field name="name">Res partner Secret key MO</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='vat']" position="after">
+        <field name="external_diver" />
+      </xpath>
+      <xpath expr="//notebook" position="inside">
+        <page name="driver_info" string="Driver Info"
+          attrs="{'invisible': [('external_diver', '=', False)]}">
+          <group>
+            <field name="driver_cin" />
+            <field name="license_expired_date" />
+            <field name="authorization_expired_date" />
+            <field name="secret_key" readonly="1" />
+            <field name="state_vehicle_id" readonly="1" />
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

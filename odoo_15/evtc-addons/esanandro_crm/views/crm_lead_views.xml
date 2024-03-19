@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="crm_lead_view_form" model="ir.ui.view">
+    <field name="name">crm.lead.form</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+      <xpath expr="//group[@name='lead_partner']//field[@name='partner_id']" position="attributes">
+        <attribute name="options">{"always_reload": True}</attribute>
+        <attribute name="context">{
+          'default_name': contact_name,
+          'default_title': title,
+          'default_street': street,
+          'default_street2': street2,
+          'default_city': city,
+          'default_state_id': state_id,
+          'default_zip': zip,
+          'default_country_id': country_id,
+          'default_function': function,
+          'default_phone': phone,
+          'default_mobile': mobile,
+          'default_email': email_from,
+          'default_user_id': user_id,
+          'default_team_id': team_id,
+          'default_website': website,
+          'show_vat': True,
+          'show_phone': True
+          }
+        </attribute>
+      </xpath>
+      <xpath expr="//group[@name='opportunity_partner']//field[@name='partner_id']" position="attributes">
+        <attribute name="options">{"always_reload": True}</attribute>
+        <attribute name="context">{
+          'default_name': contact_name,
+          'default_title': title,
+          'default_street': street,
+          'default_street2': street2,
+          'default_city': city,
+          'default_state_id': state_id,
+          'default_zip': zip,
+          'default_country_id': country_id,
+          'default_function': function,
+          'default_phone': phone,
+          'default_mobile': mobile,
+          'default_email': email_from,
+          'default_user_id': user_id,
+          'default_team_id': team_id,
+          'default_website': website,
+          'show_vat': True,
+          'show_phone': True
+          }
+        </attribute>
+      </xpath>
+      <xpath expr="//field[@name='tag_ids']" position="after">
+        <field name="pick_up_datetime"/>
+        <label for="pick_up_zone_id" string="Pick up zone"/>
+        <div>
+          <div class="o_address_format" name="div_address">
+            <field name="pick_up_zone_id" options='{"no_create": True}' groups="base.group_no_one"/>
+            <field name="pick_up_zone" placeholder="Fill in the exact location..."
+                   class="o_address_street font-italic"/>
+          </div>
+        </div>
+        <label for="destination_zone_id" string="Destination Zone"/>
+        <div>
+          <div class="o_address_format" name="div_address">
+            <field name="destination_zone_id" options='{"no_create": True}' groups="base.group_no_one"/>
+            <field name="destination_zone" placeholder="Fill in the exact location..."
+                   class="o_address_street font-italic"/>
+          </div>
+        </div>
+        <field name="duration" widget="float_time"/>
+        <field name="estimated_kilometers"/>
+        <field name="client_note"/>
+        <field name="refusal_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+        <field name="refusal_remark"/>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_crm_lead_kanban" model="ir.ui.view">
+    <field name="name">crm.lead.kanban.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='expected_revenue']" position="after">
+        <field name="pick_up_datetime"/>
+        <field name="reference_code" invisible="1"/>
+        <field name="assignment_reminder" invisible="1"/>
+        <field name="hour" invisible="1"/>
+        <field name="pick_up_zone"/>
+        <field name="destination_zone"/>
+        <field name="duration"/>
+        <field name="estimated_kilometers"/>
+        <field name="client_note"/>
+        <field name="refusal_ids"/>
+        <field name="refusal_remark"/>
+      </xpath>
+      <xpath expr="//div/div[3]/div[2]" position="after">
+        <div class="info_kanban">
+          <t t-if="record.reference_code.raw_value">
+            <span>Course #</span><field name="reference_code"/>
+            <br/>
+          </t>
+
+          <field name="phone"/>
+        </div>
+        <div t-attf-class="oe_assignment_reminder_#{record.assignment_reminder.raw_value}">
+          <field name="pick_up_datetime"/>
+        </div>
+        <div>
+          <field name="pick_up_zone_id" attrs="{'invisible':[('pick_up_zone_id','=',False)]}"/>
+          <field name="pick_up_zone" attrs="{'invisible':[('pick_up_zone_id','!=',False)]}"/>
+        </div>
+        <div>
+          <field name="destination_zone_id" attrs="{'invisible':[('destination_zone_id','=',False)]}"/>
+          <field name="destination_zone" attrs="{'invisible':[('destination_zone_id','!=',False)]}"/>
+        </div>
+        <div t-if="record.duration.raw_value">
+          <field name="duration" widget="float_time"/>
+        </div>
+        <div t-if="record.estimated_kilometers.raw_value">
+          <field name="estimated_kilometers"/>
+          <span>
+            Km
+          </span>
+        </div>
+        <div>
+          <field name="client_note"/>
+        </div>
+
+      </xpath>
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="partner_id"/>
+      </xpath>
+      <xpath expr="//field[@name='name']" position="attributes">
+        <attribute name="attrs">{'invisible':[('partner_id','!=',False)]}</attribute>
+      </xpath>
+      <xpath expr="//span[@t-esc='record.partner_id.value']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+  <record id="quick_create_opportunity_form" model="ir.ui.view">
+    <field name="name">crm.lead.kanban.lead</field>
+    <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="options">{"always_reload": True}</attribute>
+        <attribute name="context">{
+          'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
+          'default_name': contact_name or partner_name,
+          'default_is_company': type == 'opportunity' and contact_name == False,
+          'default_company_name': type == 'opportunity' and partner_name,
+          'default_phone': phone,
+          'default_email': email_from,
+          'default_user_id': user_id,
+          'default_team_id': team_id,
+          'show_vat': True,
+          'show_phone': True
+          }
+        </attribute>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+    <field name="name">crm.lead.search.lead.inherit</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='city']" position="after">
+        <field name="pick_up_zone_id"/>
+        <field name="destination_zone_id"/>
+      </xpath>
+      <filter name="inactive" position="after">
+        <separator/>
+        <filter string="Late pick up" name="late_pick_up_datetime"
+                domain="[('pick_up_datetime', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+        <filter string="Today pick up" name="today_pick_up_datetime"
+                domain="[('pick_up_datetime', '=', context_today().strftime('%Y-%m-%d'))]"/>
+        <filter string="Future pick up" name="future_pick_up_datetime"
+                domain="[('pick_up_datetime', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+      </filter>
+      <xpath expr="//group/filter[@name='date_closed']" position="after">
+        <filter string="Pick up Date" name="pick_up_datetime" context="{'group_by':'pick_up_datetime'}"/>
+        <filter string="Pick up Hour" name="hour" context="{'group_by':'hour'}"/>
+        <separator/>
+        <filter string="Pick up zone" name="hour" context="{'group_by':'pick_up_zone_id'}"/>
+        <filter string="Destination Zone" name="hour" context="{'group_by':'destination_zone_id'}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

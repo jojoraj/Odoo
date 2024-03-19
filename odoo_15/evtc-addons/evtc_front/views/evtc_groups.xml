@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="reservation_for_others" model="res.groups">
+    <field name="name">Resérvation pour autruis</field>
+    <field name="category_id" ref="base.module_category_website_website" />
+    <field name="users" eval="[(4, ref('base.user_admin'))]" />
+  </record>
+</odoo>

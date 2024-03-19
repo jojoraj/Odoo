@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <templates id="template" xml:space="preserve">
+    <t t-name="CustomGeotabButton" owl="1">
+      <!--			<div id="start-btn" class="control-button disabled" style="background-color: #00d76b; color:white;">-->
+      <div id="start-btn" class="control-button disabled" style="background-color: #9593939e; color:white;">
+        <i class="fa fa-car" role="img" aria-label="Start Reservation"
+          title="Start Reservation" />
+        Start course
+      </div>
+    </t>
+  </templates>
+  <templates id="template" xml:space="preserve">
+    <t t-name="CustomGeotabStop" owl="1">
+      <div id="stop-btn" class="control-button disabled" style="background-color: #9593939e; color:white;">
+        <i class="fa fa-stop-circle" role="img" aria-label="Stop Reservation"
+          title="Stop Reservation" />
+        Stop course
+      </div>
+    </t>
+  </templates>
+  <templates id="template" xml:space="preserve">
+    <t t-name="CustomButtonLocalization" owl="1">
+      <!--			<div class="control-button disabled" style="background-color: #0055ff; color:white;">-->
+      <div id="localiz_btn" class="control-button disabled" style="background-color: #9593939e; color:white;">
+        <i class="fa fa-map-marker" role="img" aria-label="Localization"
+          title="Localization" />
+        Itinéraire
+      </div>
+    </t>
+  </templates>
+  <templates id="template" xml:space="preserve">
+    <t t-extend="OrderSummary">
+      <t t-jquery='.clearfix' t-operation='after'>
+        <t>
+          <div class="pos-receipt-amount">
+            <span class="pos-receipt-right-align"> jkjzeklbznblk, </span>
+          </div>
+        </t>
+      </t>
+    </t>
+  </templates>
+</odoo>

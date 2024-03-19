@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* invoice_report_customize
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211117\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-30 07:40+0000\n"
+"PO-Revision-Date: 2022-09-30 07:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid ""
+"<span>\n"
+"            Arrest this invoice in the amount of :\n"
+"          </span>"
+msgstr ""
+"<span>\n"
+"            Montant arrêté à la somme de:\n"
+"          </span>"
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid ""
+"<span>\n"
+"          Payment by bank transfer or cheque to the account of etech Consulting\n"
+"        </span>"
+msgstr ""
+"<span>\n"
+"          Paiement par virement ou par chèque sur le compte de Esanandro\n"
+"        </span>"
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid ""
+"<strong>\n"
+"            <span>\n"
+"              NB: the transfer costs are to be paid by the customer.\n"
+"            </span>\n"
+"          </strong>"
+msgstr ""
+"<strong>\n"
+"            <span>\n"
+"              NB: les frais de virement sont à la charge du client.\n"
+"            </span>\n"
+"          </strong>"
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid "Account number:"
+msgstr "N° de compte:"
+
+#. module: invoice_report_customize
+#: model:ir.model,name:invoice_report_customize.model_res_bank
+msgid "Bank"
+msgstr "Banque"
+
+#. module: invoice_report_customize
+#: model:ir.model,name:invoice_report_customize.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Comptes bancaires"
+
+#. module: invoice_report_customize
+#: model:ir.model.fields,field_description:invoice_report_customize.field_res_bank__code
+msgid "Bank code"
+msgstr "Code de la banque"
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid "Bank:"
+msgstr "Banque:"
+
+#. module: invoice_report_customize
+#: model:ir.model,name:invoice_report_customize.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid "Customer"
+msgstr "Client"
+
+#. module: invoice_report_customize
+#: model:ir.model.fields,field_description:invoice_report_customize.field_account_setup_bank_manual_config__iban_code
+#: model:ir.model.fields,field_description:invoice_report_customize.field_res_partner_bank__iban_code
+msgid "IBAN"
+msgstr ""
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid "IBAN:"
+msgstr ""
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoic_customize
+msgid "Invoice Responsible"
+msgstr "Responsable de facturation"
+
+#. module: invoice_report_customize
+#: model:ir.model.fields,field_description:invoice_report_customize.field_res_company__responsible
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: invoice_report_customize
+#: model:ir.model.fields,field_description:invoice_report_customize.field_res_company__signature
+msgid "Signature"
+msgstr ""
+
+#. module: invoice_report_customize
+#: model_terms:ir.ui.view,arch_db:invoice_report_customize.invoice_report_amount_in_words_inherit
+msgid "Swift/BIC:"
+msgstr ""

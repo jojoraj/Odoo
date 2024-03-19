@@ -1,0 +1,454 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220124\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-18 12:38+0000\n"
+"PO-Revision-Date: 2023-04-18 12:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_contact
+msgid ""
+"<i class=\"fa fa-pencil\"/>\n"
+"            Modifier"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_contact_itg
+msgid ""
+"<i class=\"picto picto-arrow-left mr-3\"/>\n"
+"            Dashboard"
+msgstr ""
+"<i class=\"picto picto-arrow-left mr-3\"/>\n"
+"            Tableau de bords"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid ""
+"<i class=\"picto picto-arrow-left mr-3\"/>\n"
+"        Dashboard"
+msgstr ""
+"<i class=\"picto picto-arrow-left mr-3\"/>\n"
+"        Tableau de bords"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "<i class=\"picto picto-bin mr-3\"/>DELETE"
+msgstr "<i class=\"picto picto-bin mr-3\"/>SUPPRIMER"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_contact_itg
+msgid ""
+"<i class=\"picto picto-check mr-3\"/>\n"
+"                      save this address"
+msgstr ""
+"<i class=\"picto picto-check mr-3\"/>\n"
+"                      Sauvegarder cette adresse"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "<i class=\"picto picto-check mr-3\"/>SUBMIT"
+msgstr "<i class=\"picto picto-check mr-3\"/>VALIDER"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "<i class=\"picto picto-close mr-3\"/>CANCEL"
+msgstr "<i class=\"picto picto-close mr-3\"/>ANNULER"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<i class=\"picto picto-download mr-1\"/>Télécharger la facture"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<i class=\"picto picto-eyee mr-1\"/> Visualiser la facture"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"gray-color\" id=\"choise_vehicle_payment_resume\">in :</span>"
+msgstr "<span class=\"gray-color\" id=\"choise_vehicle_payment_resume\">En :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"gray-color\" id=\"time_command_payment_resume\">for the :</span>"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_command_payment_resume\">Pour le "
+":</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"gray-color\" id=\"time_payment_resume\">on :</span>"
+msgstr "<span class=\"gray-color\" id=\"time_payment_resume\">Réservé le :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"gray-color\" style=\"width:28px;\">To :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:28px;\">à :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">De :</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">En :</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">From :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">De :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">Le :</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">à :</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_contact_itg
+msgid ""
+"<span class=\"more\">Show more ...</span>\n"
+"                  <span class=\"less d-none\">Show less ...</span>"
+msgstr ""
+"<span class=\"more\">Voir plus ...</span>\n"
+"                  <span class=\"less d-none\">Vois moins ...</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"sr-only\">parameter</span>"
+msgstr "<span class=\"sr-only\">paramètre</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"text_header_list_big\">Itinéraire</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"text_header_list_big\">Notes</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"text_header_list_big\">N°Course</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"text_header_list_big\">Total</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"text_header_list_little\">Date</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span class=\"text_header_list_little\">Trajet</span>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span> Course status :</span>"
+msgstr "<span> Statut du course :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span>Begin date :</span>"
+msgstr "<span>Date de début :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "<span>End date :</span>"
+msgstr "<span>Date de fin :</span>"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid ""
+"<strong class=\"font-weight-bold\">Additional information:\n"
+"                  </strong>* Indicate a landmark to help the driver (e.g.\n"
+"                  stop, building, meeting point, etc.)"
+msgstr ""
+"<strong class=\"font-weight-bold\">Information complémentaire :\n"
+"                  </strong>* Indiquez un point de repère pour aider le chauffeur (par exemple, \n"
+"                   arrêt, bâtiment, point de rencontre, etc.)"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_contact_itg
+msgid "Add address"
+msgstr "Ajouter une adresse"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "All"
+msgstr "Tous"
+
+#. module: evtc_portal
+#: code:addons/evtc_portal/models/crm_lead.py:0
+#, python-format
+msgid "All Status"
+msgstr "Toutes les courses"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.evtc_portal_lead_form_inherit
+msgid "Avis du client"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "CRM maps image"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "Close"
+msgstr "Fermer"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Comment était la course ?"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Contact *"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Délai d’attente"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Email"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "Enter your location"
+msgstr "Saisissez votre adresse"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Envoyer"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Faire une nouvelle réservation"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Firstname"
+msgstr "Prénom"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Generic placeholder image"
+msgstr "Image d'espace réservé générique"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Lastname *"
+msgstr "Nom *"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "Loading…"
+msgstr "Chargement…"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Mon profil :"
+msgstr ""
+
+#. module: evtc_portal
+#: code:addons/evtc_portal/models/crm_lead.py:0
+#: model:ir.model.fields.selection,name:evtc_portal.selection__crm_lead__partner_notice__3
+#, python-format
+msgid "Moyen"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_contact
+msgid "My Address"
+msgstr "Mes adresses"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "My account"
+msgstr "Mon compte"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_contact_itg
+msgid "My addresses :"
+msgstr "Mes adresses :"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "My adresses"
+msgstr "Mes adresses"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "Name address"
+msgstr "Nommez votre adresse"
+
+#. module: evtc_portal
+#: model:ir.model.fields,field_description:evtc_portal.field_crm_lead__partner_notice
+msgid "Partner Notice"
+msgstr "Note du client"
+
+#. module: evtc_portal
+#: code:addons/evtc_portal/models/crm_lead.py:0
+#: model:ir.model.fields.selection,name:evtc_portal.selection__crm_lead__partner_notice__1
+#, python-format
+msgid "Pas du tout satisfait"
+msgstr ""
+
+#. module: evtc_portal
+#: code:addons/evtc_portal/models/crm_lead.py:0
+#: model:ir.model.fields.selection,name:evtc_portal.selection__crm_lead__partner_notice__2
+#, python-format
+msgid "Pas satisfait "
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_contact_itg
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_contact
+msgid "Recently used address"
+msgstr "Adresse récemment utilisée"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Recevoir le code de confirmation par: <br/> <br/>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Reservations"
+msgstr "Réservation"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Reset my password"
+msgstr "Réinitialiser mon mot de passe"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Reset your password"
+msgstr "Réinitialisez votre mot de passe"
+
+#. module: evtc_portal
+#: code:addons/evtc_portal/models/crm_lead.py:0
+#: model:ir.model.fields.selection,name:evtc_portal.selection__crm_lead__partner_notice__4
+#, python-format
+msgid "Satisfait"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.portal_my_details
+msgid "Save"
+msgstr "Enregistrer"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.modal_address_template
+msgid "Save address"
+msgstr "Ajouter cette adresse"
+
+#. module: evtc_portal
+#. openerp-web
+#: code:addons/evtc_portal/static/src/xml/custom_review.xml:0
+#, python-format
+msgid "Thank you for your answer"
+msgstr "Merci pour votre réponse"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.list_course_template
+msgid "There are currently no course for your account."
+msgstr "Il n'y a actuellement aucune course pour votre compte."
+
+#. module: evtc_portal
+#: code:addons/evtc_portal/models/crm_lead.py:0
+#: model:ir.model.fields.selection,name:evtc_portal.selection__crm_lead__partner_notice__5
+#, python-format
+msgid "Tout à fait satisfait"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Votre course"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid ""
+"Votre course est\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<strong class=\"font-weight-bold\">En cours</strong>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid ""
+"Votre course est\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<strong class=\"font-weight-bold\">Refusée</strong>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid ""
+"Votre course est\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<strong class=\"font-weight-bold\">Validée</strong>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid ""
+"Votre réservation est\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t<strong class=\"font-weight-bold\">en cours de validation</strong>"
+msgstr ""
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "Welcome to your dashboard !"
+msgstr "Bienvenue sur votre tableau de bord !"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "pending image"
+msgstr "image en attente"
+
+#. module: evtc_portal
+#: model:ir.model,name:evtc_portal.model_crm_lead
+msgid "send mail after crm created"
+msgstr "envoyer un mail après la création du crm"
+
+#. module: evtc_portal
+#: model_terms:ir.ui.view,arch_db:evtc_portal.my_account_template
+msgid "spent on board the evtc"
+msgstr "passées à bord de l’evtc"

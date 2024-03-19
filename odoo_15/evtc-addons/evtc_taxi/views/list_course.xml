@@ -1,0 +1,23 @@
+<odoo>
+  <template id="list_course_inherit" inherit_id="evtc_portal.list_course_template">
+    <xpath expr="//div[@id='trajet']" position="before">
+      <div class="col col-cell" id='type_vehicle'>
+        <span class="text_header_list_little">Type vehicle</span>
+      </div>
+    </xpath>
+    <xpath expr="//div[@id='trajet_list']" position="before">
+      <div class=" col col-cell text-center separator_last_course" id='type_vehicle_list'>
+        <div class="last_course_block course_place">
+          <div class="media-body overflow-hidden">
+            <p class="mb-0 course_place_place"
+              t-esc="request.env['crm.lead'].sudo().browse(int(crm_data['crm_id'])).tag_vehicle_id.name or ''" />
+          </div>
+        </div>
+      </div>
+    </xpath>
+    <!-- redirection of course taxi from my trip to new interface status taxi -->
+    <xpath expr="//div[hasclass('course_referrer')]" position="inside">
+      <a t-if="crm_data['is_taxi']" t-att-href="'/taxi-reservation/'+str(crm_data['crm_id'])" class="href">See taxi progress</a>
+    </xpath>
+  </template>
+</odoo>

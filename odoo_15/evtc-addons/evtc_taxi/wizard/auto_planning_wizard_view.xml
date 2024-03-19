@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_auto_planning_wizard_inherit" model="ir.ui.view">
+    <field name="name">Assigning</field>
+    <field name="model">auto.planning.wizard</field>
+    <field name="inherit_id" ref="etech_auto_planning.view_auto_planning_wizard"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='role_id']" position="after">
+        <field name="tag_id" readonly="1" force_save="1"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

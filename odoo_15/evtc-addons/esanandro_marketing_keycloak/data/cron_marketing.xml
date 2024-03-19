@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="keycloak_sms_marketing_cron" model="ir.cron">
+    <field name="name">Sms Marketing</field>
+    <field name="model_id" ref="esanandro_marketing_keycloak.model_keycloak_users" />
+    <field name="state">code</field>
+    <field name="code">model.run_marketing()</field>
+    <field name="active" eval="True" />
+    <field name="user_id" ref="base.user_root" />
+    <field name="interval_number">5</field>
+    <field name="interval_type">minutes</field>
+    <field name="numbercall">-1</field>
+    <field name="doall" eval="False" />
+  </record>
+</odoo>

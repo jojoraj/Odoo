@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+        <record model="crm.stage" id="stage_pick_up_client">
+          <field name="name">Pick up client</field>
+          <field name="is_won">False</field>
+          <field name="sequence">1</field>
+        </record>
+
+
+        <record model="crm.stage" id="evtc_lmfs.end_pickup_step">
+            <field name="name">End pickup client</field>
+            <field name="is_won">False</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record model="crm.stage" id="evtc_lmfs.unpaid">
+            <field name="name">Unpaid</field>
+            <field name="is_won">False</field>
+            <field name="sequence">4</field>
+        </record>
+</odoo>

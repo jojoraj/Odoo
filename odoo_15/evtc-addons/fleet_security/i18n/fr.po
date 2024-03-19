@@ -1,0 +1,26 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fleet_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211117\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-16 08:08+0000\n"
+"PO-Revision-Date: 2022-05-16 08:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fleet_security
+#: model:res.groups,name:fleet_security.administrator_cost
+msgid "Cost Administration"
+msgstr "Administration des coûts"
+
+#. module: fleet_security
+#: model:ir.model,name:fleet_security.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"

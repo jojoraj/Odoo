@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211225\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-05 09:16+0000\n"
+"PO-Revision-Date: 2022-08-05 09:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_report
+#: model:ir.model.fields,field_description:evtc_report.field_sale_report__company_type
+msgid "Client type"
+msgstr "Type de client"
+
+#. module: evtc_report
+#: model:ir.model.fields,field_description:evtc_report.field_sale_order__company_type
+msgid "Company Type"
+msgstr ""
+
+#. module: evtc_report
+#: code:addons/evtc_report/report/sale_report.py:0
+#: model:ir.model.fields.selection,name:evtc_report.selection__sale_report__company_type__person
+#, python-format
+msgid "Personal"
+msgstr "Particulier"
+
+#. module: evtc_report
+#: model:ir.model,name:evtc_report.model_sale_order
+msgid "Reservation for geotab"
+msgstr ""
+
+#. module: evtc_report
+#: model:ir.model,name:evtc_report.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Rapport d'analyse des ventes"
+
+#. module: evtc_report
+#: code:addons/evtc_report/report/sale_report.py:0
+#: model:ir.model.fields.selection,name:evtc_report.selection__sale_report__company_type__company
+#, python-format
+msgid "Society"
+msgstr "Société"

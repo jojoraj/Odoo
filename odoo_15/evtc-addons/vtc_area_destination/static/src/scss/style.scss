@@ -1,0 +1,38 @@
+.area-address-content {
+  height: auto;
+  max-width: 300px;
+}
+
+.area-address-content>.oe-place-content {
+  background-color: #0a0a0a !important;
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.area-address-content {
+  .svg-size {
+    width: 30px;
+  }
+
+  padding-right: 32px;
+}
+
+.area-address-content>.oe-place-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#autocomplete-x1dCV>li {
+  cursor: pointer !important;
+}
+
+.oe_errors_validation {
+  border-color: red !important
+}

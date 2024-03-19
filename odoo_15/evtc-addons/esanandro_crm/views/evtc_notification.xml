@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="evtc_notification_mail" model="mail.template">
+    <field name="name">EVTC Notification</field>
+    <field name="model_id" ref="crm.model_crm_lead" />
+    <field name="subject">Résérvation Evtc</field>
+    <field name="email_to">{{ object.partner_id.email or object.partner_id.user_id.login }}</field>
+    <field name="email_from">{{ object.partner_id.email or object.partner_id.user_id.login }}</field>
+    <field name="body_html" type="html">
+      <div style="padding-top: 16px; background-color: rgba(241, 241, 241, 1); font-family: Verdana, Arial, sans-serif; color: rgba(69, 71, 72, 1); width: 98%; border-collapse: separate">
+        <img t-attf-src="data:image/*;base64,{{request.env.company.logo}}" style="margin-left: 40%;" width="88" height="33"
+          t-att-alt="request.env.company.name" />
+      </div>
+      <div style="font-size: 13px; padding:20px;background-color: white; " valign="top">
+        <div>
+          <t t-out="ctx.get('header', 'content')" t-options='{"widget": "html"}'>content</t>
+          <br />
+        </div>
+        <div>
+          <t t-out="ctx.get('message', 'message')" t-options='{"widget": "html"}'>message</t>
+          <br />
+          <br />
+        </div>
+        <br />
+      </div>
+    </field>
+    <field name="auto_delete" eval="True" />
+  </record>
+</odoo>

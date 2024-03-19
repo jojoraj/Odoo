@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="res_config_settings_view_form" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.hr.fleet</field>
+    <field name="model">res.config.settings</field>
+    <field name="priority" eval="90" />
+    <field name="inherit_id" ref="base.res_config_settings_view_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('settings')]" position="inside">
+        <div class="app_settings_block" data-string="Planification de taches KPI" id="fleet_strip"
+          string="KPI taches planifier" data-key="fleet_cron" groups="fleet.fleet_group_manager">
+          <h2>Ir Cron data</h2>
+          <div class="row mt16 o_settings_container" id="end_contract_setting">
+            <div class="col-12 col-lg-6 o_setting_box">
+              <div class="o_setting_left_pane" />
+              <div class="o_setting_right_pane">
+                <span class="o_form_label">Recovery data</span>
+                <div class="text-muted content-group mt16">
+                  <span>Recovery KPI data start date </span>
+                  <field name="recovery_kpi_start_date" class="text-center oe_inline" />
+                </div>
+                <div class="text-muted content-group mt16">
+                  <span>Recovery KPI data end date </span>
+                  <field name="recovery_kpi_end_date" class="text-center oe_inline" />
+                </div>
+              </div>
+            </div>
+            <div class="mt16">
+              <button name="run_kpi_recovery_data" type="object"
+                string="Update recovery KPI data"
+                class="btn-primary" />
+            </div>
+          </div>
+          <div class="mt16">
+            <button name="recompute_all_working_day" type="object"
+              string="Update working daily"
+              class="btn-primary" />
+          </div>
+        </div>
+      </xpath>
+    </field>
+  </record>
+  <!-- Inherit Form View to Modify it -->
+  <record id="add_client_partner_type_course" model="ir.ui.view">
+    <field name="name">Add fields views</field>
+    <field name="model">esanandro_geotab.fleet.trip</field>
+    <field name="inherit_id" ref="esanandro_geotab.pivot_view" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='working_distance']" position="after">
+        <field name="partner_internal_working_distance" type="measure" string="client Interne" />
+        <field name="partner_clent_working_distance" type="measure" string="Client externe" />
+      </xpath>
+      <xpath expr="//field[@name='working_distance']" position="attributes">
+        <attribute name="string">Distance Client interne et externe</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="add_view_tree_for_geotab_access" model="ir.ui.view">
+    <field name="name">Add view tree</field>
+    <field name="model">esanandro_geotab.fleet.trip</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="date" />
+        <field name="vehicle_id" />
+        <field name="working_distance" />
+        <field name="distance" />
+        <field name="partner_internal_working_distance" string="client Interne" />
+        <field name="partner_clent_working_distance" string="Client externe" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="add_view_tree_form_geotab_access" model="ir.ui.view">
+    <field name="name">Add view tree</field>
+    <field name="model">esanandro_geotab.fleet.trip</field>
+    <field name="arch" type="xml">
+      <form string="KPI Tree view">
+        <sheet>
+          <group string="KPI INFORMATION">
+            <field name="date" />
+            <field name="vehicle_id" />
+            <field name="working_distance" />
+            <field name="distance" />
+            <field name="partner_internal_working_distance" string="client Interne" />
+            <field name="partner_clent_working_distance" string="Client externe" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="add_current_field_view_tree" model="ir.ui.view">
+    <field name="name">add_current_field_view_tree</field>
+    <field name="model">fleet.vehicle.odometer</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_odometer_view_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='value']" position="after">
+        <field name="working_daily" />
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

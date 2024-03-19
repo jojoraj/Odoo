@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="security_crm_groups" model="res.groups">
+    <field name="name">Can create lead</field>
+    <field name="category_id" ref="base.module_category_hidden" />
+  </record>
+</odoo>

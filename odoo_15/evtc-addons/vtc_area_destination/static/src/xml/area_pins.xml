@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="vtc_area_destination.area_pins_destination">
+    <div t-attf-id="infowindow-content-#{customDestination}" class="area-address-content" style="display:none !important;">
+      <span t-attf-id="place-name-#{customDestination}" class="oe-place-name title">
+        <t t-esc="customValue" />
+      </span>
+      <br/>
+      <span t-attf-id="place-address-#{customDestination}" class="oe-place-content"
+        style="font-weight: bold;align-items: center;justify-content: center;display: flex;font-size: 25px;color: #badb29;"
+      >
+        <img class="mr-1 svg-size" src="/evtc_front/static/src/images/marker/icon-label.svg"/>
+      </span>
+    </div>
+  </t>
+</templates>

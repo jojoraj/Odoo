@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="recovery_address_template">
+		<div id="evtc_recuperation" class="position-relative">
+			<div class="separator-v"></div>
+			<h2 class="headline headline-2 step e_testtt">Lieu de récupération *</h2>
+			<div class="evtc-form pl-4 oe_init_input_value">
+				<div id="evtc-form-recuperation">
+					<span id="remove_val_input_recuperation" class="remove_val_button oe_remove_recup_input"></span>
+					<input id="address_recuperation" placeholder="Entrer une adresse" required="True" type="text"
+					       class="iconed-field form-control oe_remove_map_content oe_window_propagation"/>
+					<input id="latitude_address_recovery" type="hidden"/>
+					<input id="longitude_address_recovery" type="hidden"/>
+					<input id="real_address_recovery" type="hidden"/>
+					<div id="infowindow-content" class="gris-info-content" style="display:none !important;">
+						<span id="place-address">
+							<img class="mr-1 svg-size" src="/evtc_front/static/src/images/marker/icon-label.svg"/>
+						</span>
+						<span id="place-name" class="title"></span>
+						<br/>
+					</div>
+				</div>
+				<div class="address-resume">
+					<ul class="list-group mb-3 oe_autocomplete_resume" id="autocomplete-xd"></ul>
+					<div class="save-recently-wrap oe_favorite_zone">
+						<p t-if="favorite_address" class="address-resume-tag mt-2 paragraph_adress_recuperation">adresse
+							enregistrée :
+						</p>
+						<ul class="list-group list-group-adress-recuperation mb-3">
+							<t t-foreach="favorite_address" t-as="f">
+								<t t-if="f.latitude and f.longitude">
+									<div class="row m-0">
+										<li class="list-group-item border-0 li-street-recuperation register-recuperation-adress col-10" t-att-data-latitude="f.latitude"
+										    t-att-data-longitude="f.longitude" t-att-data-street="f.street">
+											<table>
+												<tr>
+													<td>
+														<i class="picto picto-address-black mr-2"></i>
+													</td>
+													<td>
+														<t t-esc="f.name"/>
+													</td>
+												</tr>
+											</table>
+										</li>
+									</div>
+								</t>
+							</t>
+						</ul>
+						<p t-if="historic" class="address-resume-tag mt-2 paragraph_adress_recuperation">adresse
+							utilisée récemment :
+						</p>
+						<ul class="list-group list-group-adress-recuperation mb-3">
+							<t t-foreach="historic" t-as="h">
+								<t t-if="h.latitude and h.longitude">
+									<div class="row m-0">
+										<li class="list-group-item border-0 li-street-recuperation register-recuperation-adress col-10" t-att-data-latitude="h.latitude"
+										    t-att-data-longitude="h.longitude" t-att-data-street="h.street">
+											<table>
+												<tr>
+													<td>
+														<i class="picto picto-history mr-2"></i>
+													</td>
+													<td>
+														<t t-esc="h.name"/>
+													</td>
+												</tr>
+											</table>
+										</li>
+									</div>
+								</t>
+							</t>
+						</ul>
+					</div>
+					<button id="evtc_recuperation_button"
+					        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill oe_add_view_map oe_combine_map btn-fixed-sm">
+						<i class="picto picto-check mr-2"></i> Valider </button>
+				</div>
+			</div>
+			<h2 class="headline headline-2 step disable">Where do you go ?</h2>
+			<h2 class="headline headline-2 step disable">When ?</h2>
+			<h2 class="headline headline-2 step disable">Choose your vehicle</h2>
+			<h2 class="headline headline-2 step disable">Payement methode</h2>
+		</div>
+	</template>
+	<template id="destination_address_template">
+		<div id="evtc_destination" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="recuperation_adress_heading">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<h2 class="headline headline-2 step" id="where_do_you_go">Où allez-vous ? *</h2>
+			<div class="evtc-form pl-4">
+				<div class="mb-3" id="evtc-form-destination"><!-- TODO : show when there are many destination -->
+					<div class="form-group position-relative" id="oe_evtc_dest_insert">
+						<span id="remove_val_input_recuperation" class="remove_val_button oe_remove_destination_input"></span>
+						<input id="address_destination" placeholder="Entrer une adresse" required="True" type="text"
+						       class="form-control iconed-field oe_remove_map_content" aria-describedby="favori_dest"/>
+						<input id="latitude_address_destination" type="hidden"/>
+						<input id="longitude_address_destination" type="hidden"/>
+						<input id="destination_address_destination" type="hidden"/>
+						<div id="infowindow-content2" style="display:none !important;">
+							<span id="place-name2" class="title"></span>
+							<br/>
+							<span id="place-address2">
+								<img class="mr-1 svg-size" src="/evtc_front/static/src/images/marker/icon-label.svg"/>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="address-resume">
+					<ul class="list-group mb-3" id="autocomplete-x1dCV"/>
+					<div class="save-recently-wrap">
+						<p t-if="favorite_address" class="address-resume-tag paragraph_adress_destination">adresse
+							enregistrée :
+						</p>
+						<ul class="list-group list-group-adress-destination">
+							<t t-foreach="favorite_address" t-as="f">
+								<t t-if="f.latitude and f.longitude">
+									<div class="row m-0">
+										<li class="list-group-item border-0 li-street-destination register-destination-adress oe_combine_map col-10"
+										    t-att-data-latitude="f.latitude" t-att-data-street="f.street"
+										    t-att-data-longitude="f.longitude">
+											<i class="picto picto-address-black mr-2"></i>
+											<t t-esc="f.name"/>
+										</li>
+									</div>
+								</t>
+							</t>
+						</ul>
+						<p t-if="historic" class="address-resume-tag paragraph_adress_destination mt-2">adresse
+							utilisée récemment :
+						</p>
+						<ul class="list-group list-group-adress-destination mb-3">
+							<t t-foreach="historic" t-as="h">
+								<t t-if="h.latitude and h.longitude">
+									<div class="row m-0">
+										<li class="list-group-item border-0 li-street-destination register-destination-adress col-10" t-att-data-latitude="h.latitude"
+										    t-att-data-street="h.street" t-att-data-longitude="h.longitude">
+											<i class="picto picto-history mr-2"></i>
+											<t t-esc="h.street"/>
+										</li>
+									</div>
+								</t>
+							</t>
+						</ul>
+					</div>
+					<button id="evtc_destination_button"
+					        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill oe_add_map oe_combine_map oe_auto_passed btn-fixed-sm">
+						<i class="picto picto-check mr-2"></i> Valider </button>
+				</div>
+			</div>
+			<h2 class="headline headline-2 step disable">When ?</h2>
+			<h2 class="headline headline-2 step disable">Choose your vehicle</h2>
+			<h2 class="headline headline-2 step disable">Payment methode</h2>
+		</div>
+	</template>
+	<template id="appointment_template">
+		<div id="evtc_appointment" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex  mb-4">
+				<h2 class="headline headline-2 step " id="recuperation_adress_heading_destination">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress_destination"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="destination_adress_heading">
+					<span class="gray-color">To :</span>
+					<i class="picto picto-address-black mr-2" id="destination_adress"></i> Bureau </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_destination">Change
+				</a>
+			</div>
+			<h2 class="headline headline-2 step" id="when">When ?</h2>
+			<form class="evtc-form pl-4">
+				<div class="form-group ">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" checked="checked" name="customRadio" class="custom-control-input"/>
+						<label class="custom-control-label mb-2" for="customRadio1">Maintenant (+ 30min à
+							présent)</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
+						<label class="custom-control-label mb-2" for="customRadio2">Planifier</label>
+					</div>
+					<div class="option-selection" id="time_selection">
+						<div class="form-row">
+							<div class="form-group col evtc-custom">
+								<div id="date-picker" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+									<input placeholder="Select date" type="text" id="date" readonly="readonly" class="form-control"
+									       style="padding: 11.08px 35px 11.08px 35px;"/>
+								</div>
+							</div>
+							<div class="form-group col evtc-custom">
+								<div class="position-relative time-wrap">
+									<input type="text" id="time" onkeydown="return false" class="form-control" readonly="readonly"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button id="evtc_appointment_button" type="button"
+				        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill btn-fixed-sm">
+					<i class="picto picto-check mr-2"></i> Valider </button>
+			</form>
+			<h2 class="headline headline-2 step disable">Choose your vehicle</h2>
+			<h2 class="headline headline-2 step disable">Payment methode</h2>
+		</div>
+	</template>
+	<template id="vehicle_template">
+		<div id="evtc_vehicle" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex  mb-4">
+				<h2 class="headline headline-2 step " id="recuperation_adress_heading_appointment">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress_appointment"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="destination_adress_heading_appointment">
+					<span class="gray-color">To :</span>
+					<i class="picto picto-address-black mr-2" id="destination_adress_appointment"></i> Bureau </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_destination">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="time_heading_appointment">
+					<span class="gray-color" id="time_appointment">on :</span> 24-11-2021 at 9:00 </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_appointment">Change
+				</a>
+			</div>
+			<h2 class="headline headline-2 step" id="vehicle">Choose your vehicle</h2>
+			<form class="evtc-form pl-4 form-row" id="choose_vehicle">
+				<t t-foreach="vehicle_category_ids" t-as="vehicle_category">
+					<div class="form-group col-md-4 col-6 card-radio ">
+						<div class="custom-control text-center custom-radio p-2 ">
+							<input type="radio" t-attf-id="vehicle_category_{{ vehicle_category.id }}"
+							       name="vehicle_customRadio" t-att-data-id="vehicle_category.id "
+							       t-att-data-rate="vehicle_category.tarif"
+							       t-att-data-minimum-rate="int(vehicle_category.minimum_price_id.minimum_price) if vehicle_category.minimum_price_id else 0"
+							       class="custom-control-input"/>
+							<label class="custom-control-label" t-attf-for="vehicle_category_{{ vehicle_category.id }}">
+								<t t-esc="vehicle_category.name"/>
+							</label>
+							<img t-attf-src="data:image/*;base64,{{vehicle_category.image}}"/>
+							<p>
+								<i class="picto picto-group-user"></i>
+								<t t-esc="vehicle_category.place_number"/>
+								Places </p>
+							<hr/>
+							<p>
+								<i class="picto picto-etiquette"></i>
+								<t t-set="tarif_vehicle" t-value="int(vehicle_category.tarif)"/>
+								<span t-attf-id="vehicle_{{vehicle_category.id}}">
+									<t t-esc="tarif_vehicle"/> / Km </span>
+							</p>
+							<div class="boreder-check"/>
+						</div>
+					</div>
+				</t>
+				<button id="evtc_vehicle_button" type="button"
+				        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill btn-fixed-sm">
+					<i class="picto picto-check mr-2"></i> Valider </button>
+			</form>
+			<h2 class="headline headline-2 step disable">Payment methode</h2>
+		</div>
+	</template>
+	<template id="vehicle_resume_template">
+		<div id="evtc_vehicle_resume" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex  mb-4">
+				<h2 class="headline headline-2 step " id="recuperation_adress_heading_vehicle">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress_vehicle"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="destination_adress_heading_vehicle">
+					<span class="gray-color">To :</span>
+					<i class="picto picto-address-black mr-2" id="destination_adress_vehicule"></i> Bureau </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_destination">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="time_heading_vehicle">
+					<span class="gray-color" id="time_vehicle">on :</span> 24-11-2021 at 9:00 </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_appointment">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="choise_vehicle_heading">
+					<span class="gray-color" id="choise_vehicle">in :</span> voiture(3 places) </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_vehicle">Change
+				</a>
+			</div>
+			<div class="evtc-form pl-4 ">
+				<div class="vehicle-resume mb-3 p-3">
+					<small> The kilometer is charged at <span id="vehicle_rate">0</span> Ar, below the
+						estimate of the journey. <br/>
+						<span style="font-size:9px;padding: 0 12px;" id="or_min_message"> * With a
+							minimum price of <span id="minimum_price"></span> Ar </span>
+					</small>
+					<br/>
+					<table class="table table-borderless">
+						<tbody>
+							<tr>
+								<td>Trajet :</td>
+								<td class="text-right font-weight-bold" id="length_target">0
+									km
+								</td>
+							</tr>
+							<tr>
+								<td id="waiting_label">Délai d’attente :</td>
+								<td class="text-right font-weight-bold" id="waiting">30 min</td>
+							</tr>
+							<tr>
+								<td>Durée du trajet :</td>
+								<td class="text-right font-weight-bold" id="duration">
+									00:00:00
+								</td>
+							</tr>
+							<tr>
+								<td>Total :</td>
+								<td class="text-right font-weight-bold" id="total_to_pay">0 Ar</td>
+								<td class="text-right font-weight-bold" id="total_min_to_pay" style="display:none !important;">0 Ar
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="text-right font-weight-bold">
+									<small id="dollar_cost">
+										<span id="usd_price"></span> $ / <span id="euro_price"></span> € </small>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<button id="evtc_vehicle_resume_button"
+					        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill btn-fixed-sm">
+						<i class="picto picto-check mr-2"></i> Valider </button>
+				</div>
+			</div>
+			<h2 class="headline headline-2 step disable">Payement methode</h2>
+		</div>
+	</template>
+	<template id="payment_template">
+		<div id="evtc_payement" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex  mb-4">
+				<h2 class="headline headline-2 step " id="recuperation_adress_heading_vehicle_resume">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress_vehicle_resume"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="destination_adress_heading_vehicle_resume">
+					<span class="gray-color">To :</span>
+					<i class="picto picto-address-black mr-2" id="destination_adress_vehicule_resume"></i> Bureau </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_destination">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="time_heading_vehicle_resume">
+					<span class="gray-color" id="time_vehicle_resume">on :</span> 24-11-2021 at 9:00 </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_appointment">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="choise_vehicle_resume_heading">
+					<span class="gray-color" id="choise_vehicle_resume">in :</span> voiture(3 places) </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_vehicle">Change
+				</a>
+			</div>
+			<h2 class="headline headline-2 step" id="payement">Payement methode</h2>
+			<form class="evtc-form pl-4 form-row" id="choose_payment">
+				<div class="form-group col-4 card-radio pay-card">
+					<div class="custom-control text-center custom-radio p-2 ">
+						<input type="radio" id="customRadio7" name="customRadio" checked="checked" class="custom-control-input"/>
+						<label class="custom-control-label" for="customRadio7">
+							<p>Carte bancaire</p>
+						</label>
+						<div class="d-flex ">
+							<img class="mr-1" src="/evtc_front/static/src/images/Mastercard.png"/>
+							<img class="mr-1" src="/evtc_front/static/src/images/Visa.png"/>
+						</div>
+						<div class="boreder-check"/>
+					</div>
+				</div>
+				<div class="form-group col-4 card-radio pay-card ">
+					<div class="custom-control text-center custom-radio p-2 ">
+						<input type="radio" id="customRadio8" name="customRadio" class="custom-control-input"/>
+						<label class="custom-control-label" for="customRadio8">
+							<p>Cash Ariary</p>
+						</label>
+						<div class="d-flex ">
+							<img class="mr-1" src="/evtc_front/static/src/images/ariary.png"/>
+						</div>
+						<div class="boreder-check"/>
+					</div>
+				</div>
+				<div class="form-group col-4 card-radio pay-card ">
+					<div class="custom-control text-center custom-radio p-2 ">
+						<input type="radio" id="customRadio9" name="customRadio" class="custom-control-input"/>
+						<label class="custom-control-label" for="customRadio9">
+							<p>Mobile money</p>
+						</label>
+						<div class="d-flex ">
+							<img class="mr-1" src="/evtc_front/static/src/images/orangemoney.png"/>
+							<img class="mr-1" src="/evtc_front/static/src/images/mvola.png"/>
+						</div>
+						<div class="boreder-check"/>
+					</div>
+				</div>
+				<button id="evtc_payement_button" type="button"
+				        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill btn-fixed-sm">
+					<i class="picto picto-check mr-2"></i> Valider </button>
+			</form>
+		</div>
+	</template>
+	<template id="payment_resume_template">
+		<div t-if="not user_access" id="evtc_payement_resume" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex  mb-4">
+				<h2 class="headline headline-2 step " id="recuperation_adress_heading_payment">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress_payment"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="destination_adress_heading_payment">
+					<span class="gray-color">To :</span>
+					<i class="picto picto-address-black mr-2" id="destination_adress_payment"></i> Bureau </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_destination">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="time_heading_payment">
+					<span class="gray-color" id="time_payment">on :</span> 24-11-2021 at 9:00 </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_appointment">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="choise_vehicle_payment_heading">
+					<span class="gray-color" id="choise_vehicle_payment">in :</span> voiture(3 places) </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_vehicle">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="choose_payment_method">Cash
+					Payement
+				</h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_payement">Change
+				</a>
+			</div>
+			<t t-call="evtc_front.add_more_information_for_resPartner_front"/>
+		</div>
+		<input type="hidden" id="res_id"/>
+		<div t-if="user_access" id="evtc_payement_resume" class="d-none position-relative">
+			<div class="separator-v"></div>
+			<div class="d-flex  mb-4">
+				<h2 class="headline headline-2 step " id="recuperation_adress_heading_payment">
+					<span class="gray-color oe_pickup_zone_data">From :</span>
+					<i class="picto picto-address-black mr-2" id="recuperation_adress_payment"></i> Maison </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_recuperation">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="destination_adress_heading_payment">
+					<span class="gray-color">To :</span>
+					<i class="picto picto-address-black mr-2" id="destination_adress_payment"></i> Bureau </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_destination">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="time_heading_payment">
+					<span class="gray-color" id="time_payment">on :</span> 24-11-2021 at 9:00 </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_appointment">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="choise_vehicle_payment_heading">
+					<span class="gray-color" id="choise_vehicle_payment">in :</span> voiture(3 places) </h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_vehicle">Change
+				</a>
+			</div>
+			<div class="d-flex mb-4">
+				<h2 class="headline headline-2 step" id="choose_payment_method">Cash
+					Payement
+				</h2>
+				<a href="#" class="change-btn d-inline-block ml-auto gray-color oe_event_web_change" target="evtc_payement">Change
+				</a>
+			</div>
+			<form class="evtc-form pl-4 m-pt-8">
+				<div class="payement-resume mb-3 p-3">
+					<h2 class="headline headline-2">La course est pour</h2>
+					<input id="name" name="name" type="hidden" class="form-control iconed-field" placeholder="Nom du contact"/>
+					<input id="tel" name="tel" type="hidden" class="form-control iconed-field" placeholder="numéro du contact"/>
+					<t t-call="evtc_front.website_many_tags"/>
+					<button id="evtc_payement_resume_button" type="button"
+					        class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill btn-fixed-sm">
+						<i class="picto picto-check mr-2"></i> Valider </button>
+				</div>
+			</form>
+		</div>
+	</template>
+	<template id="final_resume_template">
+		<div id="evtc_here_we_go_resume" class="d-none position-relative">
+			<div class="d-flex mb-4 justify-content-center">
+				<h2 class="headline headline-2 headline-title">
+					Votre demande a été reçue
+				</h2>
+			</div>
+			<div class="d-flex">
+				<h4 class="headline headline_adress" id="recuperation_adress_heading_payment_resume">
+					<div class="step step_confirmation_modal"></div>
+					<div class="span_confirmation_modal">
+						<span class="gray-color" style="width:40px;">From :</span>
+					</div>
+					<div class="media align-items-center media_popup_confirmation">
+						<i class="picto picto-address-black mr-2" id="recuperation_adress_payment_resume_modal"></i>
+						<div class="media-body">
+							<p class="d-none place_val"></p>
+						</div>
+					</div>
+				</h4>
+			</div>
+			<div class="d-flex">
+				<h2 class="headline headline_adress" id="destination_adress_heading_payment_resume">
+					<div class="step step_confirmation_modal"></div>
+					<div class="span_confirmation_modal">
+						<span class="gray-color" style="width:28px;">To :</span>
+					</div>
+					<div class="media align-items-center media_popup_confirmation">
+						<i class="picto picto-address-black mr-2" id="destination_adress_payment_resume_modal"></i>
+						<div class="media-body">
+							<p class="d-none place_val"></p>
+						</div>
+					</div>
+				</h2>
+			</div>
+			<div class="d-flex">
+				<h2 class="headline headline-2 step" id="time_heading_payment_resume">
+					<span class="gray-color" id="time_payment_resume">on :</span> 24-11-2021 at 9:00 </h2>
+			</div>
+			<div class="d-flex">
+				<h2 class="headline headline-2 step" id="choise_vehicle_payment_resume_heading">
+					<span class="gray-color" id="choise_vehicle_payment_resume">in :</span> voiture(3 places) </h2>
+			</div>
+			<div class="d-flex">
+				<h2 class="headline headline-2 step" id="choose_payment_resume_method">Cash
+					Payement
+				</h2>
+			</div>
+			<div class="d-flex">
+				<h2 class="headline headline-2 step" id="tel_payment_resume">032 12 345 56</h2>
+			</div>
+			<div class="d-flex mb-4">
+				<small class="modal-paragraph mt-0">Nous vous remercions. Votre demande est en
+					cours de traitement, nous vous contacterons dans les meilleurs délais pour
+					confirmer votre réservation.
+				</small>
+			</div>
+			<div class="d-flex">
+				<a href="/my/home" id="evtc_here_we_go_resume_button" type="button"
+				   class="btn btn-block text-uppercase btn-evtc btn-outlined rounded-pill"> Terminer <i
+						class="picto picto-arrow-right ml-3"></i>
+				</a>
+			</div>
+		</div>
+	</template>
+	<template id="modal_save_address_template">
+		<div role="dialog" class="modal fade modal_evtc modal_evtc_save_adress" id="modal_save_address">
+			<div class="modal-dialog modal-dialog-centered">
+				<form method="POST" class="js_accept_json modal-content js_website_submit_form">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+					<header class="modal-header align-items-center">
+						<h4 class="modal-title">Save address</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+					</header>
+					<main class="modal-body" id="sign-dialog">
+						<div class="modal_evtc_save_adress_body">
+							<div class="modal_evtc_save_adress_body_input">
+								<input class="evtc_modal_map_input" type="text" placeholder="Name address" name="name" id="partner_name"
+								       t-att-value="name"/>
+							</div>
+							<div class="modal_evtc_save_adress_street d-none">
+								<p class="modal_evtc_street">
+									<i class="picto picto-address-black mr-2"></i>
+									<span id="partner_street"/>
+								</p>
+							</div>
+							<div class="modal_evtc_map_container">
+								<div class="modal_evtc_map_input_container">
+									<input type="text" placeholder="Enter your location" name="location" id="input_partner_street"
+									       class="modal_evtc_map_input_location"></input>
+								</div>
+								<div id="modal_evtc_map" class="modal_evtc_map"></div>
+							</div>
+							<div class="modal_evtc_instruction_container">
+								<label for="#instruction">
+									<strong class="font-weight-bold">Delivery instructions and telephone
+										number:</strong> * Indicate a landmark to help the delivery person (e.g. stop,
+									building, meeting point, etc.) </label>
+								<textarea name="" id="instruction" cols="30" rows="10"
+								          class="form-control instruction_homepage"></textarea>
+							</div>
+						</div>
+					</main>
+					<footer class="modal-footer">
+						<button type="button" class="btn btn_modal_evtc cancel" data-dismiss="modal">
+							<i class="picto picto-close mr-3"></i> CANCEL </button>
+						<button type="button" id="btnSubmit" class="btn btn_modal_evtc save">
+							<i class="picto picto-check mr-3"></i> SUBMIT </button>
+					</footer>
+				</form>
+			</div>
+		</div>
+	</template>
+	<template id="confirmation_modal_template">
+		<div class="modal fade modal_evtc modal_evtc_confirmation" id="confirmationModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content"><!-- Modal Header -->
+					<div class="modal-header align-items-center">
+						<h4 class="modal-title">Votre demande a été reçue</h4>
+						<button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close"></button>
+					</div><!-- Modal body -->
+					<div class="modal-body">
+						<h4 class="headline headline_adress" id="recuperation_adress_heading_payment_resume_modal">
+							<div class="step step_confirmation_modal"></div>
+							<div class="span_confirmation_modal">
+								<span class="gray-color" style="width:40px;">From :</span>
+							</div>
+							<div class="media align-items-center media_popup_confirmation">
+								<i class="picto picto-address-black mr-2" id="recuperation_adress_payment_resume_modal"></i>
+								<div class="media-body">
+									<p class="d-none place_val"/>
+									<span class="oe_pickup_place_value"
+									      style="font-family:&apos;Poppins&apos;,sans-serif;font-weight: 700; font-size: 18px; color: #282839;"/>
+								</div>
+							</div>
+						</h4>
+						<h2 class="headline headline_adress" id="destination_adress_heading_payment_resume_modal">
+							<div class="step step_confirmation_modal"></div>
+							<div class="span_confirmation_modal">
+								<span class="gray-color" style="width:28px;">To :</span>
+							</div>
+							<div class="media align-items-center media_popup_confirmation">
+								<i class="picto picto-address-black mr-2" id="destination_adress_payment_resume_modal"></i>
+								<div class="media-body" id="heading_payment_resume_modal_media_body">
+									<p class="d-none place_val"></p>
+									<span class="oe_dest_place_value"
+									      style="font-family:&apos;Poppins&apos;,sans-serif;font-weight: 700; font-size: 18px; color: #282839;"/>
+								</div>
+							</div>
+						</h2>
+						<h2 class="headline headline-2 step" id="time_heading_payment_resume_modal">
+							<span class="gray-color mr-2" id="time_payment_resume_modal">on :</span> 24-11-2021 at
+							9:00 </h2>
+						<h2 class="headline headline-2 step" id="choise_vehicle_payment_resume_heading_modal">
+							<span class="gray-color mr-2" id="choise_vehicle_payment_resume_modal">in :</span>
+							voiture(3 places) </h2>
+						<h2 class="headline headline-2 step" id="choose_payment_resume_method_modal">Cash
+							Payement
+						</h2>
+						<h2 class="headline headline-2 step" id="tel_payment_resume_modal">032 12 345 56</h2>
+						<small class="modal-paragraph">Nous vous remercions. Votre demande est en cours de
+							traitement, nous vous contacterons dans les meilleurs délais pour confirmer votre
+							réservation.
+						</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template id="index" name="Reservation">
+		<t t-call="website.layout">
+			<div id="selector-map-content">
+				<div id="wrap" class="oe_structure oe_empty reservation_evtc">
+					<div class="container-fluid bg-light evtc-container">
+						<div class="row">
+							<div class="loading" style="display:none;">Loading…</div>
+							<div id="evtc_aside" class="sidebar col-sm-5 col-12 order-2 order-sm-1">
+								<button class="btn btn-block d-md-none bg-transparent py-2 mb-2" id="toggleSidebar">
+									<i class="line-toggle d-none"></i>
+								</button>
+								<t t-call="evtc_front.recovery_address_template"/>
+								<t t-call="evtc_front.destination_address_template"/>
+								<t t-call="evtc_front.appointment_template"/>
+								<t t-call="evtc_front.vehicle_template"/>
+								<t t-call="evtc_front.vehicle_resume_template"/>
+								<t t-call="evtc_front.payment_template"/>
+								<t t-call="evtc_front.payment_resume_template"/>
+								<t t-call="evtc_front.final_resume_template"/>
+							</div>
+							<div id="evtc_maps" class="col-12 col-sm-7 order-1 order-sm-2 map_evtc"></div>
+						</div>
+					</div>
+				</div>
+				<t t-call="evtc_front.confirmation_modal_template"/><!-- modal relative to the actions save address -->
+				<t t-call="evtc_front.modal_save_address_template"/>
+				<div class="footer-recuperation d-flex col-sm-5 col-12 align-items-center">
+					<i class="picto picto-localisation-ouline-primary"></i>
+					<div class="flex-grow-1 text-white"> Besoin d’une location <br/> longue durée ? (5H /
+						10H) </div>
+					<div class="separator"></div>
+					<a href="/long-duration" class="btn btn-letGo"> Let&apos;s go <i class="picto picto-arrow-left-primary"></i>
+					</a>
+				</div>
+			</div>
+		</t>
+	</template><!-- sign up button-->
+	<template id="sign_up" name="signup evtc" inherit_id="auth_signup.signup">
+		<xpath expr="//div[hasclass(&apos;oe_login_buttons&apos;)]/button" position="attributes">
+			<attribute name="class">btn vtc-primary-btn rounded-pill btn-block</attribute>
+		</xpath>
+	</template>
+</odoo>

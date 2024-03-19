@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_evtc_pub_evtc_pub,evtc_publicity.evtc_publicity,model_evtc_pub,,1,1,1,1
+access_evtc_button_menu,evtc_publicity.evtc_button_menu,model_evtc_button_menu,,1,1,1,1

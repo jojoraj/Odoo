@@ -1,0 +1,48 @@
+<odoo>
+  <record id="evtc_pub_view_list" model="ir.ui.view">
+    <field name="name">evtc.pub.view.tree</field>
+    <field name="model">evtc.pub</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="evtc_pub_view_form" model="ir.ui.view">
+    <field name="name">evtc.pub.view.form</field>
+    <field name="model">evtc.pub</field>
+    <field name="arch" type="xml">
+      <form string="E-vtc pub">
+        <sheet>
+          <group>
+            <group>
+              <field name="name" />
+              <field name="video_pub" widget="binary" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="action_evtc_pub">
+    <field name="name">Data list E-vtc Media Video</field>
+    <field name="res_model">evtc.pub</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+  <record id="rating_rating_view_inherit_tree" model="ir.ui.view">
+    <field name="name">rating.rating.form.view</field>
+    <field name="model">rating.rating</field>
+    <field name="inherit_id" ref="rating.rating_rating_view_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <group name="client_opinion" string="Avis du client">
+          <field name="opinions" nolabel='1' />
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>

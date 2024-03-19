@@ -1,0 +1,98 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sms_password_reset
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211117\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-25 14:02+0000\n"
+"PO-Revision-Date: 2022-04-25 14:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.password_reset_verification_code
+msgid ""
+"An SMS has already been sent to you, please wait a minute before sending it "
+"again"
+msgstr ""
+"Un SMS vous a déjà été envoyé, veuillez patienter une minute avant de l'envoyer "
+"de nouveau"
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_by_sms
+msgid "Back to Login"
+msgstr "Retour connexion"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.password_reset_verification_code
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_by_sms
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.password_reset_verification_code
+msgid "Didn't receive an SMS?"
+msgstr "Vous n’avez pas reçu de SMS ?"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_passord_validation
+msgid "Finalize my registration"
+msgstr "Finaliser mon inscription"
+
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.password_reset_verification_code
+msgid "Please wait, a new sms has been sent"
+msgstr "Veuillez patienter, un nouveau sms a été envoyé"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.password_reset_verification_code
+msgid ""
+"Resend message\n"
+"              <i class=\"spin-send fa fa-refresh fa-spin\"/>"
+msgstr ""
+"Renvoyer le message\n"
+"              <i class=\"spin-send fa fa-refresh fa-spin\"/>"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_password_by_sms
+msgid "Reset by sms"
+msgstr "Réinitialiser par sms"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_passord_validation
+msgid "Sign up"
+msgstr "S'inscrire"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_by_sms
+msgid "Use email"
+msgstr "Utiliser le courrier électronique"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.password_reset_verification_code
+msgid ""
+"You have received a verification code by SMS, please enter it in the field "
+"below."
+msgstr "Vous avez reçu un code de vérification par sms veuillez le renseigner dans le champ "
+"ci-dessous ."
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_by_sms
+msgid "Your Phone number"
+msgstr "Votre numéro de téléphone"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_by_sms
+msgid "Your country"
+msgstr "Votre pays"
+
+#. module: sms_password_reset
+#: model_terms:ir.ui.view,arch_db:sms_password_reset.reset_passord_validation
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="list_course_template" name="evtc list course">
+    <t t-call="website.layout">
+      <div id="wrap" class="oe_structure oe_empty list_course_wrap">
+        <div class="loading" style="display:none !important;">Loading…</div>
+        <div class="container-fluid" id="content-courses">
+          <div class="oe_filter_course py-4">
+            <span class="btn btn-evtc px-2">
+              <label>
+               <span> Course status :</span>
+              <select name="filterCourse" id="oe_filter_status">
+                <option value="" class="oe_details_status" > All </option>
+                  <t t-foreach="stages" t-as="stage">
+                    <option t-attf-value="{{stage[&apos;id&apos;]}}" class="oe_details_status" t-att-selected="stage['id'] == current_status">
+                      <t t-esc="stage[&apos;name&apos;]"/>
+                    </option>
+                  </t>
+                </select>
+              </label>
+            </span>
+            <span class="btn btn-evtc px-2">
+              <label>
+                <span>Begin date :</span>
+                <input type="date" name="beginDate" class="changeEvent"/>
+              </label>
+            </span>
+            <span class="btn btn-evtc px-2">
+              <label>
+                <span>End date :</span>
+                <input type="date" name="endDate" class="changeEvent"/>
+              </label>
+            </span>
+          </div>
+          <div class="container_list_course">
+            <t t-if="not crm_leads">
+              <p>There are currently no course for your account.</p>
+            </t>
+            <t t-if="crm_leads">
+              <div class="header_list_course">
+                <div class="row text-center mb-3">
+                  <div class="col col-cell align-items-center">
+                    <span class="text_header_list_big">N°Course</span>
+                  </div>
+                  <div class="col col-cell align-items-center">
+                    <span class="text_header_list_big">Itinéraire</span>
+                  </div>
+                  <div class="col col-cell align-items-center">
+                    <span class="text_header_list_big">Pour</span>
+                  </div>
+                  <div class="col col-cell align-items-center">
+                    <span class="text_header_list_little">Date</span>
+                  </div>
+                  <div class="col col-cell align-items-center" id="trajet">
+                    <span class="text_header_list_little">Trajet</span>
+                  </div>
+                  <div class="col col-cell align-items-center">
+                    <span class="text_header_list_big">Notes</span>
+                  </div>
+                  <div class="col col-cell align-items-center">
+                    <span class="text_header_list_big">Total</span>
+                  </div>
+                  <div class="col col-cell"></div>
+                </div>
+              </div>
+              <t t-foreach="crm_leads" t-as="crm_data">
+                <t t-set="state" t-value="crm_data[&apos;state&apos;]"/>
+                <t t-set="i_class" t-value="state if state != &apos;in_progress&apos; else &apos;loading&apos;"/>
+                <div t-attf-class="last_course_content #{ &apos;btn-option&apos; if state == &apos;terminate&apos; else &apos;&apos; }">
+                  <div class="row align-items-center position-relative">
+                    <div class=" col col-cell text-center">
+                      <span class="toggle_dot collapsed" data-toggle="collapse" t-att-data-target="&apos;#collapseBlockOne&apos;+crm_data[&apos;crm_code&apos;]" aria-expanded="false" aria-controls="collapseBlockOne"></span>
+                    </div>
+                    <div class=" col col-cell text-center separator_last_course progression">
+                      
+                        <div class="media-body overflow-hidden course_referrer">
+                          <h5 class="course_place_number" t-esc="'Location #'+crm_data['crm_code'] if crm_data[&apos;is_location&apos;] else &apos;Course #&apos;+crm_data[&apos;crm_code&apos;]"/>
+                        </div>
+                 
+                    </div>
+                    <div class=" col col-cell separator_last_course">
+                      <div class="last_course_block course_place">
+                        <div class="media-body overflow-hidden">
+                          <p class="mb-0 course_place_place" t-esc="crm_data[&apos;pick_up_zone&apos;]+&apos; - &apos;+crm_data[&apos;destination_zone&apos;]"/>
+                        </div>
+                      </div>
+                    </div>
+                     <div class=" col col-cell separator_last_course">
+                      <div class="last_course_block course_place">
+                        <div class="media-body overflow-hidden">
+                          <p class="mb-0 course_place_place" t-esc="crm_data[&apos;client_name&apos;]"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" col col-cell separator_last_course">
+                      <div class="last_course_block course_datetime">
+                        <h5 class="course_datetime_date mb-0" t-esc="crm_data[&apos;pick_up_date&apos;]"/>
+                        <p class="mb-0 course_datetime_time" t-esc="crm_data[&apos;formatted_pick_up_destination&apos;]"/>
+                      </div>
+                    </div>
+                    <div class=" col col-cell text-center separator_last_course" id="trajet_list">
+                      <div class="last_course_block course_km">
+                        <h5 class="course_km_text mb-0" t-esc="str(crm_data[&apos;kilometers&apos;]) + &apos; km&apos;"/>
+                        <div class="time-duration">
+                          <t t-if="crm_data['real_duration'] == '0h:0min'">
+                            <t t-esc="crm_data[&apos;duration&apos;]"/>
+                          </t>
+                          <t t-else="">
+                            <t t-esc="crm_data[&apos;real_duration&apos;]"/>
+                          </t>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" col col-cell separator_last_course">
+                      <div class="last_course_block rating_course d-flex flex-wrap">
+                        <t t-foreach="[1,2,3,4,5]" t-as="note">
+                          <t t-if="note &lt; crm_data[&apos;crm_note&apos;]">
+                            <img width="24" src="/evtc_portal/static/src/img/ic_star.svg"/>
+                          </t>
+                          <t t-else="">
+                            <img width="24" src="/evtc_portal/static/src/img/ic_star_empty.svg"/>
+                          </t>
+                        </t>
+                      </div>
+                    </div>
+                    <div class=" col col-cell separator_last_course">
+                      <div class="last_course_block course_price">
+                        <h5 class="course_price_text mb-0" t-esc="crm_data.get(&apos;revenue&apos;)"/>
+                      </div>
+                    </div>
+                    <div class=" col col-cell separator_last_course">
+                      <div class="last_course_block course_state overflow-hidden">
+                        <p t-att-class="&apos;course_state_line &apos;+ state +&apos; mb-0&apos;">
+                          <i t-att-class="&apos;picto picto-&apos;+ i_class + &apos; mr-2&apos;"></i>
+                          <span t-esc="crm_data.get(&apos;state_label&apos;)"></span>
+                        </p>
+                      </div>
+                    </div>
+                    <t t-if="state == &apos;terminate&apos;">
+                      <div class="col col-cell">
+                        <div class="dropdown h-100">
+                          <button class="btn btn-parameter" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <span class="sr-only">parameter</span>
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" t-att-href="crm_data.get(&apos;invoices_url&apos;)">
+                              <i class="picto picto-eyee mr-1"></i> Visualiser la facture </a>
+                            <a class="dropdown-item" t-att-href="crm_data.get(&apos;invoices_download&apos;)">
+                              <i class="picto picto-download mr-1"></i>Télécharger la facture </a>
+                          </div>
+                        </div>
+                      </div>
+                    </t>
+                  </div>
+                  <div class="collapse collapse_evtc_list" t-att-id="&apos;collapseBlockOne&apos;+crm_data[&apos;crm_code&apos;]">
+                    <div class="detail_course_container">
+                      <div class="media">
+                        <div class="place_container">
+                          <t t-if="crm_data.get(&apos;maps_image&apos;,False)">
+                            <img class="detail_course_map" t-att-src="website.image_url(crm_data.get(&apos;recordset&apos;), &apos;maps_image&apos;, &apos;256&apos;)" alt="CRM maps image"/>
+                          </t>
+                          <t t-else="">
+                            <img class="detail_course_map" src="/evtc_portal/static/src/img/map_course.png" alt="CRM maps image"/>
+                            <div class="place_from">
+                              <div class="media align-items-center">
+                                <i class="picto picto-location-white mr-2"></i>
+                                <div class="media-body">
+                                  <p class="place_text mb-0">
+                                    <t t-esc="crm_data[&apos;pick_up_zone&apos;]"/>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="place_to">
+                              <div class="media align-items-center">
+                                <i class="picto picto-location-white mr-2"></i>
+                                <div class="media-body">
+                                  <p class="place_text mb-0">
+                                    <t t-esc="crm_data[&apos;destination_zone&apos;]"/>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </t>
+                        </div>
+                        <div class="media-body">
+                          <div id="evtc_here_we_go_resume" class="">
+                            <div t-if="crm_data.get(&apos;pick_up_zone&apos;, False)" class="d-flex">
+                              <h4 class="headline headline_adress" id="recuperation_adress_heading_payment_resume">
+                                <div class="step step_confirmation_modal"></div>
+                                <div class="span_confirmation_modal">
+                                  <span class="gray-color" style="width:40px;">From :</span>
+                                </div>
+                                <div class="media align-items-center media_popup_confirmation">
+                                  <i class="picto picto-address-black mr-2" id="recuperation_adress_payment_resume_modal"></i>
+                                  <div class="media-body">
+                                    <p class="d-none place_val"/>
+                                    <t t-esc="crm_data[&apos;pick_up_zone&apos;]"/>
+                                  </div>
+                                </div>
+                              </h4>
+                            </div>
+                            <div t-if="crm_data.get(&apos;destination_zone&apos;, False)" class="d-flex">
+                              <h2 class="headline headline_adress" id="destination_adress_heading_payment_resume">
+                                <div class="step step_confirmation_modal"></div>
+                                <div class="span_confirmation_modal">
+                                  <span class="gray-color" style="width:28px;">To :</span>
+                                </div>
+                                <div class="media align-items-center media_popup_confirmation">
+                                  <i class="picto picto-address-black mr-2" id="destination_adress_payment_resume_modal"></i>
+                                  <div class="media-body">
+                                    <p class="d-none place_val"/>
+                                    <t t-esc="crm_data[&apos;destination_zone&apos;]"/>
+                                  </div>
+                                </div>
+                              </h2>
+                            </div>
+                            <div class="d-flex">
+                              <h2 class="headline headline-2 step" id="time_heading_payment_resume">
+                                <span class="gray-color" id="time_payment_resume">on :</span>
+                                <t t-esc="crm_data[&apos;create_date&apos;] + &apos; à &apos; + crm_data[&apos;create_datetime&apos;]"/>
+                              </h2>
+                            </div>
+                            <div class="d-flex">
+                              <h2 class="headline headline-2 step" id="time_command_heading_payment_resume">
+                                <span class="gray-color" id="time_command_payment_resume">for the :</span>
+                                <t t-esc="crm_data[&apos;pick_up_date&apos;] + &apos; à &apos; + crm_data[&apos;pick_up_datetime&apos;]"/>
+                              </h2>
+                            </div>
+                            <div class="d-flex">
+                              <h2 class="headline headline-2 step" id="choise_vehicle_payment_resume_heading">
+                                <span class="gray-color" id="choise_vehicle_payment_resume">in :</span>
+                                <t t-esc="crm_data[&apos;vehicle_note&apos;]"/>
+                              </h2>
+                            </div>
+                            <div class="d-flex">
+                              <h2 class="headline headline-2 step" id="choose_payment_resume_method" t-esc="&apos;Paiement :&apos; + crm_data[&apos;payment_method_note&apos;] + &apos; &apos; + crm_data[&apos;revenue&apos;]"/>
+                            </div>
+                            <div class="d-flex">
+                              <h2 class="headline headline-2 step" id="tel_payment_resume" t-esc="crm_data[&apos;phone_in_moment&apos;]"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </t>
+            </t>
+          </div>
+          <div class="pager_evtc">
+            <t t-call="portal.pager"/>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

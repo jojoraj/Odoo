@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="trip_step_state_container">
+		<div class="state-container">
+			<t t-foreach="progression" t-as="partial_prgression">
+				<div class="rounded-pill">
+					<div class="" t-att-style="'--progression:'+partial_prgression+'%'"/>
+				</div>
+			</t>
+		</div>
+	</template>
+	<template id="trip_step_body">
+		<ul class="details-course taxi-details">
+			<t t-if="step in (1,2)">
+				<li class="details-course-item headline headline_adress">
+					<div class="span_confirmation_modal">
+						<span class="gray-color" style="width:40px;">From :</span>
+					</div>
+					<div class="media align-items-center media_popup_confirmation">
+						<i class="picto picto-address-black mr-2"/>
+						<div class="media-body">
+							<p class="m-0" t-esc="pick_up_zone"/>
+						</div>
+					</div>
+				</li>
+				<li
+					class="details-course-item headline headline_adress">
+					<div class="span_confirmation_modal">
+						<span class="gray-color" style="width:40px;">To :</span>
+					</div>
+					<div class="media align-items-center media_popup_confirmation">
+						<i class="picto picto-address-black mr-2"/>
+						<div class="media-body">
+							<p class="m-0" t-esc="destination_zone"/>
+						</div>
+					</div>
+				</li>
+				<li class="details-course-item headline headline_adress">
+					<div class="span_confirmation_modal">
+						<span class="gray-color" style="width:40px;">On :</span>
+					</div>
+					<div class="media align-items-center media_popup_confirmation">
+						<div class="media-body">
+							<p class="m-0">
+								<t t-esc="pick_up_date"/>
+								at
+								<t t-esc="pick_up_datetime"/>
+							</p>
+						</div>
+					</div>
+				</li>
+				<li
+					class="details-course-item headline headline_adress">
+					<div class="span_confirmation_modal">
+						<span class="gray-color" style="width:40px;">In :</span>
+					</div>
+					<div class="media align-items-center media_popup_confirmation">
+						<div class="media-body">
+							<p class="m-0" t-esc="vehicle_note"/>
+						</div>
+					</div>
+				</li>
+				<li
+					class="details-course-item headline headline_adress">
+					<p class="m-0" t-esc="payment_method_note"/>
+				</li>
+				<li
+					class="details-course-item headline headline_adress">
+					<p class="m-0" t-esc="phone_in_moment"/>
+				</li>
+			</t>
+			
+			<t t-if="step in (3,4,10)">
+				<div class="d-flex align-items-center mt32 mb32">
+					<div class="media flex-grow-1">
+						<img t-attf-src="data:image/*;base64,{{driver_image}}"
+							 class="mr-3 driver-img shadow-sm"
+							 alt=""/>
+						<div class="media-body">
+							<h5 class="mt-0 taxi-heading-2 font-weight-bold"><p class="m-0" t-esc="driver_name"/></h5>
+							<p class="m-0" t-esc="license_plate"/>
+						</div>
+					</div>
+					<div t-if="false" class="waiting-time">Waiting :
+						<br/>
+						<strong class="font-weight-bold">15 min</strong>
+					</div>
+				</div>
+				<div class="btn-container">
+					<t t-if="step != 4">
+						<a t-attf-href="tel:{{driver_phone}}" class="btn vtc-primary-btn rounded-pill btn-block taxi-btn">
+							<i class="picto picto-phone mr-3"></i>
+							Call the driver
+						</a>
+					</t>
+					<a class="btn btn-light rounded-pill btn-block taxi-btn problem-btn">
+						Problem ?
+					</a>
+				</div>
+				<p class="p-description"/>
+			</t>
+		</ul>
+	</template>
+</odoo>

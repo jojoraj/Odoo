@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="crm_refusal_wizard_view_form" model="ir.ui.view">
+    <field name="name">crm.refusal.wizard.view.form</field>
+    <field name="model">crm.refusal.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Define reason for refusal">
+        <sheet>
+          <group>
+            <group>
+              <field name="refusal_ids" widget="many2many_tags"
+                     options="{'color_field': 'color', 'no_create_edit': True}" required="1"/>
+              <field name="refusal_remark" required="1"/>
+            </group>
+          </group>
+        </sheet>
+        <footer>
+          <button name="write_refusal_reason" type="object" string="Save" class="oe_highlight"/>
+          <button special="cancel" string="Cancel" class="btn-secondary"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="crm_refusal_wizard_action" model="ir.actions.act_window">
+    <field name="name">Define reason for refusal</field>
+    <field name="res_model">crm.refusal.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+</odoo>

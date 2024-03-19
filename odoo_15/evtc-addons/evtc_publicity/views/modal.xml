@@ -1,0 +1,52 @@
+<odoo>
+  <template id="evtc_modal_rating">
+    <div class="modal fade" id="modal_rating" role="dialog" tabindex="-1" aria-labelledby="popUpRating" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Rating</h4>
+          </div>
+          <div class="modal-body">
+            <div class="payement-resume mb-3 p-3">
+              <p>Veuillez noter notre service</p>
+              <div class="rating">
+                <input type="radio" name="rating" value="5" id="5" />
+                <label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4" />
+                <label for="4">☆</label>
+                <input type="radio" name="rating" value="3" id="3" />
+                <label for="3">☆</label>
+                <input type="radio" name="rating" value="2" id="2" />
+                <label for="2">☆</label>
+                <input type="radio" name="rating" value="1" id="1" />
+                <label for="1">☆</label>
+              </div>
+            </div>
+            <div class="mb-3 p-3">
+              <p>Votre avis</p>
+              <textarea id="client-rate" class="w-100" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block text-uppercase" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-block text-uppercase" id="save_rating">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template id="evtc_modal_idea">
+    <div class="modal fade" id="modal_idea" role="dialog" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="alert alert-danger" id="error-send-mail" role="alert"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block text-uppercase" id="close-modal" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</odoo>

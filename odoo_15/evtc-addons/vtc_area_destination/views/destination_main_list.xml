@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template inherit_id="evtc_front.destination_address_template" id="add_many_destination_form">
+    <xpath expr="///div[@id='oe_evtc_dest_insert']" position="before">
+      <div class="destination-list-wrapper">
+        <ul class="destination-list oe_dest_qweb_selector enable"></ul>
+      </div>
+    </xpath>
+    <xpath expr="///div[@id='evtc-form-destination']" position="inside">
+      <a href="#" class="change-btn d-block ml-auto gray-color" id="add_destination">Add destination</a>
+    </xpath>
+  </template>
+</odoo>

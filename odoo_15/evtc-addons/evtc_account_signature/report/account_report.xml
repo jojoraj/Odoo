@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="evtc_account_signature.report_invoice_document"
+              inherit_id="evtc_invoice_data.report_consolidate_account_view">
+        <xpath expr="//div[@class='page']/div" position="inside">
+            <t t-set="sign" t-value="request.env['account.signature'].sudo().get_signature()"/>
+            <div t-if="sign">
+                <table style="width:100%; margin-top:15px !important">
+                    <tr>
+                        <th style="color: black !important;">
+                            <span style="color: black !important;" t-esc="sign.name"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="height: 100px !important;">
+                            <img t-attf-src="data:image/png;base64, #{sign.signature}"
+                                 style="height: 150px;margin-top: 5px;margin-left: 5px;"/>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="account_signature_remove_customer"
+              inherit_id="invoice_report_customize.invoice_report_amount_in_words_inherit">
+        <xpath expr="//table[@style='width:100%;']" position="replace" />
+    </template>
+</odoo>

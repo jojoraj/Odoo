@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id='fleet_vehicle_fuel_view_tree' model='ir.ui.view'>
+    <field name="name">fleet.vehicle.fuel.tree</field>
+    <field name="model">fleet.vehicle.fuel</field>
+    <field name="arch" type="xml">
+      <tree editable="top" decoration-warning="volume &lt; 0">
+        <field name="vehicle_id" widget="many2one_avatar" />
+        <field name="date" />
+        <field name="volume" />
+        <field name="odometer" />
+        <field name="address" />
+      </tree>
+    </field>
+  </record>
+
+  <!-- view kanban -->
+  <record id='fleet_vehicle_fuel_view_kanban' model='ir.ui.view'>
+    <field name="name">fleet.vehicle.fuel.kanban</field>
+    <field name="model">fleet.vehicle.fuel</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile">
+        <templates>
+          <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_global_click">
+              <div>
+                <strong>
+                  <field name="vehicle_id" />
+                </strong>
+              </div>
+              <field name="volume" invisible="1" />
+              <div>
+                <t t-if="record.volume.raw_value &lt; 0">
+                  <strong>
+                    Volume:
+                    <field name="volume" />
+                    L
+                  </strong>
+                  <span class="fa fa-exclamation-triangle" t-att-style="'color:orange'" role="img"
+                    aria-label="Attention : Volume est négatif"
+                    title="Attention : Volume est négatif" />
+                </t>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <!-- view pivot -->
+  <record id="fleet_vehicle_fuel_view_pivot" model="ir.ui.view">
+    <field name="name">fleet.vehicle.fuel.pivot</field>
+    <field name="model">fleet.vehicle.fuel</field>
+    <field name="arch" type="xml">
+      <pivot string="Rapport">
+        <field name="vehicle_id" />
+        <field name="date" />
+        <field name="volume" interval="month" />
+        <field name="odometer" />
+        <field name="address" />
+      </pivot>
+    </field>
+  </record>
+
+  <!-- view pivot -->
+  <record id="fleet_vehicle_fuel_view_graph" model="ir.ui.view">
+    <field name="name">fleet.vehicle.fuel.view.graph</field>
+    <field name="model">fleet.vehicle.fuel</field>
+    <field name="arch" type="xml">
+      <graph string="Carburant Analysis" sample="1">
+        <field name="vehicle_id" />
+        <field name="date" />
+        <field name="volume" type="measure" />
+        <field name="odometer" />
+        <field name="address" />
+      </graph>
+    </field>
+  </record>
+
+  <!-- actions -->
+  <record id="fleet_vehicle_fuel_action" model="ir.actions.act_window">
+    <field name="name">Carburants</field>
+    <field name="res_model">fleet.vehicle.fuel</field>
+    <field name="view_mode">tree,pivot,graph,kanban</field>
+  </record>
+
+  <!-- Top menu item -->
+  <menuitem action="fleet_vehicle_fuel_action" parent="fleet.fleet_vehicles" id="fleet_vehicle_fuel_menu"
+    sequence="12" groups="fleet_security.administrator_cost" />
+
+  <!-- view tree -->
+  <record id='fleet_card_fuel_view_tree' model='ir.ui.view'>
+    <field name="name">fleet.card.fuel.tree</field>
+    <field name="model">fleet.card.fuel</field>
+    <field name="arch" type="xml">
+      <tree editable="top" decoration-warning="(fuel_gap_selection=='anormal')">
+        <field name="vehicle_id" />
+        <field name="license_plate" />
+        <field name="card_number" />
+        <field name="date_trans" />
+        <field name="hour_trans" invisible="1" />
+        <field name="date" invisible="1" />
+        <field name="qty" />
+        <field name="geotab_qty" readonly="1" />
+        <field name="fuel_gap_selection" invisible="1" />
+        <field name="ticket_number" />
+        <field name="kilometers" />
+        <field name="label" />
+        <field name="amount" />
+        <field name="currency_id" invisible="1" />
+        <field name="station_name" />
+        <field name="label_zone" />
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="fleet_card_fuel_search_view">
+    <field name="name">fleet.card.fuel.search</field>
+    <field name="model">fleet.card.fuel</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="license_plate" />
+        <field name="card_number" />
+        <field name="ticket_number" />
+        <field name="label" />
+        <field name="label_zone" />
+        <field name="station_name" />
+        <separator />
+        <filter name="fuel_gap_normal_filter" string="Quantité normale"
+          domain="[('fuel_gap_selection','=','normal')]" />
+        <filter
+          name="fuel_gap_anormal_filter"
+          string="Quantité anormale"
+          domain="[('fuel_gap_selection','=','anormal')]"
+        />
+      </search>
+    </field>
+  </record>
+
+
+  <!-- actions -->
+  <record id="fleet_card_fuel_action" model="ir.actions.act_window">
+    <field name="name">Suivi Carte Carburant</field>
+    <field name="res_model">fleet.card.fuel</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+  <record id="map_geotab_qty" model="ir.actions.server">
+    <field name="name">Mapper la volumétrie</field>
+    <field name="state">code</field>
+    <field name="type">ir.actions.server</field>
+    <field name="model_id" ref="model_fleet_card_fuel" />
+    <field name="binding_model_id" ref="model_fleet_card_fuel" />
+    <field name="binding_view_types">list</field>
+    <field name="code">
+        if records:
+        action = records.action_generate_geotab_qty()
+      </field>
+  </record>
+  <record id="set_date_search" model="ir.actions.server">
+    <field name="name">Calculer la date</field>
+    <field name="state">code</field>
+    <field name="type">ir.actions.server</field>
+    <field name="model_id" ref="model_fleet_vehicle_fuel" />
+    <field name="binding_model_id" ref="model_fleet_vehicle_fuel" />
+    <field name="binding_view_types">list</field>
+    <field name="code">
+        if records:
+        action = records._compute_date()
+      </field>
+  </record>
+
+  <!-- Top menu item -->
+  <menuitem action="fleet_card_fuel_action" parent="fleet.fleet_vehicles" id="fleet_card_fuel_menu"
+    sequence="13" groups="fleet_security.administrator_cost" />
+</odoo>

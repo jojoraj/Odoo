@@ -1,0 +1,122 @@
+
+.state-container{
+    padding-block:16px;
+    display:flex;
+    gap:16px;
+
+}
+
+.state-container{
+
+    &>div{
+        flex-grow:1;
+        height:8px;
+        background-color:#F2F2F2;
+        overflow:hidden;
+
+        &>div{
+            background-color:#BADB29;
+            width:var(--progression);
+            height:100%;
+        }
+    }
+
+}
+ .driver-img{
+        width:64px;
+        height:64px;
+        border-radius:50%;
+        object-fit:cover;
+    }
+    .waiting-time{
+        border:1px solid #BADB29;
+        padding:12px;
+        font-size:14px;
+    }
+ .taxi-heading-2{
+    padding: 9.5px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    font-family:"Poppins"
+ }
+
+ .taxi-btn {
+    text-transform:uppercase;
+    font-weight:600;
+    font-size:14px;
+    font-family:"Poppins";
+    margin-bottom:32px;
+    padding:13px 30px;
+
+ }
+
+ .picto {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  vertical-align: middle;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 24px;
+        height: 24px;
+      }
+      &.picto-phone::before {
+        background: url("../images/pictos/ic_phone.svg") center no-repeat !important;
+        background: 100%;
+      }
+
+      &.picto-address-black::before {
+        background: url("../images/pictos/icon-address-black.svg") center no-repeat !important;
+        background: 100%;
+      }
+  }
+
+.taxi-btn .picto {
+    vertical-align:5px;
+}
+
+.p-description {
+    font-size : 14px;
+}
+
+.taxi-details {
+    .headline p {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .details-course-item::before{
+        width:100%;
+    }
+}
+
+.step-three+.map_evtc{
+    padding:0;
+
+    iframe{
+        border:0
+    }
+}
+
+@media (max-width:767px){
+    img.detail_course_map{
+        width:100%;
+        height:100%;
+        position:absolute;
+        inset:0;
+//         object-fit:cover;
+    }
+
+    .step-three+.map_evtc{
+        padding:0;
+
+    }
+
+}

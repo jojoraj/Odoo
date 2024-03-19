@@ -1,0 +1,1217 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_front
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211219\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-15 12:26+0000\n"
+"PO-Revision-Date: 2023-11-15 12:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_fleet_vehicle_model_category
+msgid ""
+"\n"
+"        get working vehicle price with date\n"
+"    "
+msgstr ""
+
+#. module: evtc_front
+#: code:addons/evtc_front/models/crm_lead.py:0
+#, python-format
+msgid "%d/%m/%Y to %H:%M"
+msgstr ""
+
+#. module: evtc_front
+#: code:addons/evtc_front/models/crm_lead.py:0
+#, python-format
+msgid "%s to %s"
+msgstr "%s à %s"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "* tarif de base , peut changer en fonction du véhicule sélectionné."
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid "/ Km"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid ""
+"0\n"
+"\t\t\t\t\t\t\t\t\tkm"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "0 Ar"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "00:00:00"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid "032 12 345 56"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "034 67 101 37"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "034 69 402 91"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "30 min"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid ""
+"<i class=\"picto picto-arrow-left-primary\"/>\n"
+"              100 000 ar *"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid ""
+"<i class=\"picto picto-arrow-left-primary\"/>\n"
+"              3 000 ar / Km"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid ""
+"<i class=\"picto picto-arrow-left-primary\"/>\n"
+"              4 000 ar / Km"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid ""
+"<i class=\"picto picto-arrow-left-primary\"/>\n"
+"              500 000 ar *"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid "<i class=\"picto picto-check mr-2\"/> Valider"
+msgstr "<i class=\"picto picto-check mr-2\"/>Valider"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "<i class=\"picto picto-check mr-2\"/>Valider"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid "<i class=\"picto picto-check mr-3\"/> SUBMIT"
+msgstr "<i class=\"picto picto-check mr-3\"/>ENVOYER"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid "<i class=\"picto picto-close mr-3\"/> CANCEL"
+msgstr "<i class=\"picto picto-close mr-3\"/>ANNULER"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_header_evtc
+msgid ""
+"<i class=\"picto picto-phone d-none d-sm-inline-block\"/><span "
+"class=\"d-block d-sm-none text_mobile\">Appelez-nous</span>"
+msgstr ""
+"<i class=\"picto picto-phone d-none d-sm-inline-block\"/><span "
+"class=\"d-block d-sm-none text_mobile\">Appelez-nous</span>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid ""
+"<small class=\"modal-paragraph mt-0\">Nous vous remercions. Votre demande est en\n"
+"\t\t\t\t\tcours de traitement, nous vous contacterons dans les meilleurs délais pour\n"
+"\t\t\t\t\tconfirmer votre réservation.\n"
+"\t\t\t\t</small>"
+msgstr ""
+"<small class=\"modal-paragraph mt-0\">Nous vous remercions. Votre demande est en\n"
+"\t\t\t\t\tcours de traitement, nous vous contacterons dans les meilleurs délais pour\n"
+"\t\t\t\t\tconfirmer votre réservation.\n"
+"\t\t\t\t</small>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+msgid ""
+"<small class=\"modal-paragraph\">Nous vous remercions. Votre demande est en cours de\n"
+"\t\t\t\t\t\t\ttraitement, nous vous contacterons dans les meilleurs délais pour confirmer votre\n"
+"\t\t\t\t\t\t\tréservation.\n"
+"\t\t\t\t\t\t</small>"
+msgstr ""
+"<small class=\"modal-paragraph\">Nous vous remercions. Votre demande est en cours de\n"
+"\t\t\t\t\t\t\ttraitement, nous vous contacterons dans les meilleurs délais pour confirmer votre\n"
+"\t\t\t\t\t\t\tréservation.\n"
+"\t\t\t\t\t\t</small>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "<small class=\"small-name text-danger\">Veuillez remplir le champs</small>"
+msgstr "<small class=\"small-name text-danger\">Veuillez remplir le champs</small>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "<small class=\"small-tel text-danger\">Veuillez remplir le champs</small>"
+msgstr "<small class=\"small-tel text-danger\">Veuillez remplir le champs</small>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid ""
+"<small id=\"dollar_cost\">\n"
+"\t\t\t\t\t\t\t\t\t\t<span id=\"usd_price\"/> $ / <span id=\"euro_price\"/> € </small>"
+msgstr ""
+"<small id=\"dollar_cost\">\n"
+"\t\t\t\t\t\t\t\t\t\t<span id=\"usd_price\"/> $ / <span id=\"euro_price\"/> € </small> "
+
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid ""
+"<small> The kilometer is charged at <span id=\"vehicle_rate\">0</span> Ar, below the\n"
+"\t\t\t\t\t\testimate of the journey. <br/>\n"
+"\t\t\t\t\t\t<span style=\"font-size:9px;padding: 0 12px;\" id=\"or_min_message\"> * With a\n"
+"\t\t\t\t\t\t\tminimum price of <span id=\"minimum_price\"/> Ar </span>\n"
+"\t\t\t\t\t</small>\n"
+"\t\t\t\t\t<br/>"
+msgstr ""
+"<small> Le kilomètre est facturé à <span id=\"vehicle_rate\">0</span> Ar, ci-dessous l'\n"
+"\t\t\t\t\t\testimation du trajet. <br/>\n"
+"\t\t\t\t\t\t<span style=\"font-size:9px;padding: 0 12px;\" id=\"or_min_message\"> * Avec un\n"
+"\t\t\t\t\t\t\tprix minimum de <span id=\"minimum_price\"/> Ar </span>\n"
+"\t\t\t\t\t</small>\n"
+"\t\t\t\t\t<br/>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+msgid ""
+"<span class=\"gray-color mr-2\" id=\"choise_vehicle_payment_resume_modal\">in :</span>\n"
+"\t\t\t\t\t\t\tvoiture(3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment_resume_modal\">En :</span>\n"
+"\t\t\t\t\t\t\tvoiture(3 places)"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+msgid ""
+"<span class=\"gray-color mr-2\" id=\"time_payment_resume_modal\">on :</span> 24-11-2021 at\n"
+"\t\t\t\t\t\t\t9:00"
+msgstr ""
+"<span class=\"gray-color mr-2\" id=\"time_payment_resume_modal\">Le :</span> 24-11-2021 at\n"
+"\t\t\t\t\t\t\t9:00"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+msgid ""
+"<span class=\"gray-color oe_pickup_zone_data\">From :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress\"/> Maison"
+msgstr ""
+"<span class=\"gray-color oe_pickup_zone_data\">De :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress\"/> Maison"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid ""
+"<span class=\"gray-color oe_pickup_zone_data\">From :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_appointment\"/> Maison"
+msgstr ""
+"<span class=\"gray-color oe_pickup_zone_data\">De :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_appointment\"/> Maison"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+msgid ""
+"<span class=\"gray-color oe_pickup_zone_data\">From :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_destination\"/> Maison"
+msgstr ""
+"<span class=\"gray-color oe_pickup_zone_data\">De :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_destination\"/> Maison"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+msgid ""
+"<span class=\"gray-color oe_pickup_zone_data\">From :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_payment\"/> Maison"
+msgstr ""
+"<span class=\"gray-color oe_pickup_zone_data\">De :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_payment\"/> Maison"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid ""
+"<span class=\"gray-color oe_pickup_zone_data\">From :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_vehicle\"/> Maison"
+msgstr ""
+"<span class=\"gray-color oe_pickup_zone_data\">De :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_vehicle\"/> Maison"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid ""
+"<span class=\"gray-color oe_pickup_zone_data\">From :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_vehicle_resume\"/> Maison"
+msgstr ""
+"<span class=\"gray-color oe_pickup_zone_data\">De :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"recuperation_adress_vehicle_resume\"/> Maison"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "<span class=\"gray-color\" id=\"choise_vehicle\">in :</span> voiture(3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle\">En :</span>\n"
+"\t\t\t\t\tvoiture(3 places)"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+msgid ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment\">in :</span> "
+"voiture(3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment\">En :</span> "
+"voiture(3 places)"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment_resume\">in :</span> "
+"voiture(3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle_payment_resume\">En :</span>\n"
+"\t\t\t\t\tvoiture(3 places)"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid ""
+"<span class=\"gray-color\" id=\"choise_vehicle_resume\">in :</span> "
+"voiture(3 places)"
+msgstr ""
+"<span class=\"gray-color\" id=\"choise_vehicle_resume\">En :</span> "
+"voiture(3 places)"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid ""
+"<span class=\"gray-color\" id=\"time_appointment\">on :</span> 24-11-2021 at"
+" 9:00"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_appointment\">Le :</span> 24-11-2021 at"
+" 9:00"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+msgid "<span class=\"gray-color\" id=\"time_payment\">on :</span> 24-11-2021 at 9:00"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_payment\">Le :</span>\n"
+"\t\t\t\t\t24-11-2021 at 9:00"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid ""
+"<span class=\"gray-color\" id=\"time_payment_resume\">on :</span> 24-11-2021"
+" at 9:00"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_payment_resume\">Le :</span> 24-11-2021"
+" at 9:00"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "<span class=\"gray-color\" id=\"time_vehicle\">on :</span> 24-11-2021 at 9:00"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_vehicle\">Le :</span>\n"
+"\t\t\t\t\t24-11-2021 at 9:00"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid ""
+"<span class=\"gray-color\" id=\"time_vehicle_resume\">on :</span> 24-11-2021"
+" at 9:00"
+msgstr ""
+"<span class=\"gray-color\" id=\"time_vehicle_resume\">Le :</span> 24-11-2021"
+" at 9:00"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid "<span class=\"gray-color\" style=\"width:28px;\">To :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:28px;\">à :</span>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid "<span class=\"gray-color\" style=\"width:40px;\">From :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">De :</span>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+msgid ""
+"<span class=\"gray-color\">To :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress\"/> Bureau"
+msgstr ""
+"<span class=\"gray-color\">à :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress\"/>Bureau"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid ""
+"<span class=\"gray-color\">To :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_appointment\"/> Bureau"
+msgstr ""
+"<span class=\"gray-color\">à :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_appointment\"/>Bureau"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+msgid ""
+"<span class=\"gray-color\">To :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_payment\"/> Bureau"
+msgstr ""
+"<span class=\"gray-color\">à :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_payment\"/>Bureau"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid ""
+"<span class=\"gray-color\">To :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_vehicule\"/> Bureau"
+msgstr ""
+"<span class=\"gray-color\">à :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_vehicule\"/>Bureau"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid ""
+"<span class=\"gray-color\">To :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_vehicule_resume\"/> Bureau"
+msgstr ""
+"<span class=\"gray-color\">à :</span>\n"
+"\t\t\t\t\t<i class=\"picto picto-address-black mr-2\" id=\"destination_adress_vehicule_resume\"/>Bureau"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid ""
+"<strong class=\"font-weight-bold\">Delivery instructions and telephone\n"
+"\t\t\t\t\t\t\t\t\t\tnumber:</strong> * Indicate a landmark to help the delivery person (e.g. stop,\n"
+"\t\t\t\t\t\t\t\t\tbuilding, meeting point, etc.)"
+msgstr ""
+"<strong class=\"font-weight-bold\">Instructions de livraison et téléphone\n"
+"\t\t\t\t\t\t\t\t\t\tnuméro :</strong> * Indiquer un repère pour aider le livreur (ex : s'arrêter,\n"
+"\t\t\t\t\t\t\t\t\tbâtiment, point de rendez-vous, etc.)"
+
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Ajouter"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.text_img
+msgid ""
+"Amet sem urna, proin ullamcorper viverra vitae tempus vitae. Aliquam tincidunt volutpat turpis amet,\n"
+"                ullamcorper."
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__details_callback
+msgid "Appel aux services google Place"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__attachment_maps
+msgid "Attachment Maps"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.text_img
+msgid "Augue nulla morbi tortor, magna ut curabitur lectus nulla"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.index
+msgid ""
+"Besoin d’une location <br/> longue durée ? (5H /\n"
+"\t\t\t\t\t\t10H)"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "CGV"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.call_us
+msgid "Call us"
+msgstr "Appelez-nous"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid "Carte bancaire"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+msgid ""
+"Cash\n"
+"\t\t\t\t\t\t\tPayement"
+msgstr ""
+"Cash\n"
+"\t\t\t\t\t\t\tPaiement"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+msgid ""
+"Cash\n"
+"\t\t\t\t\tPayement"
+msgstr ""
+"Cash\n"
+"\t\t\t\t\tPaiement"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid "Cash Ariary"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid "Change"
+msgstr "MODIFIER"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid "Choose your vehicle"
+msgstr "Choisissez votre véhicule"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid "Close"
+msgstr "Fermer"
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: evtc_front
+#: code:addons/evtc_front/services/evtc_service.py:0
+#, python-format
+msgid "Could not connect to redis server"
+msgstr "Erreur de connexion sur le serveur REDIS"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Couriel"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Couriel *:"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "Course simple"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.actions.act_window,help:evtc_front.google_log_session_act_window
+msgid "Create all menu"
+msgstr "Création de tous les menus"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__create_uid
+msgid "Created by"
+msgstr "Créer par"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__create_date
+msgid "Created on"
+msgstr "Créer le"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__record_crm_validation
+msgid "Crm et addresse valider"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "De 6h à 9h et de 16h à 18h"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__destination_with_validation
+msgid "Destination avec Validation"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__display_name
+msgid "Display Name"
+msgstr "Afficher nom"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.img_text
+msgid "Disponible <strong class=\"font-weight-bold\">24h sur 24</strong>"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "Durée du trajet :"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "Délai d’attente :"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_home_banner
+msgid "E-vtc by esanandro"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.evtc_snippet_options
+msgid "EVTC FOOTER"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.evtc_snippet_options
+msgid "EVTC HEADER"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_all_snippets_to_bar
+msgid "EVTC Snippets"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "En journée"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid "Enter your location"
+msgstr "Entrer votre localisation"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+msgid "Entrer une adresse"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Esanandro"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Fermer"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "Forfait 10 heures"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "Forfait 5 heures"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.call_us
+msgid "Friday to Sunday : 24/24"
+msgstr "Vendredi au Dimanche : 24/24"
+
+#. module: evtc_front
+#. openerp-web
+#: code:addons/evtc_front/static/src/js/EvtcMixins/web_evtc_mixins.js:0
+#, python-format
+msgid "From : "
+msgstr "De: "
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_config_settings__google_maps_api_key
+msgid "Google Maps API Key"
+msgstr "Clé d'API Google Maps"
+
+#. module: evtc_front
+#: model:ir.ui.menu,name:evtc_front.google_log_session_menu
+msgid "Google Place Details"
+msgstr "Détails du Google Place"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.google_log_session_view_line_graph
+#: model_terms:ir.ui.view,arch_db:evtc_front.log_session_google_pivot
+msgid "Google Place Session"
+msgstr "Session du Google Place"
+
+#. module: evtc_front
+#: model:ir.actions.act_window,name:evtc_front.google_log_session_act_window
+msgid "Google places Details"
+msgstr "Details du Google Place"
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_ir_http
+msgid "HTTP Routing for ApiKey"
+msgstr "Routage HTTP pour ApiKey"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__id
+msgid "ID"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "Identifier :"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_partner__is_favorites
+#: model:ir.model.fields,field_description:evtc_front.field_res_users__is_favorites
+msgid "Is Favorites"
+msgstr "Est-ce que les favoris"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_partner__is_historical
+#: model:ir.model.fields,field_description:evtc_front.field_res_users__is_historical
+msgid "Is Historical"
+msgstr "Est une historique"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__record_time
+msgid "Jour"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+msgid "La course est pour"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "La course est pour vous ?"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.call_us
+msgid "Launch call"
+msgstr "Lancer l'appel"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.index
+msgid "Let's go <i class=\"picto picto-arrow-left-primary\"/>"
+msgstr "Allons-y <i class=\"picto picto-arrow-left-primary\"/>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+msgid "Lieu de récupération *"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Livraison"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.index
+msgid "Loading…"
+msgstr "Chargement..."
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "Location de voiture"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_partner__longitude
+#: model:ir.model.fields,field_description:evtc_front.field_res_users__longitude
+msgid "Longitude Adress"
+msgstr "Adresse de longitude"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.img_text
+msgid "Lorem ipsum"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.img_text
+msgid ""
+"Lorem ipsum <strong class=\"font-weight-bold\">dolor sit amet</strong> ? Consectetur adipiscing\n"
+"                    elit."
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.text_img
+msgid ""
+"Lorem ipsum <strong class=\"font-weight-bold\">dolor sit amet</strong> ? Consectetur adipiscing\n"
+"                elit."
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_home_banner
+msgid "Lorem ipsum dolor sit amet, consec tetur adipiscing elit."
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n"
+"          Libero, in duis eu nec vitae velit ipsum nisi, at."
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.text_img
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut amet, quis adipiscing. Sit quam\n"
+"                odio\n"
+"                mattis in."
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_header_evtc
+msgid "Magasin"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+msgid ""
+"Maintenant (+ 30min à\n"
+"\t\t\t\t\t\t\tprésent)"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__maps_image
+msgid "Maps Image"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__myaccount_with_validation
+msgid "Mes addresse avec Validation"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__myaccount_without_validation
+msgid "Mes addresse sans Validation"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Mes commandes"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Mes favoris"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+msgid "Mobile money"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__model_category_id
+msgid "Model Category"
+msgstr "Category de modèle"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Mon compte"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.call_us
+msgid "Monday to Thursday : 6 a.m. to 12 a.m."
+msgstr "Lundi au Jeudi: 6h à 00H"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "NO"
+msgstr "NON"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid "Name address"
+msgstr "Nom de l'adresse"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Name and first name :"
+msgstr "Nom et prénom: "
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Nom du contact"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_home_banner
+msgid "Nos tarifs"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Nouveau Contact"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Numéro de téléphone :"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Numéro du contact *:"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_partner__origin_partner_id
+#: model:ir.model.fields,field_description:evtc_front.field_res_users__origin_partner_id
+msgid "Origin Partner"
+msgstr "Partenaire origin"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+msgid "Où allez-vous ? *"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Paiement"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_partner__partner_child_ids
+#: model:ir.model.fields,field_description:evtc_front.field_res_users__partner_child_ids
+msgid "Partner Child"
+msgstr "Partenaire Fils"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "Payement methode"
+msgstr "Méthode de paiement"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__payment_method_note
+msgid "Payment Method Note"
+msgstr "Note de paiement"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid "Payment methode"
+msgstr "Méthode de paiement"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "Pays *:"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__phone_in_moment
+msgid "Phone In Moment"
+msgstr "Téléphone pour le moment"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "Phone number"
+msgstr "Numéro téléphone"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__pick_up_zone
+msgid "Pick Up Zone"
+msgstr "Zone de récupération"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_template
+msgid "Places"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+msgid "Planifier"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Politique de confidentialité"
+msgstr "Politique de confidentialité"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "Possibilité de choisir plusieurs destinations"
+msgstr "Possibilité de choisir plusieurs destinations"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__estimated_price
+msgid "Price For Estimated Kilometer"
+msgstr "Prix pour le kilomètre estimé"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__recuperation_with_validation
+msgid "Recuperation avec Validation"
+msgstr "Recuperation avec Validation"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__recuperation_without_validation
+msgid "Recuperation sans Validation"
+msgstr "Recuperation sans Validation"
+
+#. module: evtc_front
+#: code:addons/evtc_front/services/redis_service.py:0
+#, python-format
+msgid "Redis object is not initialized"
+msgstr "L'Objet Redis n'est pas initialiser"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__reference_code
+msgid "Reference Code"
+msgstr "Code référence"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_header_evtc
+msgid "Restaurants"
+msgstr "Restaurants"
+
+#. module: evtc_front
+#: model:res.groups,name:evtc_front.reservation_for_others
+msgid "Resérvation pour autruis"
+msgstr "Resérvation pour autruis"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Réseaux sociaux"
+msgstr "Réseaux sociaux"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_home_banner
+#: model_terms:ir.ui.view,arch_db:evtc_front.vtc_pricing
+msgid "Réserver une voiture"
+msgstr "Réserver une voiture"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.modal_save_address_template
+msgid "Save address"
+msgstr "Enregistrer l'adresse"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Se connecter"
+msgstr "Se connecter"
+
+#. module: evtc_front
+#. openerp-web
+#: code:addons/evtc_front/static/src/xml/google_maps_widget.xml:0
+#, python-format
+msgid "Search Box"
+msgstr "Barre de recherche"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+msgid "Select date"
+msgstr "sélectionner une date"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.img_text
+msgid "Service <strong class=\"font-weight-bold\">7 jours sur 7</strong>"
+msgstr "Service <strong class=\"font-weight-bold\">7 jours sur 7</strong>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "Service client"
+msgstr "Service client"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.google_log_session_view_form
+msgid "Session"
+msgstr "Session"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "S’inscrire"
+msgstr "S’inscrire"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid "Terminer <i class=\"picto picto-arrow-right ml-3\"/>"
+msgstr "Terminer <i class=\"picto picto-arrow-right ml-3\"/>"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "Total :"
+msgstr "Total :"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.vehicle_resume_template
+msgid "Trajet :"
+msgstr "Trajet :"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__partner_id
+msgid "Utilisateurs"
+msgstr "Utilisateurs"
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_crm_lead__vehicle_note
+msgid "Vehicle Note"
+msgstr "Note véhicule"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.confirmation_modal_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.final_resume_template
+msgid "Votre demande a été reçue"
+msgstr "Votre demande a été reçue"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.appointment_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+msgid "When ?"
+msgstr "Quand ?"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+msgid "Where do you go ?"
+msgstr "Où allez vous?"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.add_more_information_for_resPartner_front
+msgid "YES"
+msgstr "OUI"
+
+#. module: evtc_front
+#: code:addons/evtc_front/controllers/group_admin.py:0
+#, python-format
+msgid "You don't have any permission to create other partner"
+msgstr "Vous n'avez aucune autorisation pour créer un autre partenaire"
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_res_partner
+msgid "add contraint for field phone and mobile"
+msgstr "ajouter une contrainte pour le téléphone de terrain et le mobile"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+msgid ""
+"adresse\n"
+"\t\t\t\t\t\t\tenregistrée :"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.destination_address_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.recovery_address_template
+msgid ""
+"adresse\n"
+"\t\t\t\t\t\t\tutilisée récemment :"
+msgstr ""
+"adresses\n"
+"\t\t\t\t\t\t\trécemment utilisées :"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.call_us
+msgid "close"
+msgstr "Fermer"
+
+#. module: evtc_front
+#: code:addons/evtc_front/controllers/group_admin.py:0
+#, python-format
+msgid "contact already exists"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_google_log_session__destination_without_validation
+msgid "destination sans Validation"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model.fields,field_description:evtc_front.field_res_partner__latitude
+#: model:ir.model.fields,field_description:evtc_front.field_res_users__latitude
+msgid "latitude Adress"
+msgstr "adresse de latitude"
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_google_log_session
+msgid "log session google map"
+msgstr ""
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.payment_resume_template
+#: model_terms:ir.ui.view,arch_db:evtc_front.website_many_tags
+msgid "numéro du contact"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_res_currency
+msgid "return object currency"
+msgstr ""
+
+#. module: evtc_front
+#: model:ir.model,name:evtc_front.model_crm_lead
+msgid "send mail after crm created"
+msgstr "envoyer un mail après la création du crm"
+
+#. module: evtc_front
+#: model_terms:ir.ui.view,arch_db:evtc_front.template_footer_evtc
+msgid "support.esanandro@esanandro.com"
+msgstr ""

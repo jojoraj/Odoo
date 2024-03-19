@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="vtc_area_destination.modify_delivery_address">
+    <li t-attf-class="destination-list-item edit-mode p-2 oe-new-address-review modify-list-#{setXml._CurrentObject.id}">
+      <div class="d-flex">
+        <div class="address flex-grow-1">
+          <t t-esc="setXml._CurrentObject.name"/>
+        </div>
+      </div>
+      <div class="form-group position-relative my-3">
+        <input id="address_destination" placeholder="Entrer une adresse"
+               t-attf-value="#{setXml._CurrentObject.name}"
+               required="True" type="text" class="form-control iconed-field oe_remove_map_content"
+               aria-describedby="favori_dest"/>
+        <ul class="list-group mb-3 next-content-suggestion" style="z-index: 999; background: white;"
+            id="autocomplete-x1dCV"/>
+        <input t-attf-id="latitude_address_destination-#{setXml._CurrentObject.id}"
+               t-attf-value="#{setXml._CurrentObject.position.lat}"
+               type="hidden"/>
+        <input t-attf-id="longitude_address_destination-#{setXml._CurrentObject.id}"
+               t-attf-value="#{setXml._CurrentObject.position.lng}"
+               type="hidden"/>
+        <input t-attf-id="destination_address_destination-#{setXml._CurrentObject.id}" type="hidden"/>
+      </div>
+      <div class="waiting-time">
+        <div class="flex-grow-1 label-left text-left">
+          <div>Quel est le temps d’attente ?</div>
+          <span>
+            <div>
+              <i class="picto picto-label"/>
+              <span class="edit-mod price-mod">
+                <t t-if="setXml._CurrentObject.details">
+                  <t t-esc="setXml._CurrentObject.details.price"/>
+                </t>
+              </span>
+              <span class="pr-1 pl-1"> Ar </span>
+            </div>
+          </span>
+        </div>
+        <div class="form-group evtc-custom-select ">
+          <select id="waiting_time" class="form-control iconed-field">
+            <t t-foreach="setXml.objects" t-as="object">
+              <option t-attf-value="#{object.id},#{object.price}" class="on-waiting"
+                      t-attf-selected="#{object.id === setXml.Price.id ? 'selected': ''}">
+                <t t-esc="object.name"/>
+              </option>
+            </t>
+          </select>
+        </div>
+      </div>
+      <div t-attf-class="destination-list-btn att-mod att-edit-#{setXml._CurrentObject.id}"
+           t-attf-id="opt-destination-#{setXml._CurrentObject.id}">
+          <a class="btn text-white text-uppercase to-delete">
+            <i class="picto picto-delete"/>Supprimer
+          </a>
+        <a class="btn text-white text-uppercase to-modify">
+            <i class="picto picto-check-white"/>Enregister
+          </a>
+      </div>
+    </li>
+  </t>
+</templates>

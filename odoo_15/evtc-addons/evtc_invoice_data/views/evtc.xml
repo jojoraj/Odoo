@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="evtc_information" model="ir.ui.view">
+    <field name="name">evtc.information.page.form</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_move_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="before">
+        <field name="is_compute_data" invisible="1" />
+      </xpath>
+      <xpath expr="//page[@name='other_info']" position="after">
+        <page id="evtc_information" name="evtc_information" string="Informations sur commande VTC">
+          <group name="other_evtc_information">
+            <group name="invoice_evtc_information">
+              <field name="pickup_datetime" />
+              <field name="role_id" />
+              <field name="pickup_zone" />
+              <field name="destination_zone" />
+              <field name="duration" />
+              <field name="destination_datetime" />
+              <field name="position_start" />
+            </group>
+            <group name="course_information">
+              <field name="order_start_date" />
+              <field name="odometre_start" />
+              <field name="position_start" invisible="1" />
+              <field name="real_duration" />
+              <field name="odometer_stop" />
+              <field name="real_distance" />
+              <field name="position_stop" />
+              <field name="real_cost" />
+            </group>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

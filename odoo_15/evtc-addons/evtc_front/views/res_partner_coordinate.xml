@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="res_partner_coordinate_fields" model="ir.ui.view">
+    <field name="name">Res partner add coordinate</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form" />
+    <field name="priority" eval="8" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='category_id']" position="after">
+        <field name="latitude" />
+        <field name="longitude" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

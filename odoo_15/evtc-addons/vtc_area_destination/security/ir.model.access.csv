@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_area_time_wait,area.time.wait,model_area_time_wait,"",1,1,1,1
+access_area_time_wait_price,area.time.wait.price,model_area_time_wait_price,"",1,1,1,1

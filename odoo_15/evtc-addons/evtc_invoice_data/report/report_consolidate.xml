@@ -1,0 +1,191 @@
+<odoo>
+	<report
+			id="report_consolidate_account"
+			model="account.move"
+			string="Consolidate accounts"
+			name="evtc_invoice_data.report_consolidate_account_view"
+			report_type="qweb-pdf"/>
+
+	<template id="evtc_invoice_data.report_consolidate_account_view">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<t t-set="currency_id" t-value="request.env.company.currency_id"/>
+				<t t-set="move" t-value="request.env['account.move']"></t>
+				<t t-set="move_ids" t-value="move.browse(doc_ids).exists()"/>
+				<t t-set="account_data_list" t-value="move_ids.action_consolidate_invoice()"/>
+				<t t-set="move_id" t-value="account_data_list.get('account_move', False)" />
+				<t t-if="move_id">
+					<t t-set="address">
+						<address t-field="move_id.partner_id"
+						         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+					</t>
+				</t>
+				<div class="page">
+					<div>
+						<div class="text-left" style="font-size:13px !important;">
+							<h5 class="w-100 text-center" style="font-size:13px !important;">
+								Recap Invoice
+								<t t-esc="move_id.partner_id.name"/>
+							</h5>
+						</div>
+						<table class="table table-bordered" style="font-size:13px !important;">
+							<thead>
+								<tr>
+									<th scope="col">Number</th>
+									<th scope="col">partner in invoice</th>
+									<th scope="col">invoice date</th>
+									<!-- <th scope="col">invoice due date</th> -->
+									<th scope="col">Distance (Km)</th>
+									<th scope="col">Signed tax amount</th>
+									<th scope="col">Total signed</th>
+									<th scope="col">Amount due</th>
+									<th scope="col">Payment state</th>
+									<!-- <th scope="col">State</th>
+									<th scope="col">Origin</th>
+									<th scope="col">pickup area</th>
+									<th scope="col">Destination area</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<t t-foreach="account_data_list.get('details')" t-as="detail">
+									<tr>
+										<td>
+											<t t-esc="detail.get('ref_invoice')"/>
+										</td>
+										<td>
+											<t t-esc="detail.get('partner_invoice')"/>
+										</td>
+										<td>
+											<t t-esc="detail.get('invoice_date')"/>
+										</td>
+										<!-- <td>
+											<t t-esc="detail.get('invoice_e_date')"/>
+										</td> -->
+										<td>
+											<t t-esc="detail.get('quantity')"/>
+										</td>
+										<td>
+											<t t-esc="detail.get('amount_untaxed_signed')"
+											   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+										</td>
+										<td>
+											<t t-esc="detail.get('amount_total')"
+											   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+										</td>
+										<td>
+											<t t-esc="detail.get('amount_residual')"
+											   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+										</td>
+										<td>
+											<t t-esc="detail.get('payment_state')"/>
+										</td>
+										<!-- <td>
+											<t t-esc="detail.get('state')"/>
+										</td>
+										<td>
+											<t t-esc="detail.get('vehicle_id')"/>
+										</td>
+										<td>
+											<t t-esc="detail.get('recuperation')"/>
+										</td>
+										<td>
+											<t t-esc="detail.get('remisage')"/>
+										</td> -->
+									</tr>
+								</t>
+							</tbody>
+						</table>
+						<table class="table table-borderless" style="font-size:13px !important;">
+							<thead>
+								<tr>
+									<th scope="col">Total Montant HT</th>
+									<th scope="col">
+										<t t-esc="account_data_list.get('amount_untaxed',0)"
+										   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+									</th>
+								</tr>
+								<tr>
+									<th scope="col">TVA 20%</th>
+									<th scope="col">
+										<t t-esc="account_data_list.get('amount_tax', 0)"
+										   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+									</th>
+								</tr>
+								<tr>
+									<th scope="col">Total Montant</th>
+									<th scope="col">
+										<t t-esc="account_data_list.get('amount_total', 0)"
+										   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+									</th>
+								</tr>
+								<tr>
+									<th scope="col">Total Reste à Payer</th>
+									<th scope="col">
+										<t t-esc="account_data_list.get('amount_residual', 0)"
+										   t-options='{"widget": "monetary", "display_currency": currency_id}'/>
+									</th>
+								</tr>
+							</thead>
+						</table>
+						<div class="ml-2" style="font-size:13px !important;">
+							<strong>
+								Montant arrêté à la somme de :
+								<t t-esc="account_data_list.get('amount_tex', 0)"/>
+							</strong>
+						</div>
+						<div class="mt-3" style="font-size:13px !important;">
+							<p>
+								<span>
+									Paiement par chèque ou virement sur le compte de Esanandro
+								</span>
+							</p>
+						</div>
+						<t t-set="banks" t-value="docs.env.company.partner_id.bank_ids"/>
+						<table style="width:100%; font-size: 13px !important;">
+							<tr>
+								<t t-foreach="banks" t-as="bank">
+									<td>
+										Bank:
+										<t t-if="bank.bank_id.name">
+											<t t-esc="bank.bank_id.name"/>
+										</t>
+									</td>
+								</t>
+							</tr>
+							<tr>
+								<t t-foreach="banks" t-as="bank">
+									<td>
+										Numéro de compte:
+										<t t-if="bank.acc_number">
+											<t t-esc="bank.acc_number"/>
+										</t>
+									</td>
+								</t>
+							</tr>
+							<tr>
+								<t t-foreach="banks" t-as="bank">
+									<td>
+										Swift/BIC:
+										<t t-if="bank.bank_id.bic">
+											<t t-esc="bank.bank_id.bic"/>
+										</t>
+									</td>
+								</t>
+							</tr>
+							<tr>
+								<t t-foreach="banks" t-as="bank">
+									<td>
+										IBAN:
+										<t t-if="bank.iban_code">
+											<t t-esc="bank.iban_code"/>
+										</t>
+									</td>
+								</t>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</t>
+		</t>
+	</template>
+</odoo>

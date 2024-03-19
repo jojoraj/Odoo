@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <template id="geotab_perform_view" name="getab template">
+    <t t-call="website.layout">
+      <div class="pt-2 pb-5 pr-4 pl-2" style="background-color: #11111112;">
+        <div class="wrapper">
+          <div class="left-navigation border">
+            <div class="sidenav">
+              <a class="dropdown-item" id="new-reservation" href="#">Résérvation</a>
+              <a class="dropdown-item" id="own-reservation" href="#">Mes résérvations</a>
+            </div>
+          </div>
+          <div class="reservation-form border">
+            <div class="flexed">
+              <div class="resvn-wd" style="width:40%;">
+                <div class="first-reservation p-4 att-vehicle-remove ">
+                  <div>
+                    <h3 class="bold" style="font-size: 1.8rem !important;">Détails de la résérvation</h3>
+                  </div>
+                  <div class="mt-3 mb-3">
+                    <label for='phone'>Entrer votre numéro de téléphone *</label>
+                    <div class="BmvRc flexed justify-content-start bg-grey align-items-center border-grey w-100 border-top-none border-left-none border-right-none">
+                      <div class="phone-code w-20 text-center"> + 261 </div>
+                      <input type="text" id="phone" name="phone" class="pt-2 pb-2 border-0 w-100" />
+                    </div>
+                  </div>
+                  <div class="form-group mt-3 mb-4">
+                    <label for='hours_reserved' class="mb-2">Date et Heure de récupération  *</label>
+                    <div class="input-group datetime border-grey border-left-none border-right-none border-top-none" id="delivery_date" data-target-input="nearest">
+                      <input type="text" id="delivery_date" class="w-100 pt-2 pb-2 border-0 bg-grey datetimepicker-input" data-target="#delivery_date" name="my_datetimepicker" />
+                      <div class="input-group-append" data-target="#delivery_date" data-toggle="datetimepicker">
+                        <div class="input-group-text" style="border-radius: 0 !important;">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flexed align-items-center justify-content-between mt-3 mb-2">
+                    <div class="w-50 mr-1 autocomplete">
+                      <label for='pickup_point' class="mb-2">Lieu de récupération * </label>
+                      <input type="text" id="pickup_point" class="w-100 bg-grey pt-2 pb-2 border-top-none border-grey  border-left-none border-right-none" name="day_reserved" />
+                    </div>
+                    <div class="w-50 ml-1 autocomplete">
+                      <label for='storage_point' class="mb-2">Lieu de remisage *</label>
+                      <input type="text" id="storage_point" class="w-100 bg-grey pt-2 pb-2 border-top-none border-grey  border-left-none border-right-none" name="hours_reserved" />
+                    </div>
+                  </div>
+                  <div class="mt-4 mb-3">
+                    <div class="">
+                      <label for='phone'>Tarif</label>
+                      <div class="bg-grey align-items-center border-grey w-100 border-top-none border-left-none border-right-none">
+                        <t t-set="vals" t-value="request.env['esanandro_geotab.tariff.plan'].sudo().search([])" />
+                        <select name="vehicle-tarif" id="tarif-action" class="pt-2 pb-2 w-100 border-0">
+                          <t t-foreach="vals" t-as="vehicle">
+                            <option t-att-value="vehicle.id">
+                              <t t-esc="vehicle.name" />
+                              (
+                              <t t-esc="vehicle.product_template_id.list_price" />
+                              / Km)
+                            </option>
+                          </t>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button id="to-vehicle" class="btn btn-primary w-100 border-0 mt-4" style="background-color:#714b67 !important;">
+                    <span class="procces-btn">Suivant</span>
+                    <i class="ml-2 fa fa-arrow-right"></i>
+                  </button>
+                </div>
+                <div class="second-reservation p-4 att-vehicle-show ">
+                  <div>
+                    <h3 class="bold" style="font-size: 1.8rem !important;">Détails de la résérvation</h3>
+                  </div>
+                  <div class="mt-3 mb-3">
+                    <div class="">
+                      <label for='phone'>Choissisez votre véhicule</label>
+                      <div class="bg-grey align-items-center border-grey w-100 border-top-none border-left-none border-right-none">
+                        <!-- <t t-set="vals" t-value="request.env['esanandro_geotab.reservation'].sudo().get_all_vehicle_on_tarif("++")" /> -->
+                        <select name="vehicle" id="vehicle-action" class="pt-2 pb-2 w-100 border-0">
+                          <!-- <option t-att-value="vehicle.id">  <t t-esc="vehicle.name"/> </option> -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label for='not' class="mb-2">Notes</label>
+                    <textarea type="text" class="w-100 h-20 bg-grey font-13 border-grey pt-2 pb-2" name="note" placeholder="Votre note à enregistrer ici" />
+                  </div>
+                  <div class="mt-1 mb-4">
+                    <div class="att-vehicle-show">
+                      <span class="small pl-4" style="color: grey; font-size: 12px">
+                        Le kilomètre tarifé à
+                        <strong id="km-unity"></strong>
+                        Ar
+                      </span>
+                      <br />
+                      <div class="flexed align-tems-center pl-4">
+                        <div class="strip w-50 text-left"> Trajet :</div>
+                        <div class="w-50 text-right bold" id="strip-distance"> 12 km</div>
+                      </div>
+                      <div class="flexed align-tems-center pl-4">
+                        <div class="strip w-50 text-left"> Délai d'attente :</div>
+                        <div class="strip w-50 text-right bold"> 30 min</div>
+                      </div>
+                      <div class="flexed align-tems-center pl-4">
+                        <div class="strip w-50 text-left"> Durée du trajet :</div>
+                        <div class="w-50 text-right bold" id="strip-duration"> 45 min</div>
+                      </div>
+                      <span class="small pl-4" style="color: grey; font-size: 12px"> estimatif </span>
+                      <br />
+                    </div>
+                  </div>
+                  <div class="flexed align-items-center justify-content-between mt-4 pl-4 mb-2">
+                    <div class="strip w-50 text-left"> TOTAL :</div>
+                    <div class="strip w-50 text-right bold"> 3600 Ar</div>
+                  </div>
+                  <button id="to-vehicle" class="btn btn-primary w-100 border-0 mt-4" style="background-color:#714b67 !important;">
+                    <span class="procces-btn">Suivant</span>
+                    <i class="ml-2 fa fa-arrow-right"></i>
+                  </button>
+                  <button id="return-info" class="btn btn-primary w-100 border-0 mt-2 att-vehicle-show" style="background-color:#0a58ca96 !important;">
+                    <i class="mr-2 fa fa-arrow-left"></i>
+                    <span class="return-btn">Retour</span>
+                  </button>
+
+                </div>
+                <div id="own-reservation-block" class="p-2" style="display: none">
+                  <table class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Véhicule</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Lieux de ramasage</th>
+                        <th scope="col">Lieux de remisage</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Mark</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <td>Larry the Bird</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>Thornton</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="map-view bo-size">
+                <div id="carte" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body" id="test">
+                        <div id="map" style="height:400px;"></div>
+                        <div>
+                          <input type="hidden" id="lat" name="latitude" />
+                        </div>
+                        <div>
+                          <input type="hidden" id="lng" name="longitude" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <record id="esanandro_geotab_reservation_page" model="website.page">
+    <field name="name"> Geotab </field>
+    <field name="website_published">True</field>
+    <field name="url">/web/esanandro/geotab/reservation</field>
+    <field name="view_id" ref="esanandro_geotab.reservation_client_frontend_common" />
+  </record>
+</odoo>

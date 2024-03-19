@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+	<record id="sms_template_data_crm_lead_create_notification" model="sms.template">
+		<field name="name">SMS CRM: Create</field>
+		<field name="model_id" ref="crm.model_crm_lead"/>
+		<field name="lang">fr_FR</field>
+		<field name="body">Good morning, Your cours request from {{object.get_formatted_date(object.pick_up_datetime)}} was received.</field>
+	</record>
+	
+	<record id="sms_template_data_crm_lead_validate_notification" model="sms.template">
+		<field name="name">SMS CRM: Validate</field>
+		<field name="model_id" ref="crm.model_crm_lead"/>
+		<field name="lang">fr_FR</field>
+		<field name="body">Good morning,Your driver is on his way. here his number {{object.role_id.vehicle_id.driver_id.phone}}, the with license plate {{object.role_id.vehicle_id.license_plate}}.</field>
+	</record>
+	
+	<record id="sms_crm_lead7_notif" model="sms.template">
+		<field name="name">SMS CRM: notification crm_lead7</field>
+		<field name="model_id" ref="crm.model_crm_lead"/>
+		<field name="lang">fr_FR</field>
+		<field name="body">Good morning,Your cours request from {{object.get_formatted_date(object.pick_up_datetime)}} has been confirmed. We send you a driver as soon as possible.</field>
+	</record>
+	
+	<record id="sms_template_data_crm_lead_refused_notification" model="sms.template">
+		<field name="name">SMS CRM: Refused</field>
+		<field name="model_id" ref="crm.model_crm_lead"/>
+		<field name="lang">fr_FR</field>
+		<field name="body">Good morning,Your cours request to go to {{object.destination_zone}} has been refused.</field>
+	</record>
+</odoo>

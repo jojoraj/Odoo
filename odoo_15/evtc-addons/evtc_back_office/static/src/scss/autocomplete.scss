@@ -1,0 +1,37 @@
+.oe_liPlace {
+  cursor: pointer;
+}
+
+.oe_autocomplete_main {
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  z-index: 1025;
+  padding-bottom: 13px !important;
+}
+
+.list-place {
+  position: relative;
+  display: block;
+  padding: 0.2rem 0.3rem;
+  margin-bottom: 3px;
+  background-color: #fff;
+}
+.list-place:first-child {
+  padding-top: 10px;
+}
+
+.oe_lis_content {
+  margin-top: -5px;
+  border-top: none;
+  padding: 0 10px;
+  background-color: white;
+  width: 26.5em;
+}
+.oe_place_li_st{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.oe_display_none {
+  display: none;
+}

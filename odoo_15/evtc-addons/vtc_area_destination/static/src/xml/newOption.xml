@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <!-- TODO : show when add/edit destination -->
+  <t t-name="vtc_area_destination.set_delivery_address">
+    <li class="destination-list-item edit-mode p-2 oe-new-address-review">
+      <div class="d-flex">
+        <div class="address flex-grow-1">
+          <span> Nouvelle destination </span>
+        </div>
+      </div>
+      <div class="form-group position-relative my-3">
+        <input id="address_destination" placeholder="Entrer une adresse"
+               required="True" type="text" class="form-control iconed-field oe_remove_map_content"
+               aria-describedby="favori_dest"/>
+        <!--      autocomplete-x1dCV with destination latlng -->
+        <ul class="list-group mb-3 next-content-suggestion" style="z-index: 999; background: white;" id="autocomplete-x1dCV"/>
+        <input t-attf-id="latitude_address_destination-#{nextCall}" type="hidden"/>
+        <input t-attf-id="longitude_address_destination-#{nextCall}" type="hidden"/>
+        <input t-attf-id="destination_address_destination-#{nextCall}" type="hidden"/>
+      </div>
+      <div class="waiting-time">
+        <div class="flex-grow-1 label-left text-left">
+          <div>Quel est le temps d’attente ?</div>
+          <span>
+              <div>
+                <i class="picto picto-label"/>
+                <span class="edit-mod price-mod">
+                  <t t-if="Price">
+                    <t t-esc="Price.price"/>
+                  </t>
+                </span>
+                <span class="pr-1 pl-1"> Ar </span>
+              </div>
+          </span>
+        </div>
+        <div class="form-group evtc-custom-select ">
+          <select id="waiting_time" class="form-control iconed-field" style="cursor: pointer">
+            <t t-if="objects">
+              <t t-foreach="objects" t-as="object">
+                <option t-attf-value="#{object.id},#{object.price}" class="on-waiting">
+                  <t t-esc="object.name"/>
+                </option>
+              </t>
+            </t>
+          </select>
+        </div>
+      </div>
+      <div class="destination-list-btn att-mod" t-attf-id="opt-destination-#{nextCall}">
+          <a class="btn text-white text-uppercase new-delete">
+            <i class="picto picto-delete"/>Supprimer
+          </a>
+        <a class="btn text-white text-uppercase to-register">
+            <i class="picto picto-check-white"/>Enregistrer
+          </a>
+      </div>
+    </li>
+  </t>
+</templates>

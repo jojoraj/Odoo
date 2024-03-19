@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="reservation_taxi_step" name="Taxi reservation">
+        <t t-call="website.layout">
+            <div class="container-fluid bg-light evtc-container taxi-bloc" t-att-data-step="step">
+                <div class="row">
+                    <div id="evtc_aside"
+                        t-att-data-id="crm_id"
+                        t-att-class="'sidebar col-sm-5 col-12 order-2 order-sm-1 pb16 pt16 '+ class_step">
+                        <t t-call="evtc_taxi.taxi_step_state_container" />
+                        <h2 class="taxi-heading-2 text-center">
+                            <t t-esc="state_label" />
+                        </h2>
+                        <t t-if="step in (1,2,3,4)" t-call="evtc_taxi.taxi_step_body" />
+                    </div>
+                    <div id="evtc_maps"
+                        class="col-12 col-sm-7 order-1 order-sm-2 map_evtc position-relative">
+                        <t t-if="step in (1,2)">
+                            <img class="detail_course_map"
+                                t-att-src="'/web/image/crm.lead/'+ str(crm_id) +'/maps_image'"
+                                alt="CRM maps image" />
+                        </t>
+                        <t t-elif="step in (3,4)">
+                            <iframe t-att-src="map_url" width="100%" height="100%" />
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

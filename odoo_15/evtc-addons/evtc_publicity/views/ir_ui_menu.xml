@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem id="evtc_pub_menu" name="E-vtc Pub" parent="website.menu_website_configuration"
+    sequence="7" />
+  <menuitem id="evtc_pub_menu_media_video" name="E-vtc Pub" parent="evtc_publicity.evtc_pub_menu"
+    action="action_evtc_pub" sequence="1" />
+  <menuitem id="evtc_button_menu_id" name="Number click" parent="evtc_publicity.evtc_pub_menu"
+    action="action_evtc_button_menu" sequence="1" />
+
+</odoo>

@@ -1,0 +1,338 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_invoice_data
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211219\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-27 07:28+0000\n"
+"PO-Revision-Date: 2023-11-27 07:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid ""
+"<span>\n"
+"\t\t\t\t\t\t\t\t\tPaiement par chèque ou virement sur le compte de Esanandro\n"
+"\t\t\t\t\t\t\t\t</span>"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_invoice_document_inherit_account
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.view_invoice_tree_inherit_vtc
+msgid "Amount Due"
+msgstr "Montant dû"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Amount due"
+msgstr "Montant dû"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Bank:"
+msgstr "Banque:"
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__odometre_start
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__odometre_start
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__odometre_start
+msgid "Begin Odometer"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__position_start
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__position_start
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__position_start
+msgid "Begin coordinate"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__driver_id
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__driver_id
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__driver_id
+msgid "Chauffeur"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model,name:evtc_invoice_data.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: evtc_invoice_data
+#: model:ir.model,name:evtc_invoice_data.model_base_document_layout
+msgid "Company Document Layout"
+msgstr "Mise en page des documents de votre société"
+
+#. module: evtc_invoice_data
+#: model:ir.actions.report,name:evtc_invoice_data.report_consolidate_account
+msgid "Consolidate accounts"
+msgstr "Consolider les comptes"
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__real_cost
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__real_cost
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__real_cost
+msgid "Cost"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__real_duration
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__real_duration
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__real_duration
+msgid "Course duration"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__pickup_datetime
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__pickup_datetime
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__pickup_datetime
+msgid "Date of recovery"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Distance (Km)"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__duration
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__duration
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__duration
+msgid "Duration"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "IBAN:"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "In payment"
+msgstr "En paiement"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.evtc_information
+msgid "Informations sur commande VTC"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "Invoicing app legacy"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__is_compute_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__is_compute_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__is_compute_data
+msgid "Is Compute Data"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model,name:evtc_invoice_data.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.bill_preview_inherit
+msgid "Logo"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_base_document_layout__logo_all
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_res_company__logo_all
+msgid "Logo invoice and sale order"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Montant arrêté à la somme de :"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Number"
+msgstr "Numéro"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Numéro de compte:"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__odometer_stop
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__odometer_stop
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__odometer_stop
+msgid "Odometer end"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "Paid"
+msgstr "Payé"
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "Partial payment"
+msgstr "Partiellement réglé"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Payment state"
+msgstr "État du paiement"
+
+#. module: evtc_invoice_data
+#: model:ir.model,name:evtc_invoice_data.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Recap Invoice"
+msgstr "Récap Facture"
+
+#. module: evtc_invoice_data
+#: model:ir.model,name:evtc_invoice_data.model_sale_order
+msgid "Reservation for geotab"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "Reversed"
+msgstr "Extourné"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Signed tax amount"
+msgstr "Montant Hors-taxe signé"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Swift/BIC:"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "TVA 20%"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Total Montant"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Total Montant HT"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Total Reste à Payer"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "Total signed"
+msgstr "Total signé"
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "Unpaid"
+msgstr "Non payé"
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__destination_zone
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__destination_zone
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__destination_zone
+msgid "destination zone"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__real_distance
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__real_distance
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__real_distance
+msgid "distance"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "draft"
+msgstr "brouillon"
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__position_stop
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__position_stop
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__position_stop
+msgid "end coordinate"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__destination_datetime
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__destination_datetime
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__destination_datetime
+msgid "end data/time"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "invoice date"
+msgstr "Date de facturation"
+
+#. module: evtc_invoice_data
+#: model_terms:ir.ui.view,arch_db:evtc_invoice_data.report_consolidate_account_view
+msgid "partner in invoice"
+msgstr "Nom affiché du partenaire de la facture"
+
+#. module: evtc_invoice_data
+#: code:addons/evtc_invoice_data/models/account_move.py:0
+#: code:addons/odoo-vtc/project/evtc-addons/evtc_invoice_data/models/account_move.py:0
+#, python-format
+msgid "posted"
+msgstr "Comptabilisé"
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__pickup_zone
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__pickup_zone
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__pickup_zone
+msgid "recovery area"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__role_id
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__role_id
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__role_id
+msgid "role"
+msgstr ""
+
+#. module: evtc_invoice_data
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_bank_statement_line__order_start_date
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_move__order_start_date
+#: model:ir.model.fields,field_description:evtc_invoice_data.field_account_payment__order_start_date
+msgid "start date"
+msgstr ""

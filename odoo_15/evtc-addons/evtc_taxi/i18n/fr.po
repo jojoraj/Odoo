@@ -1,0 +1,329 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* evtc_taxi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211117\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-17 09:27+0000\n"
+"PO-Revision-Date: 2023-04-17 09:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: evtc_taxi
+#: model:ir.model,name:evtc_taxi.model_res_partner
+msgid ""
+"\n"
+"        The purpose is that our invoicing is in good order,\n"
+"        that this information appears in exports for tax declarations\n"
+"        in accordance with the regulations in force.\n"
+"    "
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model,name:evtc_taxi.model_fleet_vehicle_model_category
+msgid ""
+"\n"
+"        get working vehicle price with date\n"
+"    "
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid "123TAB"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid ""
+"<i class=\"picto picto-phone mr-3\"/>\n"
+"                        Call the driver"
+msgstr ""
+"<i class=\"picto picto-phone mr-3\"/>\n"
+"                        Appeler le chauffeur"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid "<i class=\"picto picto-phone mr-3\"/> Appeler le chauffeur"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">From :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">De : </span>"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">In :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">En : </span>"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">On :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">le : </span>"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid "<span class=\"gray-color\" style=\"width:40px;\">To :</span>"
+msgstr "<span class=\"gray-color\" style=\"width:40px;\">à : </span>"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.list_course_inherit
+msgid "<span class=\"text_header_list_little\">Type vehicle</span>"
+msgstr "<span class=\"text_header_list_little\">Type de vehicule</span>"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid ""
+"Attente : <br/>\n"
+"                <strong class=\"font-weight-bold\">15 min</strong>"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_partner__authorization_expired_date
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_users__authorization_expired_date
+msgid "Authorization Expired Date"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model,name:evtc_taxi.model_auto_planning_line_wizard
+msgid "Auto Planning Line"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:fleet.vehicle.state,name:evtc_taxi.busy
+msgid "BUSY"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.reservation_taxi_step
+msgid "CRM maps image"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_fleet_vehicle_model_category__team_id
+msgid "Commercial team"
+msgstr "Equipe commercial"
+
+#. module: evtc_taxi
+#: code:addons/evtc_taxi/controllers/main.py:0
+#, python-format
+msgid "Connection with a driver"
+msgstr "Mise en relation avec un chauffeur"
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_partner__driver_cin
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_users__driver_cin
+msgid "Driver Cin"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.res_partner_secrets_fields
+msgid "Driver Info"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_partner__external_diver
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_users__external_diver
+msgid "External Diver"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_crm_lead__siid
+msgid "External ID of Middle Office"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid "Fanirisoa"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_fleet_vehicle_model_category__is_taxi
+msgid "Is Taxi"
+msgstr "Est un taxi"
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_partner__license_expired_date
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_users__license_expired_date
+msgid "License Expired Date"
+msgstr ""
+
+#. module: evtc_taxi
+#: code:addons/evtc_taxi/models/crm_lead.py:0
+#, python-format
+msgid "No Order found for this payment"
+msgstr "Aucune commande trouvée pour ce paiement"
+
+#. module: evtc_taxi
+#: model:crm.stage,name:evtc_taxi.stage_pick_up_client
+msgid "Pick up client"
+msgstr "Récupérer le client"
+
+#. module: evtc_taxi
+#: code:addons/evtc_taxi/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Please set pick up date before continuing"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid "Problem ?"
+msgstr "Problème ?"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid "Problème ?"
+msgstr ""
+
+#. module: evtc_taxi
+#: code:addons/evtc_taxi/controllers/main.py:0
+#, python-format
+msgid "Request being validated"
+msgstr "Demande en cours de validation"
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_partner__secret_key
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_users__secret_key
+msgid "Secret Key"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.list_course_inherit
+msgid "See taxi progress"
+msgstr "Voir la progression du taxi"
+
+#. module: evtc_taxi
+#: model:ir.model,name:evtc_taxi.model_auto_planning_wizard
+msgid "Sending notification while reservation will be affected"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_partner__state_vehicle_id
+#: model:ir.model.fields,field_description:evtc_taxi.field_res_users__state_vehicle_id
+msgid "State Vehicle"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_fleet_vehicle__tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_crm_lead__tag_vehicle_id
+msgid "Tag Vehicle"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_fleet_vehicle__tag_ids
+msgid "Tags"
+msgstr "Étiquettes"
+
+#. module: evtc_taxi
+#: code:addons/evtc_taxi/models/crm_lead.py:0
+#, python-format
+msgid "The race is refused"
+msgstr "La course est refusée"
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_crm_lead__tracking_id_map
+msgid "Tracking ID"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model.fields,field_description:evtc_taxi.field_auto_planning_line_wizard__tag_id
+msgid "Type vehicle"
+msgstr "Type de véhicule"
+
+#. module: evtc_taxi
+#: model:fleet.vehicle.state,name:evtc_taxi.blocked
+msgid "UNFIT"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:fleet.vehicle.state,name:evtc_taxi.fleet_vehicle_state_unvailable
+msgid "UNVAILABLE"
+msgstr "INDISPONIBLE"
+
+#. module: evtc_taxi
+#. openerp-web
+#: code:addons/evtc_taxi/static/src/xml/update_vehicle_state_fleet_vehicle.xml:0
+#, python-format
+msgid "Update vehicle state"
+msgstr "Mettre à jour l'état du véhicule"
+
+#. module: evtc_taxi
+#: model:ir.model,name:evtc_taxi.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid "Votre chauffeur est en route"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid ""
+"Waiting :\n"
+"                        <br/>\n"
+"                        <strong class=\"font-weight-bold\">15 min</strong>"
+msgstr ""
+"Attente :\n"
+"                        <br/>\n"
+"                        <strong class=\"font-weight-bold\">15 min</strong>"
+
+#. module: evtc_taxi
+#: code:addons/evtc_taxi/controllers/main.py:0
+#, python-format
+msgid "Your driver is on his way"
+msgstr "Votre chauffeur est en route"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid "at"
+msgstr "à"
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+msgid ""
+"facere magnam quis\n"
+"                    similique sunt. Ab facere incidunt nam placeat porro reiciendis? Consectetur eum\n"
+"                    laboriosam, laborum\n"
+"                    perspiciatis porro totam?"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid ""
+"facere magnam quis\n"
+"              similique sunt. Ab facere incidunt nam placeat porro reiciendis? Consectetur eum\n"
+"              laboriosam, laborum\n"
+"              perspiciatis porro totam?"
+msgstr ""
+
+#. module: evtc_taxi
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_body
+#: model_terms:ir.ui.view,arch_db:evtc_taxi.taxi_step_template_three_itg
+msgid "profile image"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:ir.model,name:evtc_taxi.model_crm_lead
+msgid "send mail after crm created"
+msgstr "envoyer un mail après la création du crm"
+
+#. module: evtc_taxi
+#: model:fleet.vehicle.tag,name:evtc_taxi.taxi_vehicle
+msgid "taxi vehicle"
+msgstr ""
+
+#. module: evtc_taxi
+#: model:fleet.vehicle.tag,name:evtc_taxi.vtc_vehicle
+msgid "vtc vehicle"
+msgstr ""

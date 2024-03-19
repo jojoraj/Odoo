@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="invoice_report_amount_in_words_inherit" inherit_id="account.report_invoice_document">
+    <xpath expr="//div[@class='clearfix']" position="after">
+      <div>
+        <p>
+          <span>
+             Paiement par chèque ou virement sur le compte de Esanandro
+          </span>
+        </p>
+      </div>
+
+      <div>
+        <t t-set="banks" t-value="o.company_id.partner_id.bank_ids"/>
+        <table style="width:100%; font-size:10px !important;">
+          <tr>
+            <t t-foreach="banks" t-as="bank">
+              <td>Bank:
+                <t t-if="bank.bank_id.name">
+                  <t t-esc="bank.bank_id.name"/>
+                </t>
+              </td>
+            </t>
+          </tr>
+          <tr>
+            <t t-foreach="banks" t-as="bank">
+              <td>Account number:
+                <t t-if="bank.acc_number">
+                  <t t-esc="bank.acc_number"/>
+                </t>
+              </td>
+            </t>
+          </tr>
+          <tr>
+            <t t-foreach="banks" t-as="bank">
+              <td>Swift/BIC:
+                <t t-if="bank.bank_id.bic">
+                  <t t-esc="bank.bank_id.bic"/>
+                </t>
+              </td>
+            </t>
+          </tr>
+          <tr>
+            <t t-foreach="banks" t-as="bank">
+              <td>IBAN:
+                <t t-if="bank.iban_code">
+                  <t t-esc="bank.iban_code"/>
+                </t>
+              </td>
+            </t>
+          </tr>
+        </table>
+      </div>
+
+      <div style="padding-top:20px; padding-bottom:20px;">
+        <p>
+          <span>
+            Arrest this invoice in the amount of :
+          </span>
+          <strong>
+            <span class='font-italic' t-esc="o.currency_id.amount_to_text(o.amount_total)"/>
+          </strong>
+        </p>
+      </div>
+      <div>
+        <table style="width:100%;">
+          <tr>
+            <th style="color: black !important;">
+              <t t-if="o.company_id.responsible">
+                <span style="color: black !important;" t-esc="o.company_id.responsible"/>
+              </t>
+            </th>
+            <th style="color: black !important;">Customer</th>
+          </tr>
+          <tr>
+            <td style="height: 100px !important;"/>
+          </tr>
+        </table>
+        <br/>
+      </div>
+    </xpath>
+    <xpath expr="//div[@name='comment']/span" position="replace">
+    </xpath>
+  </template>
+</odoo>

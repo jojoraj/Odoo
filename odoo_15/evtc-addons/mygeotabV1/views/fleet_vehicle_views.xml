@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="fleet_vehicle_view_form_inherit_geotab" model="ir.ui.view">-->
+<!--        <field name="name">fleet.vehicle.form.inherit.geotab</field>-->
+<!--        <field name="model">fleet.vehicle</field>-->
+<!--        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//notebook" position="inside">-->
+<!--                <page string="Mygeotab">-->
+<!--                    <group>-->
+<!--                        <group string="Device">-->
+<!--                            <field name="geotab_name"/>-->
+<!--                            <field name="deviceid"/>-->
+<!--                            <field name="marker_color" widget="color_picker"/>-->
+<!--                        </group>-->
+<!--                        <group string="Coordinate">-->
+<!--                            <field name="latitude"/>-->
+<!--                            <field name="longitude"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </page>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- Adding map view to fleeet -->
+    <record id="fleet_vehicle_map_view" model="ir.ui.view">
+        <field name="name">fleet.vehicle.view.map</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="priority">12</field>
+        <field name="arch" type="xml">
+            <map res_partner="driver_id">
+                <field name="model_id" string="Vehicle"/>
+                <field name="device_id" string="Id"/>
+                <field name="marker_color" string="Color"/>
+            </map>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_map_action_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="90"/>
+        <field name="view_mode">map</field>
+        <field name="act_window_id" ref="fleet.fleet_vehicle_action"/>
+        <field name="view_id" ref="fleet_vehicle_map_view"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="planning_route_view_form" model="ir.ui.view">
+    <field name="name">planning_route_view_form</field>
+    <field name="model">planning.route</field>
+    <field name="arch" type="xml">
+      <form string="planning_route_form">
+        <sheet>
+          <group>
+            <field name="active" />
+            <field name="name" />
+            <field name="begin_daily_course" widget="float_time" />
+            <field name="end_daily_course" widget="float_time" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="planning_route_view_tree" model="ir.ui.view">
+    <field name="name">planning_route_view_tree</field>
+    <field name="model">planning.route</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="active" />
+        <field name="name" />
+        <field name="begin_daily_course" widget="float_time" />
+        <field name="end_daily_course" widget="float_time" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="planning_route_action" model="ir.actions.act_window">
+    <field name="name">planning Time</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">planning.route</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="new_menu_root_action_planning" name="planification du temps des parcours"
+    parent="fleet.fleet_configuration" action="planning_route_action" sequence="13" />
+</odoo>

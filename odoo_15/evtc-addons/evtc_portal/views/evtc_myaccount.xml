@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<template id="my_account_template" name="evtc my account">
+		<t t-call="website.layout">
+			<div id="wrap" class="oe_structure oe_empty">
+				<div class="dashboard_first_part">
+					<div class="container">
+						<h1 class="dashboard_resume_title">Welcome to your dashboard !</h1>
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="dashboard_statline">
+									<div class="media align-items-center">
+										<img class="dashboard_statline_img" src="/evtc_portal/static/src/img/time_clock_big.svg"
+										     alt="Generic placeholder image"/>
+										<div class="media-body">
+											<h5 class="mt-0 dashboard_statline_line" t-esc="reservation_km_formatted"/>
+											<p class="mb-0 dashboard_statline_text" t-esc="signup_month"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+								<div class="dashboard_statline">
+									<div class="media align-items-center">
+										<img class="dashboard_statline_img" src="/evtc_portal/static/src/img/vehicle_big.svg"
+										     alt="Generic placeholder image"/>
+										<div class="media-body">
+											<h5 class="mt-0 dashboard_statline_line" t-esc="reservation_number"/>
+											<p class="mb-0 dashboard_statline_text">Reservations</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-sm-12 col-md-12 col-lg-4">
+								<div class="dashboard_statline">
+									<div class="media align-items-center">
+										<img class="dashboard_statline_img" src="/evtc_portal/static/src/img/chrono_big.svg"
+										     alt="Generic placeholder image"/>
+										<div class="media-body">
+											<h5 class="mt-0 dashboard_statline_line" t-esc="reservation_hour_formatted"/>
+											<p class="mb-0 dashboard_statline_text">spent on board the evtc</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<t t-if="crm_data">
+					<div class="dashboard_middle_part">
+						<t t-set="timeOk" t-value="crm_data.get('crm_time_wait')"/>
+						<t t-set="time_wait" t-value="timeOk != '' and timeOk or '30 mn'"/>
+						<t t-if="crm_data.get('state', '') == 'in_progress'">
+							<!-- TODO: CASE 1  VALIDATION PENDING... -->
+							<div class="container reservation-status-portal validation-pending">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="media">
+											<img class="img-fluid" src="/evtc_portal/static/src/img/state_orange.png" alt="pending image"/>
+											<div class="media-body align-self-center  pl-4 ">
+												<p class="status-text">
+													Votre réservation est
+													<br/>
+													<strong class="font-weight-bold">en cours de validation</strong>
+												</p>
+												<small>Délai d’attente <t t-esc="time_wait"/></small>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-sm-6">
+										<div class="card card-body  ">
+											<h3>Votre course</h3>
+											<ul class="details-course">
+												<li t-if="crm_data.get('pick_up_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">De :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('destination_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">à :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('destination_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('pick_up_date', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">Le :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_date', '')"/> à
+																<t t-esc="crm_data.get('pick_up_datetime', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('vehicle_note', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">En :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('vehicle_note', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('payment_method_note', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('payment_method_note', '')"/></p>
+												</li>
+												<li t-if="crm_data.get('phone_in_moment', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('phone_in_moment', '')"/></p>
+												</li>
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</t>
+						<t t-elif="crm_data.get('state', '') == 'validate'">
+							<!-- TODO: CASE 2  VALIDATION VALIDATE... -->
+							<div class="container reservation-status-portal validated">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="media">
+											<img class="img-fluid" src="/evtc_portal/static/src/img/state_blue.png" alt="pending image"/>
+											<div class="media-body align-self-center  pl-4 ">
+												<p class="status-text">
+													Votre course est
+													<br/>
+													<strong class="font-weight-bold">Validée</strong>
+												</p>
+												<small>Délai d’attente <t t-esc="time_wait"/></small>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="card card-body  ">
+											<h3>Votre course</h3>
+											<ul class="details-course">
+												<li t-if="crm_data.get('pick_up_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">De :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('destination_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">à :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('destination_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('pick_up_date', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">Le :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_date', '')"/> à
+																<t t-esc="crm_data.get('pick_up_datetime', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('vehicle_note', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">En :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('vehicle_note', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('payment_method_note', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('payment_method_note', '')"/></p>
+												</li>
+												<li t-if="crm_data.get('phone_in_moment', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('phone_in_moment', '')"/></p>
+												</li>
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</t>
+						<t t-elif="crm_data.get('state', '') == 'refused'">
+							<!-- TODO: CASE 5  VALIDATION REFUSED... -->
+							<div class="container reservation-status-portal refused">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="media">
+											<img class="img-fluid" src="/evtc_portal/static/src/img/state_red.png" alt="pending image"/>
+											<div class="media-body align-self-center  pl-4 ">
+												<p class="status-text">
+													Votre course est
+													<br/>
+													<strong class="font-weight-bold">Refusée</strong>
+												</p>
+												<small class="mb8 d-block">
+													<t t-esc="crm_data.get('refusal_remarque', '')"/>
+												</small>
+												<a href="/" class="nav-link">
+													<button class="btn vtc-primary-btn rounded-pill btn-block text-center px-1">
+														Faire une nouvelle réservation
+													</button>
+												</a>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-sm-6">
+										<div class="card card-body  ">
+											<h3>Votre course</h3>
+											<ul class="details-course">
+												<li t-if="crm_data.get('pick_up_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">De :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('destination_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">à :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('destination_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('pick_up_date', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">Le :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_date', '')"/> à
+																<t t-esc="crm_data.get('pick_up_datetime', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('vehicle_note', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">En :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('vehicle_note', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('payment_method_note', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('payment_method_note', '')"/></p>
+												</li>
+												<li t-if="crm_data.get('phone_in_moment', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('phone_in_moment', '')"/></p>
+												</li>
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</t>
+						<t t-elif="crm_data.get('state', '') == 'on_ride'">
+							<!-- TODO: CASE 3  VALIDATION VALIDATE... -->
+							<div class="container reservation-status-portal">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="media">
+											<img class="img-fluid" src="/evtc_portal/static/src/img/state_green.png" alt="pending image"/>
+											<div class="media-body align-self-center  pl-4 ">
+												<p class="status-text">
+													Votre course est
+													<br/>
+													<strong class="font-weight-bold">En cours</strong>
+												</p>
+												<small>Délai d’attente <t t-esc="time_wait"/></small>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="card card-body  ">
+											<h3>Votre course</h3>
+											<ul class="details-course">
+												<li t-if="crm_data.get('pick_up_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">De :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('destination_zone', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">à :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<i class="picto picto-address-black mr-2"/>
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('destination_zone', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('pick_up_date', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">Le :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('pick_up_date', '')"/> à
+																<t t-esc="crm_data.get('pick_up_datetime', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('vehicle_note', '')"
+												    class="details-course-item headline headline_adress">
+													<div class="span_confirmation_modal">
+														<span class="gray-color" style="width:40px;">En :</span>
+													</div>
+													<div class="media align-items-center media_popup_confirmation">
+														<div class="media-body">
+															<p class="m-0"><t t-esc="crm_data.get('vehicle_note', '')"/></p>
+														</div>
+													</div>
+												</li>
+												<li t-if="crm_data.get('payment_method_note', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('payment_method_note', '')"/></p>
+												</li>
+												<li t-if="crm_data.get('phone_in_moment', '')"
+												    class="details-course-item headline headline_adress">
+													<p class="m-0"><t t-esc="crm_data.get('phone_in_moment', '')"/></p>
+												</li>
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</t>
+						<t t-elif="crm_data.get('state', '') == 'terminate'">
+							<!-- TODO: CASE 4  RATING... -->
+							<t t-if="crm_data.get('own_review', False)">
+								<div id="customerReview">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" class="form-control"/>
+									<input type="hidden" id="crm_identifier" name="crm" t-att-value="crm_data.get('crm_id')"
+									       class="form-control"/>
+									<div class="container reservation-status-portal rating">
+										<div class="card card-body text-center" id="custom-review-info">
+											<h3>Comment était la course ?</h3>
+											<div class="d-flex rating-flex mx-auto mb16 mt-2" id="rating-step">
+												<t t-foreach="[1,2,3,4,5]" t-as="x">
+													<span t-att-value="x" style="cursor: pointer;" class="oe_img_select">
+														<img class="d-block" src="/evtc_portal/static/src/img/ic_star_border.svg" width="48"
+														     height="48"/>
+													</span>
+												</t>
+											</div>
+											<button class="btn vtc-primary-btn rounded-pill mx-auto text-center oeSubmit" type="submit">
+												Envoyer
+											</button>
+										</div>
+									</div>
+								</div>
+							</t>
+						</t>
+					</div>
+				</t>
+				<div class="dashboard_second_part">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-4">
+								<div class="dashboard_link">
+									<a href="/my/contact" class="dashboard_link_a">
+										<img class="mb-2 dashboard_link_img" src="/evtc_portal/static/src/img/dashboard_adress.png"
+										     alt="Generic placeholder image"/>
+										<h6 class="dashboard_link_text mb-4">My adresses</h6>
+										<img class="" src="/evtc_portal/static/src/img/forward_big.svg" alt="Generic placeholder image"/>
+									</a>
+								</div>
+							</div>
+							<div class="col-12 col-sm-12 col-md-4">
+								<div class="dashboard_link">
+									<a href="/my/account" class="dashboard_link_a">
+										<img class="mb-2 dashboard_link_img" src="/evtc_portal/static/src/img/dashboard_account.png"
+										     alt="Generic placeholder image"/>
+										<h6 class="dashboard_link_text mb-4">My account</h6>
+										<img class="" src="/evtc_portal/static/src/img/forward_big.svg" alt="Generic placeholder image"/>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+</odoo>

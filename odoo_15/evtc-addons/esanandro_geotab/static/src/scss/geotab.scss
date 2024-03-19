@@ -1,0 +1,214 @@
+*:focus {
+    outline: none;
+    border: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.left-navigation {
+    grid-column: 1/3;
+    grid-row: 1/6;
+    background-color: white;
+}
+
+.reservation-form {
+    grid-column: 3/11;
+    grid-row: 1/6;
+    background-color: white;
+}
+
+.mrxCz {
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+
+.two {
+    grid-column: 2 / 4;
+    grid-row: 1 / 6;
+}
+
+.ccDfrb {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.three {
+    grid-column: 1;
+    grid-row: 3 / 5;
+}
+
+.four {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.five {
+    grid-column: 1;
+    grid-row: 5/6;
+}
+
+.six {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.flexed {
+    display: flex;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.border-grey {
+    border: 1px solid grey;
+}
+
+.border-top-none {
+    border-top: none !important;
+}
+
+.border-left-none {
+    border-left: none !important;
+}
+
+.border-right-none {
+    border-right: none !important;
+}
+
+.border-bottom-none {
+    border-bottom: none !important;
+}
+
+.bg-grey {
+    background-color: #8080802b;
+    input {
+        background-color: #80808000;
+    }
+}
+
+.h-20 {
+    height: 10vh !important;
+}
+
+.font-13 {
+    font-size: 13px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bo-size {
+    width: 580px;
+    height: 400px !important;
+    margin: 10px 0 0 10px;
+    text-overflow: hidden;
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+.att-vehicle-show {
+    display: none;
+}
+
+
+/* The sidebar menu */
+
+.sidenav {
+    height: 100%;
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    /* Black */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+
+/* The navigation menu links */
+
+.sidenav a,
+#show-menu-reserv a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181 !important;
+    display: block;
+    cursor: pointer;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+
+.sidenav a:hover {
+    color: black;
+}
+
+
+/* Style page content */
+
+.main {
+    margin-left: 160px;
+    /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+.evtc-font-15 {
+    font-size: 15px !important;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}

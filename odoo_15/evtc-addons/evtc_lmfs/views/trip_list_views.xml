@@ -1,0 +1,26 @@
+<odoo>
+  <template id="list_course_inherit" inherit_id="evtc_portal.list_course_template">
+    <xpath expr="//div[@id='trajet']" position="before">
+      <div class="col col-cell" id='type_vehicle'>
+        <span class="text_header_list_little">Type vehicle</span>
+      </div>
+    </xpath>
+    <xpath expr="//div[@id='trajet_list']" position="before">
+      <div class=" col col-cell text-center separator_last_course progression" id='type_vehicle_list'>
+        <div class="last_course_block course_place">
+          <div class="media-body overflow-hidden">
+            <t t-set="crm_object" t-value="request.env['crm.lead'].sudo().browse(int(crm_data['crm_id']))" />
+            <p class="mb-0 course_place_place" t-esc="crm_object.vehicle_type or ''" />
+          </div>
+        </div>
+      </div>
+    </xpath>
+      <xpath expr="//div[hasclass('course_referrer')]" position="inside">
+      <t t-set="crm_object" t-value="request.env['crm.lead'].sudo().browse(int(crm_data['crm_id']))" />
+      <t t-set="external_link" t-value="'/trip-reservation/'+ str(crm_data['crm_id'])" />
+      <t t-if="crm_object.role_id.vehicle_id.geolocalization_type == 'lmfs'">
+        <a t-att-href="external_link" class="href">See progression</a>
+      </t>
+    </xpath>
+  </template>
+</odoo>

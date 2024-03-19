@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="reservation_map_views" name="map reservation">
+		<div class="oe_tracking oe_datatracking" t-att-data-tracking="trackingID">
+			<div id="oe_tracking_trip">
+				<aside class="mdc-drawer mdc-drawer--modal">
+					<div class="mdc-drawer__header mdc-elevation--z2">
+						<h3 class="mdc-drawer__title"
+						    style=" font-family: 'Google Sans', 'Roboto', sans-serif !important; font-weight: 400; margin-top: 0.25rem">
+							Shipment Tracking
+						</h3>
+					</div>
+					<div class=" mdc-drawer__content">
+						<nav class="mdc-deprecated-list">
+							<a class="mdc-deprecated-list-item" href="#" aria-current="page"
+							   tabindex="0" id="show-options-button">
+								<span class="mdc-deprecated-list-item__ripple"></span>
+								<i class="material-icons mdc-deprecated-list-item__graphic"
+								   aria-hidden="true">settings</i>
+								<span class="mdc-deprecated-list-item__text">Options</span>
+							</a>
+							<a class="mdc-deprecated-list-item" href="#" aria-current="page"
+							   tabindex="0" id="reset-button">
+								<span class="mdc-deprecated-list-item__ripple"></span>
+								<i class="material-icons mdc-deprecated-list-item__graphic"
+								   aria-hidden="true">restart_alt</i>
+								<span class="mdc-deprecated-list-item__text">Reset</span>
+							</a>
+						</nav>
+					</div>
+				</aside>
+				<div class="mdc-drawer-scrim"/>
+				<h2 id="estimated"
+				    style=" font-family: 'Google Sans', 'Roboto', sans-serif !important; font-weight: 400; margin-top: 0.25rem;padding-left: 20px; padding-top: 30px;">
+				</h2>
+				<main class="map" style="height:100%">
+					<div id="options-container"/>
+					<div class="grid">
+						<div id="tracking-id-error"/>
+						<div class="grid__col grid__col--map">
+							<div id="map_canvas"/>
+						</div>
+					</div>
+				</main>
+				<t t-call="evtc_lmfs.modal_tracking_options"/>
+			</div>
+		</div>
+	</template>
+</odoo>

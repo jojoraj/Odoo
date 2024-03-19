@@ -1,0 +1,23 @@
+<odoo>
+  <!--Email template -->
+  <record id="email_template" model="mail.template">
+    <field name="name">Email error cfr list Template</field>
+    <field name="model_id" ref="base.model_res_users" />
+    <field name="email_from">{{object.email}}</field>
+    <field name="email_to">it.esanandro@etechconsulting-mg.com</field>
+    <field name="subject">Ref {{ctx.get('crf_doc_list_name')}}</field>
+    <field name="auto_delete" eval="True" />
+    <field name="lang">{{object.partner_id.lang}}</field>
+    <field name="body_html" type="html">
+      <div style="margin: 0px; padding: 0px;">
+        <p style="margin: 0px; padding: 0px; font-size: 13px;">
+          Dear,
+          <br />
+          <br />
+          There is an error while request CFR, to see:
+          <a t-attf-href="{{ctx.get('url')}}">follow this link</a>
+        </p>
+      </div>
+    </field>
+  </record>
+</odoo>

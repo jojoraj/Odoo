@@ -1,0 +1,66 @@
+/*
+  style of infowindow marker
+  first marker
+  second marker
+*/
+.gm-style-iw-a > .gm-style-iw-t > .gm-style-iw-c > .gm-ui-hover-effect {
+  display: none !important;
+}
+
+#infowindow-content {
+  height: auto;
+  max-width: 200px;
+  padding-left: 34px;
+}
+
+#infowindow-content > #place-address {
+  background-color: #0a0a0a !important;
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+#infowindow-content > #place-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#infowindow-content {
+  .svg-size {
+    width: 30px;
+  }
+}
+
+// ============== second marker ===========================
+#infowindow-content2 {
+  height: auto;
+  max-width: 300px;
+}
+#infowindow-content2 > #place-address2 {
+  background-color: #0a0a0a !important;
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#infowindow-content2 {
+  .svg-size {
+    width: 30px;
+  }
+  padding-right: 32px;
+}
+#infowindow-content2 > #place-name2 {
+  font-size: 14px;
+  font-weight: bold;
+}

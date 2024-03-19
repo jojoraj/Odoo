@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="inherit_fleet_vehicle_model_category_view_tree" model="ir.ui.view">
+    <field name="name">etech_fleet.vehicle.model.category.view.tree</field>
+    <field name="model">fleet.vehicle.model.category</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_model_category_view_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//tree" position="replace">
+        <tree>
+          <field name="sequence" widget="handle" />
+          <field name="name" />
+          <field name="place_number" string="Place number" />
+        </tree>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="inherit_fleet_vehicle_model_category_view_form" model="ir.ui.view">
+    <field name="name">etech_fleet.vehicle.model.category.view.form</field>
+    <field name="model">fleet.vehicle.model.category</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_model_category_view_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//form" position="replace">
+        <form string="Model Category">
+          <sheet>
+            <group>
+              <group>
+                <field name="name" />
+                <field name="sequence" groups="base.group_no_one" invisible="1" />
+                <field name="place_number" string="Nombre de place" />
+                <field name="tz" string="Timezone" />
+                <field name="tarif" invisible="0" />
+                <field name="minimum_price_id" />
+              </group>
+              <group>
+                <field name="image" string="Logo" nolabel="1" widget="image" class="oe_avatar" options='{"preview_image": "image", "size": [80, 80]}' />
+              </group>
+            </group>
+            <notebook>
+              <page string="Information" name="information">
+                <group>
+                  <field name="list_price" nolabel="1" />
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Model Category -->
+  <record id='fleet.fleet_vehicle_model_category_action' model='ir.actions.act_window'>
+    <field name="name">Model Category</field>
+    <field name="res_model">fleet.vehicle.model.category</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="xml">
+      <p class="o_view_nocontent_smiling_face">
+                Create a new category
+      </p>
+    </field>
+  </record>
+
+  <record id="fleet_vehicle_price_category_tree_view" model="ir.ui.view">
+    <field name="name">etech_fleet.vehicle.model.price.view.tree</field>
+    <field name="model">fleet.vehicle.price.category</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="product_id" />
+        <field name="resource_calendar_id" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="fleet_vehicle_price_category_form_view" model="ir.ui.view">
+    <field name="name">etech_fleet.vehicle.price.category.view.form</field>
+    <field name="model">fleet.vehicle.price.category</field>
+    <field name="arch" type="xml">
+      <form string="Model Category">
+        <sheet>
+          <group>
+            <group string="Information">
+              <field name="name" />
+              <field name="is_location" />
+            </group>
+          </group>
+          <group string="Condition">
+            <group>
+              <field name="applied_on" widget="radio" invisible="1" />
+              <field name="product_id" attrs="{'invisible': [('applied_on','!=', 'product')], 'required': [('applied_on','=', 'product')]}" />
+            </group>
+            <group>
+              <field name="resource_calendar_id" />
+              <!--<field name="minimum_price" string="Prix min." attrs="{'required': [('is_location','=', False)]}" />-->
+              <field name="product_wait_id" domain="[('type', '=', 'service')]" attrs="{'invisible': [('is_location','=', True)], 'required': [('is_location','=', False)]}" />
+              <field name="vehicle_location_id" string="Type de location" attrs="{'invisible': [('is_location','=', False)],'required': [('is_location','=', True)]}" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id='fleet_vehicle_price_category' model='ir.actions.act_window'>
+    <field name="name">Model price category</field>
+    <field name="res_model">fleet.vehicle.price.category</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="xml">
+      <p class="o_view_nocontent_smiling_face">
+                Create a new price model
+      </p>
+    </field>
+  </record>
+  <record id="price_location_view_form" model="ir.ui.view">
+    <field name="name">price_location_view_form</field>
+    <field name="model">price.location</field>
+    <field name="arch" type="xml">
+      <form string="price_location_form">
+        <sheet>
+          <group>
+            <group>
+              <field name="name" />
+            </group>
+            <group>
+              <field name="price" />
+              <field name="hours" widget="float_time" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="price_location_view_tree" model="ir.ui.view">
+    <field name="name">price_location_view_tree</field>
+    <field name="model">price.location</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="price" />
+        <field name="hours" widget="float_time" />
+      </tree>
+    </field>
+  </record>
+
+  <record id='price_location_ir_actions_act_window' model='ir.actions.act_window'>
+    <field name="name">price.location.ir.actions.act_window</field>
+    <field name="res_model">price.location</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="xml">
+      <p class="o_view_nocontent_smiling_face">
+                Create a new price model
+      </p>
+    </field>
+  </record>
+
+</odoo>

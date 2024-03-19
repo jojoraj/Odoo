@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <record id="email_template_data_crm_lead_create_notification" model="mail.template">
+        <field name="name">Mail CRM: Create</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="subject">new reservation</field>
+        <field name="email_from">{{ object.company_id.email }}</field>
+        <field name="email_to">{{ object.partner_id.email }}</field>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                   style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                   width="1067.2px">
+                <tbody style="box-sizing:border-box;">
+                    <tr style="box-sizing:border-box;">
+                        <td align="center" style="box-sizing:border-box;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="box-sizing:border-box;padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody style="box-sizing:border-box;">
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #F9F9F9; padding: 0; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle" align="center"
+                                                            style="padding:26px 5px 18.9px">
+                                                            <img t-attf-src="/logo.png?company={{ object.company_id.id }}"
+                                                                 style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                                 t-att-alt="object.company_id.name"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr style="box-sizing:border-box;">
+                                        <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tbody style="box-sizing:border-box;">
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td valign="top"
+                                                            style="box-sizing:border-box;font-size: 13px;">
+                                                            <div
+                                                                    style="box-sizing:border-box;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;">
+                                                                Cher
+                                                                <t t-out="object.partner_id.firstname or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">Marc Demo</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                Nous avons bien reçu votre demande de réservation sur
+                                                                e-vtc :
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Course #</strong>
+                                                                <t t-out="object.reference_code or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">numéro course</t>
+                                                                .
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <strong>Date et heure de récupération :</strong>
+                                                                <t t-out="object.get_formatted_date(object.pick_up_datetime) or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Date de
+                                                                    reservation</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <strong>Lieu de récupération :</strong>
+                                                                <t t-out="object.pick_up_zone or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">zone de
+                                                                    récuperation</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Lieu de remisage :</strong>
+                                                                <t t-out="object.destination_zone or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">zone de remisage</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Nombre de kilométrage estimé :</strong>
+                                                                <t t-out="object.estimated_kilometers or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">kilometrage
+                                                                    estimatif</t>
+                                                                .
+                                                                <br style="box-sizing:border-box;"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td style="box-sizing:border-box;text-align:center;">
+                                                            <hr width="100%"
+                                                                style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #282839; padding: 40px 40px 20px; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="top"
+                                                            style="font-size: 14px;font-family:'Poppins',sans-serif">
+                                                            <div style="float: left; width:60%">
+                                                                <p>Besoin d'aide?</p>
+                                                                <a style="display:inline-block;color:#fff;text-decoration:underline;font-size:12px"
+                                                                   href="mailto:support.esanandro@esanandro.com">
+                                                                    support.esanandro@esanandro.com
+                                                                </a>
+                                                            </div>
+                                                            <div style="float:right;width:auto">
+
+                                                                <a style="float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_facebook or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/facebook-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                                <a style=" float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_linkedin  or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/linkedin-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px;background-color: #282839;padding: 20px;border-collapse:separate;/* border-top: 1px solid; */">
+                                                <tbody>
+                                                    <tr style="border-top:1px solid #fff">
+                                                        <td style="text-align:center;color:#fff;font-size:12px">
+                                                            <hr style="border-color:#fff"/>
+                                                            <p style="text-align:center;color:#fff;font-size:12px">@
+                                                                2022 e-Tech Tous Droits
+                                                                Reservés
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </field>
+        <field name="lang">fr_FR</field>
+    </record>
+
+    <record id="email_crm_affected" model="mail.template">
+        <field name="name">Mail CRM: Notification lors de l'affectation</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="subject">resérvation affecté</field>
+        <field name="email_from">{{ object.company_id.email }}</field>
+        <field name="email_to">{{ object.partner_id.email }}</field>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                   style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                   width="1067.2px">
+                <tbody style="box-sizing:border-box;">
+                    <tr style="box-sizing:border-box;">
+                        <td align="center" style="box-sizing:border-box;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="box-sizing:border-box;padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody style="box-sizing:border-box;">
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #F9F9F9; padding: 0; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle" align="center"
+                                                            style="padding:26px 5px 18.9px">
+                                                            <img t-attf-src="/logo.png?company={{ object.company_id.id }}"
+                                                                 style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                                 t-att-alt="object.company_id.name"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr style="box-sizing:border-box;">
+                                        <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tbody style="box-sizing:border-box;">
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td valign="top"
+                                                            style="box-sizing:border-box;font-size: 13px;">
+                                                            <div
+                                                                    style="box-sizing:border-box;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;">
+                                                                Dear
+                                                                <t t-out="object.partner_id.firstname or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">Marc Demo</t> ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                Your reservation request on e-vtc has been affected :
+                                                                <strong>trip #</strong>
+                                                                <t t-out="object.reference_code or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Trip number</t>
+                                                                .
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Pickup date and time :</strong>
+                                                                <t t-out="object.get_formatted_date(object.pick_up_datetime) or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Pickup date and time</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <strong>Pick up location :</strong>
+                                                                <t t-out="object.pick_up_zone or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Pick up location</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Destination :</strong>
+                                                                <t t-out="object.destination_zone or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Destination</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Number of estimated:</strong>
+                                                                <t t-out="object.estimated_kilometers or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Number of estimated</t>
+                                                                .
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <t t-if="object.role_id">
+                                                                    <strong>You can call your driver :</strong>
+                                                                    <t t-out="object.role_id.vehicle_id.driver_id.name or ''"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box; font-weight: bold;"
+                                                                       contenteditable="false"></t>
+                                                                    <strong>to the number</strong>
+                                                                    <t t-out="object.role_id.vehicle_id.driver_id.mobile or object.role_id.vehicle_id.driver_id.phone "
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box; font-weight: bold;"
+                                                                       contenteditable="false"></t>
+                                                                    <strong t-if="object.role_id.vehicle_id.license_plate">et sa plaque d'immatriculation
+                                                                        est </strong>
+                                                                    <t t-out="object.role_id.vehicle_id.license_plate or ''"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box; font-weight: bold;"
+                                                                       contenteditable="false"></t>
+                                                                </t>
+                                                                <br style="box-sizing:border-box;"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td style="box-sizing:border-box;text-align:center;">
+                                                            <hr width="100%"
+                                                                style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #282839; padding: 40px 40px 20px; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="top"
+                                                            style="font-size: 14px;font-family:'Poppins',sans-serif">
+                                                            <div style="float: left; width:60%">
+                                                                <p>Besoin d'aide?</p>
+                                                                <a style="display:inline-block;color:#fff;text-decoration:underline;font-size:12px"
+                                                                   href="mailto:support.esanandro@esanandro.com">
+                                                                    support.esanandro@esanandro.com
+                                                                </a>
+                                                            </div>
+                                                            <div style="float:right;width:auto">
+
+                                                                <a style="float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_facebook or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/facebook-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                                <a style=" float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_linkedin  or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/linkedin-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px;background-color: #282839;padding: 20px;border-collapse:separate;/* border-top: 1px solid; */">
+                                                <tbody>
+                                                    <tr style="border-top:1px solid #fff">
+                                                        <td style="text-align:center;color:#fff;font-size:12px">
+                                                            <hr style="border-color:#fff"/>
+                                                            <p style="text-align:center;color:#fff;font-size:12px">@
+                                                                2022 e-Tech Tous Droits
+                                                                Reservés
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+        <field name="lang">fr_FR</field>
+    </record>
+
+    <record id="email_template_data_crm_lead_validation_notification" model="mail.template">
+        <field name="name">Mail CRM: Validate</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="subject">resérvation valider</field>
+        <field name="email_from">{{ object.company_id.email }}</field>
+        <field name="email_to">{{ object.partner_id.email }}</field>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                   style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                   width="1067.2px">
+                <tbody style="box-sizing:border-box;">
+                    <tr style="box-sizing:border-box;">
+                        <td align="center" style="box-sizing:border-box;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="box-sizing:border-box;padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody style="box-sizing:border-box;">
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #F9F9F9; padding: 0; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle" align="center"
+                                                            style="padding:26px 5px 18.9px">
+                                                            <img t-attf-src="/logo.png?company={{ object.company_id.id }}"
+                                                                 style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                                 t-att-alt="object.company_id.name"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr style="box-sizing:border-box;">
+                                        <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tbody style="box-sizing:border-box;">
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td valign="top"
+                                                            style="box-sizing:border-box;font-size: 13px;">
+                                                            <div
+                                                                    style="box-sizing:border-box;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;">
+                                                                Cher
+                                                                <t t-out="object.partner_id.firstname or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">Marc Demo</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                Votre demande de réservation sur e-vtc a été validée :
+                                                                <strong>Course #</strong>
+                                                                <t t-out="object.reference_code or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">numéro course</t>
+                                                                .
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Date et heure de récupération :</strong>
+                                                                <t t-out="object.get_formatted_date(object.pick_up_datetime) or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">Date de
+                                                                    reservation</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <strong>Lieu de récupération :</strong>
+                                                                <t t-out="object.pick_up_zone or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">zone de
+                                                                    récuperation</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Lieu de remisage :</strong>
+                                                                <t t-out="object.destination_zone or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">zone de remisage</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Nombre de kilométrage estimé :</strong>
+                                                                <t t-out="object.estimated_kilometers or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">kilometrage
+                                                                    estimatif</t>
+                                                                .
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <t t-if="object.role_id.vehicle_id.driver_id.mobile">
+                                                                    <strong>Vous pouvez appeler votre chauffeur
+                                                                        :</strong>
+                                                                    <t t-out="object.role_id.vehicle_id.driver_id.name or ''"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box; font-weight: bold;"
+                                                                       contenteditable="false"></t>
+                                                                    <strong>au numéro</strong>
+                                                                    <t t-out="object.role_id.vehicle_id.driver_id.mobile or ''"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box; font-weight: bold;"
+                                                                       contenteditable="false"></t>
+                                                                </t>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td style="box-sizing:border-box;text-align:center;">
+                                                            <hr width="100%"
+                                                                style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #282839; padding: 40px 40px 20px; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="top"
+                                                            style="font-size: 14px;font-family:'Poppins',sans-serif">
+                                                            <div style="float: left; width:60%">
+                                                                <p>Besoin d'aide?</p>
+                                                                <a style="display:inline-block;color:#fff;text-decoration:underline;font-size:12px"
+                                                                   href="mailto:support.esanandro@esanandro.com">
+                                                                    support.esanandro@esanandro.com
+                                                                </a>
+                                                            </div>
+                                                            <div style="float:right;width:auto">
+
+                                                                <a style="float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_facebook or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/facebook-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                                <a style=" float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_linkedin  or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/linkedin-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px;background-color: #282839;padding: 20px;border-collapse:separate;/* border-top: 1px solid; */">
+                                                <tbody>
+                                                    <tr style="border-top:1px solid #fff">
+                                                        <td style="text-align:center;color:#fff;font-size:12px">
+                                                            <hr style="border-color:#fff"/>
+                                                            <p style="text-align:center;color:#fff;font-size:12px">@
+                                                                2022 e-Tech Tous Droits
+                                                                Reservés
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </field>
+        <field name="lang">fr_FR</field>
+    </record>
+
+    <record id="email_template_data_crm_lead_refused_notification" model="mail.template">
+        <field name="name">Mail CRM: Refused</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="subject">resérvation réfuser</field>
+        <field name="email_from">{{ object.company_id.email }}</field>
+        <field name="email_to">{{ object.partner_id.email }}</field>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                   style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                   width="1067.2px">
+                <tbody style="box-sizing:border-box;">
+                    <tr style="box-sizing:border-box;">
+                        <td align="center" style="box-sizing:border-box;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="box-sizing:border-box;padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody style="box-sizing:border-box;">
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #F9F9F9; padding: 0; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle" align="center"
+                                                            style="padding:26px 5px 18.9px">
+                                                            <img t-attf-src="/logo.png?company={{ object.company_id.id }}"
+                                                                 style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                                 t-att-alt="object.company_id.name"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr style="box-sizing:border-box;">
+                                        <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tbody style="box-sizing:border-box;">
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td valign="top"
+                                                            style="box-sizing:border-box;font-size: 13px;">
+                                                            <div
+                                                                    style="box-sizing:border-box;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;">
+                                                                Cher
+                                                                <t t-out="object.partner_id.firstname or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">Marc Demo</t>
+                                                                ,
+                                                                <!-- BEGIN OF CONTENT -->
+
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                Votre demande de réservation sur e-vtc a été refusé
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Course #</strong>
+                                                                <t t-out="object.reference_code or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">numéro course</t>
+                                                                .
+                                                                <br style="box-sizing:border-box; "/>
+                                                                <strong>Voici le motif de la refus :</strong>
+                                                                <t t-out="', '.join(object.refusal_ids.mapped('name')) or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">
+                                                                    Raison de l' annulation</t>
+                                                                ,
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <strong>Remarque de refus :</strong>
+                                                                <t t-out="object.refusal_remark or ''"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box; font-weight: bold;"
+                                                                   contenteditable="false">
+                                                                    Remarque de refus
+                                                                </t>
+                                                                <!-- END OF CONTENT -->
+
+                                                                <br style="box-sizing:border-box;"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="box-sizing:border-box;">
+                                                        <td style="box-sizing:border-box;text-align:center;">
+                                                            <hr width="100%"
+                                                                style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px; background-color: #282839; padding: 40px 40px 20px; border-collapse:separate;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="top"
+                                                            style="font-size: 14px;font-family:'Poppins',sans-serif">
+                                                            <div style="float: left; width:60%">
+                                                                <p>Besoin d'aide?</p>
+                                                                <a style="display:inline-block;color:#fff;text-decoration:underline;font-size:12px"
+                                                                   href="mailto:support.esanandro@esanandro.com">
+                                                                    support.esanandro@esanandro.com
+                                                                </a>
+                                                            </div>
+                                                            <div style="float:right;width:auto">
+
+                                                                <a style="float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_facebook or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/facebook-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                                <a style=" float:left;margin-right:14px"
+                                                                   t-attf-href="{{ object.company_id.social_linkedin  or '#' }}">
+                                                                    <img src="/signup_validation_code/static/src/img/footer/linkedin-icon.png"
+                                                                         width="32" height="33"></img>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="min-width: 600px;color:#fff">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                                                   style="min-width: 600px;background-color: #282839;padding: 20px;border-collapse:separate;/* border-top: 1px solid; */">
+                                                <tbody>
+                                                    <tr style="border-top:1px solid #fff">
+                                                        <td style="text-align:center;color:#fff;font-size:12px">
+                                                            <hr style="border-color:#fff"/>
+                                                            <p style="text-align:center;color:#fff;font-size:12px">@
+                                                                2022 e-Tech Tous Droits
+                                                                Reservés
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </field>
+        <field name="lang">fr_FR</field>
+    </record>
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="my_list_of_appliant" name="E-vtc appliant">
+    <t t-call="website.layout">
+      <div id="wrap" class="oe_structure">
+        <t t-if="applicants">
+          <div class="container-fluid">
+            <div class="header_list_appliant">
+              <div class="row text-center mb-3">
+                <div class="col col-cell"></div>
+                <div class="col col-cell">
+                  <span class="text_header_list_big">Name</span>
+                </div>
+                <div class="col col-cell">
+                  <span class="text_header_list_big">Mail</span>
+                </div>
+                <div class="col col-cell">
+                  <span class="text_header_list_little">Phone</span>
+                </div>
+                <div class="col col-cell"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <t t-foreach="applicants" t-as="applicant">
+              <div class="row align-items-center position-relative">
+                <div class=" col col-cell text-center">
+                  <span class="toggle_dot collapsed" data-toggle="collapse" t-att-data-target="'#collapseBlockOne-'+str(applicant.id)" aria-expanded="false" aria-controls="collapseBlockOne"></span>
+                </div>
+                <div class=" col col-cell">
+                  <div class="">
+                    <div class="media-body overflow-hidden">
+                      <h5 class="" t-esc="applicant.partner_name"/>
+                    </div>
+                  </div>
+                </div>
+                <div class=" col col-cell">
+                  <div class="">
+                    <div class="media-body overflow-hidden">
+                      <h5 class="" t-esc="applicant.email_cc"/>
+                    </div>
+                  </div>
+                </div>
+                <div class=" col col-cell">
+                  <div class="">
+                    <div class="media-body overflow-hidden">
+                      <h5 class="" t-esc="applicant.partner_phone"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-cell">
+                  <div class="dropdown h-100">
+                    <button class="btn btn-parameter" type="button" data-toggle="dropdown" aria-expanded="false">
+                      <span class="sr-only">Document</span>
+                    </button>
+                    <div class="dropdown-menu">
+                      <t t-foreach="applicant.attachment_ids" t-as="attachment">
+                        <!-- <a t-attf-href="/web/content/#{attachment.id}?download=1">
+                            <span t-esc="attachment.name" class="fa fa-download"/>
+                          </a> -->
+                        <a class="dropdown-item" t-attf-href="/web/content/#{attachment.id}?download=1">
+                          <i class="picto picto-download mr-1"></i>Télécharger le fichier
+                        </a>
+                        <br/>
+                      </t>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse" t-att-id="'collapseBlockOne-'+str(applicant.id)">
+                <div>
+                  <span>
+                    <t t-esc="applicant.description if applicant.description else ''"/>
+                  </span>
+                </div>
+              </div>
+            </t>
+          </div>
+        </t>
+      </div>
+    </t>
+  </template>
+</odoo>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="planning_view_form_inherit" model="ir.ui.view">
+    <field name="name">planning.slot.form.inherit</field>
+    <field name="model">planning.slot</field>
+    <field name="inherit_id" ref="planning.planning_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/group[last()]" position="before">
+        <group>
+          <group>
+            <field name="estimated_kilometers"/>
+            <label for="pick_up_zone_id" string="Pick up zone"/>
+            <div>
+              <div class="o_address_format" name="div_address">
+                <field name="pick_up_zone_id" options='{"no_create": True}'/>
+                <field name="pick_up_zone" placeholder="Fill in the exact location..."
+                       class="o_address_street font-italic"/>
+              </div>
+            </div>
+            <label for="destination_zone_id" string="Destination Zone"/>
+            <div>
+              <div class="o_address_format" name="div_address">
+                <field name="destination_zone_id" options='{"no_create": True}'/>
+                <field name="destination_zone" placeholder="Fill in the exact location..."
+                       class="o_address_street font-italic"/>
+              </div>
+            </div>
+          </group>
+          <group>
+            <field name="partner_id" context="{'show_phone': True}" options='{"always_reload": True}'/>
+            <field name="client_note"/>
+            <field name="product_id"/>
+          </group>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="planning_view_gantt_inherit" model="ir.ui.view">
+    <field name="name">planning.slot.gantt.inherit</field>
+    <field name="model">planning.slot</field>
+    <field name="inherit_id" ref="planning.planning_view_gantt"/>
+    <field name="arch" type="xml">
+      <xpath expr="//gantt" position="attributes">
+        <attribute name="default_scale">day</attribute>
+      </xpath>
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="phone"/>
+        <field name="pick_up_zone_id"/>
+        <field name="destination_zone_id"/>
+        <field name="estimated_kilometers"/>
+      </xpath>
+      <xpath expr="//div[@t-name='gantt-popover']" position="attributes">
+        <attribute name="style">display: none;</attribute>
+      </xpath>
+      <xpath expr="//div[@t-name='gantt-popover']" position="after">
+        <div t-name="gantt-popover">
+          <div t-if="phone">
+            <i class="fa fa-phone"></i>
+            <span class="o_force_ltr" t-esc="phone"/>
+          </div>
+          <div id="zone" t-if="pick_up_zone_id">
+            <strong>Pick up zone —</strong>
+            <t t-esc="pick_up_zone_id[1]"/>
+            <i class="fa fa-long-arrow-right" title="Arrow"/>
+            <strong>Destination zone —</strong>
+            <t t-esc="destination_zone_id[1]"/>
+          </div>
+          <div t-if="pick_up_zone_id">
+            <strong>Estimated kilometers —</strong>
+            <t t-esc="estimated_kilometers"/>
+            Km
+          </div>
+          <div>
+            <t t-esc="userTimezoneStartDate.format('l LT ')"/>
+          </div>
+          <p class="mt-2 mb-0" t-if="name">
+            <t t-esc="name.slice(0, 200) + (name.length > 200?'…':'')"/>
+          </p>
+          <p t-if="state == 'published' and publication_warning and !overlap_slot_count" class="text-warning mt-2 mb-0">
+            Some changes were made since this shift was published.
+          </p>
+          <p t-if="overlap_slot_count" class="text-danger mt-2 mb-0">
+            <t t-esc="overlap_slot_count"/>
+            other shift(s) in conflict.
+          </p>
+        </div>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="planning_view_search" model="ir.ui.view">
+    <field name="name">planning.slot.search</field>
+    <field name="model">planning.slot</field>
+    <field name="inherit_id" ref="planning.planning_view_search"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='job_title']" position="after">
+        <field name="pick_up_zone_id"/>
+        <field name="destination_zone_id"/>
+      </xpath>
+      <filter name="conflict_shifts" position="after">
+        <separator/>
+        <filter string="Late pick up" name="late_start_datetime"
+                domain="[('start_datetime', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+        <filter string="Today pick up" name="today_start_datetime"
+                domain="[('start_datetime', '=', context_today().strftime('%Y-%m-%d'))]"/>
+        <filter string="Future pick up" name="future_start_datetime"
+                domain="[('start_datetime', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+      </filter>
+      <xpath expr="//group/filter[@name='group_by_start_datetime']" position="after">
+        <filter string="Pick up Hour" name="hour" context="{'group_by':'hour'}"/>
+        <separator/>
+        <filter string="Pick up zone" name="hour" context="{'group_by':'pick_up_zone_id'}"/>
+        <filter string="Destination Zone" name="hour" context="{'group_by':'destination_zone_id'}"/>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_additional_trip,additional_trip,model_additional_trip,base.group_user,1,1,1,1
+access_additional_trip_line,additional_trip_line,model_additional_trip_line,base.group_user,1,1,1,1
+access_change_driver,change_driver,model_change_driver,base.group_user,1,1,1,1
+access_change_driver_hours,change_driver_hours,model_change_driver_hours,base.group_user,1,1,1,1
+access_request_result_list,request_result_list,model_request_result_list,base.group_user,1,1,1,1
+access_fuel_cost,fuel_cost,model_fuel_cost,base.group_user,1,1,1,1

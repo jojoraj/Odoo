@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_pos_order_tree_inherit" model="ir.ui.view">
+    <field name="name">pos.order.tree.inherit</field>
+    <field name="model">pos.order</field>
+    <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='amount_total']" position="before">
+        <field name="amount_paid"/>
+      </xpath>
+      <xpath expr="//field[@name='amount_total']" position="after">
+        <field name="payment_method_ids" widget="many2many_tags"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_pos_order_search" model="ir.ui.view">
+    <field name="name">pos.order.search.view</field>
+    <field name="model">pos.order</field>
+    <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+    <field name="arch" type="xml">
+      <xpath expr="//search" position="inside">
+        <field name="payment_method"/>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="google_log_session_view_tree" model="ir.ui.view">
+    <field name="name">google.log_session.view.tree</field>
+    <field name="model">google.log_session</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="partner_id" />
+        <field name="recuperation_with_validation" />
+        <field name="destination_with_validation" />
+        <field name="myaccount_with_validation" />
+        <field name="recuperation_without_validation" />
+        <field name="destination_without_validation" />
+        <field name="myaccount_without_validation" />
+        <field name="record_crm_validation" />
+      </tree>
+    </field>
+  </record>
+  <record id="google_log_session_view_form" model="ir.ui.view">
+    <field name="name">google.log_session.view.tree</field>
+    <field name="model">google.log_session</field>
+    <field name="arch" type="xml">
+      <form string="Session">
+        <sheet>
+          <group>
+            <group>
+              <field name="partner_id" />
+              <field name="recuperation_with_validation" />
+              <field name="destination_with_validation" />
+              <field name="myaccount_with_validation" />
+            </group>
+            <group>
+              <field name="recuperation_without_validation" />
+              <field name="destination_without_validation" />
+              <field name="myaccount_without_validation" />
+              <field name="record_crm_validation" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+
+    </field>
+  </record>
+
+
+  <record id="google_log_session_view_line_graph" model="ir.ui.view">
+    <field name="name">google.log_session.line.graph</field>
+    <field name="model">google.log_session</field>
+    <field name="arch" type="xml">
+      <graph string="Google Place Session" sample="1">
+        <field name="partner_id" />
+        <field name="details_callback" type="measure" />
+      </graph>
+    </field>
+  </record>
+  <record id="log_session_google_pivot" model="ir.ui.view">
+    <field name="name">google.log_session.pivot</field>
+    <field name="model">google.log_session</field>
+    <field name="arch" type="xml">
+      <pivot string="Google Place Session" sample="1">
+        <field name="partner_id" type="row" />
+        <field name="recuperation_with_validation" type="measure" />
+        <field name="destination_with_validation" type="measure" />
+        <field name="recuperation_without_validation" type="measure" />
+        <field name="destination_without_validation" type="measure" />
+        <field name="myaccount_with_validation" type="measure" />
+        <field name="myaccount_without_validation" type="measure" />
+        <field name="record_crm_validation" type="measure" />
+      </pivot>
+    </field>
+  </record>
+
+  <record id="google_log_session_act_window" model="ir.actions.act_window">
+    <field name="name">Google places Details</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">google.log_session</field>
+    <field name="view_mode">pivot,graph,tree,form</field>
+    <field name="help" type="html">
+      <p>Create all menu
+                </p>
+    </field>
+  </record>
+
+  <menuitem name="Google Place Details" id="google_log_session_menu" parent="website.menu_website_configuration"
+    action="evtc_front.google_log_session_act_window" sequence="66" />
+
+</odoo>

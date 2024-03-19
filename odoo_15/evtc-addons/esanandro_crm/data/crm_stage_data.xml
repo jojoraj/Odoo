@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record model="crm.stage" id="crm.stage_lead1">
+    <field name="name">New ride request</field>
+    <field name="is_won">False</field>
+    <field name="sequence">1</field>
+  </record>
+  <record model="crm.stage" id="crm.stage_lead2">
+    <field name="name">Confirmed reservation</field>
+    <field name="is_won">False</field>
+    <field name="sequence">2</field>
+  </record>
+  <record model="crm.stage" id="crm.stage_lead3">
+    <field name="name">Affected reservation</field>
+    <field name="is_won">False</field>
+    <field name="sequence">3</field>
+  </record>
+  <record model="crm.stage" id="crm.stage_lead4">
+    <field name="name">Accounted ride</field>
+    <field name="is_won">True</field>
+    <field name="sequence">4</field>
+  </record>
+  <record model="crm.stage" id="stage_lead5">
+    <field name="name">Refused ride</field>
+    <field name="fold" eval="False"/>
+    <field name="is_won">False</field>
+    <field name="sequence">70</field>
+  </record>
+  <record model="crm.stage" id="stage_lead6">
+    <field name="name">Done Ride</field>
+    <field name="fold" eval="False"/>
+    <field name="is_won">False</field>
+    <field name="sequence">70</field>
+  </record>
+    <record model="crm.stage" id="stage_lead7">
+    <field name="name">Ride confirmed</field>
+    <field name="fold" eval="False"/>
+    <field name="is_won">False</field>
+    <field name="sequence">2</field>
+  </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+  <t t-name="MapRenderer.PinListItems" t-inherit="web_map.MapRenderer.PinListItems" t-inherit-mode="extension" owl="1">
+<!--    <xpath expr="//t[@t-set='longitude']" position="after">-->
+<!--      <t t-set="marker_color" t-value="record.marker_color"/>-->
+<!--    </xpath>-->
+    <xpath expr="//a[hasclass('o_pin_display_name')]" position="attributes">
+      <attribute name="t-attf-style">
+        {{record.marker_color ? "color:" + record.marker_color + ";" : ""}}
+      </attribute>
+    </xpath>
+  </t>
+</templates>

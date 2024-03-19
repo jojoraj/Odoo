@@ -1,0 +1,35 @@
+<odoo>
+  <record id="keycloak_users_view_form" model="ir.ui.view">
+    <field name="name">keycloak_users_view_form</field>
+    <field name="model">keycloak.users</field>
+    <field name="arch" type="xml">
+      <form string="keycloak_users_form">
+        <sheet>
+          <group>
+            <field name="name" placeholder="Pour recevoir une notification" />
+            <field name="is_current_db" />
+            <field name="steps" />
+            <field name="size" />
+          </group>
+          <field name="urls_ids" widget='one2many' nolabel="1" />
+          <footer>
+            <field name="is_active" invisible="1" />
+            <button name="keycloak_synchronisation" attrs="{'invisible': [('is_active', '=', True)]}"
+              class="oe_highlight" type="object" string="Send User" />
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="keycloak_users_urls_view_tree" model="ir.ui.view">
+    <field name="name">tree form</field>
+    <field name="model">keycloak.users.urls</field>
+    <field name="arch" type="xml">
+      <tree editable="bottom">
+        <field name="name" />
+        <field name="database_name" />
+        <field name="password" />
+      </tree>
+    </field>
+  </record>
+</odoo>

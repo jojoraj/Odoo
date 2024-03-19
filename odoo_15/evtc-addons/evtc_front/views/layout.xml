@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="template_header_evtc" inherit_id="website.layout" name="Template Header EVTC" active="False">
+    <xpath expr="//header//nav" position="replace">
+      <t t-call="website.navbar">
+        <t t-set="_navbar_classes" t-valuef="shadow-sm evtc-navbar"/>
+        <div id="top_menu_container"
+             class="container-fluid justify-content-start justify-content-lg-between vtc_top_menu_container">
+          <!-- Brand -->
+          <t t-call="website.placeholder_header_brand">
+            <t t-set="_link_class" t-valuef="mr-4"/>
+          </t>
+          <!-- Navbar Collapse -->
+          <div id="top_menu_collapse" class="collapse navbar-collapse order-last order-lg-0 vtc_top_menu_collapse">
+            <!--<div class="top_menu_other">
+              <div class="top_menu_other_text">
+                <h5>Bienvenue</h5>
+                <p>invité(e)</p>
+              </div>
+            </div>-->
+            <t t-call="website.navbar_nav">
+              <t t-set="_nav_class" t-valuef="flex-grow-1"/>
+              <!-- Menu -->
+              <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                <t t-call="website.submenu">
+                  <t t-set="item_class" t-valuef="nav-item"/>
+                  <t t-set="link_class" t-valuef="nav-link"/>
+                </t>
+              </t>
+              <ul class="d-flex link-to align-items-center ml-auto">
+
+                <li class="d-block">
+                  <a href="#" class="link-to-link callus" data-toggle="modal" data-target="#call_center">
+                    <i class="picto picto-phone d-none d-sm-inline-block"></i><span class="d-block d-sm-none text_mobile">Appelez-nous</span>
+                  </a>
+                </li>
+                <li class="d-block item-separator"></li>
+                <li class="d-block">
+                  <a href="#" class="link-to-link">Magasin</a>
+                </li>
+                <li class="d-block item-separator"></li>
+                <li class="d-block">
+                  <a href="#" class="link-to-link">Restaurants</a>
+                </li>
+              </ul>
+              <!-- Sign In -->
+              <t t-call="portal.placeholder_user_sign_in">
+                <t t-set="_item_class" t-valuef="nav-item ml-5"/>
+                <t t-set="_link_class" t-valuef="nav-link font-weight-bold"/>
+              </t>
+              <!-- User Dropdown -->
+              <t t-call="portal.user_dropdown">
+                <t t-set="_icon" t-value="true"/>
+                <t t-set="_item_class" t-valuef="nav-item dropdown ml-5"/>
+                <t t-set="_link_class" t-valuef="nav-link font-weight-bold custom"/>
+              </t>
+            </t>
+
+            <!-- Language Selector -->
+            <t t-call="website.placeholder_header_language_selector">
+              <t t-set="_div_classes" t-valuef="my-auto ml-lg-2"/>
+            </t>
+          </div>
+
+
+          <!-- Navbar Toggler -->
+          <t t-call="website.navbar_toggler">
+            <t t-set="_toggler_class" t-valuef="ml-auto"/>
+          </t>
+        </div>
+      </t>
+    </xpath>
+  </template>
+
+  <template id="template_footer_evtc" inherit_id="website.layout" name="evtc Footer" active="False">
+    <xpath expr="//div[@id='footer']" position="replace">
+      <div id="footer" class="oe_structure oe_structure_solo evtc-footer" t-ignore="true" t-if="not no_footer">
+        <section class="s_text_block pt48 pb16" data-snippet="s_text_block" data-name="Text">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 pb16">
+                <h5>Esanandro</h5>
+                <ul class="list-unstyled">
+                  <li class="list-item py-1">
+                    <a href="/">Livraison</a>
+                  </li>
+                  <li class="list-item py-1">
+                    <a href="#">Paiement</a>
+                  </li>
+                  <li class="list-item py-1">
+                    <a href="#">Politique de confidentialité</a>
+                  </li>
+                  <li class="list-item py-1">
+                    <a href="#">CGV</a>
+                  </li>
+                  <t t-set="configurator_footer_links" t-value="[]"/>
+                  <li t-foreach="configurator_footer_links" t-as="link" class="list-item py-1">
+                    <a t-att-href="link['href']" t-esc="link['text']"/>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-3 pb16">
+                <h5>Mon compte</h5>
+                <ul class="list-unstyled">
+                  <li class="py-1">
+                    <a href="#">Mes commandes</a>
+                  </li>
+                  <li class="py-1">
+                    <a href="#">Mes favoris</a>
+                  </li>
+                  <li class="py-1">
+                    <a href="#">Se connecter</a>
+                  </li>
+                  <li class="py-1">
+                    <a href="#">S’inscrire</a>
+                  </li>
+                </ul>
+              </div>
+              <!--<div class="col-lg-2 pb16">
+                <h5>actualités</h5>
+                <ul class="list-unstyled">
+                  <li class="py-1">
+                    <a href="#">Evènements</a>
+                  </li>
+                  <li class="py-1">
+                    <a href="#">Blog</a>
+                  </li>
+                </ul>
+              </div>-->
+              <div class="col-lg-3 pb16">
+                <h5>Service client</h5>
+                <ul class="list-unstyled">
+                  <li class="py-1">
+                    <span class="o_force_ltr">
+                      <a href="tel:034 69 402 91">034 69 402 91</a>
+                    </span>
+                  </li>
+                  <li class="py-1">
+                    <span class="o_force_ltr">
+                      <a href="tel:034 67 101 37">034 67 101 37</a>
+                    </span>
+                  </li>
+                  <li class="py-1">
+                    <a href="mailto:support.esanandro@esanandro.com">support.esanandro@esanandro.com</a>
+                  </li>
+
+                </ul>
+              </div>
+              <div class="col-lg-3 pb16">
+                <h5>Réseaux sociaux</h5>
+                <ul class="list-unstyled d-flex">
+                  <li class="py-1 mx-3">
+                    <a href="#">
+                      <i class="picto picto-facebook"></i>
+                    </a>
+                  </li>
+                  <li class="py-1 mx-3">
+                    <!--<a href="#">
+                      <i class="picto picto-linkedin"></i>
+                    </a>-->
+                    <a href="#">
+                      <i class="picto picto-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  <template id="call_us" name="popup_call" inherit_id="website.layout">
+    <xpath expr="//footer" position="after">
+      <!-- Modal -->
+      <div class="modal modal_evtc fade" id="call_center" tabindex="-1" aria-labelledby="call_centerModalLabel"
+           aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal_call_us_title">Call us</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Monday to Thursday : 6 a.m. to 12 a.m.</p>
+              <p>Friday to Sunday : 24/24</p>
+            </div>
+            <div class="modal-footer">
+              <a href="tel:+261346940291" class="btn vtc-primary-btn rounded-pill">Launch call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </xpath>
+
+  </template>
+
+</odoo>

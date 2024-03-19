@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="ooe_graph_views" model="ir.ui.view">
+    <field name="name">esanandro_geotab.fleet.trip.name</field>
+    <field name="model">esanandro_geotab.fleet.trip</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+      <graph string="KPI DATA" type="bar" sample="1">
+        <field name="distance" type="mesure"/>
+        <field name="vehicle_id"/>
+        <field name="date" />
+      </graph>
+    </field>
+  </record>
+
+  <record id="fleet_trip_kpi_action" model="ir.actions.act_window">
+    <field name="name">KPI</field>
+    <field name="res_model">esanandro_geotab.fleet.trip</field>
+    <field name="view_mode">pivot,graph,tree,form</field>
+  </record>
+
+  <record id="pivot_view" model="ir.ui.view">
+    <field name="name">KPI e-vtc</field>
+    <field name="model">esanandro_geotab.fleet.trip</field>
+    <field name="arch" type="xml">
+      <pivot string="KPI">
+        <field name="date" type="row" interval="day"/>
+        <field name="distance" type="measure"/>
+        <field name="working_distance" type="measure"/>
+        <field name="vehicle_id" type="col"/>
+      </pivot>
+    </field>
+  </record>
+
+  <menuitem name="KPI" parent="fleet.menu_root" id="kpi_trip" sequence="99"
+            action="esanandro_geotab.fleet_trip_kpi_action"/>
+
+</odoo>

@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <template id="portal_my_details" inherit_id="portal.portal_my_details">
+    <xpath expr="//form[@action='/my/account']" position="replace">
+      <a class="btn btn-evtc btn-outlined rounded-pill mt32" href="/my/home">
+        <i class="picto picto-arrow-left mr-3"></i>
+        Dashboard
+      </a>
+      <div class="address-wrapper">
+        <section>
+          <h2 class="vtc-title">Mon profil :</h2>
+          <form action="/my/account" method="post">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <div class="row o_portal_details vtc-form">
+              <div class="row">
+                <t t-set="partner_can_edit_vat" t-value="partner.can_edit_vat()" />
+                <div class="col-lg-12">
+                  <div t-if="error_message" class="alert alert-danger" role="alert">
+                    <t t-foreach="error_message" t-as="err">
+                      <t t-esc="err" />
+                      <br />
+                    </t>
+                  </div>
+                </div>
+                <div t-attf-class="form-group #{error.get('lastname') and 'o_has_error' or ''} col-md-6">
+                  <label class="col-form-label" for="name">Lastname *</label>
+                  <input type="text" name="lastname" t-attf-class="form-control #{error.get('lastname') and 'is-invalid' or ''}" t-att-value="lastname or partner.lastname" />
+                </div>
+
+                <div t-attf-class="form-group #{error.get('firstname') and 'o_has_error' or ''} col-md-6">
+                  <label class="col-form-label" for="name">Firstname</label>
+                  <input type="text" name="firstname" t-attf-class="form-control #{error.get('firstname') and 'is-invalid' or ''}" t-att-value="firstname or partner.firstname" />
+                </div>
+
+                <div t-attf-class="form-group #{error.get('email') and 'o_has_error' or ''} col-md-6">
+                  <label class="col-form-label" for="email">Email</label>
+                  <input type="email" name="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" t-att-value="email or partner.email if has_mail else ''" disabled="disabled"/>
+                </div>
+
+                <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-md-6">
+                  <label class="col-form-label" for="phone">Contact *</label>
+                  <div class="input-group country-flag-input mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <select class="select2 position-relative country_selekta input-group-text select-contact form-control account" name="country_code" t-att-value="partner.country_id.code if partner.country_id else None" disabled="disableed" style="background-color: #e9ecef !important;">
+                        <t t-foreach="countries" t-as="country">
+                          <option t-att-value="country.code"  t-att-data-phone="country.phone_code" t-att-selected="'selected' if country.code == partner.country_id.code else None">
+                           <t t-esc="country.name + '$'+str(country.phone_code)"/>
+                          </option>
+                        </t>
+                      </select>
+                      <input type="tel" name="phone" t-attf-class="input-contact form-control #{error.get('phone') and 'is-invalid' or ''}" t-att-value="phone or partner.phone" disabled="disabled" style="background-color: #e9ecef !important;"/>
+                    </div>
+                  </div>
+                </div>
+
+                <input type="hidden" name="redirect" t-att-value="redirect" />
+              </div>
+              <div class="clearfix">
+                <button type="submit" class="btn vtc-primary-btn rounded-pill ">
+                  Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </xpath>
+
+    <xpath expr="//div[hasclass('address-wrapper')]" position="after">
+      <div class="address-wrapper">
+        <section>
+          <form  method="POST" action="/my/account">
+            <h2 class="vtc-title">Reset my password</h2>
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <input type="hidden" name="reset_pwd" t-att-value="request.csrf_token()" />
+<!--            <p>
+              *for security, you will receive a confirmation email to your address
+              <strong class="font-weight-bold">
+                <t t-esc="partner.email" />
+              </strong>
+            </p>-->
+            <p>
+              Recevoir le code de confirmation par: <br/> <br/>
+              <select class="form-control" name="confirmation_code" id="code">
+                <t t-if="partner.country_id and partner.country_id.code == 'MG'">
+                  <option value="email" t-if="partner.email">
+                    <t t-esc="partner.email" />
+                  </option>
+                  <option value="phone" t-if="partner.phone">
+                    <t t-esc="partner.phone" selected="selected" />
+                  </option>
+                </t>
+                <t t-if="partner.country_id and partner.country_id.code != 'MG'">
+                  <option value="email" t-if="partner.email">
+                    <t t-esc="partner.email"/> </option>
+                </t>
+              </select>
+            </p>
+            <button type="submit" class="btn vtc-primary-btn rounded-pill">
+              Reset your password
+            </button>
+          </form>
+          <div t-if="reset_password_error" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <t t-esc="reset_password_error" />
+            .
+          </div>
+          <div t-if="reset_password_success" class="alert alert-success alert-dismissible fade show" role="alert">
+            <t t-esc="reset_password_success" />
+            .
+          </div>
+        </section>
+      </div>
+
+    </xpath>
+  </template>
+  <!--  <template id="modal_save_address_template">-->
+  <!--    <div role="dialog" class="modal fade modal_evtc modal_evtc_save_adress" id="modal_save_address">-->
+  <!--      <div class="modal-dialog modal-dialog-centered">-->
+  <!--        <form method="POST" class="js_accept_json modal-content js_website_submit_form">-->
+  <!--          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+  <!--          <header class="modal-header align-items-center">-->
+  <!--            <h4 class="modal-title">Save address</h4>-->
+  <!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>-->
+  <!--          </header>-->
+  <!--          <main class="modal-body" id="sign-dialog">-->
+  <!--            <div class="modal_evtc_save_adress_body">-->
+  <!--              <div class="modal_evtc_save_adress_body_input">-->
+  <!--                <input class="evtc_modal_map_input" type="text" placeholder="Name address"-->
+  <!--                       name="name" id="partner_name" t-att-value="name"/>-->
+  <!--              </div>-->
+  <!--              <div class="modal_evtc_save_adress_street d-none">-->
+  <!--                <p class="modal_evtc_street">-->
+  <!--                  <i class="picto picto-address-black mr-2"></i>-->
+  <!--                  <span id="partner_street"/>-->
+  <!--                </p>-->
+  <!--              </div>-->
+  <!--              <div class="modal_evtc_map_container">-->
+  <!--                <div class="modal_evtc_map_input_container">-->
+  <!--                  <input type="text" placeholder="Enter your location" name="location"-->
+  <!--                         id="input_partner_street"-->
+  <!--                         class="modal_evtc_map_input_location"></input>-->
+  <!--                </div>-->
+  <!--                <div id="modal_evtc_map" class="modal_evtc_map">-->
+  <!--                </div>-->
+  <!--              </div>-->
+  <!--              <div class="modal_evtc_instruction_container">-->
+  <!--                <label for="#instruction">-->
+  <!--                  <strong class="font-weight-bold">Delivery instructions and telephone-->
+  <!--                    number:</strong>* Indicate a landmark to help the delivery person (e.g.-->
+  <!--                  stop, building, meeting point, etc.)-->
+  <!--                </label>-->
+  <!--                <textarea name="" id="instruction" cols="30" rows="10"-->
+  <!--                          class="form-control instruction_homepage"></textarea>-->
+  <!--              </div>-->
+  <!--            </div>-->
+  <!--          </main>-->
+  <!--          <footer class="modal-footer">-->
+  <!--            <button type="button" class="btn btn_modal_evtc cancel" data-dismiss="modal">-->
+  <!--              <i class="picto picto-close mr-3"></i>CANCEL-->
+  <!--            </button>-->
+  <!--            <button type="button" id="btnSubmit" class="btn btn_modal_evtc save">-->
+  <!--              <i class="picto picto-check mr-3"></i>SUBMIT-->
+  <!--            </button>-->
+  <!--          </footer>-->
+  <!--        </form>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </template>-->
+
+
+  <template id="portal_my_contact">
+    <t t-call="portal.portal_layout">
+      <div class="o_portal_my_home">
+        <div class="oe_structure" id="oe_structure_portal_my_contact_1" />
+        <h2>My Address</h2>
+        <br />
+        <t t-foreach="favorites" t-as="favorite">
+          <t t-esc="favorite.name" />
+          <a role="button">
+            <i class="fa fa-pencil" />
+            Modifier
+          </a>
+          <br />
+        </t>
+        <input type="button" value="Add an address"></input>
+        <br />
+        <h3>Recently used address</h3>
+        <br />
+        <t t-foreach="historicals" t-as="historical">
+          <t t-esc="historical.street" />
+          <input type="button" value="Save this address"></input>
+        </t>
+        <!--        <t t-call="evtc_portal.modal_save_address_template"/>-->
+      </div>
+    </t>
+  </template>
+
+
+</odoo>

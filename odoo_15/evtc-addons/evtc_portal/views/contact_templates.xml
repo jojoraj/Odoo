@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <template id="modal_address_template">
+    <div role="dialog" class="modal fade modal_evtc modal_evtc_save_adress" id="modal_save_contact_address">
+      <div class="modal-dialog modal-dialog-centered">
+        <form method="POST" action="/my/contact/save" class="modal-content">
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+          <input type="hidden" name="operation"/>
+          <input type="hidden" name="contact_id" id="contact_id"/>
+          <header class="modal-header align-items-center">
+            <h4 style="display:none;" class="modal-title on-save-address">Save address</h4>
+            <h4 style="display:none;" class="modal-title on-add-address">Add address</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          </header>
+          <main class="modal-body" id="sign-dialog">
+            <div class="modal_evtc_save_adress_body">
+              <div class="modal_evtc_save_adress_body_input">
+                <input class="evtc_modal_map_input"
+                       type="text"
+                       placeholder="Name address"
+                       required="true"
+                       name="name"
+                       id="partner_name"></input>
+              </div>
+              <div class="modal_evtc_save_adress_street d-none">
+                <p class="modal_evtc_street">
+                  <i class="picto picto-address-black mr-2"></i>
+                  <span id="partner_street"/>
+                </p>
+              </div>
+              <div class="modal_evtc_map_container">
+                <div class="modal_evtc_map_input_container">
+                  <span id="remove_val_input_recuperation" class="remove_val_button oe_remove_next_chiild"></span>
+                  <input type="text"
+                         placeholder="Enter your location"
+                         name="location"
+                         id="input_partner_street"
+                         class="modal_evtc_map_input_location remove_val_input"/>
+                  <input type="hidden" name="latitude" id="new_addr_lat"/>
+                  <input type="hidden" name="longitude" id="new_addr_long"/>
+                </div>
+                <div class="address-resume">
+                  <ul class="list-group mb-3" id="add-adress-xd"></ul>
+                </div>
+                <div id="modal_evtc_map" class="modal_evtc_map">
+                  <div id="oe_map_integration_tmpl">
+                    <div id="modal_maps_adress" class="col-sm-12 map_portal_evtc"></div>
+                    <div id="markerInfo" style="display:none !important;">
+                      <span id="Place-adress-content">
+                        <img class="mr-1 svg-size" src="/evtc_portal/static/src/img/icon-label.svg"/>
+                      </span>
+                      <span id="Place-name-content" class="title Place-name-content"></span>
+                      <br/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal_evtc_instruction_container">
+                <label for="#instruction">
+                  <strong class="font-weight-bold">Additional information:
+                  </strong>* Indicate a landmark to help the driver (e.g.
+                  stop, building, meeting point, etc.)
+                </label>
+                <textarea name="comment" id="instruction" cols="30" rows="10"
+                          class="form-control instruction_homepage">
+                </textarea>
+              </div>
+            </div>
+          </main>
+          <footer class="modal-footer">
+            <button type="button" class="btn btn_modal_evtc cancel" data-dismiss="modal">
+              <i class="picto picto-close mr-3"></i>CANCEL
+            </button>
+            <button type="button" style="display:none;"
+                    class="on-save-address btn btn_modal_evtc delete_contact">
+              <i class="picto picto-bin mr-3"></i>DELETE
+            </button>
+            <button type="submit" id="btnSubmit" class="btn btn_modal_evtc save">
+              <i class="picto picto-check mr-3"></i>SUBMIT
+            </button>
+          </footer>
+        </form>
+      </div>
+    </div>
+  </template>
+
+  <template id="my_contact_itg" name="My address">
+    <t t-call="web.frontend_layout">
+      <!-- <t t-call="report.external_layout"> -->
+      <div id="wrap" class="oe_structure oe_empty portal-address oe_portal_map_address">
+        <div class="container-fluid">
+          <t t-call="evtc_portal.modal_address_template"/>
+          <a class="btn btn-evtc btn-outlined rounded-pill mt32" href="/my/home">
+            <i
+                    class="picto picto-arrow-left mr-3"></i>
+            Dashboard
+          </a>
+          <div class="address-wrapper">
+            <section>
+              <h2 class="vtc-title">My addresses :</h2>
+              <ul class="list-group">
+                <t t-foreach="addresses.filtered(lambda a:a.is_favorites)" t-as="contact">
+                  <li class="list-item d-flex">
+                    <div>
+                      <i class="picto picto-address-black"></i>
+                      <t t-esc="contact.name"/>
+                    </div>
+                    <t t-set="id" t-value="contact.id"/>
+                    <a type="buton"
+                       data-option="save"
+                       class="btn d-block ml-auto open-modal-address on-edit">
+                      <i data-option="save"
+                         t-att-data-id="contact.id"
+                         t-att-data-name="contact.name"
+                         t-att-data-lat="contact.latitude"
+                         t-att-data-lng="contact.longitude"
+                         t-att-data-street="contact.street"
+                         class="picto picto-edit"></i>
+                    </a>
+                  </li>
+                </t>
+              </ul>
+              <t t-set="id" t-value="0"/>
+              <button data-option="add" class="on-add btn vtc-primary-btn rounded-pill open-modal-address">
+                Add address
+              </button>
+            </section>
+            <section>
+              <h3>Recently used address</h3>
+              <ul class="list-group recently-wrap">
+                <t t-set="counter" t-value="0"/>
+                <t t-foreach="addresses.filtered(lambda a:a.is_historical)" t-as="contact">
+                  <li class="d-flex mb16 flex-wrap">
+                    <div class="addr">
+                      <t t-esc="contact.street"/>
+                    </div>
+                    <button data-option="save"
+                            t-att-data-id="contact.id"
+                            t-att-data-lat="contact.latitude"
+                            t-att-data-lng="contact.longitude"
+                            t-att-data-street="contact.street"
+                            class="on-save btn btn-evtc btn-outlined rounded-pill open-modal-address">
+                      <i class="picto picto-check mr-3"></i>
+                      save this address
+                    </button>
+                  </li>
+                  <t t-set="counter" t-value="counter+1"/>
+
+                </t>
+
+              </ul>
+              <t t-if="len(addresses.filtered(lambda a:a.is_historical)) &gt; 5">
+                <button id="showmore" class="btn vtc-primary-btn rounded-pill">
+                  <span class="more">Show more ...</span>
+                  <span class="less d-none">Show less ...</span>
+                </button>
+              </t>
+
+            </section>
+          </div>
+        </div>
+      </div>
+    </t>
+
+  </template>
+
+</odoo>

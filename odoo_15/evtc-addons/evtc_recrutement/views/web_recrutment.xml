@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="job_filter_by_company" inherit_id="website_hr_recruitment.index" active="False" customize_show="True" name="Filter by companies">
+    <xpath expr="//div[@id='jobs_grid_left']" position="inside">
+      <ul class="nav nav-pills flex-column mb32">
+        <li class="nav-item">
+          <a t-attf-href="/jobs#{ '/country/%s' % slug(country_id) if country_id else '' }#{ '/department/%s' % slug(department_id) if department_id else '' }" t-attf-class="nav-link#{'' if office_id else ' active'}">All Company</a>
+        </li>
+        <t t-foreach="offices" t-as="thisoffice">
+          <li class="nav-item">
+            <a t-attf-href="/jobs/company/#{ thisoffice.id }" t-attf-class="nav-link#{' active' if office_id == thisoffice.id else ''}">
+              <span t-field="thisoffice.name"/>
+            </a>
+          </li>
+        </t>
+      </ul>
+    </xpath>
+    <xpath expr="//div[@id='jobs_grid_left']" position="attributes">
+      <attribute name="class">col-lg-3</attribute>
+    </xpath>
+  </template>
+</odoo>

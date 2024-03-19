@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="keycloak_sms_marketing_view_form" model="ir.ui.view">
+    <field name="name">keycloak_sms_marketing_view_form</field>
+    <field name="model">keycloak.users</field>
+    <field name="arch" type="xml">
+      <form string="keycloak_sms_marketing_form">
+        <sheet>
+          <group string="Informations">
+            <field name="name" />
+            <field name="urls_ids" nolabel="1" />
+            <field name="is_active" />
+            <field name="steps" />
+            <field name="next_execute" />
+            <field name="keycloak_id" />
+          </group>
+          <group string="Utilisateur envoyer">
+            <field name="user_expend" />
+          </group>
+          <group string="Utilisateur non synchronisé">
+            <field name="user_unexpend" />
+          </group>
+          <group>
+            <field name="current_list" />
+          </group>
+          <group string="Liste des Utilisateurs">
+            <field name="lists" nolabel="1" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="keycloak_sms_marketing_view_tree" model="ir.ui.view">
+    <field name="name">keycloak_sms_marketing_view_tree</field>
+    <field name="model">keycloak.users</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="keycloak_id" />
+      </tree>
+    </field>
+  </record>
+  <record id="follow_sms_marketing_action" model="ir.actions.act_window">
+    <field name="name"></field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">keycloak.users</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('is_active', '=', True)]</field>
+  </record>
+  <menuitem name="Marketing" id="menu_marketing_follow" parent="base.menu_administration" />
+  <menuitem name="Esanandro marketing" id="esanandro_marketing_act_menu"
+    parent="menu_marketing_follow" action="follow_sms_marketing_action" />
+</odoo>

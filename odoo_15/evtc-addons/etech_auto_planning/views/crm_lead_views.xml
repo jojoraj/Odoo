@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="crm_button_object_form_view_inherit" model="ir.ui.view">
+    <field name="name">crm.lead.inherited.crm</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+        <field name="state_value" invisible="1" />
+        <button string="Validate" name="confirm_stage_without_return" type="object" class="oe_highlight"
+          title="Validate lead"
+          attrs="{'invisible': [('state_value', '!=', 'crm.stage_lead1')]}" />
+        <button string="Refuser" name="action_cancel_stage" type="object" class="oe_highlight"
+          title="Cancel lead"
+          attrs="{'invisible': [('state_value', '!=', 'crm.stage_lead1')]}" />
+      </xpath>
+    </field>
+  </record>
+  <record id="crm_lead_view_kanban_inherit" model="ir.ui.view">
+    <field name="name">crm.lead.view.kanban.inherit</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='expected_revenue']" position="after">
+        <field name="state_value" />
+      </xpath>
+      <xpath expr="//div[hasclass('oe_kanban_content')]" position="inside">
+        <div class="text-danger">
+          <field name="role_id" />
+        </div>
+        <div>
+          <div>
+            <field name="refusal_ids" widget="many2many_tags" options="{'color_field': 'color'}"
+              attrs="{'invisible': [('state_value', '!=', 'esanandro_crm.stage_lead5')]}"
+              style="background-color: antiquewhite;" />
+          </div>
+          <div>
+            <field name="refusal_remark"
+              attrs="{'invisible': [('state_value', '!=', 'esanandro_crm.stage_lead5')]}"
+              style="background-color: antiquewhite;" />
+          </div>
+          <button name="%(etech_auto_planning.action_auto_planning)d" type="action"
+            class="btn btn-primary"
+            attrs="{'invisible': [('state_value', '!=', 'esanandro_crm.stage_lead7')]}">
+            Assigning
+          </button>
+          <button name="action_confirm_stage" type="object" class="btn btn-primary"
+            attrs="{'invisible': [('state_value', '!=', 'crm.stage_lead1')]}">
+            validate
+          </button>
+          <button name="action_cancel_stage" type="object" class="btn btn-danger"
+            attrs="{'invisible': [('state_value', '!=', 'crm.stage_lead1')]}">
+            REFUSER
+          </button>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

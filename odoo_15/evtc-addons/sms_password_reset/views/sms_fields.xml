@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="reset_by_sms" name="Reset password">
+    <t t-call="web.login_layout">
+      <form class="oe_reset_password_form" role="form" method="post" t-if="not message">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+        <t t-if="token and not invalid_token">
+          <t t-call="auth_signup.fields">
+            <t t-set="only_passwords" t-value="1" />
+          </t>
+        </t>
+        <t t-if="not token">
+          <div class="oe_reset_password_by_sms">
+            <div class="form-group field-countrie">
+              <label for="country" class="col-form-label">Your country</label>
+              <select name="country" id="country-select" class="form-control" disabled="disabled">
+                <t t-foreach="countries" t-as="country">
+                  <option t-att-value="country.code"
+                    t-att-selected="'selected' if country.code == 'MG' else None">
+                    <t t-esc="country.name" />
+                  </option>
+                </t>
+              </select>
+            </div>
+            <div class="form-group field-phones">
+              <label for="phone" class="col-form-label">Your Phone number</label>
+              <input type="text" name="phone" t-att-value="login" id="phone" class="form-control"
+                autofocus="autofocus" autocapitalize="off" required="required" />
+            </div>
+          </div>
+        </t>
+
+        <p class="alert alert-danger" t-if="error" role="alert">
+          <t t-esc="error" />
+        </p>
+        <input type="hidden" name="redirect" t-att-value="redirect" />
+        <input type="hidden" name="token" t-att-value="token" />
+        <div class="clearfix oe_login_buttons">
+          <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+          <div class="d-flex justify-content-between align-items-center small mt-2">
+            <a t-if="not token" href="/web/reset_password">Use email</a>
+            <a t-if="not token" t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
+            <a t-if="invalid_token" href="/web/login">Back to Login</a>
+          </div>
+          <div class="o_login_auth" />
+        </div>
+      </form>
+    </t>
+  </template>
+</odoo>

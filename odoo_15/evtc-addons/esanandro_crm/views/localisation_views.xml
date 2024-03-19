@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_city_tree" model="ir.ui.view">
+    <field name="name">res.city.tree</field>
+    <field name="model">res.city</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="code" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_district_tree" model="ir.ui.view">
+    <field name="name">res.district.tree</field>
+    <field name="model">res.district</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="state_id" required="1" />
+        <field name="code" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_city_form" model="ir.ui.view">
+    <field name="name">res.city.form</field>
+    <field name="model">res.city</field>
+    <field name="arch" type="xml">
+      <form string="City">
+        <sheet>
+          <div class="oe_title">
+            <label for="name" class="oe_edit_only" />
+            <h1>
+              <field name="name" />
+            </h1>
+          </div>
+          <group name="commune">
+            <field name="state_ids" widget="many2many_tags" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_city" model="ir.actions.act_window">
+    <field name="name">City</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.city</field>
+    <field name="help">
+        Display and manage the list of all city
+      </field>
+  </record>
+
+  <record id="action_district" model="ir.actions.act_window">
+    <field name="name">District</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.district</field>
+    <field name="help">
+        Display and manage the list of all district
+      </field>
+  </record>
+
+  <menuitem id="menu_city"
+    action="action_city"
+    parent="contacts.menu_localisation"
+    sequence="3" />
+
+  <menuitem id="menu_district"
+    action="action_district"
+    parent="contacts.menu_localisation"
+    sequence="7" />
+</odoo>

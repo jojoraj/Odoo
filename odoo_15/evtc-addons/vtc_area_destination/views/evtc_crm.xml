@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="crm_lead_course_view_trees" model="ir.ui.view">
+    <field name="name">crm.lead.course.view.tree</field>
+    <field name="model">crm.lead.course</field>
+    <field name="inherit_id" ref="evtc_crm.crm_lead_course_view_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="attributes">
+        <attribute name="string">Zone de remisage</attribute>
+      </xpath>
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="kilometers_real" />
+        <field name="wait_time" />
+      </xpath>
+      <xpath expr="//field[@name='kilometers_estimted']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='delay']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

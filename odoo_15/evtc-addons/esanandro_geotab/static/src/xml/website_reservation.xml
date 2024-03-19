@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="0">
+  <template id="esanandro_geotab.main_reservation_content" name="Content reservation">
+    <t t-call="website.layout">
+      <div class="pt-5 pb-5 pr-4 pl-2" style="background-color: #11111112;">
+        <div>
+          <div class="geotab-body">
+            <div class="flex">
+              <div class="w-25">
+                <t t-raw="0" />
+              </div>
+              <div id="carte" class="map-full-height" style="border-radius: 0.8%;">
+                <div>
+                  <div class="" role="document">
+                    <div class="p-2">
+                      <div class="" id="test">
+                        <div id="map" style="overflow: hidden; width:100%;height:82vh;"></div>
+                        <div>
+                          <input type="hidden" id="lat" name="latitude" />
+                        </div>
+                        <div>
+                          <input type="hidden" id="lng" name="longitude" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+  <template id="esanandro_geotab.reservation_client_frontend_common" name="Collection Information Reservation">
+    <t t-call="esanandro_geotab.main_reservation_content">
+      <t t-set="partner_id" t-value="request.env.user.partner_id" />
+      <div>
+        <h3 class="bold" style="font-size: 1.3rem !important;margin-top:100px;">
+          Nouveau résérvation
+          <br />
+          <span class="small ml-2" style="font-size:12px; color: grey !important;">
+            <t t-if="partner_id">
+              <span class="">
+                <t t-esc="partner_id.name" />
+                (
+                <t t-esc="partner_id.phone" />
+                )
+              </span>
+            </t>
+          </span>
+          <t t-if="message">
+            <div t-att-class="'alert-success 'if status else 'alert-danger'">
+              <t t-esc="message" />
+            </div>
+          </t>
+        </h3>
+      </div>
+      <form method="POST" action="/web/vehicle-create" class="form-group att-vehicle-remove mr-5 pt-3" id="first-alls">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" class="form-control" />
+        <div class="form-group mt-3 mb-4">
+          <label for='date_time_reservation' class="mb-2">Date et Heure de récupération</label>
+          <div class="input-group datetime" id="delivery_date" data-target-input="nearest">
+            <input type="text" id="date_time_reservation" class="form-control datetimepicker-input" data-target="#delivery_date" name="my_datetimepicker" required="true" />
+            <div class="date_time" data-target="#delivery_date" data-toggle="datetimepicker">
+              <div class="calendar-reposition">
+                <i class="fa fa-calendar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="form-group mt-3 mb-4">
+            <label for='pickup_zone' class="mb-2">Zone de récupération</label>
+            <input type="text" id="pickupPoint_zone" class="w-100 form-control" name="pickup_zone" required="true" />
+          </div>
+          <div class="form-group mt-3 mb-4">
+            <label for='pick_back_zone' class="mb-2">Zone de remisage</label>
+            <input type="text" id="pickbackPoint_zone" class="w-100 form-control" name="pick_back_zone" required="true" />
+          </div>
+          <div>
+            <label for='note' class="mb-2">Notes</label>
+            <textarea type="text" class="w-100 h-20 pt-2 pb-2 form-control" name="note" placeholder="Votre note à enregistrer ici" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 border-0 mt-4 p-2" style="background-color:#714b67 !important;">Résérver</button>
+        <br />
+        <br />
+        <div class="mb-5 mt-2">
+          <span class="small pl-4" style="color: grey; font-size: 12px"> Estimation du trajet </span>
+          <br />
+          <div class="flexed align-tems-center pl-4">
+            <div class="strip w-50 text-left"> Trajet :</div>
+            <input class="w-50 text-right bold border-0" name="kilometers" id="strip-distance" value="0 Km" readonly="true" />
+          </div>
+          <div class="flexed align-tems-center pl-4">
+            <div class="strip w-50 text-left"> Durée du trajet :</div>
+            <input class="w-50 text-right bold border-0" name="duration_trip" id="strip-duration" value="00:00:00" readonly="true" />
+          </div>
+          <div class="flexed align-tems-center pl-4">
+            <div class="strip w-50 text-left"> Délai d'attente :</div>
+            <input class="strip w-50 text-right border-0 bold" value="00:30:00" readonly="true" />
+          </div>
+          <br />
+        </div>
+      </form>
+    </t>
+  </template>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <record id="administrator_cost" model="res.groups">
+    <field name="name">Cost Administration</field>
+  </record>
+
+  <function name="write" model="ir.model.data">
+      <function name="search" model="ir.model.data">
+        <value eval="[('module', '=', 'base'), ('name', '=', 'group_user')]"/>
+      </function>
+      <value eval="{'noupdate': False}"/>
+  </function>
+
+  <function name="write" model="ir.model.data">
+      <function name="search" model="ir.model.data">
+        <value eval="[('module', '=', 'fleet_security'), ('name', '=', 'administrator_cost')]"/>
+      </function>
+      <value eval="{'noupdate': False}"/>
+  </function>
+
+</odoo>

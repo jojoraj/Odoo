@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_city,res.city,model_res_city,,1,1,1,1
+access_res_district,res.district,model_res_district,,1,1,1,1
+access_crm_refusal,crm_refusal,model_crm_refusal,base.group_user,0,0,0,0
+access_crm_refusal_salesman,crm_refusal salesman,model_crm_refusal,sales_team.group_sale_salesman,1,1,1,0
+access_crm_refusal_manager,crm_refusal manager,model_crm_refusal,sales_team.group_sale_manager,1,1,1,1
+access_crm_refusal_wizard,crm_refusal_wizard,model_crm_refusal_wizard,,1,1,1,1
+access_res_district_manager,res_district_manager,model_res_district,,1,1,1,1
+access_evtc_mail_content,evtc_mail_content,model_evtc_mail_content,base.group_user,1,1,1,1

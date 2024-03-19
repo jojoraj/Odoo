@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="middle_office_res_partner_inherit" model="ir.ui.view">
+        <field name="name">middle.office.inherit.res.partner.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_driver"/>
+            </xpath>
+            <xpath expr="//field[@name='is_partner_supplier']" position="before">
+                <field name='is_b2b' attrs="{'invisible': [('is_company','=', True)]}"/>
+                <field name="related_company"
+                            widget="res_partner_many2one"
+                            placeholder="Related company ..."
+                            domain="[('is_company', '=', True)]" context="{'default_is_company': False}"
+                            attrs="{'invisible': ['|',('is_company','=', True),('is_b2b','=', False)],'required':[['is_b2b','=',True]]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

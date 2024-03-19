@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="esa_geotab_view_order_form_inherit" model="ir.ui.view">
+    <field name="name">esa_geotab.sale.order.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="esanandro_geotab.esa_geotab_view_order_form_inherit"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='real_cost']" position="after">
+        <field name="real_time"/>
+        <field name="real_time_wait" invisible="1" />
+        <field name="real_price_wait_time" string="Prix du temps d'attente" invisible="0"/>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

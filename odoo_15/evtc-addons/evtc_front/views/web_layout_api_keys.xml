@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="layout_map" name="Web layout with google map" inherit_id="web.layout">
+        <xpath expr="//script" position="before">
+            <t t-if="google_maps_api_key">
+                <script t-attf-src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=#{google_maps_api_key}"></script>
+            </t>
+        </xpath>
+    </template>
+</odoo>

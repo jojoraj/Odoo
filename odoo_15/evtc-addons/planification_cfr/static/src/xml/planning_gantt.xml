@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="DownGanttView.buttons" t-extend="PlanningGanttView.buttons">
+        <t t-jquery=".o_gantt_button_add" t-operation="before">
+            <button class="btn btn-secondary fa fa-download o_down_plan_xlsx" title="Download planification CFR" aria-label="Download planification CFR">CFR</button>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,13 @@
+<odoo>
+  <record id="logo_all" model="ir.ui.view">
+    <field name="name">customize logo invoice and sale order</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form" />
+    <field name="priority">2</field>
+    <field name="arch" type="xml">
+      <xpath expr="//group/field[@name='favicon']" position="after">
+        <field name="logo_all" widget="image" class="float-left oe_avatar" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

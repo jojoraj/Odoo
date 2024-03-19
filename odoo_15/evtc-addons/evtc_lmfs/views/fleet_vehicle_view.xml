@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_vehicle_view_form_inherit" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button string="send vehicle to MO" class="btn btn-primary" type="object"
+                    name="create_mo_vehicle" groups="base.group_no_one" />
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="action_server_add_sync_button_to_tree_view" model="ir.actions.server">
+        <field name="name">Send vehicles to MO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_fleet_vehicle"/>
+        <field name="binding_model_id" ref="model_fleet_vehicle"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.sync_multiple_vehicle_to_mo()
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_state_view_tree_inherit" model="ir.ui.view">
+        <field name="name">fleet.vehicle.state.view.tree.lmfs.inherit</field>
+        <field name="model">fleet.vehicle.state</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_state_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_broken_down" />
+                <field name="middle_office_value" groups="base.group_no_one" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

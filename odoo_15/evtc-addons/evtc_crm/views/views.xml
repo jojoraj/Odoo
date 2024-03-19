@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="inherit_crm_lead_view_form_course" model="ir.ui.view">
+    <field name="name">crm.lead.view.form</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='tag_ids']" position="after">
+        <field name="is_location" attrs="{'invisible': [('as_many_course','=',True)]}" />
+        <field name="out_tana" attrs="{'invisible': ['|',('as_many_course','=',True), ('is_location','=',False)]}" />
+        <field name="location_duration"
+          attrs="{'invisible': [('is_location','=',False)], 'required': [('is_location','=',True)]}" />
+        <field name="as_many_course" attrs="{'invisible': [('is_location','=',True)]}" />
+      </xpath>
+      <xpath expr="//notebook" position="before">
+        <field name="others_destination"
+          attrs="{'invisible': ['|',('as_many_course','=',False),('is_location','=',True)]}" nolabel="1" />
+      </xpath>
+      <xpath expr="//field[@name='destination_zone']" position="attributes">
+        <attribute name="attrs">{'invisible': ['|',('as_many_course','=',True),('is_location','=',True)]}
+        </attribute>
+      </xpath>
+      <xpath expr="//field[@name='destination_zone_id']" position="attributes">
+        <attribute name="attrs">{'invisible': ['|',('as_many_course','=',True),('is_location','=',True)]}
+        </attribute>
+      </xpath>
+      <xpath expr="//label[@for='destination_zone_id']" position="attributes">
+        <attribute name="attrs">{'invisible': ['|',('as_many_course','=',True),('is_location','=',True)]}
+        </attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="crm_lead_course_view_form" model="ir.ui.view">
+    <field name="name">crm.lead.course.view.form</field>
+    <field name="model">crm.lead.course</field>
+    <field name="arch" type="xml">
+      <form string="Model Category">
+        <sheet>
+          <group>
+            <label for="name" string="Destination Zone" />
+            <div>
+              <div class="o_address_format" name="div_address">
+                <field name="name" placeholder="Fill in the exact location..."
+                  class="o_address_street font-italic" />
+              </div>
+            </div>
+          </group>
+          <group>
+            <field name="delay" />
+            <field name="coordinate" invisible="1" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="crm_lead_course_view_tree" model="ir.ui.view">
+    <field name="name">crm.lead.course.view.tree</field>
+    <field name="model">crm.lead.course</field>
+    <field name="arch" type="xml">
+      <tree editable="bottom">
+        <field name="name" widget="fieldAutocompleteService" class="ui-autocomplete-input" />
+        <field name="kilometers_estimted" />
+        <field name="coordinate" invisible="1" />
+        <field name="delay" />
+      </tree>
+    </field>
+  </record>
+  <record id='crm_lead_course_act_window' model='ir.actions.act_window'>
+    <field name="name">crm.lead.course.ir.actions.act_window</field>
+    <field name="res_model">crm.lead.course</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="xml">
+      <p class="o_view_nocontent_smiling_face">
+        Create a new price model
+      </p>
+    </field>
+  </record>
+
+  <!--modification reference code view kanban-->
+  <record id="view_crm_lead_vtc_kanban" model="ir.ui.view">
+    <field name="name">crm.lead.vtc.kanban.lead</field>
+    <field name="inherit_id" ref="esanandro_crm.view_crm_lead_kanban" />
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='expected_revenue']" position="after">
+        <field name="is_location" invisible="1" />
+        <field name="as_many_course" invisible="1" />
+      </xpath>
+      <xpath expr="//div[hasclass('info_kanban')]" position="replace">
+        <div class="info_kanban_inherit">
+          <t t-if="record.reference_code.raw_value and record.is_location.raw_value">
+            <span>Location #</span>
+            <field name="reference_code" />
+            <br />
+          </t>
+          <t t-else="record.reference_code.raw_value and not record.is_location.raw_value">
+            <span>Course #</span>
+            <field name="reference_code" />
+            <br />
+          </t>
+          <field name="phone" />
+        </div>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

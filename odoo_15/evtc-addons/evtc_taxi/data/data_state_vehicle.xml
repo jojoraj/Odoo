@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+  <record model="fleet.vehicle.state" id="blocked">
+    <field name="name">UNFIT</field>
+  </record>
+  <record model="fleet.vehicle.state" id="busy">
+    <field name="name">BUSY</field>
+  </record>
+  <record model="fleet.vehicle.state" id="fleet_vehicle_state_unvailable">
+    <field name="name">UNVAILABLE</field>
+  </record>
+</odoo>

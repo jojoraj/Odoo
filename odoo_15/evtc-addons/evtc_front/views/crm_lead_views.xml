@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="0">
+  <record id="crm_lead_view_form" model="ir.ui.view">
+    <field name="name">crm.lead.form</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form" />
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='tag_ids']" position="before">
+        <field name="vehicle_note" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

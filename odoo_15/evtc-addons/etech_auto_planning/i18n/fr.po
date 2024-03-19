@@ -1,0 +1,665 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* etech_auto_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20230301\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-19 12:27+0000\n"
+"PO-Revision-Date: 2023-05-19 12:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_res_partner
+msgid ""
+"\n"
+"        The purpose is that our invoicing is in good order,\n"
+"        that this information appears in exports for tax declarations\n"
+"        in accordance with the regulations in force.\n"
+"    "
+msgstr ""
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_gantt_inherit
+msgid ""
+"<i class=\"fa fa-long-arrow-right\" title=\"Arrow\"/>\n"
+"            <strong>Destination zone —</strong>"
+msgstr ""
+"<i class=\"fa fa-long-arrow-right\" title=\"Arrow\"/>\n"
+"            <strong>Zone de remisage —</strong>"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.pos_config_view_form_inherit
+msgid "<span class=\"o_form_label\">Number of order</span>"
+msgstr ""
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.pos_config_view_form_inherit
+msgid "<span class=\"o_form_label\">Role</span>"
+msgstr "<span class=\"o_form_label\">Rôle</span>"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_gantt_inherit
+msgid "<strong>Estimated kilometers —</strong>"
+msgstr "<strong>Kilométrage estimatif —</strong>"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_gantt_inherit
+msgid "<strong>Pick up zone —</strong>"
+msgstr "<strong>Zone de récupération —</strong>"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid ""
+"A vehicle has already been selected, you cannot select multiple vehicles"
+msgstr "Un véhicule a été déjà sélectionné, vous ne pouvez pas sélectionner plusieurs véhicules"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__active
+msgid "Active"
+msgstr "Active"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.assign_wizard_view_form
+msgid "Assign"
+msgstr "Attribuer"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_resource_assign_wizard
+msgid "Assign Resource Wizard"
+msgstr "Assistant d'affectation de ressources"
+
+#. module: etech_auto_planning
+#: model:ir.actions.act_window,name:etech_auto_planning.action_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_lead_view_kanban_inherit
+msgid "Assigning"
+msgstr "Affectation"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/models/crm_lead.py:0
+#: code:addons/etech_auto_planning/models/crm_lead.py:0
+#: code:addons/etech_auto_planning/models/sale_order.py:0
+#, python-format
+msgid "Assignment"
+msgstr "Affectation"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_auto_planning_line_wizard
+msgid "Auto Planning Line"
+msgstr "Ligne de planification automatique"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields.selection,name:etech_auto_planning.selection__auto_planning_line_wizard__state__available
+msgid "Available"
+msgstr "Disponible"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.assign_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_button_object_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_lead_view_kanban_inherit
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_auto_planning_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_button_object_form_view_inherit
+msgid "Cancel lead"
+msgstr "Annuler l'opportunité"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__client_note
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__client_note
+msgid "Client notes"
+msgstr "Notes du client"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__create_uid
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__create_uid
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__create_uid
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__create_date
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__create_date
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__create_date
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__begin_daily_course
+msgid "Debut du course Journalier"
+msgstr "Début du course Journalier"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,help:etech_auto_planning.field_pos_config__order_counts
+msgid "Define the number of order appear in POS."
+msgstr "Définir le nombre de devis sur le point de vente"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__destination_zone_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__destination_zone_id
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_search
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_order_form_inherit
+msgid "Destination Zone"
+msgstr "Zone de remisage"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__display_name
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__display_name
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__display_name
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__display_name
+msgid "Display Name"
+msgstr "Afficher un nom"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__driver_id
+msgid "Driver"
+msgstr "Nom du Chauffeur"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_auto_planning_wizard
+msgid "Driver name"
+msgstr "Nom du chauffeur"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__duration
+msgid "Duration"
+msgstr "Durée"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__end_datetime
+msgid "End Date"
+msgstr "Date de prochain course"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__estimated_kilometers
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__estimated_kilometers
+msgid "Estimated Kilometers"
+msgstr "Kilomètres estimés"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__destination_zone
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__pick_up_zone
+msgid "Exact location"
+msgstr "Lieu exact"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__destination_zone
+msgid "Exact location destination"
+msgstr "Lieu exact de la destination"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__pick_up_zone
+msgid "Exact location pick up"
+msgstr "Lieu exact du remisage"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_order_form_inherit
+msgid "Fill in the exact location..."
+msgstr "Indiquez le lieu exact..."
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__end_daily_course
+msgid "Fin du course Journalier"
+msgstr "Fin du course Journalier"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_search
+msgid "Future pick up"
+msgstr "Récupération future"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__id
+msgid "ID"
+msgstr "Id"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__index
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__index
+msgid "Index"
+msgstr "Indice"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields.selection,name:etech_auto_planning.selection__auto_planning_line_wizard__state__is_assigned
+msgid "Is Assigned"
+msgstr "Est assigné"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_gantt_inherit
+msgid "Km"
+msgstr "Km"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard____last_update
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard____last_update
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route____last_update
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__write_uid
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__write_uid
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__write_uid
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__write_date
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__write_date
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__write_date
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__destination_zone
+msgid "Last position"
+msgstr "Lieu de remisage dernière course"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_search
+msgid "Late pick up"
+msgstr "Récupération passée"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__crm_lead_id
+msgid "Leads"
+msgstr "Opportunité"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_pos_order_line__sale_order_origin_id
+msgid "Linked Sale Order"
+msgstr "Devis relié"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__name
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_route__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__pick_up_zone
+msgid "Next destination"
+msgstr "Prochain lieu de récupération"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "No role found for the driver %s"
+msgstr "Aucun rôle trouvé pour le conducteur %s"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "No vehicle found for the driver %s"
+msgstr "Aucun véhicule trouvé pour le conducteur %s"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_pos_config__order_counts
+msgid "Number of order show in pos"
+msgstr "Nombre de commande afficher en pos"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/models/planning_slot.py:0
+#, python-format
+msgid "Opportunity %s"
+msgstr "Opportunité %s"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_order_form_inherit
+msgid "Order Informations"
+msgstr "Informations sur la commande"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_auto_planning_wizard
+msgid "Parameters"
+msgstr "Paramèttres"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_pos_order__payment_method
+msgid "Payment Method"
+msgstr "Méthode de paiement"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__payment_method_note
+msgid "Payment Method Note"
+msgstr "Note du méthode de paiement"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_pos_order__payment_method_ids
+msgid "Payment method"
+msgstr "Méthode de paiement"
+
+#. module: etech_auto_planning
+#. openerp-web
+#: code:addons/etech_auto_planning/static/src/xml/Orderline.xml:0
+#: code:addons/etech_auto_planning/static/src/xml/Orderline.xml:0
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__phone
+#, python-format
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__hour
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_search
+msgid "Pick up Hour"
+msgstr "Heure de récupération"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__pick_up_datetime
+msgid "Pick up date and time"
+msgstr "Date et heure de récupération"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__pick_up_zone_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__pick_up_zone_id
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_search
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_order_form_inherit
+msgid "Pick up zone"
+msgstr "Zone de récupération"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Pick up zone: %s (%s) - Destination zone: %s (%s) [%s] %s"
+msgstr "Zone de récupération: %s (%s) - Zone de destination: %s (%s) [%s] %s"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Pick up zone: %s - location: %s  %s %s"
+msgstr "Zone de récupération : %s - location : %s %s %s"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Pickup zone: %s - Destination zone: %s. %s %s"
+msgstr "Zone de récupération: %s - Zone de remisage: %s. %s %s"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__planning_id
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.pos_config_view_form_inherit
+msgid "Planning"
+msgstr "Planification"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_planning_role
+msgid "Planning Role"
+msgstr "Rôle de Planning"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_planning_slot
+msgid "Planning Shift"
+msgstr "Poste de Planning"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__planning_ids
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_auto_planning_wizard
+msgid "Plannings"
+msgstr "Planifications"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Please set pick up date before continuing"
+msgstr "Veuillez renseigner la date de récupération avant de continuer"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Lignes des commandes du point de vente"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__product_id
+msgid "Product"
+msgstr "Produit"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.pos_config_view_form_inherit
+msgid "Quotations"
+msgstr ""
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__reference_code
+msgid "Reference Code"
+msgstr ""
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_sale_order
+msgid "Reservation for geotab"
+msgstr ""
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__resource_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_wizard__resource_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_resource_assign_wizard__resource_id
+msgid "Resource"
+msgstr "Ressource"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__role_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_crm_lead__role_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_slot__role_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_pos_config__role_id
+#: model:ir.model.fields,field_description:etech_auto_planning.field_sale_order__role_id
+msgid "Role"
+msgstr "Rôle"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_order_form_inherit
+msgid "Route Informations"
+msgstr "Informations du trajet"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid ""
+"Section Client - Pick up zone: %s (%s) - Destination zone: %s (%s) [%s] %s"
+msgstr ""
+"Section Client - Zone de récupération: %s (%s) - Zone de destination: %s "
+"(%s) [%s] %s"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Section Client - Pick up zone: %s - location: %s  %s %s"
+msgstr ""
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Section Client - Pickup zone: %s - Destination zone: %s. %s %s"
+msgstr ""
+"Section Client - Zone de récupération: %s - Zone de remisage: %s. %s %s"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__is_selected
+msgid "Selected"
+msgstr "Sélectionné"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_auto_planning_wizard
+msgid "Sending notification while reservation will be affected"
+msgstr "L'envoi d'une notification pendant la réservation sera affecté"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_planning_role__product_tmpl_ids
+msgid "Services"
+msgstr "Services"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_gantt_inherit
+msgid "Some changes were made since this shift was published."
+msgstr "Certaines modifications ont été apportées depuis la publication de ce changement."
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__start_datetime
+msgid "Start Date"
+msgstr "Date de la fin derniere course"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_auto_planning_line_wizard__state
+msgid "State"
+msgstr "État"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_crm_lead__state_value
+msgid "State Value"
+msgstr "Valeur d'état"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "The %s is not assign to an driver on Odoo"
+msgstr "Le %s n'est pas attribué à un chauffeur sur Odoo"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_search
+msgid "Today pick up"
+msgstr "Récupération aujourd'hui"
+
+#. module: etech_auto_planning
+#: model:ir.model.fields.selection,name:etech_auto_planning.selection__auto_planning_line_wizard__state__unaivalable
+msgid "Unaivalable"
+msgstr "Indisponible"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_order_form_inherit
+msgid "VTC order information"
+msgstr "Informations sur commande VTC"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.assign_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_button_object_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.view_auto_planning_wizard
+msgid "Validate"
+msgstr "Valider"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_button_object_form_view_inherit
+msgid "Validate lead"
+msgstr "Valider"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/models/crm_lead.py:0
+#, python-format
+msgid ""
+"You cannot change the recording status without making the vehicle assignment"
+msgstr ""
+"Vous ne pouvez pas modifier le statut sans effectuer l'affectation du "
+"véhicule"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "You must select a vehicle from the list to continue"
+msgstr "Vous devez sélectionner un véhicule dans la liste pour continuer."
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "no working vehicle on this day"
+msgstr "Aucun véhicule en état de marche pour l'instant."
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_view_gantt_inherit
+msgid "other shift(s) in conflict."
+msgstr ""
+
+#. module: etech_auto_planning
+#: model:ir.ui.menu,name:etech_auto_planning.new_menu_root_action_planning
+msgid "planification du temps des parcours"
+msgstr "planification du temps des parcours"
+
+#. module: etech_auto_planning
+#: model:ir.actions.act_window,name:etech_auto_planning.planning_route_action
+msgid "planning Time"
+msgstr "Temps de plannification"
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_planning_route
+msgid "planning.route"
+msgstr ""
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.planning_route_view_form
+msgid "planning_route_form"
+msgstr ""
+
+#. module: etech_auto_planning
+#: model:ir.model,name:etech_auto_planning.model_crm_lead
+msgid "send mail after crm created"
+msgstr "envoyer un mail après la création du crm"
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.crm_lead_view_kanban_inherit
+msgid "validate"
+msgstr "Valider"
+
+#. module: etech_auto_planning
+#: code:addons/etech_auto_planning/wizard/auto_planning_wizard.py:0
+#, python-format
+msgid "Driver name: %s - Car details: %s with the license plate: %s"
+msgstr "Nom du conducteur: %s - Détails de la voiture: %s avec la plaque d'immatriculation: %s"
+
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_res_partner__is_b2b
+msgid "Is client B2B"
+msgstr "Est client B2B"
+
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_res_partner__related_company
+msgid "Related Company"
+msgstr "Société liée"
+
+
+#. module: etech_auto_planning
+#: model_terms:ir.ui.view,arch_db:etech_auto_planning.middle_office_res_partner_inherit
+msgid "Related company ..."
+msgstr "Société liée ..."
+
+#. module: etech_auto_planning
+#: model:ir.model.fields,field_description:etech_auto_planning.field_res_partner__is_driver
+#: model:ir.model.fields,field_description:etech_auto_planning.field_res_users__is_driver
+msgid "Is driver"
+msgstr "Est Chauffeur"

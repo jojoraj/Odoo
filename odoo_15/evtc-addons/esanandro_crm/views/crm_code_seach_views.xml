@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="crm_seach_view_form_inherit" model="ir.ui.view">
+    <field name="name">crm.seachpanel.control.form</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter" />
+    <field name="priority" eval="8" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="before">
+        <field name="reference_code" string="Numero du course" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

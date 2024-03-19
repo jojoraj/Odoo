@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <!-- Create new destination -->
+  <t t-name="vtc_area_destination.destination_list_register">
+    <t t-if="_CurrentObject">
+      <li t-attf-id="destination-list-#{nextCall}"
+          style="cursor: s-resize;"
+          t-attf-class="destination-list-item p-2 destination-list-#{nextCall}">
+        <div class="d-flex">
+          <div class="address flex-grow-1">
+            <span t-esc="_CurrentObject.name"/>
+          </div>
+          <button class="btn d-block">
+            <i class="picto picto-edit delivery_address_modify" t-attf-id="modify-picto-#{nextCall}"/>
+            <input type="hidden" t-attf-id="oe-lat-#{nextCall}" t-attf-value="#{_CurrentObject.position.lat}" />
+            <input type="hidden" t-attf-id="oe-lng-#{nextCall}" t-attf-value="#{_CurrentObject.position.lng}" />
+          </button>
+        </div>
+        <div class="waiting-time">Temps d’attente :
+          <t t-if="_CurrentObject.details">
+            <span class="waiting-minutes" t-esc="_CurrentObject.details.name"/>
+          </t>
+          <t t-else=""> <span class="waiting-minutes"> 0 </span></t>
+        </div>
+      </li>
+    </t>
+  </t>
+
+</templates>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="layout_map_dis_key" name="Web layout with google map" inherit_id="web.layout">
+		<xpath expr="//head/script" position="after">
+			<t t-if="dis_api_keys">
+				<script
+						t-attf-src="https://maps.googleapis.com/maps/api/js?key=#{dis_api_keys}&amp;v=beta&amp;libraries=journeySharing"/>
+			</t>
+		</xpath>
+	</template>
+</odoo>

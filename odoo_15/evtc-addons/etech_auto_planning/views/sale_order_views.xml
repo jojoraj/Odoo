@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_order_form_inherit" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+        <attribute name="context">{'from_sale': True}</attribute>
+      </xpath>
+      <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+        <attribute name="context">{'from_sale': True}</attribute>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="context">{'show_phone': True}</attribute>
+      </xpath>
+      <xpath expr="//page[@name='other_information']" position="after">
+        <page string="VTC order information" name="vtc_order_information">
+          <group>
+            <group name="order_info" string="Order Informations">
+              <field name="pick_up_datetime"/>
+              <field name="role_id"/>
+              <field name="client_note"/>
+            </group>
+            <group name="route_info" string="Route Informations">
+              <label for="pick_up_zone_id" string="Pick up zone"/>
+              <div>
+                <div class="o_address_format" name="div_address">
+                  <field name="pick_up_zone_id" options='{"no_create": True}'/>
+                  <field name="pick_up_zone" placeholder="Fill in the exact location..."
+                         class="o_address_street font-italic"/>
+                </div>
+              </div>
+              <label for="destination_zone_id" string="Destination Zone"/>
+              <div>
+                <div class="o_address_format" name="div_address">
+                  <field name="destination_zone_id" options='{"no_create": True}'/>
+                  <field name="destination_zone" placeholder="Fill in the exact location..."
+                         class="o_address_street font-italic"/>
+                </div>
+              </div>
+              <field name="duration" widget="float_time"/>
+            </group>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

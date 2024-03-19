@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <record model='ir.ui.menu' id='fleet.fleet_vehicle_log_contract_menu'>
+    <field name="groups_id" eval="[(6,0,[ref('fleet_security.administrator_cost')])]"/>
+  </record>
+
+  <record model='ir.ui.menu' id='fleet.fleet_vehicle_log_services_menu'>
+    <field name="groups_id" eval="[(6,0,[ref('fleet_security.administrator_cost')])]"/>
+  </record>
+
+  <record model='ir.ui.menu' id='fleet.menu_fleet_reporting_costs'>
+    <field name="groups_id" eval="[(6,0,[ref('fleet_security.administrator_cost')])]"/>
+  </record>
+
+  <record model='ir.ui.menu' id='fleet.fleet_configuration'>
+    <field name="groups_id" eval="[(6,0,[ref('fleet_security.administrator_cost')])]"/>
+  </record>
+
+  <record model='ir.ui.menu' id='fleet.fleet_vehicle_odometer_menu'>
+    <field name="groups_id" eval="[(6,0,[ref('fleet_security.administrator_cost')])]"/>
+  </record>
+
+</odoo>

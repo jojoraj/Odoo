@@ -1,0 +1,35 @@
+<odoo>
+  <record id="fleet_vehicle_taxi_view_form" model="ir.ui.view">
+    <field name="name">fleet.vehicle.form</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+    <field name="model">fleet.vehicle</field>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('oe_title')]" position="after">
+        <label for="tag_id" />
+        <field name="tag_id" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="inherit_fleet_vehicle_model_category_view_form" model="ir.ui.view">
+    <field name="name">evtc.taxi.vehicle.model.category.view.form</field>
+    <field name="inherit_id" ref="etech_fleet.inherit_fleet_vehicle_model_category_view_form" />
+    <field name="model">fleet.vehicle.model.category</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='minimum_price_id']" position="after">
+        <field name="is_taxi" />
+        <field name="team_id" />
+      </xpath>
+    </field>
+  </record>
+  <record id="fleet_vehicle_view_kanban_update_vehicle" model="ir.ui.view">
+    <field name="name">fleet.vehicle.view.kanban.update.vehicle</field>
+    <field name="model">fleet.vehicle</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_view_kanban" />
+    <field name="arch" type="xml">
+      <xpath expr="//kanban" position="attributes">
+        <attribute name="js_class">update_vehicle_state_kanban</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record model="planning.route" id="first_data_planing_route_object">
+    <field name="name">Nouvelle période de course Depuis Avril 2022</field>
+    <field name="begin_daily_course">09.01</field>
+    <field name="end_daily_course">16.01</field>
+    <field name="active">True</field>
+  </record>
+</odoo>

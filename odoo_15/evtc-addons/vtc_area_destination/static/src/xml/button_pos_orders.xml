@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <templates id="template" xml:space="preserve">
+    <t t-name="OeTimeWaitCoursePause" owl="1">
+      <div id="pause-btn" class="control-button"
+        style="background-color: #00c3d7; color:white;cursore:pointer;display:none;">
+        <i class="fa fa-solid fa-pause" id="icon-font-status" role="img" aria-label="Start Reservation"
+          title="Start Reservation" />
+        <span id="name-status">Mettre en pause</span>
+        <span id="onRemoveTimers" style="display:none;">
+          <i id="hours">00</i>
+          :
+          <i id="minutes">00</i>
+          :
+          <i id="seconds">00</i>
+        </span>
+      </div>
+    </t>
+  </templates>
+</odoo>

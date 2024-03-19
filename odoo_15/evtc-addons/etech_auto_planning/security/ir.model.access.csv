@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_auto_planning_wizard,auto.planning.wizard,model_auto_planning_wizard,,1,1,1,1
+access_auto_planning_line_wizard,auto.planning.line.wizard,model_auto_planning_line_wizard,,1,1,1,1
+access_resource_assign_wizard,resource.assign.wizard,model_resource_assign_wizard,,1,1,1,1
+access_planning_route,planning.route,model_planning_route,,1,1,1,0

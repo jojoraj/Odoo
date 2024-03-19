@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="evtc_back_office.PlacePredictionValue">
+            <ul class="oe_autocomplete_main list-group oe_lis_content" t-att-field="fieldName">
+                <t t-if="uiPlaceAutocomplete">
+                    <t t-foreach="uiPlaceAutocomplete" t-as="place">
+                        <li class="oe_liPlace list-place oe_place_li_st" t-att-place_id="place.place_id">
+                            <t t-esc="place.description"/>
+                        </li>
+                    </t>
+                </t>
+            </ul>
+    </t>
+</templates>

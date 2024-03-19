@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="assign_wizard_view_form" model="ir.ui.view">
+    <field name="name">Assigning</field>
+    <field name="model">resource.assign.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Assign">
+        <sheet>
+          <group>
+            <field name="resource_id" required="1" options='{"no_create": True}'/>
+          </group>
+        </sheet>
+        <footer>
+          <button name="validate" string="Validate" type="object" class="btn-primary" icon="fa-cog"/>
+          <button string="Cancel" class="oe_link" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,75 @@
+.geotab-body {
+    height: 100vh !important;
+    width: 100% !important;
+    padding: 0 2%;
+    .flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .w-40 {
+        width: 40% !important;
+    }
+    .map-empt-height {
+        height: 85vh !important;
+        background-color: white;
+        width: 50% !important;
+    }
+    .map-full-height {
+        height: 85vh !important;
+        background-color: white;
+        width: 75% !important;
+    }
+    .country-contact-code {
+        position: absolute;
+        height: auto;
+        margin: 7px 0 0 5px;
+    }
+    #client-contact {
+        padding-left: 65px !important;
+    }
+    .date_time {
+        position: absolute;
+        background-color: transparent;
+        width: 98.2%;
+        height: 32px;
+        margin-top: 3px;
+        padding-left: 86.2% !important;
+    }
+    .calendar-reposition {
+        border-radius: 0 !important;
+        margin-left: 10px;
+        margin-top: 3px;
+    }
+    #date_time_reservation {
+        padding-left: 60px;
+    }
+    .circle {
+        box-sizing: border-box;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px #888;
+    }
+    .circle-marker {
+        box-sizing: border-box;
+        width: 30px;
+        height: 30px;
+    }
+    .circle-red {
+        border: 5px solid #F00;
+    }
+    .circle-green {
+        border: 5px solid green;
+    }
+    .circle-animate {
+        animation-name: show-hide;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        transform: scale(1);
+    }
+    .att-vehicle-show {
+        display: none;
+    }
+}

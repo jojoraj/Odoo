@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+  <record model="ir.config_parameter" id="default_destination_zone" forcecreate="1">
+    <field name="key">etech_auto_planning.default_destination_zone</field>
+    <field name="value">etech</field>
+  </record>
+
+  <record model="ir.config_parameter" id="default_slot_before_value" forcecreate="1">
+    <field name="key">etech_auto_planning.default_slot_before_value</field>
+    <field name="value">4</field>
+  </record>
+
+  <record model="ir.config_parameter" id="default_slot_after_value" forcecreate="1">
+    <field name="key">etech_auto_planning.default_slot_after_value</field>
+    <field name="value">12</field>
+  </record>
+
+</odoo>

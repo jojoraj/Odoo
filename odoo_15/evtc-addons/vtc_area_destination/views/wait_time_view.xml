@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="area_time_wait_form_view" model="ir.ui.view">
+    <field name="name">areaTimeWait.area_time_wait.form</field>
+    <field name="model">area.time.wait</field>
+    <field name="arch" type="xml">
+      <form string="ModelTitle">
+        <sheet>
+          <div class="oe_title oe_read_only">
+            <h1>
+              <field name="name" />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="active" class="custom-switch" />
+              <field name="wait_time_float" widget="float_time" />
+            </group>
+            <group>
+              <field name="waiting_price" class="oe_read_only" widget="monetary" options="{'currency_field': 'company_currency'}" />
+              <field name="real_time" class="oe_read_only" />
+              <field name="wait_time_mn" class="oe_read_only" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="area_time_wait_tree_view" model="ir.ui.view">
+    <field name="name">area_time_wait.tree</field>
+    <field name="model">area.time.wait</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="waiting_price" widget="monetary" options="{'currency_field': 'company_currency'}" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="area_time_wait_act_window" model="ir.actions.act_window">
+    <field name="name">Waiting time</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">area.time.wait</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+          There is no examples click here to add new ModelTitle.
+        </p>
+    </field>
+  </record>
+
+  <record id="area_price_time_wait_tree_view" model="ir.ui.view">
+    <field name="name">area_time_wait.tree</field>
+    <field name="model">area.time.wait.price</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="begin_wait_time" string="De" />
+        <field name="end_wait_time" string="Jusqu' à" />
+        <field name="price" string="prix" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="area_price_time_wait_form_view" model="ir.ui.view">
+    <field name="name">price.area_time_wait.form</field>
+    <field name="model">area.time.wait.price</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title oe_read_only">
+            <h1>
+              <field name="name" />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="begin_wait_time" string="De" />
+              <field name="end_wait_time" string="Jusqu' à" class="oe_inline" />
+            </group>
+            <group>
+              <field name="active" class="custom-switch" />
+              <field name="price" string="Prix" widget="monetary" options="{'currency_field': 'company_currency'}" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="area_price_time_wait_act_window" model="ir.actions.act_window">
+    <field name="name">Intervalle de temps d'attente</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">area.time.wait.price</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+          There is no examples click here to add new ModelTitle.
+        </p>
+    </field>
+  </record>
+  <!-- This Menu Item Must have a parent -->
+  <menuitem id="time_wait_parameter" name="Paramèttre temps d'attente" parent="fleet.fleet_configuration"
+    sequence="15" />
+
+  <menuitem name="Temps d'attente" id="vtc_area_destination.area_time_wait_menu_act" parent="time_wait_parameter"
+    action="area_time_wait_act_window" sequence="0" />
+
+  <menuitem name="Prix" id="vtc_area_destination.area_price_time_wait_menu_act" parent="time_wait_parameter"
+    action="vtc_area_destination.area_price_time_wait_act_window" sequence="1" />
+
+</odoo>

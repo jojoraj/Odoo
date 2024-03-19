@@ -1,0 +1,31 @@
+<odoo>
+	<data>
+		<record id="crm_lead_view_form_inherit_siid" model="ir.ui.view">
+			<field name="name">crm.lead.view.form.inherit</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_lead_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//notebook" position="inside">
+					<page name="siid" string="External ID for MO" groups="base.group_no_one">
+						<group>
+							<field name="siid" readonly="1"/>
+							<field name="vehicle_localization" readonly="1"/>
+							<field name="vehicle_type" readonly="1"/>
+							<field name="mo_trip_id" readonly="1"/>
+							<field name="first_tracking" readonly="1"/>
+							<field name="tracking" readonly="1"/>
+							<field name="formatted_json" readonly="1"/>
+							<field name="response_code" readonly="1"/>
+							<field name="response_json" readonly="1"/>
+							<field name="step_request" readonly="1"/>
+							<field name="vehicle_request" readonly="1" />
+						</group>
+					</page>
+				</xpath>
+				<xpath expr="//group[@name='opportunity_partner']" position="inside">
+					<field name="course_b2b"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

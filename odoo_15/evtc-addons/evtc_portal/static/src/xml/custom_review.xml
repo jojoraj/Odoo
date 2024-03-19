@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <div t-name="evtc_portal.customer_review_info">
+    <h3>Thank you for your answer</h3>
+  </div>
+</templates>

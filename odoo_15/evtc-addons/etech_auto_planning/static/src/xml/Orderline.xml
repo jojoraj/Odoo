@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//li[hasclass('orderline-sale-order')]" position="inside">
+            <t t-if="props.line.get_phone()" class="info orderline-partner-phone">
+              -
+              <i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/>
+              <t t-esc="props.line.get_phone().phone"/>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

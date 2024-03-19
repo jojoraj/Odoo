@@ -1,0 +1,958 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* esanandro_geotab
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211216\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-17 11:56+0000\n"
+"PO-Revision-Date: 2022-01-17 11:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+msgid "+ 261"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "/ Km)"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "/web/esanandro/geotab/reservation"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+msgid "0 Km"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+msgid "00:00:00"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+msgid "00:30:00"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "12 km"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "30 min"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "3600 Ar"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "45 min"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+msgid "<i class=\"mr-2 fa fa-arrow-left\"/><span class=\"return-btn\">Retour</span>"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+msgid ""
+"<span class=\"procces-btn\">Suivant</span>   <i class=\"ml-2 fa fa-arrow-"
+"right\"/>"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+msgid ""
+"<span class=\"small pl-4\" style=\"color: grey; font-size: 12px\"> Estimation du trajet </span>\n"
+"\t\t\t\t\t\t<br/>"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+msgid ""
+"<span class=\"small pl-4\" style=\"color: grey; font-size: 12px\"> Le "
+"kilomètre tarifé à <strong id=\"km-unity\"/> Ar </span> <br/>"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+msgid ""
+"<span class=\"small pl-4\" style=\"color: grey; font-size: 12px\"> estimatif"
+" </span> <br/>"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "@fat"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "@mdo"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "@twitter"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "Ar"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__cancellation_reason
+msgid "Cancellation Reason"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields.selection,name:esanandro_geotab.selection__esanandro_geotab_reservation__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/js/geotab_pos_order_stop.js:0
+#: code:addons/esanandro_geotab/static/src/js/pos_button_localization.js:0
+#: code:addons/esanandro_geotab/static/src/js/pos_reserv_js.js:0
+#, python-format
+msgid "Cannot access order management screen if offline."
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Choissisez votre véhicule"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_fleet_vehicle__marker_color
+msgid "Color"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/services/evtc_service.py:0
+#, python-format
+msgid "Could not connect to redis server"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/models/reservation.py:0
+#, python-format
+msgid "Could not get directions from these points."
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__travel_cost
+msgid "Cout du trajet"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__create_uid
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__create_uid
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__create_uid
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__create_date
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__create_date
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__create_date
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__date
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__date_from
+msgid "Date From"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__date_to
+msgid "Date To"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Date et Heure de récupération"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Date et Heure de récupération  *"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_fleet_vehicle__device_id
+msgid "Device"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__display_name
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__display_name
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__display_name
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__distance_traveled
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__distance
+msgid "Distance parcourue"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__working_distance
+msgid "Distance parcourue avec client"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__distance
+msgid "Distance(km)"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields.selection,name:esanandro_geotab.selection__esanandro_geotab_reservation__state__done
+msgid "Done"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__duration
+msgid "Duration"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__travel_time
+msgid "Durée du trajet (mn)"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Durée du trajet :"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__travel_begin_time
+msgid "Début du trajet"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Délai d'attente :"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Détails de la résérvation"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Entrer votre numéro de téléphone *"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#, python-format
+msgid "Estimation du trajet"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__travel_end_time
+msgid "Fin du trajet"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_esanandro_geotab_fleet_trip
+msgid "Fleet trip"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "Geotab"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__id
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__id
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__id
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__id
+msgid "ID"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields.selection,name:esanandro_geotab.selection__esanandro_geotab_reservation__state__in_progress
+msgid "In progress"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.esa_geotab_view_order_form_inherit
+msgid "Informations Debut de course"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.esa_geotab_view_order_form_inherit
+msgid "Informations Fin de course"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Jacob"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.actions.act_window,name:esanandro_geotab.fleet_trip_kpi_action
+#: model:ir.ui.menu,name:esanandro_geotab.kpi_trip
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.pivot_view
+msgid "KPI"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Larry the Bird"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab____last_update
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip____last_update
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation____last_update
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__write_uid
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__write_uid
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__write_uid
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__write_date
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__write_date
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__write_date
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__lat_pickup_point
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__lat_storage_point
+msgid "Latitude point remisage"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "Le kilomètre tarifé à"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Lieu de remisage *"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Lieu de récupération *"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Lieux de ramasage"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Lieux de remisage"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#, python-format
+msgid "Localization"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/models/reservation.py:0
+#, python-format
+msgid "Localization not found - {}."
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__long_pickup_point
+msgid "Longitude point rammassage"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Mark"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Mes résérvations"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__mobile_to_contact
+msgid "Mobile To Contact"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_esanandro_geotab
+msgid "My Geotab"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__name
+msgid "Name"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/js/geotab_pos_order_stop.js:0
+#: code:addons/esanandro_geotab/static/src/js/pos_button_localization.js:0
+#: code:addons/esanandro_geotab/static/src/js/pos_reserv_js.js:0
+#, python-format
+msgid "Network Error"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/models/fleet_trip.py:0
+#, python-format
+msgid "No vehicle found!"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Notes"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#, python-format
+msgid "Nouveau résérvation"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+msgid ""
+"Nouveau résérvation\n"
+"\t\t\t\t\t\t<br/>"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__odometer_start
+msgid "Odometer Start"
+msgstr "Odomètre Debut Course"
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__order_start_date
+msgid "Order Start Date"
+msgstr "Date Debut Course"
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Otto"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/models/reservation.py:0
+#, python-format
+msgid "Pick up zone: %s - Destination zone: %s"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__pick_up_point
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__pick_up_point
+msgid "Pick-up point"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_planning_role
+msgid "Planning Role"
+msgstr "Rôle de Planning"
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__pickup_point
+msgid "Point de rammassage"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__storage_point
+msgid "Point de remisage"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__position_start
+msgid "Position Start"
+msgstr "Position Départ"
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,help:esanandro_geotab.field_esanandro_geotab_reservation__price_per_km
+#: model:ir.model.fields,help:esanandro_geotab.field_esanandro_geotab_tariff_plan__list_price
+msgid "Price at which the product is sold to customers."
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__price_per_km
+msgid "Price/km"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__product_template_id
+msgid "Product"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/models/fleet_trip.py:0
+#, python-format
+msgid "No product with unit km!"
+msgstr "Aucun produit avec quantité km n'existe!"
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__put_back_point
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__put_back_point
+msgid "Put-back point"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__real_cost
+msgid "Real Cost"
+msgstr "Coût de la course"
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__real_distance
+msgid "Real Distance"
+msgstr "Distance parcourue (km)"
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__real_duration
+msgid "Real Duration"
+msgstr "Durée de la course"
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/services/redis_service.py:0
+#, python-format
+msgid "Redis object is not initialized"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__reservation_id
+msgid "Reservation"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_sale_order__reservation_status
+msgid "Reservation Status"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_sale_order
+msgid "Reservation for geotab"
+msgstr ""
+
+#. module: esanandro_geotab
+#: code:addons/esanandro_geotab/models/reservation.py:0
+#, python-format
+msgid "Reservation,{}"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "Retour"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Résérvation"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Résérver"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__list_price
+msgid "Sales Price"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#, python-format
+msgid "Start Reservation"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#, python-format
+msgid "Start course"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__state
+msgid "State"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Status"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#, python-format
+msgid "Stop Reservation"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#, python-format
+msgid "Stop course"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "Suivant"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.esa_geotab_view_order_form_inherit
+msgid "Suivi réel du course"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "TOTAL :"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Tarif"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_esanandro_geotab_tariff_plan
+msgid "Tariff plan"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__tariff_plan_id
+msgid "Tarrif plan"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Thornton"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__total_price
+msgid "Total Price"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Trajet :"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "True"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_fleet_vehicle
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_fleet_trip__vehicle_id
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_reservation__fleet_vehicle_id
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__fleet_vehicle_ids
+#: model:ir.model.fields,field_description:esanandro_geotab.field_planning_role__vehicle_id
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Votre note à enregistrer ici"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.geotab_perform_view
+#, python-format
+msgid "Véhicule"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields.selection,name:esanandro_geotab.selection__esanandro_geotab_reservation__state__waiting
+msgid "Waiting"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Zone de remisage"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/website_reservation.xml:0
+#: model_terms:ir.ui.view,arch_db:esanandro_geotab.reservation_client_frontend_common
+#: model_terms:website.page,arch_db:esanandro_geotab.esanandro_geotab_reservation_page
+#, python-format
+msgid "Zone de récupération"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model,name:esanandro_geotab.model_esanandro_geotab_reservation
+msgid "e-vtc reservation"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/geotab_website.xml:0
+#, python-format
+msgid "estimatif"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/xml/pos_reserv_action_button.xml:0
+#, python-format
+msgid "jkjzeklbznblk,"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__long_storage_point
+msgid "longitude point remisage"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab_tariff_plan__name
+msgid "name"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.actions.server,name:esanandro_geotab.trip_update_cron_ir_actions_server
+#: model:ir.cron,cron_name:esanandro_geotab.trip_update_cron
+#: model:ir.cron,name:esanandro_geotab.trip_update_cron
+msgid "trip.update:cron"
+msgstr ""
+
+#. module: esanandro_geotab
+#: model:ir.model.fields,field_description:esanandro_geotab.field_esanandro_geotab__vehicle
+msgid "véhicule"
+msgstr ""
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/js/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Apply a down payment"
+msgstr "Appliquer un acompte"
+
+#. module: esanandro_geotab
+#. openerp-web
+#: code:addons/esanandro_geotab/static/src/js/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Settle the order"
+msgstr "Régler la commande"
+
+#. module: pos_sale
+#. openerp-web
+#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml:0
+#, python-format
+msgid "Quotation/Order"
+msgstr "Devis/Commande"

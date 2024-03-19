@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <t t-extend="KanbanView.buttons" t-name="evtc_taxi.update_vehicle_button">
+    <t t-jquery="button" t-operation="after">
+      <button type="button" class="btn btn-primary o_button_update_vehicle">
+        Update vehicle state
+      </button>
+    </t>
+  </t>
+</templates>

@@ -1,0 +1,18 @@
+<odoo>
+  <record id="invoic_customize" model="ir.ui.view">
+    <field name="name">invoice customize</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form" />
+    <field name="priority">2</field>
+    <field name="arch" type="xml">
+      <xpath expr="//page[@name='general_info']" position="after">
+        <page string="Invoice Responsible" name="invoice_info">
+          <group>
+            <field name="responsible" />
+            <field name="signature" widget="image" />
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>
