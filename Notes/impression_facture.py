@@ -12,3 +12,11 @@ def get_download_link(self):
                     result.append({'account': account,
                                    'with_download': with_download})
         return result
+
+#principe append --------------------------------
+
+liste = [1, 2, 3]
+liste.append(4)
+nombre = "cinq"
+liste.append(nombre)
+print(liste)   # Sortie : [1, 2, 3, 4, ‘cinq’]
