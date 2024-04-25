@@ -8,8 +8,7 @@ def get_download_link(self):
         for account in url:
             for url in orders:
                 if url:
-                    with_download = url.get_portal_url(report_type='pdf', download=True)
+                    with_download = domain_server + url.get_portal_url(report_type='pdf', download=True)
                     result.append({'account': account,
-                                   'with_download': with_download,
-                                   'domain_server': domain_server})
+                                   'with_download': with_download})
         return result
