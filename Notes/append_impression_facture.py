@@ -20,3 +20,20 @@ liste.append(4)
 nombre = "cinq"
 liste.append(nombre)
 print(liste)   # Sortie : [1, 2, 3, 4, ‘cinq’]
+
+------------------------------------------------->
+
+def get_minimum_price(self):
+    prices = []
+    name = self.env['fleet.vehicle.model.category'].search_read([], ['name'])
+    prices.append(self.env['account.minimum.price'].search_read([], ['minimum_price']))
+    return {'price': prices}
+
+>>
+
+def get_minimum_price(self):
+    result = []
+    category_ids = self.env['fleet.vehicle.model.category'].search([])
+    for category in category_ids:
+        result.append({'name': category.name, 'price': category.minimum_price_id.minimum_price})
+    return {'result': result}
