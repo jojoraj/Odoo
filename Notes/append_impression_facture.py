@@ -21,7 +21,7 @@ nombre = "cinq"
 liste.append(nombre)
 print(liste)   # Sortie : [1, 2, 3, 4, ‘cinq’]
 
-------------------------------------------------->
+#------------------------------------------------->
 
 def get_minimum_price(self):
     prices = []
@@ -39,7 +39,7 @@ def get_minimum_price(self):
     return {'result': result}
 
 
-------------------------------------------------------
+#------------------------------------------------------
 
 # Ajout pagination
 
